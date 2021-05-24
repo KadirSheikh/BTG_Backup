@@ -1,0 +1,157 @@
+<div class="red-title-banner">
+    <h2 class="text-white"> Contact BTG </h2>
+</div>
+
+
+<section style="padding: 50px 0;">
+    <div class="container">
+        <div class="row mx-auto">
+            <div class="col-sm-2">
+
+
+            </div>
+            <div class="col-sm-8" style="text-align: center;">
+
+                <h4 class="mb-5">Reach out to BTG to receive innovative solutions for your business</h4>
+
+                <form action="" *ngIf="hideForm">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" name="" id="" placeholder="Your Email">
+                        </div>
+                        <div class="col-sm-6">
+                            <select name="" class="form-control" id="">
+                                <option value="">India</option>
+                                <option value="">USA</option>
+                            </select>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="" class="font-weight-bold float-left">Stay in the know</label> <br>
+
+                        <p class="float-left"><input type="checkbox" name="" id="">I consent to BTG using my personal information to contact me by email with news and information we think you may be interested in.
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-danger mt-5" (click)="hideThis()">Show Contact Options</button>
+                    </div>
+                </form>
+
+                <section *ngIf="!hideForm">
+                    <div class="row mb-5">
+                        <div class="col-sm-6" style="text-align: left;">
+                            <div class="card" id="card">
+                                <div class="card-body">
+                                    <h6 style="font-size: 15px;" class="card-title mb-3">India</h6>
+                                    <h5 class="card-title font-weight-bold mb-3">BTG Division Spectris Technologies Pvt. Ltd
+                                    </h5>
+
+                                    <h6 class="font-weight-bold">We deal with:</h6>
+                                    <p>Inline Instrumentation, Laboratory, Services</p>
+
+                                    <h6 class="font-weight-bold">Address:</h6>
+                                    <p style="word-spacing: 0px;">Office No. 417, 4th floor, "White House block III No. 6-3-1192/1/1, Kundanbagh Begumpet, Hyderabad 500 016 Andhra Pradesh, India</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" style="text-align: left;">
+                            <div class="card" id="card">
+                                <div class="card-body">
+                                    <h6 style="font-size: 15px;" class="card-title mb-3">India</h6>
+                                    <h5 class="card-title font-weight-bold mb-3">BTG Division Spectris Technologies Pvt. Ltd
+                                    </h5>
+
+                                    <h6 class="font-weight-bold">We deal with:</h6>
+                                    <p>Inline Instrumentation, Laboratory, Services</p>
+
+                                    <h6 class="font-weight-bold">Address:</h6>
+                                    <p style="word-spacing: 0px;">Office No. 417, 4th floor, "White House block III No. 6-3-1192/1/1, Kundanbagh Begumpet, Hyderabad 500 016 Andhra Pradesh, India</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <form action="">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <h5 class="font-weight-bold">Select Method</h5>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="radio" name="a" id=""> Email
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="radio" name="a" id=""> Phone/Fax
+                            </div>
+                        </div>
+
+
+                        <div *ngIf="hideDiv">
+                            <div class="form-group" style="text-align: left;">
+                                <p>Your enquiry will be sent to: <span class="text-danger font-weight-bold">
+                                        info.india@btg.com</span></p>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" name="" id="" placeholder="Full Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" name="" id="" placeholder="Country">
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" name="" id="" placeholder="Location">
+                                </div>
+                                <div class="col-sm-6">
+                                    <select name="" class="form-control" id="">
+                                        <option value="">Solutions/Product Interest</option>
+
+                                    </select>
+                                </div>
+
+
+
+                            </div>
+                            <div class="form-group">
+                                <textarea name="" id="" cols="30" rows="4" placeholder="Ypur Message" class="form-control"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-lg btn-danger mt-5" (click)="hideThis1()">Send</button>
+                            </div>
+                        </div>
+                        <div *ngIf="!hideDiv">
+
+                            <h6 class="float-left font-weight-bold">Phone: <span class="text-danger">+91 40
+                                    40122040</span></h6> <br> <br>
+                            <h6 class="float-left font-weight-bold">Fax: <span class="text-danger">+91 40
+                                    40122040</span></h6>
+                        </div>
+                    </form>
+                </section>
+
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+
+<app-footer></app-footer>

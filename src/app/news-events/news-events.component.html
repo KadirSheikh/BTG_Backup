@@ -1,0 +1,177 @@
+<!-- <section id="about">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active text-dark">
+                <div style="height: 75vh; background-image: url('../../../../assets/hero/hero1.png');background-size: cover ; background-repeat: no-repeat;  ">
+                    <div class="container text-center slide1" style="position: relative; top: 50%;">
+
+                        <h1 [hidden]="hiddenSection">News and Press Release</h1>
+                        <h1 [hidden]="!hiddenSection">{{ news[dataId].heading }}</h1>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section> -->
+
+<!-- <section id="careers">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active text-dark">
+                <div style="height: 35vh; background-color: var(--danger) ;background-size: cover ; background-repeat: no-repeat;  ">
+                    <div class="container text-center slide1" style="position: relative; top: 70%;">
+
+                        <h1 class="text-white" [hidden]="hiddenSection">News and Press Release</h1>
+                        <h4 class="text-capitalize text-center text-white" [hidden]="!hiddenSection">{{ news[dataId].heading }}</h4>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section> -->
+
+<div class="red-title-banner">
+    <h2 class="text-white" [hidden]="hiddenSection">News and Press Release</h2>
+    <h4 class="text-capitalize text-center text-white" [hidden]="!hiddenSection">{{ news[dataId].heading }}</h4>
+</div>
+
+
+<section style="padding: 100px 0;" [hidden]="hiddenSection">
+    <div class="container">
+        <div class="row mx-auto">
+            <div class="col-sm-12 border-right">
+                <div class="row mx-auto">
+                    <!-- <div *ngFor="let n of news" class="col-sm-4">
+                        <div class="card rounded-0  mx-2 my-2">
+                            <img class="card-img-top" src="../../assets/newsnevents/Rectangle 46.png"
+                                alt="Card image cap">
+                            <div class="card-body" 
+                            style="position: relative; margin-top: -20%; margin-left: -7.5%; background-color: white;">
+                                <h6>{{ n.heading }}</h6>
+                                <p class="description">{{ n.description }}</p>
+                                <small>26 Sept 2021</small>
+                            </div>
+
+                        </div>
+                    </div> -->
+
+                    <div *ngFor="let n of news" class="col-sm-4">
+                        <div class="card rounded-0 border-0 mx-2 my-2">
+                            <a routerLink='/news_and_events/{{ n.id }}'>
+                                <img class="card-img-top" src="../../../../assets/hero/news.png" alt="Card image cap">
+                                <div class="card-body ">
+
+                                    <div class="p-2" style="position: relative; margin-top: -20%; margin-left: -9.9%; background-color: white;">
+
+                                        <h6 class="card-title">{{ n.heading }}</h6>
+                                        <p class="description">{{ n.description }}</p>
+
+                                        <small class="card-text">26 Sep 2021</small>
+                                        <a href="" class="float-right text-danger">Read More...</a>
+                                    </div>
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-sm-2 " style="position:fixed; left: 78%; ">
+                <select class="form-control w-50 mt-2  rounded-0" name="sel">
+                    <option>News</option>
+                    <option>Events</option>
+                </select>
+            </div> -->
+        </div>
+    </div>
+</section>
+
+<section style="padding: 100px 0;" [hidden]="!hiddenSection">
+    <div class="container-fluid">
+        <div class="row mx-auto">
+            <div class="col-sm-8 border-right pr-4">
+                <img src="../../assets/newsnevents/newsdetails.png" style="width: 100%;" alt="">
+
+                <p class="no-wrap">{{ news[dataId].description }}</p>
+
+                <p>Read the detailed <a href="#" class="text-danger font-weight-bold">{{ news[dataId].broucher }}</a></p>
+                <p>Download: <a href="#" class="text-danger font-weight-bold">{{ news[dataId].download }}</a></p>
+            </div>
+            <div class="col-sm-4">
+                <div class="row mx-auto my-3">
+                    <div class="col-sm-4">
+                        <img src="../../../../assets/hero/news.png" style="width: 100%; height: 100%;" alt="">
+                    </div>
+                    <div class="col-sm-8">
+                        <h6>BTG enhances its consistency measurement portfolio</h6>
+                        <small>25 Jan, 2021</small>
+                    </div>
+                </div>
+                <div class="row mx-auto my-3">
+                    <div class="col-sm-4">
+                        <img src="../../../../assets/hero/news.png" style="width: 100%; height: 100%;" alt="">
+                    </div>
+                    <div class="col-sm-8">
+                        <h6>BTG enhances its consistency measurement portfolio</h6>
+                        <small>25 Jan, 2021</small>
+                    </div>
+                </div>
+                <div class="row mx-auto my-3">
+                    <div class="col-sm-4">
+                        <img src="../../../../assets/hero/news.png" style="width: 100%; height: 100%;" alt="">
+                    </div>
+                    <div class="col-sm-8">
+                        <h6>BTG enhances its consistency measurement portfolio</h6>
+                        <small>25 Jan, 2021</small>
+                    </div>
+                </div>
+                <div class="row mx-auto my-3">
+                    <div class="col-sm-4">
+                        <img src="../../../../assets/hero/news.png" style="width: 100%; height: 100%;" alt="">
+                    </div>
+                    <div class="col-sm-8">
+                        <h6>BTG enhances its consistency measurement portfolio</h6>
+                        <small>25 Jan, 2021</small>
+                    </div>
+                </div>
+                <div class="row mx-auto my-3">
+                    <div class="col-sm-4">
+                        <img src="../../../../assets/hero/news.png" style="width: 100%; height: 100%;" alt="">
+                    </div>
+                    <div class="col-sm-8">
+                        <h6>BTG enhances its consistency measurement portfolio</h6>
+                        <small>25 Jan, 2021</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr />
+
+<section style="padding: 50px 0;" [hidden]="!hiddenSection">
+    <div class="container">
+        <div class="col-sm-8 text-center">
+            <h4>Leave a Comment</h4>
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control mx-2 my-2" placeholder="Your Name">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control mx-2 my-2" placeholder="Your Email">
+                </div>
+            </div>
+            <textarea name="" class="form-control mx-2 my-2" id="" placeholder="Your Message"></textarea>
+
+            <button class="btn btn-danger mt-2">Post Comment</button>
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>

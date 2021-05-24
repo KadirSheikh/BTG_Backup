@@ -1,0 +1,18 @@
+.card {
+    height: 90% !important;
+}
+
+.card:hover,
+.card:hover .card-footer {
+    background-color: var(--danger) !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+.card:hover svg path {
+    fill: white !important;
+}
+
+.card:hover .text-danger {
+    color: white !important;
+}

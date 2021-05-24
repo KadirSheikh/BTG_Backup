@@ -1,0 +1,5 @@
+.about:hover {
+    box-shadow: 0 0 12px 0 #eee;
+    padding: 12px;
+    transform: scale(1.06);
+}

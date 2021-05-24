@@ -1,0 +1,5 @@
+ul,
+p {
+    list-style-type: none;
+    color: gray;
+}

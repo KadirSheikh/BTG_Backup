@@ -1,0 +1,62 @@
+<div class="red-title-banner">
+    <h2 class="text-white"> Events </h2>
+</div>
+
+
+
+<section style="padding: 50px 0;">
+    <div class="container">
+        <div class="row mx-auto">
+            <div class="col-sm-9">
+
+                <div class="row">
+                    <div class="col-sm-6" style="margin-bottom: 5rem;" *ngFor="let e of events;let i = index">
+                        <div class="card" id="card" style="border: none !important;">
+                            <div class="card-body">
+                                <h3 class="card-title mb-5">{{e.heading}}</h3>
+                                <div class="d-flex mb-4">
+                                    <h6 style="font-size: 14px;"><i class="fa fa-calendar-o text-danger" style="font-size: 20px;" aria-hidden="true"></i> {{e.date}}</h6>
+                                    <h6 style="font-size: 14px;" class="ml-3"><i class="fa fa-map-marker text-danger" style="font-size: 20px;" aria-hidden="true"></i> {{e.location}}</h6>
+                                </div>
+
+                                <p style="word-spacing: 0px;">{{e.content}}</p>
+                                <a href="#" class="card-link" [innerHTML]="e.button"></a>
+                                <a href="#" class="card-link float-right visit-site">Visit Site</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+
+                <div style="border: 2px solid black;padding:20px 20px;" class="mb-5">
+                    <div style="border: 2px dashed black;padding:20px 30px;text-align: center;">
+                        <h5> ONGOING <br> <span class="font-weight-bold">EVENTS</span></h5>
+                    </div>
+                </div>
+
+                <div style="border: 2px solid black;padding:20px 20px;" class="mb-5">
+                    <div style="border: 2px dashed black;padding:20px 30px;text-align: center;">
+                        <h5> UPCOMING <span class="font-weight-bold">EVENTS</span></h5>
+                    </div>
+                </div>
+
+                <div style="border: 2px solid black;padding:20px 20px;">
+                    <div style="border: 2px dashed black;padding:20px 30px;text-align: center;">
+                        <h5> PAST <br> <span class="font-weight-bold">EVENTS</span></h5>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+</section>
+
+<app-footer></app-footer>

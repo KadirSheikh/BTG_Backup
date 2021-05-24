@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 0;
+    padding: 0;
+    --danger: #DC3545 !important;
+    scroll-margin-top: 10em !important;
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer ul li {
+    font-size: 12px;
+}
+
+.contact-home {
+    width: 100% !important;
+    height: 50vh !important;
+    background: url('./assets/hero/conatct.png') no-repeat center center !important;
+    background-size: cover !important;
+}
+
+.red-title-banner {
+    height: 100%;
+    background-color: var(--danger);
+    margin-top: 10rem;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.data-sheet {
+    text-align: center;
+    background-image: url('assets/datasheet/datanewsheet.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 150px 0;
+    margin: 10px 0;
+    ;
+}
+
+.prodry-data-sheet {
+    text-align: center;
+    background-image: url('assets/datasheet/prodrydatasheet.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px 0;
+    margin: 10px 0;
+    ;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 !important;
+}

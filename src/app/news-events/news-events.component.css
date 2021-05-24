@@ -1,0 +1,40 @@
+/* .description{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+
+    
+} */
+
+.description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+small {
+    color: gray;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    display: block;
+    box-shadow: 0 6px 16px 1px #ccc;
+}
+
+.no-wrap {
+    white-space: pre-wrap !important;
+    text-align: justify;
+    /* padding-right: 10%; */
+}
+
+a {
+    text-decoration: none !important;
+    color: #000;
+}

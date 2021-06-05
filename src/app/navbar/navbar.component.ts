@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit {
         
         if (response?.status && response?.status == true)
           this.industrySolutuonForData = response?.data
-          console.log(response?.data);
+          // console.log(response?.data);
         })
     }).catch(error => {
       console.error(error)
@@ -58,7 +58,7 @@ export class NavbarComponent implements OnInit {
         if (response?.status && response?.status == true)
         
           this.SolutionMainCategoryData = response?.data
-          console.log(response?.data);
+          // console.log(response?.data);
           if(response?.data?.length != 0 || response?.data?.length == 0)
             this.flag = false;
         })
@@ -77,7 +77,7 @@ export class NavbarComponent implements OnInit {
         
         if (response?.status && response?.status == true)
           this.SolutionSubCategory = response?.data
-          console.log(response?.data);
+          // console.log(response?.data);
           if(response?.data?.length != 0 || response?.data?.length == 0)
             this.flag = false;
         })
@@ -96,7 +96,7 @@ export class NavbarComponent implements OnInit {
         
         if (response?.status && response?.status == true)
           this.ProductMainCategory = response?.data
-          console.log(response?.data);
+          // console.log(response?.data);
           if(response?.data?.length != 0 || response?.data?.length == 0)
             this.flag = false;
         })

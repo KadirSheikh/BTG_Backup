@@ -28,6 +28,10 @@ export class NavbarService {
   async getproductMainCategory(id) {
     return await this._http.get(`${environment.apiUrl}api/navbar/product-main-category/${id}`)
   }
+
+  async getProductMainCategoryData(id) {
+    return await this._http.get(`${environment.apiUrl}api/product/get/${id}`)
+  }
 }
 
 

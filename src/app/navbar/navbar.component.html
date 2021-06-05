@@ -142,7 +142,7 @@
 
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li *ngFor="let parodMain of ProductMainCategory" class="dropdown-submenu">
-                                                <a class="dropdown-item " href="">{{ parodMain.name }}</a>
+                                                <a class="dropdown-item" routerLink="product/{{ parodMain._id }}" href="">{{ parodMain.name }}</a>
                                             </li>
                                         </ul>
                                     </li>

@@ -7,6 +7,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class HomeComponent implements OnInit {
   dirName : String;
+  loader:boolean = false;
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,

@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'subcatagory/:id', component: SubcatagoriesComponent },
   { path: 'sub-subcatagory/:id', component: SubSubCatagoryComponent },
   { path: 'product/:id', component: ProductsComponent },
-  { path: 'event', component: EventsComponent },
+  { path: 'events', component: EventsComponent },
   { path: 'contact', component: ContactComponent }
 ];
 

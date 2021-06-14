@@ -9,11 +9,13 @@ import { CatagoriesComponent } from './catagories/catagories.component';
 import { ContactComponent } from './contact/contact.component';
 import { EventsComponent } from './events/events.component';
 import { HomeComponent } from './home/home.component';
+import { MainCategoryComponent } from './main-category/main-category.component';
 import { NavbarService } from './navbar.service';
 import { NewsEventsComponent } from './news-events/news-events.component';
 import { ProductsComponent } from './products/products.component';
 import { SeeWhatWeDoComponent } from './see-what-we-do/see-what-we-do.component';
 import { SolutionsComponent } from './solutions/solutions.component';
+import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { SubSubCatagoryComponent } from './sub-sub-catagory/sub-sub-catagory.component';
 import { SubcatagoriesComponent } from './subcatagories/subcatagories.component';
 
@@ -33,6 +35,8 @@ const routes: Routes = [
   { path: 'subcatagory/:id', component: SubcatagoriesComponent },
   { path: 'sub-subcatagory/:id', component: SubSubCatagoryComponent },
   { path: 'product/:id', component: ProductsComponent },
+  { path: 'solution-sub-category/:id', component: SubCategoryComponent },
+  { path: 'solution-main-category/:id', component: MainCategoryComponent },
   { path: 'events', component: EventsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'see-what-we-do' , component:SeeWhatWeDoComponent },

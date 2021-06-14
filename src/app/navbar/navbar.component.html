@@ -107,7 +107,7 @@
                 <ul class="navbar-nav" style="flex-direction: row !important; ">
 
                     <li class="nav-item dropdown" *ngFor="let ind of industrySolutuonForData">
-                        <a class="nav-link mx-2" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false" (mouseover)="getSolutionMainCategory(ind._id)">
+                        <a routerLink="catagory/1" [queryParams]="{name: ind.name}" class="nav-link mx-2" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false" (mouseover)="getSolutionMainCategory(ind._id)">
                             {{ ind.name }}
                         </a>
                         <ul *ngIf="flag" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

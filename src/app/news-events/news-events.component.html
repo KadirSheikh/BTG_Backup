@@ -44,7 +44,7 @@
 <section style="padding: 100px 0;" [hidden]="hiddenSection">
     <div class="container">
         <div class="row mx-auto">
-            <div class="col-sm-12 border-right">
+            <div class="col-sm-12 ">
                 <div class="row mx-auto">
                     <!-- <div *ngFor="let n of news" class="col-sm-4">
                         <div class="card rounded-0  mx-2 my-2">
@@ -60,13 +60,56 @@
                         </div>
                     </div> -->
 
-                    <div *ngFor="let n of news" class="col-sm-4">
+                    <!-- <div class="col-sm-6" style="margin-bottom: 5rem;" >
+                        <div class="card" id="card" style="border: none !important;">
+                            <div class="card-body">
+                                <h3 class="card-title mb-5">e.heading</h3>
+                                <div class="d-flex mb-4">
+                                    <h6 style="font-size: 14px;"><i class="fa fa-calendar-o text-danger" style="font-size: 20px;" aria-hidden="true"></i> e.date</h6>
+                                    <h6 style="font-size: 14px;" class="ml-3"><i class="fa fa-map-marker text-danger" style="font-size: 20px;" aria-hidden="true"></i> e.location</h6>
+                                </div>
+
+                                <p style="word-spacing: 0px;">e.content</p>
+                                <a href="#" class="card-link" [innerHTML]="e.button"></a>
+                                <a href="#" class="card-link float-right visit-site">Visit Site</a>
+                            </div>
+                        </div>
+
+
+                    </div> -->
+                    <div  class="row">
+                        <div *ngFor="let n of news"  class="col-sm-4" style="margin-bottom: 5rem;">
+                            <div  id="card" class="card" style="border: none !important;">
+                                <div  class="card-body">
+                                    <h6 class="font-weight-bold card-title mb-5">{{ n.heading }}</h6>
+                                    <div  class="d-flex mb-4">
+                                        <h6  style="font-size: 14px;"><i 
+                                                aria-hidden="true" class="fa fa-calendar-o text-danger"
+                                                style="font-size: 20px;"></i> 26 Sep 2021</h6>
+                                        <!-- <h6  class="ml-3" style="font-size: 14px;"><i
+                                                 aria-hidden="true"
+                                                class="fa fa-map-marker text-danger" style="font-size: 20px;"></i>
+                                            Atlanta, GA USA</h6> -->
+                                    </div>
+                                        <p class="description" style="word-spacing: 0px;">{{ n.description }}</p>
+                                        <a
+                                        routerLink="/news_and_events/{{ n.id }}"  class="card-link pb-4 float-right visit-site">Viee More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--bindings={
+                      "ng-reflect-ng-for-of": "[object Object],[object Object"
+                    }-->
+                    </div>
+                    <!-- <div *ngFor="let n of news" class="col-sm-4">
                         <div class="card rounded-0 border-0 mx-2 my-2">
                             <a routerLink='/news_and_events/{{ n.id }}'>
                                 <img class="card-img-top" src="../../../../assets/hero/news.png" alt="Card image cap">
                                 <div class="card-body ">
 
-                                    <div class="p-2" style="position: relative; margin-top: -20%; margin-left: -9.9%; background-color: white;">
+                                    <div class="p-2"
+                                        style="position: relative; margin-top: -20%; margin-left: -9.9%; background-color: white;">
 
                                         <h6 class="card-title">{{ n.heading }}</h6>
                                         <p class="description">{{ n.description }}</p>
@@ -78,7 +121,7 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- <div class="col-sm-2 " style="position:fixed; left: 78%; ">
@@ -99,7 +142,8 @@
 
                 <p class="no-wrap">{{ news[dataId].description }}</p>
 
-                <p>Read the detailed <a href="#" class="text-danger font-weight-bold">{{ news[dataId].broucher }}</a></p>
+                <p>Read the detailed <a href="#" class="text-danger font-weight-bold">{{ news[dataId].broucher }}</a>
+                </p>
                 <p>Download: <a href="#" class="text-danger font-weight-bold">{{ news[dataId].download }}</a></p>
             </div>
             <div class="col-sm-4">
@@ -151,9 +195,10 @@
             </div>
         </div>
     </div>
+    <hr />
 </section>
 
-<hr />
+
 
 <section style="padding: 50px 0;" [hidden]="!hiddenSection">
     <div class="container">

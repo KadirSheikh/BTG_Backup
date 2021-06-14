@@ -24,12 +24,9 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { EventsComponent } from './events/events.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavbarTrimPipe } from './navbar-trim.pipe';
-<<<<<<< HEAD
-import { SeeWhatWeDoComponent } from './see-what-we-do/see-what-we-do.component';
-=======
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { MainCategoryComponent } from './main-category/main-category.component';
->>>>>>> 4f9e050fdb074b0c6e8b1fa526fb944cad558be0
+import { SeeWhatWeDoComponent } from './see-what-we-do/see-what-we-do.component';
 
 @NgModule({
   declarations: [
@@ -52,12 +49,7 @@ import { MainCategoryComponent } from './main-category/main-category.component';
     EventsComponent,
     ContactComponent,
     NavbarTrimPipe,
-<<<<<<< HEAD
     SeeWhatWeDoComponent
-=======
-    SubCategoryComponent,
-    MainCategoryComponent
->>>>>>> 4f9e050fdb074b0c6e8b1fa526fb944cad558be0
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,6 @@ export class SolutionSubCategoryService {
   ) { }
 
   async getSolutionSubCategory(id) {
-    return await this._http.get(`${environment.apiUrl}api/product/get/${id}`)
+    return await this._http.get(`${environment.apiUrl}api/solutionsubcategory/get/${id}`)
   }
 }

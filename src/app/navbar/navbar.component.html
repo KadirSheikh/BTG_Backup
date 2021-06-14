@@ -120,7 +120,7 @@
                         <ul *ngIf="SolutionMainCategoryData?.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
                             <li *ngFor="let solMainCat of SolutionMainCategoryData" class="dropdown-submenu">
-                                <a class="dropdown-item " href="" (mouseover)="getSolutionSubCategory(solMainCat._id)">{{ solMainCat.name }}</a>
+                                <a class="dropdown-item " href="" (mouseover)="getSolutionSubCategory(solMainCat._id)" routerLink="solution-main-category/{{solMainCat._id}}">{{ solMainCat.name }}</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li class="dropdown-submenu text-center">
                                         <div *ngIf="flag" class="spinner-border text-danger" style="text-align: center;font-size:10px;height: 20px;width: 20px;" role="status">
@@ -130,7 +130,7 @@
                                 </ul>
                                 <ul *ngIf="SolutionSubCategory?.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li *ngFor="let solSubCat of SolutionSubCategory" class="dropdown-submenu">
-                                        <a class="dropdown-item " href="" (mouseover)="getProductMainCategory(solSubCat._id)">{{ solSubCat.name }}</a>
+                                        <a class="dropdown-item " href="" (mouseover)="getProductMainCategory(solSubCat._id)" routerLink="solution-sub-category/{{solSubCat._id}}">{{ solSubCat.name }}</a>
 
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li class="dropdown-submenu text-center">

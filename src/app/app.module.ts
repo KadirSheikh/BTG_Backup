@@ -24,6 +24,7 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { EventsComponent } from './events/events.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavbarTrimPipe } from './navbar-trim.pipe';
+import { SeeWhatWeDoComponent } from './see-what-we-do/see-what-we-do.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { NavbarTrimPipe } from './navbar-trim.pipe';
     ComingSoonComponent,
     EventsComponent,
     ContactComponent,
-    NavbarTrimPipe
+    NavbarTrimPipe,
+    SeeWhatWeDoComponent
   ],
   imports: [
     BrowserModule,

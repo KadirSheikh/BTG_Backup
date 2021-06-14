@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarService } from './navbar.service';
 import { NewsEventsComponent } from './news-events/news-events.component';
 import { ProductsComponent } from './products/products.component';
+import { SeeWhatWeDoComponent } from './see-what-we-do/see-what-we-do.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { SubSubCatagoryComponent } from './sub-sub-catagory/sub-sub-catagory.component';
 import { SubcatagoriesComponent } from './subcatagories/subcatagories.component';
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'sub-subcatagory/:id', component: SubSubCatagoryComponent },
   { path: 'product/:id', component: ProductsComponent },
   { path: 'events', component: EventsComponent },
-  { path: 'contact', component: ContactComponent }
+  { path: 'contact', component: ContactComponent },
+  { path: 'see-what-we-do' , component:SeeWhatWeDoComponent },
 ];
 
 @NgModule({

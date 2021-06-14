@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../services/product.service';
-
+import { SolutionMainCategoryService } from '../services/solution-main-category.service';
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'app-main-category',
+  templateUrl: './main-category.component.html',
+  styleUrls: ['./main-category.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class MainCategoryComponent implements OnInit {
 
 
   productId;
@@ -18,7 +17,9 @@ export class ProductsComponent implements OnInit {
   editSection:any;
   heading: any;
 
-  constructor(private _activatedRoute: ActivatedRoute , private _proService: ProductService) { }
+  constructor(
+    private _activatedRoute: ActivatedRoute , private _mainCatService: SolutionMainCategoryService
+  ) { }
 
   ngOnInit(): void {
     window.scroll(0,0);
@@ -35,7 +36,7 @@ export class ProductsComponent implements OnInit {
 
   async getData(id:string){
 
-    (await this._proService.getProduct(id)).subscribe((resp: any) => {
+    (await this._mainCatService.getSolutionMainCategory(id)).subscribe((resp: any) => {
       console.log(resp)
       if(resp.data == null || resp.data.heading == "Enter Product Name Here..."){
         this.showComingSoon = true;

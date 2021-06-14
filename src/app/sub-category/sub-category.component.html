@@ -1,0 +1,91 @@
+<div class="d-flex flex-column justify-content-center align-content-center" style="align-items: center;text-align: center;position: fixed;width: 100%;height: 100%;z-index: 9999;
+" *ngIf="isLoading">
+    <img src="../../assets/svg-btg.svg" alt="" class="img-fluid" style="width: 10%;height: auto;">
+    <img src="../../assets/loaderred.gif" alt="" style="width: 7%;height: auto;">
+</div>
+
+
+<div *ngIf="!isLoading">
+    <div *ngIf="showComingSoon">
+        <app-coming-soon></app-coming-soon>
+    </div>
+
+    <div *ngIf="!showComingSoon">
+        <div class="red-title-banner">
+            <h2 class="text-white" [innerHTML]="productsData.heading"> </h2>
+        </div>
+
+        <section style="padding: 50px 0;">
+            <div class="container">
+                <div class="row mx-auto">
+
+                    <!-- Section One -->
+                    <div *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')" class="col-sm-7 my-4"[innerHTML]="productsData.sectionOne"></div>
+                    <!-- Section One End -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Two -->
+                    <div *ngIf="!productsData.sectionTwo.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionTwo"></div>
+                    <!-- Section Two End -->
+                
+                    <!-- Section Three -->
+                    <div *ngIf="!productsData.sectionThree.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionThree"></div>
+                    <!-- Section Three Emd -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Four -->
+                    <div *ngIf="!productsData.sectionFour.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionFour"></div>
+                    <!-- Section Four End -->
+
+                    <!-- Section Five -->
+                    <div *ngIf="!productsData.sectionFive.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionFive"></div>
+                    <!-- Section Five Emd -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Six -->
+                    <div *ngIf="!productsData.sectionSix.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionSix"></div>
+                    <!-- Section Six End -->
+
+                    <!-- Section Seven -->
+                    <div *ngIf="!productsData.sectionSeven.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionSeven"></div>
+                    <!-- Section Seven Emd -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Eight -->
+                    <div *ngIf="!productsData.sectionEight.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionEight"></div>
+                    <!-- Section Eight End -->
+
+                    <!-- Section Nine -->
+                    <div *ngIf="!productsData.sectionNine.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionNine"></div>
+                    <!-- Section Nine Emd -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Ten -->
+                    <div *ngIf="!productsData.sectionTen.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionTen"></div>
+                    <!-- Section Ten End -->
+
+                    <!-- Section Eleven -->
+                    <div *ngIf="!productsData.sectionEleven.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionEleven"></div>
+                    <!-- Section Eleven Emd -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Twelve -->
+                    <div *ngIf="!productsData.sectionTwelve.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionTwelve"></div>
+                    <!-- Section Twelve End -->
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <section style="padding:50px 0;">
+            <div class="container">
+                <div class="data-sheet">
+
+                    <div class="text-center">
+                        <button class="btn btn-lg my-2 btn-danger">See Product Sheet MEK-3000</button>
+                        <p class="mb-0  my-2" style="text-align: center !important;">Also previous MEK generation is available
+                        </p>
+                        <button class="btn btn-lg my-2 btn-danger">See Product Sheet MEK-2500</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

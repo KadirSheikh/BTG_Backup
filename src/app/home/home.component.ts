@@ -3,6 +3,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { NewsService } from '../services/news.service';
 import { TestimonialService } from '../services/testimonial.service';
 import { MapService } from '../services/map.service';
+import { HomeService } from '../services/home.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,6 +14,7 @@ export class HomeComponent implements OnInit {
   dirName : String;
   loader:boolean = false;
   selectedCountries:any = [];
+  homeCarasoul:any = [];
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
@@ -126,7 +128,7 @@ export class HomeComponent implements OnInit {
     // nav: true
   }
 
-  constructor(private _new:NewsService,  private _testimoinal:TestimonialService,private _map:MapService) { }
+  constructor(private _new:NewsService,  private _testimoinal:TestimonialService,private _map:MapService, private _home:HomeService) { }
 
   ngOnInit(): void {
     window.scroll(0,0);
@@ -149,6 +151,18 @@ export class HomeComponent implements OnInit {
         // console.log(resp.data);
         this.testArray = resp.data;
         console.log(this.testArray );
+        
+
+        
+      })
+    })
+
+    this._home.getCarosoul().then(res => {
+      res.subscribe((resp:any) => {
+        console.log(resp.data);
+        this.homeCarasoul = resp.data;
+        // this.testArray = resp.data;
+        // console.log(this.testArray );
         
 
         

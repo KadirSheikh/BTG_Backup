@@ -123,19 +123,6 @@ iframe {
     background-size: cover;
 }
 
-
-/* .description{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-
-    
-} */
-
 .description {
     display: -webkit-box;
     -webkit-line-clamp: 4;

@@ -37,12 +37,23 @@ export class NavbarComponent implements OnInit {
         
         
         if (response?.status && response?.status == true)
-          this.industrySolutuonForData = response?.data
+          this.industrySolutuonForData = response?.data;
+          
+          this.industrySolutuonForData = this.industrySolutuonForData.sort(function(a,b){
+            return ((a['order'] < b['order']) ? -1 : ((a['order'] > b['order']) ? 1 : 0));
+          });
+          this.industrySolutuonForData.forEach((isd,index) => {
+            isd.order = index;          
+          });
           // console.log(response?.data);
         })
+
+        
+
     }).catch(error => {
       console.error(error)
-    })
+    });
+    
   }
 
   SolutionMainCategoryData: any;
@@ -108,3 +119,6 @@ export class NavbarComponent implements OnInit {
 
 
 }
+
+
+

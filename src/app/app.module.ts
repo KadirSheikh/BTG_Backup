@@ -27,6 +27,8 @@ import { NavbarTrimPipe } from './navbar-trim.pipe';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { MainCategoryComponent } from './main-category/main-category.component';
 import { SeeWhatWeDoComponent } from './see-what-we-do/see-what-we-do.component';
+import { SingleNewsEventComponent } from './single-news-event/single-news-event.component';
+import { AllTestimonialComponent } from './all-testimonial/all-testimonial.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { SeeWhatWeDoComponent } from './see-what-we-do/see-what-we-do.component'
     EventsComponent,
     ContactComponent,
     NavbarTrimPipe,
-    SeeWhatWeDoComponent
+    SeeWhatWeDoComponent,
+    SingleNewsEventComponent,
+    AllTestimonialComponent
   ],
   imports: [
     BrowserModule,

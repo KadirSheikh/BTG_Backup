@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { ExportControlComplianceComponent } from './about/export-control-compliance/export-control-compliance.component';
 import { HistoryComponent } from './about/history/history.component';
 import { WhistleblowingComponent } from './about/whistleblowing/whistleblowing.component';
+import { AllTestimonialComponent } from './all-testimonial/all-testimonial.component';
 import { CareersComponent } from './careers/careers.component';
 import { CatagoriesComponent } from './catagories/catagories.component';
 import { ContactComponent } from './contact/contact.component';
@@ -14,6 +15,7 @@ import { NavbarService } from './navbar.service';
 import { NewsEventsComponent } from './news-events/news-events.component';
 import { ProductsComponent } from './products/products.component';
 import { SeeWhatWeDoComponent } from './see-what-we-do/see-what-we-do.component';
+import { SingleNewsEventComponent } from './single-news-event/single-news-event.component';
 import { SolutionsComponent } from './solutions/solutions.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { SubSubCatagoryComponent } from './sub-sub-catagory/sub-sub-catagory.component';
@@ -40,6 +42,8 @@ const routes: Routes = [
   { path: 'events', component: EventsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'see-what-we-do' , component:SeeWhatWeDoComponent },
+  { path: 'single_news/:id' , component:SingleNewsEventComponent },
+  { path: 'all-testimonial' , component:AllTestimonialComponent },
 ];
 
 @NgModule({

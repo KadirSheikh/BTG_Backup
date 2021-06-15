@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { EventsService } from '../services/events.service';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -87,11 +87,46 @@ export class EventsComponent implements OnInit {
     to stay abreast of the latest technologies, processes and advancements throughout the year...`,
     "button":"<span class='text-success font-weight-bold'>Ongoing</span>"
   }]
-
-  constructor() { }
+  eventsArray: any;
+  sortArry: any = [];
+  constructor(private _events:EventsService) { }
 
   ngOnInit(): void {
     window.scroll(0,0);
+
+    this._events.getEvents().then(res => {
+      res.subscribe((resp:any) => {
+        // console.log(resp.data);
+        this.eventsArray = resp.data;
+        console.log(this.eventsArray );
+        
+
+        
+      })
+    })
+  }
+
+  sortEvent(type:string){
+    console.log(type);
+ 
+
+    this.sortArry = [];
+
+    // this.eventsArray.find(elem =>{
+
+    //   console.log();
+      
+
+    // })
+
+    this.sortArry.push( this.eventsArray.find(elem => {
+    if(elem.type == type)
+    return elem.type
+  }))
+
+  this.eventsArray = [];
+    console.log(this.sortArry)
+    
   }
 
 }

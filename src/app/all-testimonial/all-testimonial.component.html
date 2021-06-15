@@ -1,0 +1,43 @@
+<div class="red-title-banner">
+    <h2 class="text-white">Testimonials</h2>
+
+</div>
+
+
+<section style="padding: 50px 0;">
+    <div class="container">
+
+
+        <div class="row m-auto">
+            <div class="col-sm-4 " *ngFor="let n of testArray">
+                <div class="card border-0 rounded-0 shadow mx-4 my-4">
+                    <div class="card-body testimonials">
+                        <img src="../../../../assets/hero/quotes.png" />
+                        <p class="ml-4 description">{{n.description}}</p>
+
+                        <div class="row mt-4">
+                            <div class="col-4">
+                                <div class="img" style="background-image: url({{n.image}}); width: 64px; height: 64px; border-radius: 50%;background-size: cover !important;"></div>
+                            </div>
+                            <!-- <div class="col-4">
+                                <img src="{{n.image}}" class="img-fluid" style="border-radius: 50%;" />
+                            </div> -->
+                            <div class="col-8">
+                                <p class="white-space: nowrap;" class="mb-0">{{n.name}}</p>
+
+                                <small>{{n.designation}}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+
+
+
+<app-footer></app-footer>

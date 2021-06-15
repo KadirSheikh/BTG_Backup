@@ -170,6 +170,14 @@ export class HomeComponent implements OnInit {
     })
   }
 
+
+  addActiveClass(event){
+    console.log(event.srcElement.classList);
+    event.srcElement.classList.add('active');
+
+    
+  }
+
   async ngAfterViewInit(){
     await this.initMap(this._map); 
   }

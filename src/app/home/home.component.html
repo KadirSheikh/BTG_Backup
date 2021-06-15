@@ -9,8 +9,17 @@
         <div id="carouselExampleIndicators" class="carousel slide" data-interval="2000" data-ride="carousel">
             <ol class="carousel-indicators">
 
-                <li *ngFor="let h of homeCarasoul; let i= index" data-target="#carouselExampleIndicators" data-slide-to="{{ i }}"></li>
+                <li (click)="addActiveClass($event)" *ngFor="let h of homeCarasoul; let i= index" data-target="#carouselExampleIndicators" data-slide-to="{{ i }}"></li>
             </ol>
+
+            <!-- <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            </ol> -->
 
             <div class="carousel-inner">
 
@@ -135,9 +144,9 @@
 
                     <div *ngSwitchCase="5" style="height: 100vh;">
                         <video autoplay muted loop id="myVideo">
-                            <source [src]="h?.banner" >
+                            <source [src]="h?.banner">
                             Your browser does not support HTML5 video.
-                          </video>
+                        </video>
 
                     </div>
                 </div>
@@ -235,56 +244,7 @@
                 <a routerLink="/see-what-we-do" class="btn btn-danger right float-right mr-5 text-light">See All</a>
             </div>
             <br><br>
-            <!-- <owl-carousel-o [options]="customOptions" class="mt-4 text-center">
-                <ng-template carouselSlide class="col-sm-6">
-                    <div class="mx-2 my-2">
-                        <iframe src="https://www.youtube.com/embed/ImSbgKmKEhg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                        <h6 class="text-left">BTG Learning Academy - CONSISTENCY</h6>
-                        <p class="text-left">Learn about the importance of consistency in the paper-making process
-                        </p>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide class="col-sm-6">
-                    <div class="mx-2 my-2">
-                        <iframe src="https://www.youtube.com/embed/ImSbgKmKEhg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                        <h6 class="text-left">BTG Learning Academy - CONSISTENCY</h6>
-                        <p class="text-left">Learn about the importance of consistency in the paper-making process
-                        </p>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide class="col-sm-6">
-                    <div class="mx-2 my-2">
-                        <iframe src="https://www.youtube.com/embed/ImSbgKmKEhg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                        <h6 class="text-left">BTG Learning Academy - CONSISTENCY</h6>
-                        <p class="text-left">Learn about the importance of consistency in the paper-making process
-                        </p>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide class="col-sm-6">
-                    <div class="mx-2 my-2">
-                        <iframe src="https://www.youtube.com/embed/ImSbgKmKEhg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                        <h6 class="text-left">BTG Learning Academy - CONSISTENCY</h6>
-                        <p class="text-left">Learn about the importance of consistency in the paper-making process
-                        </p>
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide class="col-sm-6">
-                    <div class="mx-2 my-2">
-                        <iframe src="https://www.youtube.com/embed/ImSbgKmKEhg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                        <h6 class="text-left">BTG Learning Academy - CONSISTENCY</h6>
-                        <p class="text-left">Learn about the importance of consistency in the paper-making process
-                        </p>
-                    </div>
-                </ng-template>
-
-
-
-            </owl-carousel-o> -->
             <div class="row m-auto">
                 <div class="col-sm-4 ">
                     <div class="mx-4 my-4">
@@ -320,52 +280,7 @@
         </div>
     </section>
 
-    <!-- <section style="padding: 50px 0;">
-        <div class="container">
-            <h1 class="text-center">Our Customers</h1>
 
-            <owl-carousel-o [options]="customOptions2">
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/loyalty.png" />
-                </ng-template>
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/sap.png" />
-                </ng-template>
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/udaan.png" />
-                </ng-template>
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/zest.png" />
-                </ng-template>
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/loyalty.png" />
-                </ng-template>
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/sap.png" />
-                </ng-template>
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/udaan.png" />
-                </ng-template>
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/zest.png" />
-                </ng-template>
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/loyalty.png" />
-                </ng-template>
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/sap.png" />
-                </ng-template>
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/udaan.png" />
-                </ng-template>
-                <ng-template carouselSlide>
-                    <img class="mx-2 customers" src="../../../../assets/customers/zest.png" />
-                </ng-template>
-
-
-            </owl-carousel-o>
-        </div>
-    </section> -->
 
 
 

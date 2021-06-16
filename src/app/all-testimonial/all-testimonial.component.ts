@@ -11,6 +11,8 @@ export class AllTestimonialComponent implements OnInit {
   constructor(private _testimoinal:TestimonialService) { }
 
   ngOnInit(): void {
+
+    window.scroll(0,0)
     this._testimoinal.getAllTest().then(res => {
       res.subscribe((resp:any) => {
         // console.log(resp.data);

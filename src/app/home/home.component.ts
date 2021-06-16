@@ -4,6 +4,11 @@ import { NewsService } from '../services/news.service';
 import { TestimonialService } from '../services/testimonial.service';
 import { MapService } from '../services/map.service';
 import { HomeService } from '../services/home.service';
+import { TestimonialDetailComponent } from '../testimonial-detail/testimonial-detail.component';
+import {MatDialog} from '@angular/material/dialog';
+import { SeeWhatWeDoService } from '../services/see-what-we-do.service';
+import { ContactService } from '../services/contact.service';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -127,8 +132,10 @@ export class HomeComponent implements OnInit {
     },
     // nav: true
   }
+  seeArray: any;
+  contactArray: any;
 
-  constructor(private _new:NewsService,  private _testimoinal:TestimonialService,private _map:MapService, private _home:HomeService) { }
+  constructor(private _contact : ContactService,private _sanitizer: DomSanitizer,private _see:SeeWhatWeDoService,public dialog: MatDialog,private _new:NewsService,  private _testimoinal:TestimonialService,private _map:MapService, private _home:HomeService) { }
 
   ngOnInit(): void {
     window.scroll(0,0);
@@ -159,8 +166,10 @@ export class HomeComponent implements OnInit {
 
     this._home.getCarosoul().then(res => {
       res.subscribe((resp:any) => {
+        this.loader = true;
         console.log(resp.data);
         this.homeCarasoul = resp.data;
+        
         // this.testArray = resp.data;
         // console.log(this.testArray );
         
@@ -168,6 +177,96 @@ export class HomeComponent implements OnInit {
         
       })
     })
+
+    this._see.getWhatWeDo().then(res => {
+      res.subscribe((resp:any) => {
+        this.loader = false;
+        console.log(resp.data);
+         this.seeArray = resp.data;
+
+        
+      
+        
+
+        
+      })
+    })
+
+    
+  }
+
+  sanitize(url){
+console.log(url);
+
+    if( url.includes('youtube') ){
+      console.log(this.parseUrl(url));
+      
+      return this.parseUrl(url);
+    }
+    return this._sanitizer.bypassSecurityTrustResourceUrl(url)
+
+  }
+
+  getId(url) {
+    const regExp = /^.(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]).*/;
+    const match = url.match(regExp);
+
+    return (match && match[2].length === 11)
+      ? match[2]
+      : null;
+  }
+  parseUrl(url) {
+    let videoId;
+    if (url != null)
+      videoId = this.getId(url);
+    else
+      videoId = this.getId("https://youtu.be/8PtsKRBgLrA");
+    // console.log('Video ID:', `www.youtube.com/embed/${videoId}`)
+    // console.warn(`www.youtube.com/embed/${videoId}`)
+    let urlParse = this._sanitizer.bypassSecurityTrustResourceUrl((`https://www.youtube.com/embed/${videoId}`).toString())
+
+    let returnUrl = urlParse['changingThisBreaksApplicationSecurity']
+    // console.log(returnUrl)
+    return urlParse;
+  }
+  // getId(url) {
+  //   const regExp = /^.(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]).*/;
+  //   const match = url.match(regExp);
+
+  //   return (match && match[2].length === 11)
+  //     ? match[2]
+  //     : null;
+  // }
+
+  // urlSanitize(url){
+  //   // console.log(this._sanitizer.bypassSecurityTrustResourceUrl(url));
+    
+  //   let videoId;
+  //   if (url != null)
+  //     videoId = this.getId(url);
+  //   else
+  //     videoId = this.getId("https://youtu.be/8PtsKRBgLrA");
+  //   // console.log('Video ID:', `www.youtube.com/embed/${videoId}`)
+  //   // console.warn(`www.youtube.com/embed/${videoId}`)
+  //   let urlParse = this._sanitizer.bypassSecurityTrustResourceUrl((`https://www.youtube.com/embed/${videoId}`).toString())
+
+  //   let returnUrl = urlParse['changingThisBreaksApplicationSecurity']
+  //   // console.log(returnUrl)
+  //   return urlParse;
+  // }
+
+  openDialog(id:string){
+    console.log(id);
+
+    const dialogRef = this.dialog.open(TestimonialDetailComponent , {
+      
+      data: {id}
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+    
   }
 
 

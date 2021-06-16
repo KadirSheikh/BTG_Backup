@@ -29,7 +29,8 @@ import { MainCategoryComponent } from './main-category/main-category.component';
 import { SeeWhatWeDoComponent } from './see-what-we-do/see-what-we-do.component';
 import { SingleNewsEventComponent } from './single-news-event/single-news-event.component';
 import { AllTestimonialComponent } from './all-testimonial/all-testimonial.component';
-
+import { TestimonialDetailComponent } from './testimonial-detail/testimonial-detail.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,14 +54,16 @@ import { AllTestimonialComponent } from './all-testimonial/all-testimonial.compo
     NavbarTrimPipe,
     SeeWhatWeDoComponent,
     SingleNewsEventComponent,
-    AllTestimonialComponent
+    AllTestimonialComponent,
+    TestimonialDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CarouselModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

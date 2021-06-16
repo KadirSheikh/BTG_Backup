@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./catagories.component.css']
 })
 export class CatagoriesComponent implements OnInit {
-
+  // loader:boolean = true;
   data: any = [{
     "heading": "Tissue",
     "subheading": "Trusted tissue solutions transforming efficiency, productivity and profitability.",

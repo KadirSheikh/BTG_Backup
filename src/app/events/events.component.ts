@@ -89,6 +89,7 @@ export class EventsComponent implements OnInit {
   }]
   eventsArray: any;
   sortArry: any = [];
+  loader:boolean = true;
   constructor(private _events:EventsService) { }
 
   ngOnInit(): void {
@@ -97,6 +98,8 @@ export class EventsComponent implements OnInit {
     this._events.getEvents().then(res => {
       res.subscribe((resp:any) => {
         // console.log(resp.data);
+
+        this.loader = false;
         this.eventsArray = resp.data;
         console.log(this.eventsArray );
         

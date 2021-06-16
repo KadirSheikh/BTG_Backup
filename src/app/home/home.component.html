@@ -1,25 +1,14 @@
-<div *ngIf="loader">
-    <img src="../../assets/svg-btg.svg" alt="" class="img-fluid" style="width: 10%;height: auto">
-
+<div class="d-flex flex-column justify-content-center align-content-center" style="align-items: center;text-align: center;position: fixed;width: 100%;height: 100%;z-index: 9999;
+" *ngIf="!loader">
+    <img src="../../assets/svg-btg.svg" alt="" class="img-fluid" style="width: 10%;height: auto;">
+    <img src="../../assets/loaderred.gif" alt="" style="width: 7%;height: auto;">
 </div>
 
 
-<div *ngIf="!loader">
+<div *ngIf="loader">
     <section id="rye_student">
         <div id="carouselExampleIndicators" class="carousel slide" data-interval="2000" data-ride="carousel">
-            <!-- <ol class="carousel-indicators">
 
-                <li (click)="addActiveClass($event)" *ngFor="let h of homeCarasoul; let i= index" data-target="#carouselExampleIndicators" data-slide-to="{{ i }}"></li>
-            </ol> -->
-
-            <!-- <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-            </ol> -->
 
             <div class="carousel-inner">
 
@@ -204,7 +193,7 @@
             <br><br>
 
             <div class="row m-auto">
-                <div class="col-sm-4 " *ngFor="let n of testArray | slice:0:3">
+                <div class="col-sm-4 " *ngFor="let n of testArray | slice:0:3" (click)="openDialog(n._id)" style="cursor: pointer;">
                     <div class="card border-0 rounded-0 shadow mx-4 my-4">
                         <div class="card-body testimonials">
                             <img src="../../../../assets/hero/quotes.png" />
@@ -246,33 +235,16 @@
             <br><br>
 
             <div class="row m-auto">
-                <div class="col-sm-4 ">
+                <div class="col-sm-4 " *ngFor="let n of seeArray">
                     <div class="mx-4 my-4">
-                        <iframe src="https://www.youtube.com/embed/ImSbgKmKEhg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe [src]="sanitize(n.video_url)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                        <h6 class="text-left font-weight-bold">BTG Learning Academy - CONSISTENCY</h6>
-                        <p class="text-left">Learn about the importance of consistency in the paper-making process
+                        <h6 class="text-left font-weight-bold">{{n.heading}}</h6>
+                        <p class="text-left">{{n.description}}
                         </p>
                     </div>
                 </div>
-                <div class="col-sm-4 ">
-                    <div class="mx-4 my-4">
-                        <iframe src="https://www.youtube.com/embed/ImSbgKmKEhg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                        <h6 class="text-left font-weight-bold">BTG Learning Academy - CONSISTENCY</h6>
-                        <p class="text-left">Learn about the importance of consistency in the paper-making process
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-4 ">
-                    <div class="mx-4 my-4">
-                        <iframe src="https://www.youtube.com/embed/ImSbgKmKEhg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                        <h6 class="text-left font-weight-bold">BTG Learning Academy - CONSISTENCY</h6>
-                        <p class="text-left">Learn about the importance of consistency in the paper-making process
-                        </p>
-                    </div>
-                </div>
 
 
 
@@ -837,6 +809,8 @@
             </svg>
         </div>
     </section>
+
+
     <section style="padding: 100px 0;">
         <div class="container text-center shadow p-4 ">
             <h1 class="text-center">Subscribe to get exclusive news and stay updated</h1>

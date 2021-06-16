@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { NavbarService } from '../navbar.service';
-
+import { ContactService } from '../services/contact.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -11,7 +11,8 @@ export class FooterComponent implements OnInit {
   year = new Date().getFullYear();
   industrySolutuonForData: any;
   industrySolutuonMain: any = [];
-  constructor(@Inject(DOCUMENT) private document: Document, private _nav: NavbarService) { }
+  contactArray: any;
+  constructor(private _contact : ContactService,@Inject(DOCUMENT) private document: Document, private _nav: NavbarService) { }
 
   async ngOnInit() {
     // Get Industry Solution For
@@ -41,7 +42,19 @@ export class FooterComponent implements OnInit {
 
 
     
+    this._contact.getContact().then(res => {
+      res.subscribe((resp:any) => {
+       
+        console.log(resp.data);
+         this.contactArray = resp.data[0];
 
+        
+      
+        
+
+        
+      })
+    })
 
 
   }

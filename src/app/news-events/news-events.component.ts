@@ -11,7 +11,7 @@ export class NewsEventsComponent implements OnInit {
   singleNewArray:any;
   hiddenSection : boolean = false
   dataId = 0;
-
+  loader:boolean = true;
   constructor(private activatedRoute: ActivatedRoute,private _new:NewsService) { }
 
   ngOnInit(): void {
@@ -35,6 +35,7 @@ export class NewsEventsComponent implements OnInit {
     this._new.getAllNews().then(res => {
       res.subscribe((resp:any) => {
         // console.log(resp.data);
+        this.loader = false;
         this.newsArray = resp.data;
         console.log(this.newsArray );
         

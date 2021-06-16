@@ -7,7 +7,7 @@ import { TestimonialService } from '../services/testimonial.service';
 })
 export class AllTestimonialComponent implements OnInit {
   testArray: any;
-
+  loader:boolean = true;
   constructor(private _testimoinal:TestimonialService) { }
 
   ngOnInit(): void {
@@ -15,6 +15,7 @@ export class AllTestimonialComponent implements OnInit {
     window.scroll(0,0)
     this._testimoinal.getAllTest().then(res => {
       res.subscribe((resp:any) => {
+        this.loader = false;
         // console.log(resp.data);
         this.testArray = resp.data;
         console.log(this.testArray );

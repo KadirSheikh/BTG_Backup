@@ -164,7 +164,7 @@
                 <div *ngFor="let n of newsArray | slice:0:3" class="col-sm-4" style="margin-bottom: 5rem;">
                     <div id="card" class="card" style="border: none !important;">
                         <div class="card-body">
-                            <h6 class="font-weight-bold card-title mb-5">{{ n.heading }}</h6>
+                            <h6 class="font-weight-bold card-title mb-5 newTitle">{{ n.heading }}</h6>
                             <div class="d-flex mb-4">
                                 <h6 style="font-size: 14px;"><i aria-hidden="true" class="fa fa-calendar-o text-danger" style="font-size: 20px;"></i> {{ n.date | date }}</h6>
 
@@ -235,7 +235,7 @@
             <br><br>
 
             <div class="row m-auto">
-                <div class="col-sm-4 " *ngFor="let n of seeArray">
+                <div class="col-sm-4 " *ngFor="let n of seeArray | slice:0:3">
                     <div class="mx-4 my-4">
                         <iframe [src]="sanitize(n.video_url)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

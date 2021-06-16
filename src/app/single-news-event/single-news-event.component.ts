@@ -31,7 +31,7 @@ export class SingleNewsEventComponent implements OnInit {
     this._new.getAllNews().then(res => {
       res.subscribe((resp:any) => {
         // console.log(resp.data);
-        
+        this.loader = false;
         this.newsArray = resp.data;
         console.log(this.newsArray );
         

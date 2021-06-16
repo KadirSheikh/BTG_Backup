@@ -16,7 +16,7 @@
 
 
             <div class="row m-auto">
-                <div class="col-sm-4 " *ngFor="let n of testArray">
+                <div class="col-sm-4 " *ngFor="let n of testArray" (click)="openDialog(n._id)" style="cursor: pointer;">
                     <div class="card border-0 rounded-0 shadow mx-4 my-4">
                         <div class="card-body testimonials">
                             <img src="../../../../assets/hero/quotes.png" />

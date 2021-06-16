@@ -11,7 +11,7 @@ export class TestimonialDetailComponent implements OnInit {
   testArray: any;
   id:string = ""
   constructor(private _testimoinal:TestimonialService,public dialogRef: MatDialogRef<HomeComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
     this.id = this.data?.id;
@@ -25,6 +25,10 @@ export class TestimonialDetailComponent implements OnInit {
         
       })
     })
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

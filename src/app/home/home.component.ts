@@ -144,9 +144,9 @@ export class HomeComponent implements OnInit {
 
     this._new.getAllNews().then(res => {
       res.subscribe((resp:any) => {
-        // console.log(resp.data);
+        //
         this.newsArray = resp.data;
-        console.log(this.newsArray );
+        
         
 
         
@@ -157,7 +157,7 @@ export class HomeComponent implements OnInit {
       res.subscribe((resp:any) => {
         // console.log(resp.data);
         this.testArray = resp.data;
-        console.log(this.testArray );
+        
         
 
         
@@ -167,7 +167,7 @@ export class HomeComponent implements OnInit {
     this._home.getCarosoul().then(res => {
       res.subscribe((resp:any) => {
         this.loader = true;
-        console.log(resp.data);
+       
         this.homeCarasoul = resp.data;
         
         // this.testArray = resp.data;
@@ -181,7 +181,7 @@ export class HomeComponent implements OnInit {
     this._see.getWhatWeDo().then(res => {
       res.subscribe((resp:any) => {
         this.loader = false;
-        console.log(resp.data);
+        
          this.seeArray = resp.data;
 
         
@@ -192,74 +192,25 @@ export class HomeComponent implements OnInit {
       })
     })
 
+   
+
     
   }
 
   sanitize(url){
-console.log(url);
 
-    if( url.includes('youtube') ){
-      console.log(this.parseUrl(url));
-      
-      return this.parseUrl(url);
-    }
-    return this._sanitizer.bypassSecurityTrustResourceUrl(url)
+    return this._sanitizer.bypassSecurityTrustResourceUrl(url.replace("watch?v=" , "embed/"))
 
   }
 
-  getId(url) {
-    const regExp = /^.(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]).*/;
-    const match = url.match(regExp);
 
-    return (match && match[2].length === 11)
-      ? match[2]
-      : null;
-  }
-  parseUrl(url) {
-    let videoId;
-    if (url != null)
-      videoId = this.getId(url);
-    else
-      videoId = this.getId("https://youtu.be/8PtsKRBgLrA");
-    // console.log('Video ID:', `www.youtube.com/embed/${videoId}`)
-    // console.warn(`www.youtube.com/embed/${videoId}`)
-    let urlParse = this._sanitizer.bypassSecurityTrustResourceUrl((`https://www.youtube.com/embed/${videoId}`).toString())
-
-    let returnUrl = urlParse['changingThisBreaksApplicationSecurity']
-    // console.log(returnUrl)
-    return urlParse;
-  }
-  // getId(url) {
-  //   const regExp = /^.(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]).*/;
-  //   const match = url.match(regExp);
-
-  //   return (match && match[2].length === 11)
-  //     ? match[2]
-  //     : null;
-  // }
-
-  // urlSanitize(url){
-  //   // console.log(this._sanitizer.bypassSecurityTrustResourceUrl(url));
-    
-  //   let videoId;
-  //   if (url != null)
-  //     videoId = this.getId(url);
-  //   else
-  //     videoId = this.getId("https://youtu.be/8PtsKRBgLrA");
-  //   // console.log('Video ID:', `www.youtube.com/embed/${videoId}`)
-  //   // console.warn(`www.youtube.com/embed/${videoId}`)
-  //   let urlParse = this._sanitizer.bypassSecurityTrustResourceUrl((`https://www.youtube.com/embed/${videoId}`).toString())
-
-  //   let returnUrl = urlParse['changingThisBreaksApplicationSecurity']
-  //   // console.log(returnUrl)
-  //   return urlParse;
-  // }
+ 
 
   openDialog(id:string){
-    console.log(id);
+ 
 
     const dialogRef = this.dialog.open(TestimonialDetailComponent , {
-      
+  
       data: {id}
     });
     
@@ -282,15 +233,17 @@ console.log(url);
   }
 
   async initMap(map){
+   
+
+    
 
     console.log(this.countries.nativeElement);
 
     var countryElements = this.countries.nativeElement.childNodes;
-    
+    var countryCount = countryElements.length;
     (await map.getMap()).subscribe( (res:any) => {
       console.log(res);
       this.selectedCountries = res.data;
-
        this.selectedCountries.forEach(element => {
          console.log(element.name);
          for (var i = 0; i < countryCount; i++){
@@ -304,112 +257,24 @@ console.log(url);
     console.log(this.selectedCountries);
     
   })
-    var countryCount = countryElements.length;
+   
     
     
-    for (var i = 0; i < countryCount; i++) {
-      let fuck = i;
 
-
- 
-    }
   }
 
-  // ngAfterViewInit(){
-  //   console.log(this.countries.nativeElement);
-
-    
-
-  //   var countryElements = this.countries.nativeElement.childNodes;
-  //   var countryCount = countryElements.length;
-  //   for (var i = 0; i < countryCount; i++) {
-  //     let j = i;
-  //     countryElements[i].onclick = function() {
-  //       // alert('You clicked on ' + this.getAttribute('data-name'));
-  //       let cName = this.getAttribute('data-name');
-        
-  //         countryElements[j].style.fill = "red";
-        
-  //     }
-
-
-
-
-      
-      
-  //   }
-  // }
+ 
 
 }
 
 
 
 
-// selectedCountries:any = [];
 
 
-//   async addCountry(name){
-//     (await this._map.addMap(name)).subscribe( (res:any) => {
-//       console.log(res);
-//     })
-//   }
 
-  // async ngAfterViewInit(){
-  //   await this.initMap(this._map); 
-  // }
 
-  // async initMap(map){
-  //   async function addCountry(name){
-  //     (await map.addMap(name)).subscribe( (res:any) => {
-  //       console.log(res);
-  //     })
-  //   }
 
-  //   async function deleteCountry(name){
-  //     (await map.deleteMap(name)).subscribe( (res:any) => {
-  //       console.log(res);
-  //     })
-  //   }
+  
 
-  //   console.log(this.countries.nativeElement);
-
-  //   var countryElements = this.countries.nativeElement.childNodes;
-    
-  //   (await map.getMap()).subscribe( (res:any) => {
-  //     console.log(res);
-  //     this.selectedCountries = res.data;
-  //      this.selectedCountries.forEach(element => {
-  //        console.log(element.name);
-  //        for (var i = 0; i < countryCount; i++){
-  //         let country = countryElements[i].getAttribute('data-name');
-  //         if( country == element.name ){
-  //           countryElements[i].style.fill = "#465354";
-  //         }   
-  //       }
-  //      });
-
-  //   console.log(this.selectedCountries);
-    
-  // })
-  //   var countryCount = countryElements.length;
-    
-    
-  //   for (var i = 0; i < countryCount; i++) {
-  //     let fuck = i;
-  //     countryElements[i].onclick = function() {
-  //       // alert('You clicked on ' + this.getAttribute('data-name'));
-  //       let cName = this.getAttribute('data-name');
-  //         if( countryElements[fuck].style.fill == 'rgb(70, 83, 84)' ){
-  //           countryElements[fuck].style.fill = "lightgray";
-  //           deleteCountry(cName);
-  //         }else{
-  //           countryElements[fuck].style.fill = "#465354";
-            
-  //           addCountry(cName);
-  //         }
-  //         console.log(cName);
-          
-  //     }
- 
-  //   }
-  // }
+  

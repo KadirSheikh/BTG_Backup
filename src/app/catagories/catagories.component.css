@@ -16,9 +16,9 @@
 
 .strip {
     margin: 12px 0;
-    padding: 8px 30%;
+    padding: 10px 30%;
     position: relative;
-    left: -50%;
+    left: -55%;
     z-index: -1;
     box-shadow: 0 2px 2px 0 gray;
     width: 140% !important;

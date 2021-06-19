@@ -21,7 +21,7 @@
                     <div class="row mx-auto">
 
                         <div class="row">
-                            <div *ngFor="let n of newsArray" class="col-sm-4" style="margin-bottom: 5rem;">
+                            <div *ngFor="let n of newsArray | paginate: { itemsPerPage: 9, currentPage: p }" class="col-sm-4" style="margin-bottom: 5rem;">
                                 <div id="card" class="card" style="border: none !important;">
                                     <div class="card-body">
                                         <h6 class="font-weight-bold card-title mb-5 newTitle">{{ n.heading }}</h6>
@@ -33,14 +33,15 @@
                                         <a routerLink="/single_news/{{ n._id }}" class="card-link pb-4 float-right visit-site">View More</a>
                                     </div>
                                 </div>
+
                             </div>
 
-                            <!--bindings={
-                      "ng-reflect-ng-for-of": "[object Object],[object Object"
-                    }-->
-                        </div>
 
+
+                        </div>
+                        <pagination-controls (pageChange)="p = $event" class="float-center mx-auto my-auto"></pagination-controls>
                     </div>
+
                 </div>
 
             </div>

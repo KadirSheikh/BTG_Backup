@@ -1,359 +1,91 @@
-<div *ngIf="catName=='tissue' && subCatName=='consistency-control'">
-
-
-    <div class="red-title-banner">
-        <h2 class="text-white">{{data[0].heading}}</h2>
-        <h6 class="text-capitalize text-center text-white">{{data[0].subheading}}</h6>
-    </div>
-
-    <section style="padding: 100px 0;">
-        <div class="container">
-            <div class="row mx-auto">
-                <div class="col-sm-6">
-
-                    <div class="hoverr">
-
-                        <strong>Why Consistency?</strong>
-                        <p class="text-justify">Consistency is the foundational parameter in all pulp and paper making processes to manage mass flow at a target consistency.</p>
-                    </div>
-
-                    <div class="hoverr">
-                        <strong>What is Consistency?</strong>
-                        <p class="text-justify">Consistency is defined by the total content of dry solids in the pulp slurry, the slurry being made of water, fibers, fines and fillers. In other words, this is the weight of suspended solids per litre of liquid, and can be summarized
-                            as:
-                        </p>
-                        <div class="d-inline">Total consistency (%) =</div>
-                        <div class="fraction " top="dry weight of sample" bottom="total weight of sample"></div>
-                        <div class="d-inline"> x 100</div>
-                        <br><br>
-                        <p>Watch the <b><a href="https://youtu.be/-7BXl-_DiPo" target="_blank" class="text-danger">Consistency basics</a></b> video.</p>
-                    </div>
-
-
-
-                </div>
-
-                <div class="col-sm-6">
-
-                    <div class="hoverr">
-                        <strong>What BTG does? BTG makes it easy!</strong>
-
-                        <p class="text-justify">BTG is the market leader in consistency solutions. BTG is offering a portfolio of solutions, to meet all possible situations and challenges. The solutions are a combination of appropriate instruments, strong expertise, relevant
-                            service and right software. There is not one size fits all! Together with you, and depending on your situation and your objectives, our experts will define what is the best solution for you.</p>
-                    </div>
-
-                    <div class="hoverr">
-                        <strong>Why Consistency Control is Very Important?</strong>
-                        <p>Poor consistency control leads to quality variability!</p>
-                    </div>
-
-                    <div class="hoverr">
-                        <strong>Economic Advantage?</strong>
-                        <p>Savings can range from $50,000 -$400,000</p>
-                    </div>
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="justify-content-center  text-center mt-4 pt-4" style="padding: 50px 0;">
-                        <img src="../../assets/cc-bro.jpeg" class="col-sm-6" alt="">
-                        <br />
-                        <br />
-
-                    </div>
-                </div>
-                <div class="col-sm-6 align-self-center  text-center mt-4 pt-4">
-                    <a href="#" class="text-danger" style="font-weight: 700;"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;&nbsp;Download & read the Consistency Solutions Brochure
-                </a>
-                </div>
-            </div>
-
-
-            <!-- <div class="justify-content-center text-center mt-4 pt-4" style="padding: 20px 0;">
-            <h4>This solution uses</h4>
-
-            <div class="row mx-auto mt-4 py-4">
-                <div class="col-4">
-                    <h6 class="text-left"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="28" viewBox="0 0 26 28" fill="none">
-                            <path
-                                d="M23.8954 26.7272H2.10495C1.60971 26.7272 1.23828 26.3454 1.23828 25.8363V2.16361C1.23828 1.65452 1.60971 1.27271 2.10495 1.27271H24.0192C24.3907 1.27271 24.7621 1.65452 24.7621 2.16361V25.8363C24.7621 26.3454 24.3907 26.7272 23.8954 26.7272Z"
-                                stroke="#D0021B" stroke-width="2" stroke-linecap="round" />
-                            <path d="M6.19043 16.5454H19.8095" stroke="#D0021B" stroke-width="2"
-                                stroke-linecap="round" />
-                            <path d="M11.1426 21.6365H14.8569" stroke="#D0021B" stroke-width="2"
-                                stroke-linecap="round" />
-                            <path d="M6.19043 11.8362H19.8095" stroke="#D0021B" stroke-width="2"
-                                stroke-linecap="round" />
-                            <path d="M6.19043 6.61816H19.8095" stroke="#D0021B" stroke-width="2"
-                                stroke-linecap="round" />
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M7.42834 21.6363C7.42834 22.3999 6.9331 22.909 6.19024 22.909C5.44739 22.909 4.95215 22.3999 4.95215 21.6363C4.95215 20.8726 5.44739 20.3635 6.19024 20.3635C6.9331 20.3635 7.42834 20.8726 7.42834 21.6363Z"
-                                fill="#D0021B" />
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M21.0475 21.6363C21.0475 22.3999 20.5522 22.909 19.8094 22.909C19.0665 22.909 18.5713 22.3999 18.5713 21.6363C18.5713 20.8726 19.0665 20.3635 19.8094 20.3635C20.5522 20.3635 21.0475 20.8726 21.0475 21.6363Z"
-                                fill="#D0021B" />
-                        </svg> &nbsp;&nbsp;BTG Products</h6>
-                    <p class="text-left mt-4">Accurate, reliable and fast process measurements</p>
-                </div>
-                <div class="col-4">
-                    <h6 class="text-left"><svg xmlns="http://www.w3.org/2000/svg" width="37" height="29" viewBox="0 0 37 29" fill="none">
-                            <path
-                                d="M1.6084 26.3636V17.0045C1.6084 16.2136 2.25188 15.6863 3.21709 15.6863H12.8693V9.49084C12.8693 8.69993 13.5127 8.17266 14.478 8.17266H24.1301V2.6363C24.1301 1.84539 24.7736 1.31812 25.7388 1.31812H33.7823C34.7475 1.31812 35.391 1.84539 35.391 2.6363V26.3636C35.391 27.1545 34.7475 27.6817 33.7823 27.6817H3.21709C2.25188 27.6817 1.6084 27.1545 1.6084 26.3636Z"
-                                stroke="#D0021B" stroke-width="2" />
-                            <path d="M12.8691 15.8181V22.409" stroke="#D0021B" stroke-width="2"
-                                stroke-linecap="round" />
-                            <path d="M24.1299 7.90894V13.0498" stroke="#D0021B" stroke-width="2"
-                                stroke-linecap="round" />
-                            <path d="M24.1299 18.4546V22.4091" stroke="#D0021B" stroke-width="2"
-                                stroke-linecap="round" />
-                        </svg>&nbsp;&nbsp;BTG Analyzes</h6>
-                    <p class="text-left mt-4">Implementation of Advanced Process Controls to improve performance to target
-                    </p>
-                </div>
-                <div class="col-4">
-                    <h6 class="text-left"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="38" viewBox="0 0 27 38" fill="none">
-                            <g clip-path="url(#clip0)">
-                                <path
-                                    d="M16.9359 13.4902C16.9359 15.4825 15.3718 17.0502 13.5002 17.0502C11.6285 17.0502 10.0645 15.4825 10.0645 13.4902C10.0645 11.4978 11.6285 9.93018 13.5002 9.93018C15.3718 9.93018 16.9359 11.4978 16.9359 13.4902Z"
-                                    fill="white" stroke="#EA2F29" stroke-width="2" />
-                                <path
-                                    d="M7.16143 24.841L7.24978 24.2209L6.73037 23.8708C3.30328 21.5607 1 17.8635 1 13.49C1 6.62786 6.53527 1 13.5 1C20.4647 1 26 6.62786 26 13.49C26 17.6811 23.6897 21.5654 20.2696 23.8708L19.7488 24.2219L19.8389 24.8435L21.3818 35.4835L21.3858 35.5114L21.3914 35.5389C21.515 36.1475 21.2415 36.5869 20.9653 36.7229C20.5227 36.9409 20.3576 37 20.25 37C20.1466 37 19.9903 36.9455 19.5859 36.748L14.0423 33.1698L13.4759 32.8042L12.9245 33.1922L7.59589 36.942C7.1389 37.1436 6.57283 37.146 6.11328 36.949C5.87764 36.761 5.73842 36.5764 5.66304 36.4066C5.58444 36.2296 5.55052 36.0149 5.60858 35.729L5.61443 35.7001L5.61858 35.671L7.16143 24.841ZM3.43571 13.49C3.43571 18.9963 7.94755 23.42 13.5 23.42C19.0524 23.42 23.5643 18.9963 23.5643 13.49C23.5643 7.9837 19.0524 3.56 13.5 3.56C7.94755 3.56 3.43571 7.9837 3.43571 13.49Z"
-                                    fill="white" stroke="#EA2F29" stroke-width="2" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0">
-                                    <rect width="27" height="38" fill="white" />
-                                </clipPath>
-                            </defs>
-                        </svg>&nbsp;&nbsp;BTG Experts</h6>
-                    <p class="text-left mt-4">Maximization of knowledge and benefits</p>
-                </div>
-            </div>
-        </div> -->
-
-
-        </div>
-    </section>
-
-    <br><br><br>
-    <!-- <section class="bg-light" style="padding: 100px 0;">
-    <div class="container">
-        <h3 class="text-center">Our featured solutions</h3>
-        <p class="text-center no-wrap">
-            We offer optimized, customized solutions for a range of applications. Below are some key examples of the
-            challenges we can overcome. If your process isn’t featured here, contact our team to learn more
-        </p>
-
-        <div class="row mx-auto my-4">
-            <div class="col-sm-4">
-                <div class="card border-0 shadow-sm bg-white m-2">
-                    <div class="card-body">
-                        <h6>Consistency control</h6>
-                        <p>
-                            Optimize pulp & paper productivity through accurate consistency management as fundamental
-                            for improved economic benefits
-                        </p>
-                        <a href="#" class="text-danger">Know more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card border-0 shadow-sm bg-white m-2">
-                    <div class="card-body">
-                        <h6>Consistency control</h6>
-                        <p>
-                            Optimize pulp & paper productivity through accurate consistency management as fundamental
-                            for improved economic benefits
-                        </p>
-                        <a href="#" class="text-danger">Know more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card border-0 shadow-sm bg-white m-2">
-                    <div class="card-body">
-                        <h6>Consistency control</h6>
-                        <p>
-                            Optimize pulp & paper productivity through accurate consistency management as fundamental
-                            for improved economic benefits
-                        </p>
-                        <a href="#" class="text-danger">Know more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card border-0 shadow-sm bg-white m-2">
-                    <div class="card-body">
-                        <h6>Consistency control</h6>
-                        <p>
-                            Optimize pulp & paper productivity through accurate consistency management as fundamental
-                            for improved economic benefits
-                        </p>
-                        <a href="#" class="text-danger">Know more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card border-0 shadow-sm bg-white m-2">
-                    <div class="card-body">
-                        <h6>Consistency control</h6>
-                        <p>
-                            Optimize pulp & paper productivity through accurate consistency management as fundamental
-                            for improved economic benefits
-                        </p>
-                        <a href="#" class="text-danger">Know more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card border-0 shadow-sm bg-white m-2">
-                    <div class="card-body">
-                        <h6>Consistency control</h6>
-                        <p>
-                            Optimize pulp & paper productivity through accurate consistency management as fundamental
-                            for improved economic benefits
-                        </p>
-                        <a href="#" class="text-danger">Know more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
+<div class="d-flex flex-column justify-content-center align-content-center" style="align-items: center;text-align: center;position: fixed;width: 100%;height: 100%;z-index: 9999;
+" *ngIf="isLoading">
+    <img src="../../assets/svg-btg.svg" alt="" class="img-fluid" style="width: 10%;height: auto;">
+    <img src="../../assets/loaderred.gif" alt="" style="width: 7%;height: auto;">
 </div>
 
-<div *ngIf="catName=='tissue' && subCatName=='creping'">
-    <div class="red-title-banner">
-        <h2 class="text-white">{{data[1].heading}}</h2>
-        <h6 class="text-capitalize text-center text-white">{{data[1].subheading}}</h6>
+
+<div *ngIf="!isLoading">
+    <div *ngIf="showComingSoon">
+        <app-coming-soon></app-coming-soon>
     </div>
 
+    <div *ngIf="!showComingSoon">
+        <div class="red-title-banner">
+            <h2 class="text-white" [innerHTML]="productsData.heading"> </h2>
+        </div>
 
-    <section style="padding: 100px 0;">
-        <div class="container">
-            <div class="row mx-auto">
-                <div class="col-sm-6">
+        <section style="padding: 50px 0;">
+            <div class="container">
+                <div class="row mx-auto">
 
-                    <div class="hoverr">
+                    <!-- Section One -->
+                    <div *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionOne"></div>
+                    <!-- Section One End -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Two -->
+                    <div *ngIf="!productsData.sectionTwo.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionTwo"></div>
+                    <!-- Section Two End -->
 
-                        <strong>What is Creping?</strong>
-                        <p class="text-justify">Creping is the fundamental part of the tissue process: taking the flat sheet and adding the 3-D crepe structive to give the bulk, absorbency and handfeel properties tissue customers require by a combination of chemical and mechanical
-                            actors.
-                        </p>
-                    </div>
+                    <!-- Section Three -->
+                    <div *ngIf="!productsData.sectionThree.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionThree"></div>
+                    <!-- Section Three Emd -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Four -->
+                    <div *ngIf="!productsData.sectionFour.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionFour"></div>
+                    <!-- Section Four End -->
 
-                    <div class="hoverr">
-                        <strong>Benefits</strong>
-                        <p class="text-justify">Any tissue application can reap the benefits of high-performance Duroblade. Whether you are producing toilet tissue, facial, napkins or coffee filters, with the right doctor blade you can:</p>
+                    <!-- Section Five -->
+                    <div *ngIf="!productsData.sectionFive.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionFive"></div>
+                    <!-- Section Five Emd -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Six -->
+                    <div *ngIf="!productsData.sectionSix.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionSix"></div>
+                    <!-- Section Six End -->
 
-                        <ul>
-                            <li>maintain even tissue quality over blade lifetime,</li>
-                            <li>improve your production quality and quantity,</li>
-                            <li>reach substantially longer blade lifetimes,</li>
-                            <li>increase your process efficiency and lower your costs</li>
-                        </ul>
+                    <!-- Section Seven -->
+                    <div *ngIf="!productsData.sectionSeven.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionSeven"></div>
+                    <!-- Section Seven Emd -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Eight -->
+                    <div *ngIf="!productsData.sectionEight.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionEight"></div>
+                    <!-- Section Eight End -->
 
-                    </div>
+                    <!-- Section Nine -->
+                    <div *ngIf="!productsData.sectionNine.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionNine"></div>
+                    <!-- Section Nine Emd -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Ten -->
+                    <div *ngIf="!productsData.sectionTen.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionTen"></div>
+                    <!-- Section Ten End -->
 
-
-
-                </div>
-
-                <div class="col-sm-6">
-
-                    <div class="hoverr">
-                        <strong>What BTG does? BTG makes it easy!</strong>
-
-                        <p class="text-justify">BTG is the inventor and producer of the original high-performance ceramic doctor blade, Duroblade, and also the manufacturer of the unique creping blade holder CBC™. Thanks to our long experience as a supplier of high-performance
-                            blades, combined with our expertise as a blade holder manufacturer, we today hold a position of creping specialist. Our creping experts are at your disposal to help you get the most out of your Duroblade, hence ensuring the
-                            best operation, in the safest conditions for your personnel and equipment</p>
-                    </div>
-
-                    <div class="hoverr">
-                        <strong>Why use High Performance Creping Solutions?</strong>
-                        <p>High performance creping replaces the traditional steel doctor with a ceramic or carbide treated material for longer run time and improved tissue quality properties.</p>
-                    </div>
-
-
+                    <!-- Section Eleven -->
+                    <div *ngIf="!productsData.sectionEleven.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionEleven"></div>
+                    <!-- Section Eleven Emd -->
+                    <div *ngIf="" class="col-sm-1 my-4"></div>
+                    <!-- Section Twelve -->
+                    <div *ngIf="!productsData.sectionTwelve.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionTwelve"></div>
+                    <!-- Section Twelve End -->
                 </div>
 
             </div>
-        </div>
-    </section>
-
-</div>
-
-<div *ngIf="catName=='tissue' && subCatName=='operational-safety'">
-    <div class="red-title-banner">
-        <h2 class="text-white">{{data[2].heading}}</h2>
-
-    </div>
+        </section>
 
 
-    <section style="padding: 100px 0;">
-        <div class="container">
-            <div class="row mx-auto">
-                <div class="col-sm-6">
 
-                    <div class="hoverr">
+        <section style="padding:50px 0;">
+            <div class="container">
+                <div class="data-sheet">
 
-                        <strong>What is Operational Safety?</strong>
-                        <p class="text-justify">Operational Safety encompasses the protection of humans and equipment against imminent or potential damages and therefore uninterrupted operation of your assets. Specifically, BTG’s Vigilance™ online vibration monitoring and analysis,
-                            PROfile specialist doctor holder service and PROdry Yankee dryer analysis help you maintain the high performance of your operational assets and troubleshoot potential issues before asset damage is incurred. Additional expertise
-                            like Yankee internal & external inspection, OTR and metallization services are available through the Voith Group of companies.
+                    <div class="text-center">
+                        <button class="btn btn-lg my-2 btn-danger">See Product Sheet MEK-3000</button>
+                        <p class="mb-0  my-2" style="text-align: center !important;">Also previous MEK generation is available
                         </p>
+                        <button class="btn btn-lg my-2 btn-danger">See Product Sheet MEK-2500</button>
                     </div>
-
-                    <div class="hoverr mt-4">
-                        <strong>Why BTG?</strong>
-                        <p class="text-justify">We are your single source to help you reduce unplanned interruptions of your production and extend the intervals between planned maintenance stops significantly. Saving you time and resource while stabilizing your output. From
-                            failure prediction and failure protection to extension of asset lifetime we provide longstanding expertise in combination with state-of-the-art technology.</p>
-
-
-
-                    </div>
-
-
 
                 </div>
-
-                <div class="col-sm-6">
-
-
-                    <div class="hoverr">
-                        <strong>Why it is sustainable?</strong>
-                        <p class="text-justify">
-                            At BTG we work to ensure things last!
-                        </p>
-                        <p>
-                            Safe operations mean safe people, so everyone leaves for home in the same healthy condition as they arrived at work.
-                        </p>
-                        <p>
-                            Less unplanned interruptions, more predictability are the pillars to reduced urgent reactive activities around your assets and to reduce the risk to unconsciously engage in risky situations.
-                        </p>
-                        Our Operational Safety products and solutions help reduce wear and tear leading to higher reliability and lifetime of your equipment.
-                        <p>
-                            <p>
-                                Improved production stability increases on-target output and therefore reduce production waste in papermaking, and converting
-                            </p>
-                            <p>
-                                State-of-the-art technology combined with capability building through subject matter experts, BTG provides the hard and soft tools to help you help yourself understand the ups and downs of your process and to take the right measures at the right time.
-
-                            </p>
-
-
-                    </div>
-
-                    <div class="hoverr">
-                        <strong>Economic advantage</strong>
-
-                        <p class="text-justify">Savings range from € 20.000 – € 300.000</p>
-                    </div>
-
-
-                </div>
-
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </div>
-<app-footer></app-footer>

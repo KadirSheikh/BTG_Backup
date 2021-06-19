@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
+
+import { CommonModule } from '@angular/common';  
+// import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -31,6 +36,7 @@ import { SingleNewsEventComponent } from './single-news-event/single-news-event.
 import { AllTestimonialComponent } from './all-testimonial/all-testimonial.component';
 import { TestimonialDetailComponent } from './testimonial-detail/testimonial-detail.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,15 +61,19 @@ import { MatDialogModule } from '@angular/material/dialog';
     SeeWhatWeDoComponent,
     SingleNewsEventComponent,
     AllTestimonialComponent,
-    TestimonialDetailComponent
+    TestimonialDetailComponent,
+    SubCategoryComponent  ,
+    MainCategoryComponent
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     CarouselModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

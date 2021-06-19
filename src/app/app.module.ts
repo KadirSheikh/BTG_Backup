@@ -37,6 +37,7 @@ import { AllTestimonialComponent } from './all-testimonial/all-testimonial.compo
 import { TestimonialDetailComponent } from './testimonial-detail/testimonial-detail.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { SocialLinkComponent } from './social-link/social-link.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +64,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AllTestimonialComponent,
     TestimonialDetailComponent,
     SubCategoryComponent  ,
-    MainCategoryComponent
+    MainCategoryComponent,
+    SocialLinkComponent
   ],
   imports: [
     NgxPaginationModule,

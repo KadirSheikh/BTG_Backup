@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'subcatagory/:id', component: SubcatagoriesComponent },
   { path: 'sub-subcatagory/:id', component: SubSubCatagoryComponent },
   { path: 'product/:id', component: ProductsComponent },
-  // { path: 'solution-sub-category/:id', component: SubCategoryComponent },
+  { path: 'solution-sub-category/:id', component: SubSubCatagoryComponent },
   { path: 'solution-main-category/:id', component: MainCategoryComponent },
   { path: 'events', component: EventsComponent },
   { path: 'contact', component: ContactComponent },

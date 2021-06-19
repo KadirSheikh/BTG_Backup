@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
 
     (await this._proService.getProduct(id)).subscribe((resp: any) => {
       console.log(resp)
-      if(resp.data == null || resp.data.heading == "Heading"){
+      if(resp.data == null || resp.data?.heading.includes('Heading')){
         this.showComingSoon = true;
         this.isLoading = false;
         }else{

@@ -20,6 +20,7 @@ export class FooterComponent implements OnInit {
       
       res.subscribe((resp: any) => {
         let response1 = resp.data;
+
         response1.forEach(async element => {
 
           (await this._nav.getsolutionMainCategoryFor(element._id)).subscribe((resp2:any) => {
@@ -27,7 +28,13 @@ export class FooterComponent implements OnInit {
             
             
             let pushData = {main: element, sub: resp2?.data}
-            this.industrySolutuonMain.push(pushData)
+            this.industrySolutuonMain.push(pushData);
+            // this.industrySolutuonForData = this.industrySolutuonForData.sort(function(a,b){
+            //   return ((a['order'] < b['order']) ? -1 : ((a['order'] > b['order']) ? 1 : 0));
+            // });
+            // this.industrySolutuonForData.forEach((isd,index) => {
+            //   isd.order = index;          
+            // });
           })
           
         });

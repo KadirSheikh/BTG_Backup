@@ -75,51 +75,59 @@
 
         <section style="padding:50px 0;">
             <div class="container">
-                <div>
+                <div *ngIf="isLoggedIn">
                     <mat-tab-group (selectedTabChange)="tabChanged($event)">
                         <mat-tab *ngFor="let tabtitle of dataSheetCategories; let index = index" class="tab-title">
                             <ng-template mat-tab-label>
                                 {{tabtitle.name}}
-                                
-                
-                                        <!-- (click)="openFormDialog('add', 'category', id)"                         -->
+
+
+                                <!-- (click)="openFormDialog('add', 'category', id)"                         -->
                             </ng-template>
                             <mat-selection-list>
-                
+
                                 <div *ngIf="dataSheets?.length == 0">No Data Found</div>
                                 <div class="my-4" *ngFor="let d of dataSheet">
-                                    {{ d.name }} | {{ d.language }} 
+                                    {{ d.name }}
 
-                                    <!-- <button class="float-right btn btn-danger mx-2">View PDF</button> -->
-                                    
-                                    <!-- <a href="{{d.url}}" target="_blank">
+                                    <!-- <button class="float-right btn btn-danger mx-2">View PDF</button>
+                                    <a href="{{d.url}}" target="_blank">
                                         <button class="float-right btn btn-danger mx-2">Download PDF</button>
                                     </a> -->
 
-                                    <button class="btn btn-danger float-right" mat-button [matMenuTriggerFor]="menu">Download</button>
+
+                                    <button class="btn btn-danger float-right mx-2" mat-button [matMenuTriggerFor]="menu">Download</button>
                                     <mat-menu #menu="matMenu">
                                         <a href="{{ s.url }}" target="_blank" *ngFor="let s of d.sheets"><button mat-menu-item>{{ s.language }}</button></a>
                                         <!-- <button mat-menu-item>Item 2</button> -->
                                     </mat-menu>
-                
-                                    
+
+                                    <button class="btn btn-danger float-right mx-2" mat-button [matMenuTriggerFor]="view">View</button>
+                                    <mat-menu #view="matMenu">
+                                        <a routerLink="/view-pdf" [queryParams]="{url:s.url}" *ngFor="let s of d.sheets">
+                                            <button mat-menu-item>{{ s.language }}</button>
+
+                                        </a>
+                                    </mat-menu>
+
+
                                 </div>
-                
+
 
                                 <!-- <button (click)="openFormDialog('add', 'datasheet', id, tabtitle._id)" mat-flat-button color="accent" class=" my-3">Add Data Sheet for {{ tabtitle.name }}</button> -->
                             </mat-selection-list>
                         </mat-tab>
                     </mat-tab-group>
                 </div>
-                <div class="data-sheet">
+                <div class="data-sheet" *ngIf="!isLoggedIn">
 
-                   
+
 
                     <div class="text-center">
-                        <button class="btn btn-lg my-2 btn-danger">See Product Sheet MEK-3000</button>
-                        <p class="mb-0  my-2" style="text-align: center !important;">Also previous MEK generation is available
+                        <button class="btn btn-lg my-2 btn-danger" [innerHTML]="productsData.heading" (click)="seeDataSheet()"></button>
+                        <!-- <p class="mb-0  my-2" style="text-align: center !important;">Also previous MEK generation is available
                         </p>
-                        <button class="btn btn-lg my-2 btn-danger">See Product Sheet MEK-2500</button>
+                        <button class="btn btn-lg my-2 btn-danger">See Product Sheet MEK-2500</button> -->
                     </div>
 
                 </div>

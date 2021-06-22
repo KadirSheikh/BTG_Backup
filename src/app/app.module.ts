@@ -38,8 +38,15 @@ import { TestimonialDetailComponent } from './testimonial-detail/testimonial-det
 import { MatDialogModule } from '@angular/material/dialog';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {MatTabsModule} from '@angular/material/tabs';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
 import { SocialLinkComponent } from './social-link/social-link.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GlobalConstants } from '../app/common/global-constant';
+import {MatMenuModule} from '@angular/material/menu';
+import { ViewPdfComponent } from './view-pdf/view-pdf.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,9 +74,14 @@ import { SocialLinkComponent } from './social-link/social-link.component';
     TestimonialDetailComponent,
     SubCategoryComponent  ,
     MainCategoryComponent,
-    SocialLinkComponent
+    SocialLinkComponent,
+    LoginComponent,
+    SignupComponent,
+    ViewPdfComponent
   ],
   imports: [
+    PdfViewerModule,
+    MatMenuModule,
     NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
@@ -79,9 +91,11 @@ import { SocialLinkComponent } from './social-link/social-link.component';
     MatDialogModule,
     MatTabsModule,
     CommonModule,
-    MatMenuModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [GlobalConstants],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

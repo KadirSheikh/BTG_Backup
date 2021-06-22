@@ -20,6 +20,7 @@ import { SolutionsComponent } from './solutions/solutions.component';
 import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { SubSubCatagoryComponent } from './sub-sub-catagory/sub-sub-catagory.component';
 import { SubcatagoriesComponent } from './subcatagories/subcatagories.component';
+import { ViewPdfComponent } from './view-pdf/view-pdf.component';
 
 
 const routes: Routes = [
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'see-what-we-do' , component:SeeWhatWeDoComponent },
   { path: 'single_news/:id' , component:SingleNewsEventComponent },
   { path: 'all-testimonial' , component:AllTestimonialComponent },
+  { path: 'view-pdf' , component:ViewPdfComponent },
 ];
 
 @NgModule({

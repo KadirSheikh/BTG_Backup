@@ -10,12 +10,12 @@
 
 .twit {
     font-size: 30px;
-    color: #1DA1F2;
+    color: #FF0000;
 }
 
 .twit:hover {
     font-size: 30px;
-    color: #57b5f0 !important;
+    color: #ec3e3e !important;
 }
 
 .link {

@@ -41,7 +41,7 @@ export class FooterComponent implements OnInit {
 
       })
         
-      console.log(this.industrySolutuonMain)
+      
 
     }).catch(error => {
       console.error(error)
@@ -59,7 +59,7 @@ export class FooterComponent implements OnInit {
 
     ;(await this._contact.getContact()).subscribe((resp:any) => {
        
-      console.log(resp.data);
+     
        this.contactArray = resp.data[0];
     })
 

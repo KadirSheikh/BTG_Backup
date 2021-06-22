@@ -75,7 +75,38 @@
 
         <section style="padding:50px 0;">
             <div class="container">
+                <div>
+                    <mat-tab-group (selectedTabChange)="tabChanged($event)">
+                        <mat-tab *ngFor="let tabtitle of dataSheetCategories; let index = index" class="tab-title">
+                            <ng-template mat-tab-label>
+                                {{tabtitle.name}}
+                                
+                
+                                        <!-- (click)="openFormDialog('add', 'category', id)"                         -->
+                            </ng-template>
+                            <mat-selection-list>
+                
+                                <div *ngIf="dataSheets?.length == 0">No Data Found</div>
+                                <div class="my-4" *ngFor="let d of dataSheet">
+                                    {{ d.name }} | {{ d.language }} 
+
+                                    <button class="float-right btn btn-danger mx-2">View PDF</button>
+                                    <a href="{{d.url}}" target="_blank">
+                                        <button class="float-right btn btn-danger mx-2">Download PDF</button>
+                                    </a>
+                
+                                    
+                                </div>
+                
+
+                                <!-- <button (click)="openFormDialog('add', 'datasheet', id, tabtitle._id)" mat-flat-button color="accent" class=" my-3">Add Data Sheet for {{ tabtitle.name }}</button> -->
+                            </mat-selection-list>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
                 <div class="data-sheet">
+
+                   
 
                     <div class="text-center">
                         <button class="btn btn-lg my-2 btn-danger">See Product Sheet MEK-3000</button>

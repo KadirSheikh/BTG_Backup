@@ -49,18 +49,18 @@ export class FooterComponent implements OnInit {
 
 
     
-    this._contact.getContact().then(res => {
-      res.subscribe((resp:any) => {
+    // this._contact.getContact().then(res => {
+    //   res.subscribe((resp:any) => {
        
-        console.log(resp.data);
-         this.contactArray = resp.data[0];
+    //     console.log(resp.data);
+    //     //  this.contactArray = resp.data[0];
+    //   })
+    // })
 
-        
-      
-        
-
-        
-      })
+    ;(await this._contact.getContact()).subscribe((resp:any) => {
+       
+      console.log(resp.data);
+       this.contactArray = resp.data[0];
     })
 
 

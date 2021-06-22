@@ -35,11 +35,17 @@ export class ProductsComponent implements OnInit {
       this.productId = params['id'];
       this.getData(this.productId);
 
-    })
-
-      ; (await this._datasheet.getCategories(this.productId)).subscribe((res: any) => {
+    }); 
+    (await this._datasheet.getCategories(this.productId)).subscribe( async(res: any) => {
         console.log(res)
-        this.dataSheetCategories = res?.data
+        this.dataSheetCategories = res?.data;
+
+        (await this._datasheet.getDataSheets(this.dataSheetCategories[0]?.parentId, this.dataSheetCategories[0]?._id)).subscribe((res: any) => {
+          // console.log(res)
+          this.dataSheet = this.languageSort(res.data);
+          console.log(this.dataSheet);
+               
+        })
       }, (error) => {
         console.log(error)
       })
@@ -52,11 +58,12 @@ export class ProductsComponent implements OnInit {
 
     // console.log(this.categories[tabChangeEvent.index])
     let parentId = this.dataSheetCategories[tabChangeEvent.index].parentId
-    let categoryId = this.dataSheetCategories[tabChangeEvent.index]._id
-
-      ; (await this._datasheet.getDataSheets(parentId, categoryId)).subscribe((res: any) => {
-        console.log(res)
-        this.dataSheet = res.data
+    let categoryId = this.dataSheetCategories[tabChangeEvent.index]._id; 
+    (await this._datasheet.getDataSheets(parentId, categoryId)).subscribe((res: any) => {
+        // console.log(res)
+        this.dataSheet = this.languageSort(res.data);
+        console.log(this.dataSheet);
+        
       })
   }
 
@@ -93,6 +100,26 @@ export class ProductsComponent implements OnInit {
 
     //   })
     // })
+  }
+
+  languageSort(arr){
+    let newArr = [];
+    arr.forEach(e => {
+      var name = e.name;
+      var sheets = [];
+      
+      var findArr = newArr.find(f => f.name === name);
+      if( !findArr  ){
+        // console.log(findArr);
+        var findArrS = arr.filter(df => df.name === name);
+        newArr.push({
+          name: name,
+          sheets: findArrS
+        });}
+
+    })
+    console.log(newArr);
+    return newArr;
   }
 
 }

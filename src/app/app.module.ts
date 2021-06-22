@@ -38,7 +38,7 @@ import { TestimonialDetailComponent } from './testimonial-detail/testimonial-det
 import { MatDialogModule } from '@angular/material/dialog';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatMenuModule} from '@angular/material/menu';
 import { SocialLinkComponent } from './social-link/social-link.component';
 @NgModule({
   declarations: [
@@ -78,7 +78,8 @@ import { SocialLinkComponent } from './social-link/social-link.component';
     HttpClientModule,
     MatDialogModule,
     MatTabsModule,
-    CommonModule
+    CommonModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

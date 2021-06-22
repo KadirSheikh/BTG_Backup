@@ -90,10 +90,17 @@
                                 <div class="my-4" *ngFor="let d of dataSheet">
                                     {{ d.name }} | {{ d.language }} 
 
-                                    <button class="float-right btn btn-danger mx-2">View PDF</button>
-                                    <a href="{{d.url}}" target="_blank">
+                                    <!-- <button class="float-right btn btn-danger mx-2">View PDF</button> -->
+                                    
+                                    <!-- <a href="{{d.url}}" target="_blank">
                                         <button class="float-right btn btn-danger mx-2">Download PDF</button>
-                                    </a>
+                                    </a> -->
+
+                                    <button class="btn btn-danger float-right" mat-button [matMenuTriggerFor]="menu">Download</button>
+                                    <mat-menu #menu="matMenu">
+                                        <a href="{{ s.url }}" target="_blank" *ngFor="let s of d.sheets"><button mat-menu-item>{{ s.language }}</button></a>
+                                        <!-- <button mat-menu-item>Item 2</button> -->
+                                    </mat-menu>
                 
                                     
                                 </div>

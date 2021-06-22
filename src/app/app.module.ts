@@ -37,6 +37,8 @@ import { AllTestimonialComponent } from './all-testimonial/all-testimonial.compo
 import { TestimonialDetailComponent } from './testimonial-detail/testimonial-detail.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {MatTabsModule} from '@angular/material/tabs';
+
 import { SocialLinkComponent } from './social-link/social-link.component';
 @NgModule({
   declarations: [
@@ -75,6 +77,7 @@ import { SocialLinkComponent } from './social-link/social-link.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MatDialogModule,
+    MatTabsModule,
     CommonModule
   ],
   providers: [],

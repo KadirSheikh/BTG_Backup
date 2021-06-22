@@ -1,6 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { NavbarService } from '../navbar.service'
+import { LoginComponent } from '../login/login.component';
+import { MatDialog } from '@angular/material/dialog';
+import { GlobalConstants } from '../common/global-constant';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -11,13 +14,24 @@ export class NavbarComponent implements OnInit {
 
   mainNavData: any;
   industrySolutuonForData: any;
-
+  isLoggedIn:boolean;
   flag: boolean;
 
   
-  constructor(@Inject(DOCUMENT) private document: Document, private _nav: NavbarService) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private _nav: NavbarService,public dialog: MatDialog,public gVar : GlobalConstants) { }
 
   ngOnInit(): void {
+
+
+    if(this.gVar.isLoggedIn == 'loggedin'){
+       this.isLoggedIn = true;
+    }else{
+      this.isLoggedIn = false;
+    }
+
+    
+    
+    
 
     // Get main Nav content 
     this._nav.getMainNav().then((res) => {
@@ -34,6 +48,8 @@ export class NavbarComponent implements OnInit {
     // Get Industry Solution For
     this._nav.getSubNav().then((res) => {
       res.subscribe((response: any) => {
+        
+        console.log(response.data);
         
         
         if (response?.status && response?.status == true)
@@ -56,6 +72,34 @@ export class NavbarComponent implements OnInit {
     
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(LoginComponent, {
+      width: '500px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     
+    });
+  }
+
+  // decideRoute(id:string , level:number ){
+  //   if(level == 2){
+  //      return `subcatagory/${id}/${level}`;
+  //   }
+  // }
+
+  logout(){
+    localStorage.setItem('auth-token', ''),
+    localStorage.setItem('email', ''),
+    localStorage.setItem('id', ''),
+    localStorage.setItem('mobile', ''),
+    localStorage.setItem('name', '')
+    localStorage.setItem('isLoggedIn', '')
+    window.location.reload();
+  }
+
   SolutionMainCategoryData: any;
 
   getSolutionMainCategory(id){
@@ -64,7 +108,7 @@ export class NavbarComponent implements OnInit {
     this._nav.getsolutionMainCategoryFor(id).then((res) => {
       res.subscribe((response: any) => {
         
-        
+        console.log(response.data);
         
         if (response?.status && response?.status == true)
         
@@ -85,7 +129,7 @@ export class NavbarComponent implements OnInit {
     this._nav.getsolutionSubCategoryFor(id).then((res) => {
       res.subscribe((response: any) => {
         
-        
+        console.log(response.data);
         if (response?.status && response?.status == true)
           this.SolutionSubCategory = response?.data
           // console.log(response?.data);
@@ -103,7 +147,7 @@ export class NavbarComponent implements OnInit {
     this.ProductMainCategory = [];
     this._nav.getproductMainCategory(id).then((res) => {
       res.subscribe((response: any) => {
-        
+        console.log(response.data);
         
         if (response?.status && response?.status == true)
           this.ProductMainCategory = response?.data

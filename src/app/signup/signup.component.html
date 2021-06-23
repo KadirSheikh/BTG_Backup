@@ -105,7 +105,7 @@
     </div>
 
 
-    <button class="btn btn-danger w-100 my-2">SignUp</button>
+    <button [disabled]="submit" class="btn btn-danger w-100 my-2">SignUp</button>
 
 
     <div class="alert mt-2 alert-success" *ngIf="successMsg?.length > 0">
@@ -116,6 +116,11 @@
         {{ errorMsg }}
     </div>
 </form>
+
+<mat-dialog-actions align="end">
+    <button class="btn" mat-button mat-dialog-close>Cancel</button>
+
+</mat-dialog-actions>
 
 <div *ngIf="isLoading" class="text-center">
     <div class="spinner-border text-danger" role="status">

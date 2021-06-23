@@ -182,13 +182,14 @@ export class HomeComponent implements OnInit {
       res.subscribe((resp:any) => {
         this.loader = false;
         
-         this.seeArray = resp.data;
+         this.seeArray = resp.data; 
+          
+//          this.seeArray = this.seeArray.sort(function(a,b){
+//           return ((a['create_date'] > b['create_date']) ? -1 : ((a['create_date'] < b['create_date']) ? 1 : 0));
+//         });
+// console.log(this.seeArray);
 
-        
-      
-        
 
-        
       })
     })
 

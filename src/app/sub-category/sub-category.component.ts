@@ -36,7 +36,8 @@ export class SubCategoryComponent implements OnInit {
        
     })
 
-  
+    console.log(this.isLoading);
+    
   }
 
   async getData(id:string){
@@ -55,7 +56,7 @@ export class SubCategoryComponent implements OnInit {
           console.log(this.productsData);
           
         }
-      
+        console.log(this.isLoading);
     })
 
     // this._navService.getProductMainCategoryData(id).then((res) => {

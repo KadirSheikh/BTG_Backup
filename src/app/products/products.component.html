@@ -88,7 +88,7 @@
 
                                 <div *ngIf="dataSheets?.length == 0">No Data Found</div>
                                 <div class="my-4" *ngFor="let d of dataSheet">
-                                    {{ d.name }} | {{ d.language }}
+                                    {{ d.name }}
 
                                     <!-- <button class="float-right btn btn-danger mx-2">View PDF</button>
                                     <a href="{{d.url}}" target="_blank">
@@ -96,13 +96,13 @@
                                     </a> -->
 
 
-                                    <button class="btn btn-danger float-right" mat-button [matMenuTriggerFor]="menu">Download</button>
+                                    <button class="btn btn-danger float-right mx-2" mat-button [matMenuTriggerFor]="menu">Download</button>
                                     <mat-menu #menu="matMenu">
                                         <a href="{{ s.url }}" target="_blank" *ngFor="let s of d.sheets"><button mat-menu-item>{{ s.language }}</button></a>
                                         <!-- <button mat-menu-item>Item 2</button> -->
                                     </mat-menu>
 
-                                    <button class="btn btn-danger float-right" mat-button [matMenuTriggerFor]="view">View</button>
+                                    <button class="btn btn-danger float-right mx-2" mat-button [matMenuTriggerFor]="view">View</button>
                                     <mat-menu #view="matMenu">
                                         <a routerLink="/view-pdf" [queryParams]="{url:s.url}" *ngFor="let s of d.sheets">
                                             <button mat-menu-item>{{ s.language }}</button>

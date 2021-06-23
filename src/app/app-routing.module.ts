@@ -5,6 +5,7 @@ import { ExportControlComplianceComponent } from './about/export-control-complia
 import { HistoryComponent } from './about/history/history.component';
 import { WhistleblowingComponent } from './about/whistleblowing/whistleblowing.component';
 import { AllTestimonialComponent } from './all-testimonial/all-testimonial.component';
+import { ApplyNowComponent } from './apply-now/apply-now.component';
 import { CareersComponent } from './careers/careers.component';
 import { CatagoriesComponent } from './catagories/catagories.component';
 import { ContactComponent } from './contact/contact.component';
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'single_news/:id' , component:SingleNewsEventComponent },
   { path: 'all-testimonial' , component:AllTestimonialComponent },
   { path: 'view-pdf' , component:ViewPdfComponent },
+  { path: 'apply-now' , component:ApplyNowComponent },
 ];
 
 @NgModule({

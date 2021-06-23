@@ -47,6 +47,7 @@ import { GlobalConstants } from '../app/common/global-constant';
 import {MatMenuModule} from '@angular/material/menu';
 import { ViewPdfComponent } from './view-pdf/view-pdf.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ApplyNowComponent } from './apply-now/apply-now.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +78,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     SocialLinkComponent,
     LoginComponent,
     SignupComponent,
-    ViewPdfComponent
+    ViewPdfComponent,
+    ApplyNowComponent
   ],
   imports: [
     PdfViewerModule,

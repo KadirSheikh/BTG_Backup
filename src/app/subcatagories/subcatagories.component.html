@@ -15,77 +15,94 @@
             <h2 class="text-white" [innerHTML]="productsData.heading"> </h2>
         </div>
 
+
         <section style="padding: 50px 0;">
-            <div class="container">
-                <div class="row mx-auto">
 
-                    <!-- Section One -->
-                    <div *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionOne"></div>
-                    <!-- Section One End -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                            <!-- This is the tree node template for leaf nodes -->
+                            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                                <!-- use a disabled button to provide padding for tree leaf -->
+                                <button mat-icon-button disabled></button> {{node.name}}
+                            </mat-tree-node>
+                            <!-- This is the tree node template for expandable nodes -->
+                            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                                <mat-icon class="mat-icon-rtl-mirror">
+                                  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                                </mat-icon>
+                              </button> {{node.name}}
+                            </mat-tree-node>
+                        </mat-tree>
+                    </div>
 
-                    <!-- Section Two -->
-                    <div *ngIf="!productsData.sectionTwo.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionTwo"></div>
-                    <!-- Section xTwo End -->
+                    <div class="col-sm-9">
 
-                    <!-- Section Three -->
-                    <div *ngIf="!productsData.sectionThree.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionThree"></div>
-                    <!-- Section Three Emd -->
-
-                    <!-- Section Four -->
-                    <div *ngIf="!productsData.sectionFour.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionFour"></div>
-                    <!-- Section Four End -->
-
-                    <!-- Section Five -->
-                    <div *ngIf="!productsData.sectionFive.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionFive"></div>
-                    <!-- Section Five Emd -->
-
-                    <!-- Section Six -->
-                    <div *ngIf="!productsData.sectionSix.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionSix"></div>
-                    <!-- Section Six End -->
-
-                    <!-- Section Seven -->
-                    <div *ngIf="!productsData.sectionSeven.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionSeven"></div>
-                    <!-- Section Seven Emd -->
-
-                    <!-- Section Eight -->
-                    <div *ngIf="!productsData.sectionEight.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionEight"></div>
-                    <!-- Section Eight End -->
-
-                    <!-- Section Nine -->
-                    <div *ngIf="!productsData.sectionNine.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionNine"></div>
-                    <!-- Section Nine Emd -->
-
-                    <!-- Section Ten -->
-                    <div *ngIf="!productsData.sectionTen.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionTen"></div>
-                    <!-- Section Ten End -->
-
-                    <!-- Section Eleven -->
-                    <div *ngIf="!productsData.sectionEleven.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionEleven"></div>
-                    <!-- Section Eleven Emd -->
-
-                    <!-- Section Twelve -->
-                    <div *ngIf="!productsData.sectionTwelve.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionTwelve"></div>
-                    <!-- Section Twelve End -->
-                </div>
-
-            </div>
-        </section>
+                        <div class="row">
 
 
 
-        <section style="padding:50px 0;">
-            <div class="container">
-                <div class="data-sheet">
+                            <!-- Section One -->
+                            <div *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionOne"></div>
+                            <!-- Section One End -->
 
-                    <div class="text-center">
-                        <button class="btn btn-lg my-2 btn-danger">See Product Sheet MEK-3000</button>
-                        <p class="mb-0  my-2" style="text-align: center !important;">Also previous MEK generation is available
-                        </p>
-                        <button class="btn btn-lg my-2 btn-danger">See Product Sheet MEK-2500</button>
+                            <!-- Section Two -->
+                            <div *ngIf="!productsData.sectionTwo.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionTwo"></div>
+                            <!-- Section xTwo End -->
+
+                            <!-- Section Three -->
+                            <div *ngIf="!productsData.sectionThree.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionThree"></div>
+                            <!-- Section Three Emd -->
+
+                            <!-- Section Four -->
+                            <div *ngIf="!productsData.sectionFour.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionFour"></div>
+                            <!-- Section Four End -->
+
+                            <!-- Section Five -->
+                            <div *ngIf="!productsData.sectionFive.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionFive"></div>
+                            <!-- Section Five Emd -->
+
+                            <!-- Section Six -->
+                            <div *ngIf="!productsData.sectionSix.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionSix"></div>
+                            <!-- Section Six End -->
+
+                            <!-- Section Seven -->
+                            <div *ngIf="!productsData.sectionSeven.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionSeven"></div>
+                            <!-- Section Seven Emd -->
+
+                            <!-- Section Eight -->
+                            <div *ngIf="!productsData.sectionEight.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionEight"></div>
+                            <!-- Section Eight End -->
+
+                            <!-- Section Nine -->
+                            <div *ngIf="!productsData.sectionNine.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionNine"></div>
+                            <!-- Section Nine Emd -->
+
+                            <!-- Section Ten -->
+                            <div *ngIf="!productsData.sectionTen.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionTen"></div>
+                            <!-- Section Ten End -->
+
+                            <!-- Section Eleven -->
+                            <div *ngIf="!productsData.sectionEleven.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionEleven"></div>
+                            <!-- Section Eleven Emd -->
+
+                            <!-- Section Twelve -->
+                            <div *ngIf="!productsData.sectionTwelve.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionTwelve"></div>
+                            <!-- Section Twelve End -->
+
+                        </div>
                     </div>
 
                 </div>
+
+
             </div>
         </section>
+
+
+
+
     </div>
 </div>

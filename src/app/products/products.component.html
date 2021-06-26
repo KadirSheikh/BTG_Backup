@@ -75,11 +75,13 @@
 
         <section style="padding:50px 0;">
             <div class="container">
+                <h4 class="text-center my-5">View Data Sheet</h4>
                 <div *ngIf="isLoggedIn">
                     <mat-tab-group (selectedTabChange)="tabChanged($event)">
                         <mat-tab *ngFor="let tabtitle of dataSheetCategories; let index = index" class="tab-title">
                             <ng-template mat-tab-label>
-                                {{tabtitle.name}}
+
+                                <span style="font-weight: 700; font-size: large;">{{tabtitle.name}}</span>
 
 
                                 <!-- (click)="openFormDialog('add', 'category', id)"                         -->
@@ -87,28 +89,57 @@
                             <mat-selection-list>
 
                                 <div *ngIf="dataSheets?.length == 0">No Data Found</div>
-                                <div class="my-4" *ngFor="let d of dataSheet">
-                                    {{ d.name }}
-
-                                    <!-- <button class="float-right btn btn-danger mx-2">View PDF</button>
-                                    <a href="{{d.url}}" target="_blank">
-                                        <button class="float-right btn btn-danger mx-2">Download PDF</button>
-                                    </a> -->
+                                <div class="my-4 row" *ngFor="let d of dataSheet">
 
 
-                                    <button class="btn btn-danger float-right mx-2" mat-button [matMenuTriggerFor]="menu">Download</button>
-                                    <mat-menu #menu="matMenu">
+                                    <div class="col-sm-7">
+                                        {{ d.name }}
+                                    </div>
+
+                                    <div class="col-sm-5">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Select Language</mat-label>
+                                            <select matNativeControl required (change)="getLanguage($event , d.id)">
+                                                <option value="{{s | json}}" *ngFor="let s of d.sheets">{{ s.language }}
+                                                </option>
+    
+                                            </select>
+                                        </mat-form-field>
+
+                                        <button class="btn btn-danger float-right mx-2" style="padding: 3%;" mat-button>
+    
+                                            <a [href]="d.selected" style="color: #fff;">Download</a>
+                                        </button>
+
+                                        <button class="btn btn-danger float-right mx-2" style="padding: 3%;" mat-button>
+                                            <a routerLink="/view-pdf" style="color: #fff;" [queryParams]="{url:d.selected}">View</a>
+                                        </button>
+                                    </div>
+
+
+
+
+
+                                    <!-- <button class="btn btn-danger float-right mx-2" mat-button [matMenuTriggerFor]="menu">Download</button> -->
+                                    <!-- <mat-menu #menu="matMenu">
                                         <a href="{{ s.url }}" target="_blank" *ngFor="let s of d.sheets"><button mat-menu-item>{{ s.language }}</button></a>
-                                        <!-- <button mat-menu-item>Item 2</button> -->
-                                    </mat-menu>
+                                        
+                                    </mat-menu> -->
 
-                                    <button class="btn btn-danger float-right mx-2" mat-button [matMenuTriggerFor]="view">View</button>
-                                    <mat-menu #view="matMenu">
+
+                                    <!-- <button class="btn btn-danger float-right mx-2" mat-button [matMenuTriggerFor]="view">View</button> -->
+                                    <!-- <mat-menu #view="matMenu">
                                         <a routerLink="/view-pdf" [queryParams]="{url:s.url}" *ngFor="let s of d.sheets">
                                             <button mat-menu-item>{{ s.language }}</button>
 
                                         </a>
-                                    </mat-menu>
+                                    </mat-menu> -->
+                                    <!-- <button class="btn btn-danger float-right mx-2" mat-button [matMenuTriggerFor]="menu" (change)="getLanguage($event)">Select language</button>
+                                    <mat-menu #menu="matMenu">
+                                        <button mat-menu-item *ngFor="let s of d.sheets">{{ s.language }}</button>
+
+                                    </mat-menu> -->
+
 
 
                                 </div>

@@ -7,6 +7,7 @@ import { GlobalConstants } from '../common/global-constant';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { ViewPdfComponent } from '../view-pdf/view-pdf.component';
+import { identifierModuleUrl } from '@angular/compiler';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -81,6 +82,25 @@ export class ProductsComponent implements OnInit {
       })
   }
 
+  getLanguage(lan:any , id:string){
+    console.log(JSON.parse(lan.target.value));
+    let selectedData = JSON.parse(lan.target.value);
+    console.log(id);
+
+    this.dataSheet.forEach(e => {
+      if(e.id == id){
+        e.selected = selectedData.url
+      }
+    });
+
+    console.log(this.dataSheet);
+    
+
+
+    
+    
+  }
+
   async getData(id: string) {
 
     (await this._proService.getProduct(id)).subscribe((resp: any) => {
@@ -99,34 +119,9 @@ export class ProductsComponent implements OnInit {
     })
 
 
-
-    // this._navService.getProductMainCategoryData(id).then((res) => {
-    //   res.subscribe((resp:any)=> {
-    //     if(resp.data == null || resp.data.heading == "Enter Product Name Here..."){
-    //     this.showComingSoon = true;
-    //     this.isLoading = false;
-    //     }else{
-    //       this.productsData = resp.data;
-    //       this.showComingSoon = false;
-    //       this.isLoading = false;
-    //       console.log(this.productsData.heading); 
-    //     }
-
-    //   })
-    // })
   }
 
-  // viewPdf(url:string){
-  //   const dialogRef = this.dialog.open(ViewPdfComponent , {
-  //     width: '100%',
-  //     data: {url}
-  //   });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-    
-  // }
 
   seeDataSheet(){
     if(this.gVar.isLoggedIn == 'loggedin'){
@@ -155,6 +150,7 @@ export class ProductsComponent implements OnInit {
     let newArr = [];
     arr.forEach(e => {
       var name = e.name;
+      var id = e._id;
       var sheets = [];
       
       var findArr = newArr.find(f => f.name === name);
@@ -162,8 +158,10 @@ export class ProductsComponent implements OnInit {
         // console.log(findArr);
         var findArrS = arr.filter(df => df.name === name);
         newArr.push({
+          id:id,
           name: name,
-          sheets: findArrS
+          sheets: findArrS,
+          selected:findArrS[0]?.url || ''
         });}
 
     })

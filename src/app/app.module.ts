@@ -48,6 +48,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ViewPdfComponent } from './view-pdf/view-pdf.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ApplyNowComponent } from './apply-now/apply-now.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +89,12 @@ import { ApplyNowComponent } from './apply-now/apply-now.component';
     ApplyNowComponent
   ],
   imports: [
+    MatIconModule,
+    MatButtonModule,
+    MatTreeModule,
+    MatListModule,
+    MatToolbarModule,
+    MatSidenavModule,
     PdfViewerModule,
     MatMenuModule,
     NgxPaginationModule,

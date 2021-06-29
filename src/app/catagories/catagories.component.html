@@ -34,74 +34,103 @@
     </div>
 
 
-    <section style="padding: 50px 0;">
-        <div class="container">
-            <div class="row mx-auto">
-                <div class="col-sm-6">
-
-                    <strong style="font-size: 25px;">Optimize quality and reduce costs with Industry 4.0 tools across
-                        the fiberline</strong>
-                    <p class="mt-5 text-justify">Optimizing fiberline productivity and profitability is a key challenge for pulp mills.
-                    </p>
-                    <p class="text-justify">
-                        To support this objective, BTG offers an integrated approach in the improvement journey: BTG Pulp 4.0. In this solution, process measurements are combined with advanced process controls and supported by BTG expertise.
-                    </p>
-
-
-
-
-
-                </div>
-
-                <div class="col-sm-6">
-
-                    <img src="../../assets/pulp/pulp1.png" class="img-fluid" style="width: auto;height: auto;" alt="">
-
-                </div>
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                    <!-- This is the tree node template for leaf nodes -->
+                    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                        <!-- use a disabled button to provide padding for tree leaf -->
+                        <button mat-icon-button disabled></button> {{node.name}}
+                    </mat-tree-node>
+                    <!-- This is the tree node template for expandable nodes -->
+                    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                        <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                        <mat-icon class="mat-icon-rtl-mirror">
+                          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                        </mat-icon>
+                      </button> {{node.name}}
+                    </mat-tree-node>
+                </mat-tree>
             </div>
 
-        </div>
-    </section>
+            <div class="col-sm-9">
 
-    <section style="padding: 50px 0;">
-        <div class="container">
-            <div class="row mx-auto">
-                <div class="col-sm-6 col-12 mb-5">
-                    <strong style="font-size: 25px;">BTG Pulp 4 0
-                        the fiberline</strong>
-                    <div id="container1">
-                        <div id="navi" style="background-color: #FCE0DF;width: 200px;height: 300px;"></div>
-                        <div id="infoi">
-                            <iframe class="mt-5 ml-5" width="350" height="200" src="https://www.youtube.com/embed/NKzd_YiW9AQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="row">
+                    <section style="padding: 50px 0;">
+                        <div class="container">
+                            <div class="row mx-auto">
+                                <div class="col-sm-6">
+
+                                    <strong style="font-size: 25px;">Optimize quality and reduce costs with Industry 4.0 tools across
+                                        the fiberline</strong>
+                                    <p class="mt-5 text-justify">Optimizing fiberline productivity and profitability is a key challenge for pulp mills.
+                                    </p>
+                                    <p class="text-justify">
+                                        To support this objective, BTG offers an integrated approach in the improvement journey: BTG Pulp 4.0. In this solution, process measurements are combined with advanced process controls and supported by BTG expertise.
+                                    </p>
+
+
+
+
+
+                                </div>
+
+                                <div class="col-sm-6">
+
+                                    <img src="../../assets/pulp/pulp1.png" class="img-fluid" style="width: auto;height: auto;" alt="">
+
+                                </div>
+
+                            </div>
 
                         </div>
+                    </section>
 
-                    </div>
-                    <p class="mt-0">Pulp 4.0 is the BTG solution to optimize quality and reduce cost with Industry 4.0 tools across the fiberline</p>
-                    <!-- <strong style="font-size: 25px;">BTG Pulp 4 0
-                        the fiberline</strong>
-                    <iframe class="mt-5" width="300" height="200" src="https://www.youtube.com/embed/NKzd_YiW9AQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p class="mt-5">Pulp 4.0 is the BTG solution to optimize quality and reduce cost with Industry 4.0 tools across the fiberline</p> -->
+                    <section style="padding: 50px 0;">
+                        <div class="container">
+                            <div class="row mx-auto">
+                                <div class="col-sm-6 col-12 mb-5">
+                                    <strong style="font-size: 25px;">BTG Pulp 4 0
+                                        the fiberline</strong>
+                                    <div id="container1">
+                                        <div id="navi" style="background-color: #FCE0DF;width: 200px;height: 300px;"></div>
+                                        <div id="infoi">
+                                            <iframe class="mt-5 ml-5" width="350" height="200" src="https://www.youtube.com/embed/NKzd_YiW9AQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                        </div>
+
+                                    </div>
+                                    <p class="mt-0">Pulp 4.0 is the BTG solution to optimize quality and reduce cost with Industry 4.0 tools across the fiberline</p>
+                                    <!-- <strong style="font-size: 25px;">BTG Pulp 4 0
+                                        the fiberline</strong>
+                                    <iframe class="mt-5" width="300" height="200" src="https://www.youtube.com/embed/NKzd_YiW9AQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <p class="mt-5">Pulp 4.0 is the BTG solution to optimize quality and reduce cost with Industry 4.0 tools across the fiberline</p> -->
+                                </div>
+
+                                <div class="col-sm-2">
+
+                                </div>
+
+                                <div class="col-sm-4 col-12 m-auto" style="text-align: center;">
+
+                                    <img src="../../assets/pulp/pulp2.png" class="img-fluid mb-5" style="width: 274px;height: 376px;" alt="">
+
+
+                                    <a href="" class="download d-flex"> <i class="fa fa-download mt-1"></i> &nbsp; Download & read the Pulp 4.0 Brochure</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </section>
                 </div>
-
-                <div class="col-sm-2">
-
-                </div>
-
-                <div class="col-sm-4 col-12 m-auto" style="text-align: center;">
-
-                    <img src="../../assets/pulp/pulp2.png" class="img-fluid mb-5" style="width: 274px;height: 376px;" alt="">
-
-
-                    <a href="" class="download d-flex"> <i class="fa fa-download mt-1"></i> &nbsp; Download & read the Pulp 4.0 Brochure</a>
-
-                </div>
-
             </div>
-
         </div>
-    </section>
+    </div>
+
+
 
     <section class="contact-home" style="padding-bottom: 50px;">
         <div class="text-center" style="position: relative; top: 50%; left: 50%; transform: translate(-50%,-50%);">
@@ -150,203 +179,231 @@
         <h4 class="text-capitalize text-white text-center">{{data[0].subheading}}</h4>
     </div>
 
-    <section style="padding: 100px 0;">
-        <div class="container">
-            <div class="row  mx-auto">
-                <div class="col-sm-5 justify-content-center">
-                    <img [src]="data[0].img1" style="width: 100%; height: 100%;position: absolute;left: -20%;top: 2.5%" alt="">
-                </div>
 
-                <div class="col-sm-7 ">
-                    <a href="#lev4">
-                        <div class="strip level1 text-dark">
-                            Autonomous Control
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                    <!-- This is the tree node template for leaf nodes -->
+                    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                        <!-- use a disabled button to provide padding for tree leaf -->
+                        <button mat-icon-button disabled></button> {{node.name}}
+                    </mat-tree-node>
+                    <!-- This is the tree node template for expandable nodes -->
+                    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                        <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                        <mat-icon class="mat-icon-rtl-mirror">
+                          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                        </mat-icon>
+                      </button> {{node.name}}
+                    </mat-tree-node>
+                </mat-tree>
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <section style="padding: 100px 0;">
+                        <div class="container">
+                            <div class="row  mx-auto">
+                                <div class="col-sm-5 justify-content-center">
+                                    <img [src]="data[0].img1" style="width: 100%; height: 100%;position: absolute;left: -20%;top: 2.5%" alt="">
+                                </div>
+
+                                <div class="col-sm-7 ">
+                                    <a href="#lev4">
+                                        <div class="strip level1 text-dark">
+                                            Autonomous Control
+                                        </div>
+                                    </a>
+                                    <a href="#lev3">
+                                        <div class="strip level2 text-dark">
+                                            Process Control
+                                        </div>
+                                    </a>
+                                    <a href="#lev2">
+                                        <div class="strip level3 text-dark">
+                                            Vizualization, Diagnostic
+                                        </div>
+                                    </a>
+                                    <a href="#lev1">
+                                        <div class="strip level4 text-dark">
+                                            Smart Equipment
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <p class="mt-4 text-justify">
+                                {{data[0].para1}}
+                            </p>
+                            <p class="mt-4 text-justify">
+
+                                {{data[0].para2}}
+
+                            </p>
                         </div>
-                    </a>
-                    <a href="#lev3">
-                        <div class="strip level2 text-dark">
-                            Process Control
+                    </section>
+
+                    <section class="bg-light" style="padding: 100px 0;">
+                        <div class="container">
+                            <h3 class="text-center">Our featured solutions</h3>
+                            <!-- <p class="text-center no-wrap">
+                                We offer optimized, customized solutions for a range of applications. Below are some key examples of the
+                                challenges we can overcome. If your process isn’t featured here, contact our team to learn more
+                            </p>
+                    
+                            <div class="row mx-auto my-4">
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div id="lev4" class="row my-4 mx-auto text-center justify-content-center" style="padding: 60px 0;">
+                                <img [src]="data[0].img2" style="width: 31%;; height: 31%;" />
+                            </div>
+
+                            <div id="lev3" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                <div class="col-sm-4">
+                                    <p class="mb-0"><strong>CONTROL LOOP PERFORMANCE MANAGEMENT</strong></p>
+                                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance</p>
+
+                                    <p class="mb-0"><strong>ADVANCED PROCESS CONTROL</strong></p>
+                                    <p>Standardize and centerline the control strategy of process to increase focus</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <img [src]="data[0].img3" style="width: 100%;; height: 100%;" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mb-0 text-right"><strong>PREDICTIVE MODELLING SOLUTIONS</strong></p>
+                                    <p class="text-right">Usage of softsensors to reduce variability and optimize output leading to optimal product quality</p>
+                                </div>
+                            </div>
+
+                            <div id="lev2" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                <div class="col-sm-4">
+                                    <p class="mb-0"><strong>ONLINE ANALYZERS</strong></p>
+                                    <p>Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT</p>
+
+                                    <p class="mb-0"><strong>PERFORMANCE SOLUTIONS</strong></p>
+                                    <p>Advanced services and diagnosis to unlock process capabilities and performance</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <img [src]="data[0].img4" style="width: 100%;; height: 100%;" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mb-0 text-right"><strong>OPERATIONAL INTELLIGENCE</strong></p>
+                                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC</p>
+
+                                    <p class="mb-0 text-right"><strong>OPERATIONAL SAFETY</strong></p>
+                                    <p class="text-right">Optimum Yankee safety with advanced vibration monitoring solution and experience </p>
+                                </div>
+                            </div>
+
+                            <div id="lev1" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                <div class="col-sm-4">
+                                    <p class="mb-0"><strong>FIBER MANAGEMENT</strong></p>
+                                    <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization
+                                    </p>
+
+                                    <p class="mb-0"><a routerLink="/subcatagory/1" [queryParams]="{catname : 'tissue' , subname:'consistency-control'}"><strong
+                                                class="text-dark">CONSISTENCY
+                                                CONTROL</strong></a></p>
+                                    <p>Fiber, fines and ash consistency, monitoring and retention control</p>
+
+                                    <p class="mb-0"><strong>WET-END STABILITY</strong></p>
+                                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <img [src]="data[0].img5" style="width: 100%;; height: 100%;" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mb-0 text-right"><strong>SHEET UNIFORMITY</strong></p>
+                                    <p class="text-right">Uniform sheet formation, moisture and grammages profile with headbox sheets and services</p>
+
+                                    <p class="mb-0 text-right"><strong>YANKEE SAFETY</strong></p>
+                                    <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p>
+
+                                    <p class="mb-0 text-right"><strong>CREPING</strong></p>
+                                    <p class="text-right">Engineered creping/cleaning doctors, CBC blade holder and appropriate services
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                    <a href="#lev2">
-                        <div class="strip level3 text-dark">
-                            Vizualization, Diagnostic
-                        </div>
-                    </a>
-                    <a href="#lev1">
-                        <div class="strip level4 text-dark">
-                            Smart Equipment
-                        </div>
-                    </a>
+                    </section>
                 </div>
             </div>
-
-            <p class="mt-4 text-justify">
-                {{data[0].para1}}
-            </p>
-            <p class="mt-4 text-justify">
-
-                {{data[0].para2}}
-
-            </p>
         </div>
-    </section>
+    </div>
 
-    <section class="bg-light" style="padding: 100px 0;">
-        <div class="container">
-            <h3 class="text-center">Our featured solutions</h3>
-            <!-- <p class="text-center no-wrap">
-                We offer optimized, customized solutions for a range of applications. Below are some key examples of the
-                challenges we can overcome. If your process isn’t featured here, contact our team to learn more
-            </p>
-    
-            <div class="row mx-auto my-4">
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
 
-            <div id="lev4" class="row my-4 mx-auto text-center justify-content-center" style="padding: 60px 0;">
-                <img [src]="data[0].img2" style="width: 31%;; height: 31%;" />
-            </div>
-
-            <div id="lev3" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                <div class="col-sm-4">
-                    <p class="mb-0"><strong>CONTROL LOOP PERFORMANCE MANAGEMENT</strong></p>
-                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance</p>
-
-                    <p class="mb-0"><strong>ADVANCED PROCESS CONTROL</strong></p>
-                    <p>Standardize and centerline the control strategy of process to increase focus</p>
-                </div>
-                <div class="col-sm-4">
-                    <img [src]="data[0].img3" style="width: 100%;; height: 100%;" />
-                </div>
-                <div class="col-sm-4">
-                    <p class="mb-0 text-right"><strong>PREDICTIVE MODELLING SOLUTIONS</strong></p>
-                    <p class="text-right">Usage of softsensors to reduce variability and optimize output leading to optimal product quality</p>
-                </div>
-            </div>
-
-            <div id="lev2" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                <div class="col-sm-4">
-                    <p class="mb-0"><strong>ONLINE ANALYZERS</strong></p>
-                    <p>Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT</p>
-
-                    <p class="mb-0"><strong>PERFORMANCE SOLUTIONS</strong></p>
-                    <p>Advanced services and diagnosis to unlock process capabilities and performance</p>
-                </div>
-                <div class="col-sm-4">
-                    <img [src]="data[0].img4" style="width: 100%;; height: 100%;" />
-                </div>
-                <div class="col-sm-4">
-                    <p class="mb-0 text-right"><strong>OPERATIONAL INTELLIGENCE</strong></p>
-                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC</p>
-
-                    <p class="mb-0 text-right"><strong>OPERATIONAL SAFETY</strong></p>
-                    <p class="text-right">Optimum Yankee safety with advanced vibration monitoring solution and experience </p>
-                </div>
-            </div>
-
-            <div id="lev1" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                <div class="col-sm-4">
-                    <p class="mb-0"><strong>FIBER MANAGEMENT</strong></p>
-                    <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization
-                    </p>
-
-                    <p class="mb-0"><a routerLink="/subcatagory/1" [queryParams]="{catname : 'tissue' , subname:'consistency-control'}"><strong
-                                class="text-dark">CONSISTENCY
-                                CONTROL</strong></a></p>
-                    <p>Fiber, fines and ash consistency, monitoring and retention control</p>
-
-                    <p class="mb-0"><strong>WET-END STABILITY</strong></p>
-                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement</p>
-                </div>
-                <div class="col-sm-4">
-                    <img [src]="data[0].img5" style="width: 100%;; height: 100%;" />
-                </div>
-                <div class="col-sm-4">
-                    <p class="mb-0 text-right"><strong>SHEET UNIFORMITY</strong></p>
-                    <p class="text-right">Uniform sheet formation, moisture and grammages profile with headbox sheets and services</p>
-
-                    <p class="mb-0 text-right"><strong>YANKEE SAFETY</strong></p>
-                    <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p>
-
-                    <p class="mb-0 text-right"><strong>CREPING</strong></p>
-                    <p class="text-right">Engineered creping/cleaning doctors, CBC blade holder and appropriate services
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- <app-footer></app-footer> -->
 </div>
@@ -388,212 +445,240 @@
         <h4 class="text-capitalize text-white text-center">BTG Packaging Solutions</h4>
     </div>
 
-    <section style="padding: 100px 0;">
-        <div class="container">
-            <div class="row  mx-auto">
-                <div class="col-sm-5 justify-content-center">
-                    <img [src]="data[0].img1" style="width: 100%; height: 100%;position: absolute;left: -20%;top: 2.5%" alt="">
-                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                    <!-- This is the tree node template for leaf nodes -->
+                    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                        <!-- use a disabled button to provide padding for tree leaf -->
+                        <button mat-icon-button disabled></button> {{node.name}}
+                    </mat-tree-node>
+                    <!-- This is the tree node template for expandable nodes -->
+                    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                        <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                        <mat-icon class="mat-icon-rtl-mirror">
+                          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                        </mat-icon>
+                      </button> {{node.name}}
+                    </mat-tree-node>
+                </mat-tree>
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <section style="padding: 100px 0;">
+                        <div class="container">
+                            <div class="row  mx-auto">
+                                <div class="col-sm-5 justify-content-center">
+                                    <img [src]="data[0].img1" style="width: 100%; height: 100%;position: absolute;left: -20%;top: 2.5%" alt="">
+                                </div>
 
-                <div class="col-sm-7 ">
-                    <a href="#lev4">
-                        <div class="strip level1 text-dark">
-                            Autonomous Control
+                                <div class="col-sm-7 ">
+                                    <a href="#lev4">
+                                        <div class="strip level1 text-dark">
+                                            Autonomous Control
+                                        </div>
+                                    </a>
+                                    <a href="#lev3">
+                                        <div class="strip level2 text-dark">
+                                            Process Control
+                                        </div>
+                                    </a>
+                                    <a href="#lev2">
+                                        <div class="strip level3 text-dark">
+                                            Vizualization, Diagnostic
+                                        </div>
+                                    </a>
+                                    <a href="#lev1">
+                                        <div class="strip level4 text-dark">
+                                            Smart Equipment
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <p class="mt-4 text-justify">
+                                In today’s highly competitive and ever changing environment, complementary solutions from BTG including digital solutions, high performance blade and rod technology as well as market-leading instrumentation help tissue set benchmarks for performance and
+                                cost control while raising productivity.
+                            </p>
+                            <p class="mt-4 text-justify">
+
+                                At BTG, we combine in-depth process knowledge with a multi-disciplinary approach to develop solutions in response to customers’ real-life needs. That is why papermakers around the globe often ask us to solve persistent problems throughout their production
+                                process. Localized problems can have complex origins. An holistic approach reveals that the root cause of many issues related to paper strength or paper appearance are to be found early in the process. Treated correctly,
+                                these can be remedied and even eliminated so that your entire process runs smoothly, efficiently and with lowest total cost of operation.
+
+                            </p>
+
+                            <p class="mt-4 text-justify">To help customers raise their productivity we are offering a full range of Packaging Solutions, a comprehensive package of equipment, consumables, software and subject matter expertise, all geared to optimize your operation.
+                            </p>
                         </div>
-                    </a>
-                    <a href="#lev3">
-                        <div class="strip level2 text-dark">
-                            Process Control
+                    </section>
+
+                    <section class="bg-light" style="padding: 100px 0;">
+                        <div class="container">
+                            <h3 class="text-center">Our featured solutions</h3>
+                            <!-- <p class="text-center no-wrap">
+                                We offer optimized, customized solutions for a range of applications. Below are some key examples of the
+                                challenges we can overcome. If your process isn’t featured here, contact our team to learn more
+                            </p>
+                    
+                            <div class="row mx-auto my-4">
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div id="lev4" class="row my-4 mx-auto text-center justify-content-center" style="padding: 60px 0;">
+                                <img [src]="data[0].img2" style="width: 31%;; height: 31%;" />
+                            </div>
+
+                            <div id="lev3" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                <div class="col-sm-4">
+                                    <p class="mb-0"><strong>CONTROL LOOP PERFORMANCE MANAGEMENT</strong></p>
+                                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance</p>
+
+                                    <p class="mb-0"><strong>ADVANCED PROCESS CONTROL</strong></p>
+                                    <p>Standardize and centerline the control strategy of process to increase focus</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <img [src]="data[0].img3" style="width: 100%;; height: 100%;" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mb-0 text-right"><strong>PREDICTIVE MODELLING SOLUTIONS</strong></p>
+                                    <p class="text-right">Usage of softsensors to reduce variability and optimize output leading to optimal product quality</p>
+                                </div>
+                            </div>
+
+                            <div id="lev2" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                <div class="col-sm-4">
+                                    <p class="mb-0"><strong>FIBER MANAGEMENT</strong></p>
+                                    <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization
+                                    </p>
+
+                                    <p class="mb-0"><strong>PERFORMANCE SOLUTIONS</strong></p>
+                                    <p>Advanced services and diagnosis to unlock process capabilities and performance</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mb-0 text-center">
+                                        <center><strong>REMOTE SUPPORT</strong></center>
+                                    </p>
+                                    <img [src]="data[0].img4" style="width: 100%;; height: 100%;" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mb-0 text-right"><strong>OPERATIONAL INTELLIGENCE</strong></p>
+                                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC</p>
+
+                                    <p class="mb-0 text-right"><strong>CONSISTENCY PERFORMANCE</strong></p>
+                                    <p class="text-right">Fiber, fines and ash consistency, loop monitoring and control</p>
+                                </div>
+                            </div>
+
+                            <div id="lev1" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                <div class="col-sm-4  d-flex flex-column">
+                                    <p class="mb-0 justify-content-start"><strong>SIZING & COATING</strong></p>
+                                    <p>High-performance, custom-engineered rods, beds, and coating blades; training and expert support
+                                    </p>
+
+                                    <p class="mb-0 justify-content-start mt-auto"><a routerLink="/subcatagory/1" [queryParams]="{catname : 'tissue' , subname:'consistency-control'}"><strong
+                                                class="text-dark">CONSISTENCY MEASUREMENTS</strong></a></p>
+                                    <p>Rotary, optical, active and static blades, microwave, and samplers</p>
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mb-0"><strong>WET-END STABILITY</strong></p>
+                                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement</p>
+                                    <img [src]="data[0].img5" style="width: 100%;; height: 100%;" />
+                                </div>
+                                <div class="col-sm-4 d-flex flex-column">
+                                    <p class="mb-0 text-right"><strong>SHEET UNIFORMITY</strong></p>
+                                    <p class="text-right">Uniform sheet formation, moisture and grammages profile with headbox sheets and services</p>
+
+                                    <p class="mb-4 mt-auto text-right"><strong>RELIABILITY SERVICES</strong></p>
+                                    <!-- <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p> -->
+
+                                    <p class="mb-0 mt-auto text-right"><strong>ONLINE ANALYZERS</strong></p>
+                                    <p class="text-right">Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                    <a href="#lev2">
-                        <div class="strip level3 text-dark">
-                            Vizualization, Diagnostic
-                        </div>
-                    </a>
-                    <a href="#lev1">
-                        <div class="strip level4 text-dark">
-                            Smart Equipment
-                        </div>
-                    </a>
+                    </section>
                 </div>
             </div>
-
-            <p class="mt-4 text-justify">
-                In today’s highly competitive and ever changing environment, complementary solutions from BTG including digital solutions, high performance blade and rod technology as well as market-leading instrumentation help tissue set benchmarks for performance and
-                cost control while raising productivity.
-            </p>
-            <p class="mt-4 text-justify">
-
-                At BTG, we combine in-depth process knowledge with a multi-disciplinary approach to develop solutions in response to customers’ real-life needs. That is why papermakers around the globe often ask us to solve persistent problems throughout their production
-                process. Localized problems can have complex origins. An holistic approach reveals that the root cause of many issues related to paper strength or paper appearance are to be found early in the process. Treated correctly, these can be remedied
-                and even eliminated so that your entire process runs smoothly, efficiently and with lowest total cost of operation.
-
-            </p>
-
-            <p class="mt-4 text-justify">To help customers raise their productivity we are offering a full range of Packaging Solutions, a comprehensive package of equipment, consumables, software and subject matter expertise, all geared to optimize your operation.
-            </p>
         </div>
-    </section>
-
-    <section class="bg-light" style="padding: 100px 0;">
-        <div class="container">
-            <h3 class="text-center">Our featured solutions</h3>
-            <!-- <p class="text-center no-wrap">
-                We offer optimized, customized solutions for a range of applications. Below are some key examples of the
-                challenges we can overcome. If your process isn’t featured here, contact our team to learn more
-            </p>
-    
-            <div class="row mx-auto my-4">
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-            <div id="lev4" class="row my-4 mx-auto text-center justify-content-center" style="padding: 60px 0;">
-                <img [src]="data[0].img2" style="width: 31%;; height: 31%;" />
-            </div>
-
-            <div id="lev3" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                <div class="col-sm-4">
-                    <p class="mb-0"><strong>CONTROL LOOP PERFORMANCE MANAGEMENT</strong></p>
-                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance</p>
-
-                    <p class="mb-0"><strong>ADVANCED PROCESS CONTROL</strong></p>
-                    <p>Standardize and centerline the control strategy of process to increase focus</p>
-                </div>
-                <div class="col-sm-4">
-                    <img [src]="data[0].img3" style="width: 100%;; height: 100%;" />
-                </div>
-                <div class="col-sm-4">
-                    <p class="mb-0 text-right"><strong>PREDICTIVE MODELLING SOLUTIONS</strong></p>
-                    <p class="text-right">Usage of softsensors to reduce variability and optimize output leading to optimal product quality</p>
-                </div>
-            </div>
-
-            <div id="lev2" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                <div class="col-sm-4">
-                    <p class="mb-0"><strong>FIBER MANAGEMENT</strong></p>
-                    <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization</p>
-
-                    <p class="mb-0"><strong>PERFORMANCE SOLUTIONS</strong></p>
-                    <p>Advanced services and diagnosis to unlock process capabilities and performance</p>
-                </div>
-                <div class="col-sm-4">
-                    <p class="mb-0 text-center">
-                        <center><strong>REMOTE SUPPORT</strong></center>
-                    </p>
-                    <img [src]="data[0].img4" style="width: 100%;; height: 100%;" />
-                </div>
-                <div class="col-sm-4">
-                    <p class="mb-0 text-right"><strong>OPERATIONAL INTELLIGENCE</strong></p>
-                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC</p>
-
-                    <p class="mb-0 text-right"><strong>CONSISTENCY PERFORMANCE</strong></p>
-                    <p class="text-right">Fiber, fines and ash consistency, loop monitoring and control</p>
-                </div>
-            </div>
-
-            <div id="lev1" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                <div class="col-sm-4  d-flex flex-column">
-                    <p class="mb-0 justify-content-start"><strong>SIZING & COATING</strong></p>
-                    <p>High-performance, custom-engineered rods, beds, and coating blades; training and expert support
-                    </p>
-
-                    <p class="mb-0 justify-content-start mt-auto"><a routerLink="/subcatagory/1" [queryParams]="{catname : 'tissue' , subname:'consistency-control'}"><strong
-                                class="text-dark">CONSISTENCY MEASUREMENTS</strong></a></p>
-                    <p>Rotary, optical, active and static blades, microwave, and samplers</p>
+    </div>
 
 
-                </div>
-                <div class="col-sm-4">
-                    <p class="mb-0"><strong>WET-END STABILITY</strong></p>
-                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement</p>
-                    <img [src]="data[0].img5" style="width: 100%;; height: 100%;" />
-                </div>
-                <div class="col-sm-4 d-flex flex-column">
-                    <p class="mb-0 text-right"><strong>SHEET UNIFORMITY</strong></p>
-                    <p class="text-right">Uniform sheet formation, moisture and grammages profile with headbox sheets and services</p>
-
-                    <p class="mb-4 mt-auto text-right"><strong>RELIABILITY SERVICES</strong></p>
-                    <!-- <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p> -->
-
-                    <p class="mb-0 mt-auto text-right"><strong>ONLINE ANALYZERS</strong></p>
-                    <p class="text-right">Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- <app-footer></app-footer> -->
 </div>
@@ -632,212 +717,240 @@
         <!-- <h4 class="text-capitalize text-white text-center">BTG Packaging Solutions</h4> -->
     </div>
 
-    <section style="padding: 100px 0;">
-        <div class="container">
-            <div class="row  mx-auto">
-                <div class="col-sm-5 justify-content-center">
-                    <img [src]="data[0].img1" style="width: 100%; height: 100%;position: absolute;left: -20%;top: 2.5%" alt="">
-                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                    <!-- This is the tree node template for leaf nodes -->
+                    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                        <!-- use a disabled button to provide padding for tree leaf -->
+                        <button mat-icon-button disabled></button> {{node.name}}
+                    </mat-tree-node>
+                    <!-- This is the tree node template for expandable nodes -->
+                    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                        <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                        <mat-icon class="mat-icon-rtl-mirror">
+                          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                        </mat-icon>
+                      </button> {{node.name}}
+                    </mat-tree-node>
+                </mat-tree>
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <section style="padding: 100px 0;">
+                        <div class="container">
+                            <div class="row  mx-auto">
+                                <div class="col-sm-5 justify-content-center">
+                                    <img [src]="data[0].img1" style="width: 100%; height: 100%;position: absolute;left: -20%;top: 2.5%" alt="">
+                                </div>
 
-                <div class="col-sm-7 ">
-                    <a href="#lev4">
-                        <div class="strip level1 text-dark">
-                            Autonomous Control
+                                <div class="col-sm-7 ">
+                                    <a href="#lev4">
+                                        <div class="strip level1 text-dark">
+                                            Autonomous Control
+                                        </div>
+                                    </a>
+                                    <a href="#lev3">
+                                        <div class="strip level2 text-dark">
+                                            Process Control
+                                        </div>
+                                    </a>
+                                    <a href="#lev2">
+                                        <div class="strip level3 text-dark">
+                                            Vizualization, Diagnostic
+                                        </div>
+                                    </a>
+                                    <a href="#lev1">
+                                        <div class="strip level4 text-dark">
+                                            Smart Equipment
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <p class="mt-4 text-justify">
+                                In today’s highly competitive and ever changing environment, complementary solutions from BTG including digital solutions, high performance blade and rod technology as well as market-leading instrumentation help tissue set benchmarks for performance and
+                                cost control while raising productivity.
+                            </p>
+                            <p class="mt-4 text-justify">
+
+                                At BTG, we combine in-depth process knowledge with a multi-disciplinary approach to develop solutions in response to customers’ real-life needs. That is why papermakers around the globe often ask us to solve persistent problems throughout their production
+                                process. Localized problems can have complex origins. An holistic approach reveals that the root cause of many issues related to paper strength or paper appearance are to be found early in the process. Treated correctly,
+                                these can be remedied and even eliminated so that your entire process runs smoothly, efficiently and with lowest total cost of operation.
+
+                            </p>
+
+                            <p class="mt-4 text-justify">To help customers raise their productivity we are offering a full range of Packaging Solutions, a comprehensive package of equipment, consumables, software and subject matter expertise, all geared to optimize your operation.
+                            </p>
                         </div>
-                    </a>
-                    <a href="#lev3">
-                        <div class="strip level2 text-dark">
-                            Process Control
+                    </section>
+
+                    <section class="bg-light" style="padding: 100px 0;">
+                        <div class="container">
+                            <h3 class="text-center">Our featured solutions</h3>
+                            <!-- <p class="text-center no-wrap">
+                                We offer optimized, customized solutions for a range of applications. Below are some key examples of the
+                                challenges we can overcome. If your process isn’t featured here, contact our team to learn more
+                            </p>
+                    
+                            <div class="row mx-auto my-4">
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="card border-0 shadow-sm bg-white m-2">
+                                        <div class="card-body">
+                                            <h6>Consistency control</h6>
+                                            <p>
+                                                Optimize pulp & paper productivity through accurate consistency management as fundamental
+                                                for improved economic benefits
+                                            </p>
+                                            <a href="#" class="text-danger">Know more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div id="lev4" class="row my-4 mx-auto text-center justify-content-center" style="padding: 60px 0;">
+                                <img [src]="data[0].img2" style="width: 31%;; height: 31%;" />
+                            </div>
+
+                            <div id="lev3" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                <div class="col-sm-4">
+                                    <p class="mb-0"><strong>CONTROL LOOP PERFORMANCE MANAGEMENT</strong></p>
+                                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance</p>
+
+                                    <p class="mb-0"><strong>ADVANCED PROCESS CONTROL</strong></p>
+                                    <p>Standardize and centerline the control strategy of process to increase focus</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <img [src]="data[0].img3" style="width: 100%;; height: 100%;" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mb-0 text-right"><strong>PREDICTIVE MODELLING SOLUTIONS</strong></p>
+                                    <p class="text-right">Usage of softsensors to reduce variability and optimize output leading to optimal product quality</p>
+                                </div>
+                            </div>
+
+                            <div id="lev2" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                <div class="col-sm-4">
+                                    <p class="mb-0"><strong>FIBER MANAGEMENT</strong></p>
+                                    <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization
+                                    </p>
+
+                                    <p class="mb-0"><strong>PERFORMANCE SOLUTIONS</strong></p>
+                                    <p>Advanced services and diagnosis to unlock process capabilities and performance</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mb-0 text-center">
+                                        <center><strong>REMOTE SUPPORT</strong></center>
+                                    </p>
+                                    <img [src]="data[0].img4" style="width: 100%;; height: 100%;" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mb-0 text-right"><strong>OPERATIONAL INTELLIGENCE</strong></p>
+                                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC</p>
+
+                                    <p class="mb-0 text-right"><strong>CONSISTENCY PERFORMANCE</strong></p>
+                                    <p class="text-right">Fiber, fines and ash consistency, loop monitoring and control</p>
+                                </div>
+                            </div>
+
+                            <div id="lev1" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                <div class="col-sm-4  d-flex flex-column">
+                                    <p class="mb-0 justify-content-start"><strong>SIZING & COATING</strong></p>
+                                    <p>High-performance, custom-engineered rods, beds, and coating blades; training and expert support
+                                    </p>
+
+                                    <p class="mb-0 justify-content-start mt-auto"><a routerLink="/subcatagory/1" [queryParams]="{catname : 'tissue' , subname:'consistency-control'}"><strong
+                                                class="text-dark">CONSISTENCY MEASUREMENTS</strong></a></p>
+                                    <p>Rotary, optical, active and static blades, microwave, and samplers</p>
+
+
+                                </div>
+                                <div class="col-sm-4">
+                                    <p class="mb-0"><strong>WET-END STABILITY</strong></p>
+                                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement</p>
+                                    <img [src]="data[0].img5" style="width: 100%;; height: 100%;" />
+                                </div>
+                                <div class="col-sm-4 d-flex flex-column">
+                                    <p class="mb-0 text-right"><strong>SHEET UNIFORMITY</strong></p>
+                                    <p class="text-right">Uniform sheet formation, moisture and grammages profile with headbox sheets and services</p>
+
+                                    <p class="mb-4 mt-auto text-right"><strong>RELIABILITY SERVICES</strong></p>
+                                    <!-- <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p> -->
+
+                                    <p class="mb-0 mt-auto text-right"><strong>ONLINE ANALYZERS</strong></p>
+                                    <p class="text-right">Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                    <a href="#lev2">
-                        <div class="strip level3 text-dark">
-                            Vizualization, Diagnostic
-                        </div>
-                    </a>
-                    <a href="#lev1">
-                        <div class="strip level4 text-dark">
-                            Smart Equipment
-                        </div>
-                    </a>
+                    </section>
                 </div>
             </div>
-
-            <p class="mt-4 text-justify">
-                In today’s highly competitive and ever changing environment, complementary solutions from BTG including digital solutions, high performance blade and rod technology as well as market-leading instrumentation help tissue set benchmarks for performance and
-                cost control while raising productivity.
-            </p>
-            <p class="mt-4 text-justify">
-
-                At BTG, we combine in-depth process knowledge with a multi-disciplinary approach to develop solutions in response to customers’ real-life needs. That is why papermakers around the globe often ask us to solve persistent problems throughout their production
-                process. Localized problems can have complex origins. An holistic approach reveals that the root cause of many issues related to paper strength or paper appearance are to be found early in the process. Treated correctly, these can be remedied
-                and even eliminated so that your entire process runs smoothly, efficiently and with lowest total cost of operation.
-
-            </p>
-
-            <p class="mt-4 text-justify">To help customers raise their productivity we are offering a full range of Packaging Solutions, a comprehensive package of equipment, consumables, software and subject matter expertise, all geared to optimize your operation.
-            </p>
         </div>
-    </section>
-
-    <section class="bg-light" style="padding: 100px 0;">
-        <div class="container">
-            <h3 class="text-center">Our featured solutions</h3>
-            <!-- <p class="text-center no-wrap">
-                We offer optimized, customized solutions for a range of applications. Below are some key examples of the
-                challenges we can overcome. If your process isn’t featured here, contact our team to learn more
-            </p>
-    
-            <div class="row mx-auto my-4">
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card border-0 shadow-sm bg-white m-2">
-                        <div class="card-body">
-                            <h6>Consistency control</h6>
-                            <p>
-                                Optimize pulp & paper productivity through accurate consistency management as fundamental
-                                for improved economic benefits
-                            </p>
-                            <a href="#" class="text-danger">Know more</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-            <div id="lev4" class="row my-4 mx-auto text-center justify-content-center" style="padding: 60px 0;">
-                <img [src]="data[0].img2" style="width: 31%;; height: 31%;" />
-            </div>
-
-            <div id="lev3" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                <div class="col-sm-4">
-                    <p class="mb-0"><strong>CONTROL LOOP PERFORMANCE MANAGEMENT</strong></p>
-                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance</p>
-
-                    <p class="mb-0"><strong>ADVANCED PROCESS CONTROL</strong></p>
-                    <p>Standardize and centerline the control strategy of process to increase focus</p>
-                </div>
-                <div class="col-sm-4">
-                    <img [src]="data[0].img3" style="width: 100%;; height: 100%;" />
-                </div>
-                <div class="col-sm-4">
-                    <p class="mb-0 text-right"><strong>PREDICTIVE MODELLING SOLUTIONS</strong></p>
-                    <p class="text-right">Usage of softsensors to reduce variability and optimize output leading to optimal product quality</p>
-                </div>
-            </div>
-
-            <div id="lev2" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                <div class="col-sm-4">
-                    <p class="mb-0"><strong>FIBER MANAGEMENT</strong></p>
-                    <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization</p>
-
-                    <p class="mb-0"><strong>PERFORMANCE SOLUTIONS</strong></p>
-                    <p>Advanced services and diagnosis to unlock process capabilities and performance</p>
-                </div>
-                <div class="col-sm-4">
-                    <p class="mb-0 text-center">
-                        <center><strong>REMOTE SUPPORT</strong></center>
-                    </p>
-                    <img [src]="data[0].img4" style="width: 100%;; height: 100%;" />
-                </div>
-                <div class="col-sm-4">
-                    <p class="mb-0 text-right"><strong>OPERATIONAL INTELLIGENCE</strong></p>
-                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC</p>
-
-                    <p class="mb-0 text-right"><strong>CONSISTENCY PERFORMANCE</strong></p>
-                    <p class="text-right">Fiber, fines and ash consistency, loop monitoring and control</p>
-                </div>
-            </div>
-
-            <div id="lev1" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                <div class="col-sm-4  d-flex flex-column">
-                    <p class="mb-0 justify-content-start"><strong>SIZING & COATING</strong></p>
-                    <p>High-performance, custom-engineered rods, beds, and coating blades; training and expert support
-                    </p>
-
-                    <p class="mb-0 justify-content-start mt-auto"><a routerLink="/subcatagory/1" [queryParams]="{catname : 'tissue' , subname:'consistency-control'}"><strong
-                                class="text-dark">CONSISTENCY MEASUREMENTS</strong></a></p>
-                    <p>Rotary, optical, active and static blades, microwave, and samplers</p>
+    </div>
 
 
-                </div>
-                <div class="col-sm-4">
-                    <p class="mb-0"><strong>WET-END STABILITY</strong></p>
-                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement</p>
-                    <img [src]="data[0].img5" style="width: 100%;; height: 100%;" />
-                </div>
-                <div class="col-sm-4 d-flex flex-column">
-                    <p class="mb-0 text-right"><strong>SHEET UNIFORMITY</strong></p>
-                    <p class="text-right">Uniform sheet formation, moisture and grammages profile with headbox sheets and services</p>
-
-                    <p class="mb-4 mt-auto text-right"><strong>RELIABILITY SERVICES</strong></p>
-                    <!-- <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p> -->
-
-                    <p class="mb-0 mt-auto text-right"><strong>ONLINE ANALYZERS</strong></p>
-                    <p class="text-right">Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- <app-footer></app-footer> -->
 </div>

@@ -15,6 +15,7 @@ import { MainCategoryComponent } from './main-category/main-category.component';
 import { NavbarService } from './navbar.service';
 import { NewsEventsComponent } from './news-events/news-events.component';
 import { ProductsComponent } from './products/products.component';
+import { ProfileComponent } from './profile/profile.component';
 import { SeeWhatWeDoComponent } from './see-what-we-do/see-what-we-do.component';
 import { SingleNewsEventComponent } from './single-news-event/single-news-event.component';
 import { SolutionsComponent } from './solutions/solutions.component';
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'all-testimonial' , component:AllTestimonialComponent },
   { path: 'view-pdf' , component:ViewPdfComponent },
   { path: 'apply-now' , component:ApplyNowComponent },
+  { path: 'profile' , component:ProfileComponent },
 ];
 
 @NgModule({

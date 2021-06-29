@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
+import { DownloadsService } from '../services/downloads.service';
 import { DatasheetService } from '../services/datasheet.service'
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { GlobalConstants } from '../common/global-constant';
@@ -33,7 +34,8 @@ export class ProductsComponent implements OnInit {
     private _proService: ProductService,
     private _datasheet: DatasheetService,
     public gVar : GlobalConstants,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private _dow:DownloadsService) { }
 
   async ngOnInit() {
     
@@ -167,6 +169,20 @@ export class ProductsComponent implements OnInit {
     })
     console.log(newArr);
     return newArr;
+  }
+
+  async downloads(catId:string , dataId:string){
+    let userId =  localStorage.getItem('id');
+    console.log(catId , dataId);
+    console.log({"categoryId":catId , "dataSheetId":dataId , "userId":userId});
+
+    (await this._dow.dataSheetDownloads({"categoryId":catId , "dataSheetId":dataId , "userId":userId})).subscribe((res:any) => {
+      console.log(res);
+      
+    })
+    
+    
+
   }
 
 }

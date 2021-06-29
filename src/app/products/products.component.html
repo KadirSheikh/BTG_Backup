@@ -75,13 +75,13 @@
 
         <section style="padding:50px 0;">
             <div class="container">
-                <h4 class="text-center my-5">View Data Sheet</h4>
+                <h4 class="text-center my-5"> Data Sheet</h4>
                 <div *ngIf="isLoggedIn">
                     <mat-tab-group (selectedTabChange)="tabChanged($event)">
                         <mat-tab *ngFor="let tabtitle of dataSheetCategories; let index = index" class="tab-title">
                             <ng-template mat-tab-label>
 
-                                <span style="font-weight: 700; font-size: large;">{{tabtitle.name}}</span>
+                                <span style="font-weight: 750; font-size: large;color: black;">{{tabtitle.name}}</span>
 
 
                                 <!-- (click)="openFormDialog('add', 'category', id)"                         -->
@@ -106,7 +106,12 @@
                                             </select>
                                         </mat-form-field>
 
-                                        <button class="btn btn-danger float-right mx-2" style="padding: 3%;" mat-button>
+                                        <!-- <select class="btn btn-danger font-weight-bold" (change)="getLanguage($event , d.id)">
+                                            <option value="{{s | json}}" *ngFor="let s of d.sheets">{{ s.language }}
+                                            </option>
+                                        </select> -->
+
+                                        <button class="btn btn-danger float-right mx-2" style="padding: 3%;" mat-button (click)="downloads(tabtitle._id , d.id)">
     
                                             <a [href]="d.selected" style="color: #fff;">Download</a>
                                         </button>

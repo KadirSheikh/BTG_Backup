@@ -6,7 +6,7 @@
 
 <div>
     <div class="red-title-banner">
-        <h2 class="text-white"> Job Name </h2>
+        <h2 class="text-white"> {{carrers?.name}} </h2>
     </div>
 
 
@@ -81,40 +81,22 @@
                         </div>
                         <div class="col-sm-8">
 
-                            <h5 class="my-2" style="color: black !important;">Job Name <span style="font-size: 15px;">(Full Name)</span> </h5>
-                            <h6 class="my-2">Atlanta, GA USA</h6>
-                            <p style="font-size: 12px;">12 hours ago</p>
+                            <h5 class="my-2" style="color: black !important;" *ngIf="carrers?.type == 0">{{carrers?.name}} <span style="font-size: 15px;">(Full Time)</span> </h5>
+                            <h5 class="my-2" style="color: black !important;" *ngIf="carrers?.type == 1">{{carrers?.name}} <span style="font-size: 15px;">(Part Time)</span> </h5>
+                            <h5 class="my-2" style="color: black !important;" *ngIf="carrers?.type == 2">{{carrers?.name}} <span style="font-size: 15px;">(Remote)</span> </h5>
+                            <h6 class="my-2">{{carrers?.location}}</h6>
+                            <p style="font-size: 12px;">{{carrers?.date | date}}</p>
 
                         </div>
 
                         <h6>Job Description</h6>
-                        <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                            specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.t is a long established fact that a reader will be distracted by the readable content of a page when looking
-                            at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages
-                            and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes
-                            on purpose (injected humour and the like).
+                        <p class="text-justify" [innerHTML]="carrers?.description">
                         </p>
 
                         <h6>Responsibilities</h6>
-                        <ul>
-                            <li>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                            </li>
-                            <li>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                            </li>
-                            <li>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                            </li>
-                            <li>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                            </li>
-                            <li>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                            </li>
+                        <p class="text-justify" [innerHTML]="carrers?.responsibilities">
 
-                        </ul>
+                        </p>
                     </div>
 
 
@@ -127,40 +109,64 @@
                     <div style="border:1px solid lightgray;padding:10%;border-radius: 10px;">
                         <h4 class="my-3" style="color: black !important;">Application</h4>
 
-                        <form>
+                        <form [formGroup]="applyNowForm" (ngSubmit)="applyNow()">
+
                             <div class="form-group">
                                 <label for="">Full Name</label>
-                                <input type="text" class="form-control" name="" id="">
+                                <input type="text" class="form-control" name="fullName" id="" formControlName="fullName" placeholder="Full Name">
+                                <span *ngIf="(!applyNowForm.controls['fullName'].valid) && (applyNowForm.controls['fullName'].touched) || (applyNowForm.hasError('fullName') && !applyNowForm.hasError('required'))" class="text-danger">Full name is required.</span>
                             </div>
 
                             <div class="form-group">
                                 <label for="">Email</label>
-                                <input type="email" class="form-control" name="" id="">
+                                <input type="email" class="form-control" name="email" id="" formControlName="email" placeholder="Email">
+                                <span *ngIf="(!applyNowForm.controls['email'].valid) && (applyNowForm.controls['email'].touched) || (applyNowForm.hasError('email') && !applyNowForm.hasError('required'))" class="text-danger">Email is required.</span>
                             </div>
 
                             <div class="form-group">
                                 <label for="">Mobile Number</label>
-                                <input type="mobile" class="form-control" name="" id="">
+                                <input type="mobile" class="form-control" name="mobileNumber" id="" formControlName="mobileNumber" placeholder="Mobile Number">
+                                <span *ngIf="(!applyNowForm.controls['mobileNumber'].valid) && (applyNowForm.controls['mobileNumber'].touched) || (applyNowForm.hasError('mobileNumber') && !applyNowForm.hasError('required'))" class="text-danger">Mobile Number is required.</span>
                             </div>
 
                             <div class="form-group">
                                 <label for="">CV/Resume</label> <br>
-                                <label for="cv" style="background-color:#ECEFF1;padding:3px 40px;border-radius: 5px;">Browse</label> <span class="ml-3">Select File</span>
-                                <input type="file" class="form-control" name="" id="cv" style="visibility: hidden;">
+                                <label for="cv" style="background-color:#ECEFF1;padding:3px 40px;border-radius: 5px;">Browse</label>
+                                <span class="ml-3" *ngIf="!(cvName?.length > 0)">Select File</span>
+                                <span class="ml-3" *ngIf="cvName?.length > 0">{{cvName}}</span>
+                                <input type="file" class="form-control" id="cv" required style="visibility: hidden;" (change)="setCv($event)">
+
                             </div>
                             <div class="form-group">
                                 <label for="">Cover Letter</label><br>
-                                <label for="cover" style="background-color:#ECEFF1;padding:3px 40px;border-radius: 5px;">Browse</label> <span class="ml-3">Select File</span>
-                                <input type="file" class="form-control" name="" id="cover" style="visibility: hidden;">
+                                <label for="cover" style="background-color:#ECEFF1;padding:3px 40px;border-radius: 5px;">Browse</label>
+                                <span class="ml-3" *ngIf="!(coverName?.length > 0)">Select File</span>
+                                <span class="ml-3" *ngIf="coverName?.length > 0">{{coverName}}</span>
+                                <input type="file" class="form-control" (change)="setCoverletter($event)" id="cover" style="visibility: hidden;">
                             </div>
 
                             <div class="form-group text-center">
-                                <button class="btn btn-danger btn-block">Apply Now</button> <br>
+
+                                <button class="btn btn-danger btn-block" [disabled]="!applyNowForm.valid || submit">Apply Now</button> <br>
+                                <div *ngIf="isLoading" class="text-center">
+                                    <div class="spinner-border text-danger" role="status">
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="alert mt-2 alert-success" *ngIf="successMsg?.length > 0">
+                                    {{ successMsg }}
+                                </div>
+
+                                <div class="alert mt-2 alert-danger" *ngIf="errorMsg?.length > 0">
+                                    {{ errorMsg }}
+                                </div>
                                 <span>or</span> <br><br>
-                                <button class="btn btn-primary btn-block">Apply on Linkedin</button>
                             </div>
                         </form>
-
+                        <button class="btn btn-primary btn-block">Apply on Linkedin</button>
 
                     </div>
 

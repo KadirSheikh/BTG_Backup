@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CareersService } from '../services/careers.service';
 
 @Component({
   selector: 'app-careers',
@@ -6,11 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./careers.component.css']
 })
 export class CareersComponent implements OnInit {
+  carrers: any;
 
-  constructor() { }
+  constructor(private _carrer:CareersService) { }
 
   ngOnInit(): void {
     window.scroll(0,0);
+    this.getCareers()
+    
+  }
+
+  async getCareers(){
+
+    (await this._carrer.getCareer()).subscribe((res:any) => {
+      this.carrers = res?.data;
+      console.log(this.carrers);
+      
+    })
+
   }
 
 }

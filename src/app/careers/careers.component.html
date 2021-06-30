@@ -25,20 +25,22 @@
                 <div class="col-sm-12">
 
                     <div class="row">
-                        <div class="col-sm-4" style="margin-bottom: 5rem;">
+                        <div class="col-sm-4" style="margin-bottom: 5rem;" *ngFor="let carrer of carrers">
                             <div class="card" id="card" style="border: none !important;">
                                 <div class="card-body">
-                                    <h3 class="card-title">Job Name</h3>
-                                    <h6 class="my-3">Atlanta, GA USA</h6>
+                                    <h3 class="card-title">{{carrer.name}}</h3>
+                                    <h6 class="my-3">{{carrer.location}}</h6>
                                     <div class="d-flex mb-4">
-                                        <h6 style="font-size: 14px;background-color: lightgray;padding:1%;border-radius: 5px;"><i class="fa fa-calendar-o" aria-hidden="true"></i> Full Time</h6>
-                                        <h6 style="font-size: 14px;font-weight: 700;" class="ml-auto text-danger"> 12 hours ago</h6>
+                                        <h6 style="font-size: 14px;background-color: lightgray;padding:2%;border-radius: 5px;" *ngIf="carrer.type == 0"><i class="fa fa-calendar-o" aria-hidden="true"></i> Full Time</h6>
+                                        <h6 style="font-size: 14px;background-color: lightgray;padding:2%;border-radius: 5px;" *ngIf="carrer.type == 1"><i class="fa fa-calendar-o" aria-hidden="true"></i> Part Time</h6>
+                                        <h6 style="font-size: 14px;background-color: lightgray;padding:2%;border-radius: 5px;" *ngIf="carrer.type == 2"><i class="fa fa-calendar-o" aria-hidden="true"></i> Remote</h6>
+                                        <h6 style="font-size: 14px;font-weight: 700;" class="ml-auto text-danger"> {{carrer.created_at | date}}</h6>
                                     </div>
 
-                                    <p style="word-spacing: 0px;" class="text-justify">TAPPICon will be held in the Spring and Fall - offering you the opportunity to stay abreast of the latest technologies, processes and advancements throughout the year.</p>
+                                    <p style="word-spacing: 0px;" class="text-justify description">{{carrer.description}}</p>
 
 
-                                    <a routerLink="/apply-now" class="card-link float-right visit-site">Apply</a>
+                                    <a routerLink="/apply-now" [queryParams]="{jobid: carrer._id}" class="card-link float-right visit-site">Apply</a>
                                 </div>
                             </div>
 
@@ -46,44 +48,7 @@
                         </div>
 
 
-                        <div class="col-sm-4" style="margin-bottom: 5rem;">
-                            <div class="card" id="card" style="border: none !important;">
-                                <div class="card-body">
-                                    <h3 class="card-title">Job Name</h3>
-                                    <h6 class="my-3">Atlanta, GA USA</h6>
-                                    <div class="d-flex mb-4">
-                                        <h6 style="font-size: 14px;background-color: lightgray;padding:1%;border-radius: 5px;"><i class="fa fa-calendar-o" aria-hidden="true"></i> Full Time</h6>
-                                        <h6 style="font-size: 14px;font-weight: 700;" class="ml-auto text-danger"> 12 hours ago</h6>
-                                    </div>
-
-                                    <p style="word-spacing: 0px;" class="text-justify">TAPPICon will be held in the Spring and Fall - offering you the opportunity to stay abreast of the latest technologies, processes and advancements throughout the year.</p>
-
-
-                                    <a routerLink="/apply-now" class="card-link float-right visit-site">Apply</a>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-4" style="margin-bottom: 5rem;">
-                            <div class="card" id="card" style="border: none !important;">
-                                <div class="card-body">
-                                    <h3 class="card-title">Job Name</h3>
-                                    <h6 class="my-3">Atlanta, GA USA</h6>
-                                    <div class="d-flex mb-4">
-                                        <h6 style="font-size: 14px;background-color: lightgray;padding:1%;border-radius: 5px;"><i class="fa fa-calendar-o" aria-hidden="true"></i> Full Time</h6>
-                                        <h6 style="font-size: 14px;font-weight: 700;" class="ml-auto text-danger"> 12 hours ago</h6>
-                                    </div>
-
-                                    <p style="word-spacing: 0px;" class="text-justify">TAPPICon will be held in the Spring and Fall - offering you the opportunity to stay abreast of the latest technologies, processes and advancements throughout the year.</p>
-
-
-                                    <a routerLink="/apply-now" class="card-link float-right visit-site">Apply</a>
-                                </div>
-                            </div>
-
-
-                        </div>
+                        <!-- <pagination-controls (pageChange)="p = $event" class="float-center mx-auto my-auto"></pagination-controls> -->
 
                     </div>
 

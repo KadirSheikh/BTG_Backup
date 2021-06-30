@@ -75,9 +75,14 @@
                         <a class="nav-link font-weight-bold" routerLink="/{{nav.name | navbarTrim }}">{{ nav.name }}</a>
 
                         <ul *ngIf="nav?.subNav?.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li *ngFor="let sub of nav?.subNav" class="dropdown-submenu"><a class="dropdown-item " routerLink="history" href="">{{ sub.name }}</a></li>
+                            <li *ngFor="let sub of nav?.subNav" class="dropdown-submenu"><a class="dropdown-item " routerLink="history" *ngIf="sub.name == 'History'" href="">{{ sub.name }}</a></li>
+                            <li *ngFor="let sub of nav?.subNav" class="dropdown-submenu"><a class="dropdown-item " routerLink="export-control-compliance" *ngIf="sub.name == 'Export Control Compliance'" href="">{{ sub.name }}</a></li>
+                            <li *ngFor="let sub of nav?.subNav" class="dropdown-submenu"><a class="dropdown-item " routerLink="compliance-whistleblowing-scheme" *ngIf="sub.name == 'Compliance / Whistleblowing Scheme'" href="">{{ sub.name }}</a></li>
+                            <li *ngFor="let sub of nav?.subNav" class="dropdown-submenu"><a class="dropdown-item " routerLink="teams" *ngIf="sub.name == 'Teams'" href="">{{ sub.name }}</a></li>
+
 
                         </ul>
+
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">

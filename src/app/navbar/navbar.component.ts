@@ -40,6 +40,8 @@ export class NavbarComponent implements OnInit {
         
         if (response?.status && response?.status == true)
           this.mainNavData = response?.data
+          console.log(this.mainNavData);
+          
       })
     }).catch(error => {
       console.error(error)

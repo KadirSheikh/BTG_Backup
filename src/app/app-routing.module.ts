@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ExportControlComplianceComponent } from './about/export-control-compliance/export-control-compliance.component';
 import { HistoryComponent } from './about/history/history.component';
+import { TeamComponent } from './about/team/team.component';
 import { WhistleblowingComponent } from './about/whistleblowing/whistleblowing.component';
 import { AllTestimonialComponent } from './all-testimonial/all-testimonial.component';
 import { ApplyNowComponent } from './apply-now/apply-now.component';
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'view-pdf' , component:ViewPdfComponent },
   { path: 'apply-now' , component:ApplyNowComponent },
   { path: 'profile' , component:ProfileComponent },
+  { path: 'teams' , component:TeamComponent }
 ];
 
 @NgModule({

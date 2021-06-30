@@ -56,6 +56,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { ProfileComponent } from './profile/profile.component';
 import {MatTableModule} from '@angular/material/table';
+import { TeamComponent } from './about/team/team.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import {MatTableModule} from '@angular/material/table';
     SignupComponent,
     ViewPdfComponent,
     ApplyNowComponent,
-    ProfileComponent
+    ProfileComponent,
+    TeamComponent
   ],
   imports: [
     MatTableModule,

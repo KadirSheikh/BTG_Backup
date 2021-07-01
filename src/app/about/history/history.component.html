@@ -1,7 +1,13 @@
 <div>
+    <nav aria-label="breadcrumb" class="bread-crum">
+        <ol class="breadcrumb">
 
+            <li class="breadcrumb-item"><a href="#">About</a></li>
+            <li class="breadcrumb-item active" aria-current="page">History</li>
+        </ol>
+    </nav>
     <div class="red-title-banner">
-        <h2 class="text-white">History</h2>
+        <h2 class="text-white"> {{historyData[0].heading}} </h2>
 
     </div>
 
@@ -12,18 +18,10 @@
             <div class="row mx-auto my-4">
 
 
-                <div class="col-sm-12 text-justify d-inline-block">
-                    <p>Our story began in 1921 when Dr. Torsten Källe founded the Källe Regulator Company in Säffle, Sweden. Over the course of the next several decades, the company invented, developed and applied a broad range of pulp consistency and processing
-                        transmitters, before becoming Eur-Control in the 1960s and merging with coater manufacturer AB Inventing in 1985 to become BTG (Bonnier Technology Group).</p>
-                    <p>The group also become an innovator in the research and development of ceramic high-performance coating blades: BTG received the first patent for these blades in 1983, and metallic technologies and tissue creping blades followed in
-                        1990.
-                    </p>
-                    <p>
-                        In 2001, BTG acquired Mütek of Herrsching, Germany, incorporating their broad portfolio of in-line and laboratory sensors and analyzers; and the acquisition of IPI LLC in 2006, integrated additional metering technologies for coating color and film-metering
-                        size presses.
-                    </p>
-                    <p>BTG acquired Capstone Technology Corporation in 2016. Based in Vancouver, WA and Seattle, USA, Capstone is a leading provider of software for process control optimization and decision support analytics across several processing industries.</p>
-                    <p>In 2019, BTG was acquired by Voith, a leader in the Pulp and Paper, opening new opportunities of collaboration and added value for our customers.</p>
+
+
+                <div class="col-sm-12 text-justify d-inline-block" [innerHTML]="historyData[0].content">
+
                 </div>
             </div>
         </div>

@@ -18,6 +18,8 @@ export class ApplyNowComponent implements OnInit {
   submit = false;
   cvName: any;
   coverName: any;
+  jobName: any;
+  linkedIn: any;
   constructor(private formBuilder:FormBuilder,private _activatedRoute: ActivatedRoute,private _carrer:CareersService) { }
 
   ngOnInit(): void {
@@ -45,6 +47,8 @@ export class ApplyNowComponent implements OnInit {
     (await this._carrer.getSingleCareer(id)).subscribe((res:any) => {
       this.carrers = res?.data;
       console.log(this.carrers);
+      this.jobName = this.carrers.name;
+      this.linkedIn = this.carrers.linkedInLink;
       
     })
 
@@ -103,7 +107,7 @@ export class ApplyNowComponent implements OnInit {
     let email: string = this.applyNowForm.value.email;
     let cv: string = this.applyNowForm.value.cv;
     let coverLetter: string = this.applyNowForm.value.coverLetter;
-   
+    let jobName:string = this.jobName;
     let jobId = this.jobId;
     
 
@@ -114,7 +118,7 @@ export class ApplyNowComponent implements OnInit {
     this.submit = true;
     this.isLoading = true;
     
-    this._carrer.applyNow({fullName , mobileNumber , email , cv , coverLetter , jobId}).then(res => {
+    this._carrer.applyNow({fullName , mobileNumber , email , cv , coverLetter , jobId , jobName}).then(res => {
       res.subscribe((response:any) => {
         if (response.status) {
           this.isLoading = false;

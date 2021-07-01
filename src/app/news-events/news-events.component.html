@@ -6,7 +6,12 @@
 
 <div *ngIf="!loader">
 
+    <nav aria-label="breadcrumb" class="bread-crum">
+        <ol class="breadcrumb">
 
+            <li class="breadcrumb-item active" aria-current="page">News and Press Release</li>
+        </ol>
+    </nav>
 
     <div class="red-title-banner">
         <h2 class="text-white">News and Press Release</h2>
@@ -38,8 +43,8 @@
 
 
 
+
                         </div>
-                        <pagination-controls (pageChange)="p = $event" class="float-center mx-auto my-auto"></pagination-controls>
                     </div>
 
                 </div>

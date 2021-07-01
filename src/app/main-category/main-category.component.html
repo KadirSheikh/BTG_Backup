@@ -11,6 +11,12 @@
     </div>
 
     <div *ngIf="!showComingSoon">
+        <nav aria-label="breadcrumb" class="bread-crum">
+            <ol class="breadcrumb">
+
+                <li class="breadcrumb-item active" aria-current="page">{{productsData.heading}}</li>
+            </ol>
+        </nav>
         <div class="red-title-banner">
             <h2 class="text-white" [innerHTML]="productsData.heading"> </h2>
         </div>
@@ -20,13 +26,13 @@
                 <div class="row mx-auto">
 
                     <!-- Section One -->
-                    <div *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')" class="col-sm-7 my-4"[innerHTML]="productsData.sectionOne"></div>
+                    <div *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionOne"></div>
                     <!-- Section One End -->
                     <div *ngIf="" class="col-sm-1 my-4"></div>
                     <!-- Section Two -->
                     <div *ngIf="!productsData.sectionTwo.includes('Lorem Ipsum')" class="col-sm-4 my-4" [innerHTML]="productsData.sectionTwo"></div>
                     <!-- Section Two End -->
-                
+
                     <!-- Section Three -->
                     <div *ngIf="!productsData.sectionThree.includes('Lorem Ipsum')" class="col-sm-7 my-4" [innerHTML]="productsData.sectionThree"></div>
                     <!-- Section Three Emd -->

@@ -28,6 +28,10 @@ export class ProductsComponent implements OnInit {
 
   dataSheetCategories: any = []
   dataSheet: any = []
+  catName: any;
+  subName: any;
+  subSubName: any;
+  pName: any;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -51,6 +55,17 @@ export class ProductsComponent implements OnInit {
       this.productId = params['id'];
       this.getData(this.productId);
 
+    })
+
+    
+    this._activatedRoute.queryParams.subscribe(async params => {
+     
+     this.catName =  params['catname']
+     this.subName =  params['subname']
+     this.subSubName =  params['subsubname']
+     this.pName =  params['pname']
+      
+     
     })
 
       ; (await this._datasheet.getCategories(this.productId)).subscribe(async(res: any) => {

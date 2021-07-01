@@ -134,9 +134,9 @@
                         <ul *ngIf="SolutionMainCategoryData?.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
                             <li *ngFor="let solMainCat of SolutionMainCategoryData" class="dropdown-submenu">
-                                <a class="dropdown-item " href="" (mouseover)="getSolutionSubCategory(solMainCat._id)" *ngIf="solMainCat.level == 2" routerLink="subcatagory/{{solMainCat._id}}" [queryParams]="{name: solMainCat.name}">{{ solMainCat.name }}</a>
-                                <a class="dropdown-item " href="" (mouseover)="getSolutionSubCategory(solMainCat._id)" *ngIf="solMainCat.level == 3" routerLink="solution-sub-category/{{solMainCat._id}}" [queryParams]="{name: solMainCat.name}">{{ solMainCat.name }}</a>
-                                <a class="dropdown-item " href="" (mouseover)="getSolutionSubCategory(solMainCat._id)" *ngIf="solMainCat.level == 4" routerLink="product/{{solMainCat._id}}" [queryParams]="{name: solMainCat.name}">{{ solMainCat.name }}</a>
+                                <a class="dropdown-item " href="" (mouseover)="getSolutionSubCategory(solMainCat._id)" *ngIf="solMainCat.level == 2" routerLink="subcatagory/{{solMainCat._id}}" [queryParams]="{catname : ind.name , subname:solMainCat.name}">{{ solMainCat.name }}</a>
+                                <a class="dropdown-item " href="" (mouseover)="getSolutionSubCategory(solMainCat._id)" *ngIf="solMainCat.level == 3" routerLink="solution-sub-category/{{solMainCat._id}}">{{ solMainCat.name }}</a>
+                                <a class="dropdown-item " href="" (mouseover)="getSolutionSubCategory(solMainCat._id)" *ngIf="solMainCat.level == 4" routerLink="product/{{solMainCat._id}}">{{ solMainCat.name }}</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li class="dropdown-submenu text-center">
                                         <div *ngIf="flag" class="spinner-border text-danger" style="text-align: center;font-size:10px;height: 20px;width: 20px;" role="status">
@@ -146,9 +146,9 @@
                                 </ul>
                                 <ul *ngIf="SolutionSubCategory?.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li *ngFor="let solSubCat of SolutionSubCategory" class="dropdown-submenu">
-                                        <a class="dropdown-item " href="" (mouseover)="getProductMainCategory(solSubCat._id)" *ngIf="solSubCat.level == 2" routerLink="subcatagory/{{solSubCat._id}}" [queryParams]="{name: solSubCat.name}">{{ solSubCat.name }}</a>
-                                        <a class="dropdown-item " href="" (mouseover)="getProductMainCategory(solSubCat._id)" *ngIf="solSubCat.level == 3" routerLink="solution-sub-category/{{solSubCat._id}}" [queryParams]="{name: solSubCat.name}">{{ solSubCat.name }}</a>
-                                        <a class="dropdown-item " href="" (mouseover)="getProductMainCategory(solSubCat._id)" *ngIf="solSubCat.level == 4" routerLink="product/{{solSubCat._id}}" [queryParams]="{name: solSubCat.name}">{{ solSubCat.name }}</a>
+                                        <a class="dropdown-item " href="" (mouseover)="getProductMainCategory(solSubCat._id)" *ngIf="solSubCat.level == 2" routerLink="subcatagory/{{solSubCat._id}}" [queryParams]="{catname : ind.name , subname:solMainCat.name}">{{ solSubCat.name }}</a>
+                                        <a class="dropdown-item " href="" (mouseover)="getProductMainCategory(solSubCat._id)" *ngIf="solSubCat.level == 3" routerLink="solution-sub-category/{{solSubCat._id}}" [queryParams]="{catname : ind.name , subname:solMainCat.name, subsubname:solSubCat.name}">{{ solSubCat.name }}</a>
+                                        <a class="dropdown-item " href="" (mouseover)="getProductMainCategory(solSubCat._id)" *ngIf="solSubCat.level == 4" routerLink="product/{{solSubCat._id}}">{{ solSubCat.name }}</a>
 
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li class="dropdown-submenu text-center">
@@ -160,11 +160,11 @@
 
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li *ngFor="let parodMain of ProductMainCategory" class="dropdown-submenu">
-                                                <a class="dropdown-item" *ngIf="parodMain.level == 2" routerLink="subcatagory/{{ parodMain._id }}" href="">{{
+                                                <a class="dropdown-item" *ngIf="parodMain.level == 2" routerLink="subcatagory/{{ parodMain._id }}" [queryParams]="{catname : ind.name , subname:solMainCat.name }" href="">{{
                                                     parodMain.name }}</a>
-                                                <a class="dropdown-item" *ngIf="parodMain.level == 3" routerLink="solution-sub-category/{{ parodMain._id }}" href="">{{
+                                                <a class="dropdown-item" *ngIf="parodMain.level == 3" routerLink="solution-sub-category/{{ parodMain._id }}" [queryParams]="{catname : ind.name , subname:solMainCat.name, subsubname:solSubCat.name}" href="">{{
                                                     parodMain.name }}</a>
-                                                <a class="dropdown-item" *ngIf="parodMain.level == 4" routerLink="product/{{ parodMain._id }}" href="">{{ parodMain.name
+                                                <a class="dropdown-item" *ngIf="parodMain.level == 4" routerLink="product/{{ parodMain._id }}" [queryParams]="{catname : ind.name , subname:solMainCat.name, subsubname:solSubCat.name , pname : parodMain.name }" href="">{{ parodMain.name
                                                     }}</a>
                                             </li>
                                         </ul>
@@ -176,6 +176,9 @@
                 </ul>
             </div>
         </nav>
+
+
+
         <button id="contact-btn" class="btn btn-danger shadow-lg" style="position: fixed; top: 90%; left: 90%; z-index: 1000;" routerLink="/contact">Contact Us</button>
     </div>
 </div>

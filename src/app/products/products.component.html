@@ -10,7 +10,16 @@
         <app-coming-soon></app-coming-soon>
     </div>
 
+
     <div *ngIf="!showComingSoon">
+        <nav aria-label="breadcrumb" class="bread-crum">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">{{catName}}</a></li>
+                <li class="breadcrumb-item"><a href="#">{{subName}}</a></li>
+                <li class="breadcrumb-item"><a href="#">{{subSubName}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{pName}}</li>
+            </ol>
+        </nav>
         <div class="red-title-banner">
             <h2 class="text-white" [innerHTML]="productsData.heading"> </h2>
         </div>

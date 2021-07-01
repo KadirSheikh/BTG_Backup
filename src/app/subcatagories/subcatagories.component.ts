@@ -79,6 +79,7 @@ export class SubcatagoriesComponent implements OnInit {
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   SolutionSubCategory: any[];
+  catName: any;
   
   
   constructor(
@@ -120,8 +121,9 @@ export class SubcatagoriesComponent implements OnInit {
     });
 
     this._activatedRoute.queryParams.subscribe(params => {
-       console.log(params['name']);
-       this.treeName = params['name'];
+       console.log(params['subname']);
+       this.catName =  params['catname']
+       this.treeName = params['subname'];
        
     })
 

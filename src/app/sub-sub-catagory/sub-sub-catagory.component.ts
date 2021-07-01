@@ -71,6 +71,9 @@ export class SubSubCatagoryComponent implements OnInit {
     dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
     SolutionSubCategory: any[];
   treeName: string;
+  catName: any;
+  subName: any;
+  subSubName: any;
 
   constructor(private _activatedRoute: ActivatedRoute , private _subsubcat:SolutionSubCategoryService, private _nav: NavbarService) {
     this.dataSource.data = this.tree_data;
@@ -103,9 +106,15 @@ export class SubSubCatagoryComponent implements OnInit {
 
     this._activatedRoute.queryParams.subscribe(params => {
       console.log(params['name']);
-      this.treeName = params['name'];
+      this.treeName = params['subsubname'];
+
+      this.catName =  params['catname']
+     this.subName =  params['subname']
+     this.subSubName =  params['subsubname']
+     
       
    })
+
 
   
   }

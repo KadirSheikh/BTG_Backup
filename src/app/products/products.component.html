@@ -1,4 +1,4 @@
-<div class="d-flex flex-column justify-content-center align-content-center" style="align-items: center;text-align: center;position: fixed;width: 100%;height: 100%;z-index: 9999;
+<div class="d-flex flex-column justify-content-center align-content-center" style="background: #fff; align-items: center;text-align: center;position: fixed;width: 100%;height: 100%;z-index: 9999;
 " *ngIf="isLoading">
     <img src="../../assets/svg-btg.svg" alt="" class="img-fluid" style="width: 10%;height: auto;">
     <img src="../../assets/loaderred.gif" alt="" style="width: 7%;height: auto;">
@@ -10,64 +10,101 @@
         <app-coming-soon></app-coming-soon>
     </div>
 
+
     <div *ngIf="!showComingSoon">
+
         <div class="red-title-banner">
             <h2 class="text-white" [innerHTML]="productsData.heading"> </h2>
         </div>
+        <nav aria-label="breadcrumb" class="bread-crum">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/catagory/1" [queryParams]="{name: catName , id:catNameId}">{{catName}}</a></li>
+                <li class="breadcrumb-item"><a routerLink="/subcatagory/{{subNameId}}" [queryParams]="{catname : catName , subname:subName}">{{subName}}</a></li>
+                <li class="breadcrumb-item"><a href="#">{{subSubName}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{pName}}</li>
+            </ol>
+        </nav>
 
         <section style="padding: 50px 0;">
-            <div class="container">
-                <div class="row mx-auto">
+            <div class="container-fluid">
 
-                    <!-- Section One -->
-                    <div *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionOne"></div>
-                    <!-- Section One End -->
 
-                    <!-- Section Two -->
-                    <div *ngIf="!productsData.sectionTwo.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionTwo"></div>
-                    <!-- Section Two End -->
+                <div class="row">
 
-                    <!-- Section Three -->
-                    <div *ngIf="!productsData.sectionThree.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionThree"></div>
-                    <!-- Section Three Emd -->
+                    <div class="col-sm-2">
+                        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                            <!-- This is the tree node template for leaf nodes -->
+                            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                                <!-- use a disabled button to provide padding for tree leaf -->
+                                <button mat-icon-button disabled></button> {{node.name}}
+                            </mat-tree-node>
+                            <!-- This is the tree node template for expandable nodes -->
+                            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                                    <mat-icon class="mat-icon-rtl-mirror">
+                                        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                                    </mat-icon>
+                                </button> {{node.name}}
+                            </mat-tree-node>
+                        </mat-tree>
+                    </div>
 
-                    <!-- Section Four -->
-                    <div *ngIf="!productsData.sectionFour.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionFour"></div>
-                    <!-- Section Four End -->
 
-                    <!-- Section Five -->
-                    <div *ngIf="!productsData.sectionFive.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionFive"></div>
-                    <!-- Section Five Emd -->
+                    <div class="col-sm-10">
 
-                    <!-- Section Six -->
-                    <div *ngIf="!productsData.sectionSix.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionSix"></div>
-                    <!-- Section Six End -->
 
-                    <!-- Section Seven -->
-                    <div *ngIf="!productsData.sectionSeven.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionSeven"></div>
-                    <!-- Section Seven Emd -->
+                        <div class="row mx-auto">
 
-                    <!-- Section Eight -->
-                    <div *ngIf="!productsData.sectionEight.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionEight"></div>
-                    <!-- Section Eight End -->
+                            <!-- Section One -->
+                            <div *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionOne"></div>
+                            <!-- Section One End -->
 
-                    <!-- Section Nine -->
-                    <div *ngIf="!productsData.sectionNine.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionNine"></div>
-                    <!-- Section Nine Emd -->
+                            <!-- Section Two -->
+                            <div *ngIf="!productsData.sectionTwo.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionTwo"></div>
+                            <!-- Section Two End -->
 
-                    <!-- Section Ten -->
-                    <div *ngIf="!productsData.sectionTen.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionTen"></div>
-                    <!-- Section Ten End -->
+                            <!-- Section Three -->
+                            <div *ngIf="!productsData.sectionThree.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionThree"></div>
+                            <!-- Section Three Emd -->
 
-                    <!-- Section Eleven -->
-                    <div *ngIf="!productsData.sectionEleven.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionEleven"></div>
-                    <!-- Section Eleven Emd -->
+                            <!-- Section Four -->
+                            <div *ngIf="!productsData.sectionFour.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionFour"></div>
+                            <!-- Section Four End -->
 
-                    <!-- Section Twelve -->
-                    <div *ngIf="!productsData.sectionTwelve.includes('Lorem Ipsum')" class="col-sm-6 my-4" [innerHTML]="productsData.sectionTwelve"></div>
-                    <!-- Section Twelve End -->
+                            <!-- Section Five -->
+                            <div *ngIf="!productsData.sectionFive.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionFive"></div>
+                            <!-- Section Five Emd -->
+
+                            <!-- Section Six -->
+                            <div *ngIf="!productsData.sectionSix.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionSix"></div>
+                            <!-- Section Six End -->
+
+                            <!-- Section Seven -->
+                            <div *ngIf="!productsData.sectionSeven.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionSeven"></div>
+                            <!-- Section Seven Emd -->
+
+                            <!-- Section Eight -->
+                            <div *ngIf="!productsData.sectionEight.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionEight"></div>
+                            <!-- Section Eight End -->
+
+                            <!-- Section Nine -->
+                            <div *ngIf="!productsData.sectionNine.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionNine"></div>
+                            <!-- Section Nine Emd -->
+
+                            <!-- Section Ten -->
+                            <div *ngIf="!productsData.sectionTen.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionTen"></div>
+                            <!-- Section Ten End -->
+
+                            <!-- Section Eleven -->
+                            <div *ngIf="!productsData.sectionEleven.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionEleven"></div>
+                            <!-- Section Eleven Emd -->
+
+                            <!-- Section Twelve -->
+                            <div *ngIf="!productsData.sectionTwelve.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData.sectionTwelve"></div>
+                            <!-- Section Twelve End -->
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </section>
 
@@ -102,7 +139,7 @@
                                             <select matNativeControl required (change)="getLanguage($event , d.id)">
                                                 <option value="{{s | json}}" *ngFor="let s of d.sheets">{{ s.language }}
                                                 </option>
-    
+
                                             </select>
                                         </mat-form-field>
 
@@ -112,12 +149,13 @@
                                         </select> -->
 
                                         <button class="btn btn-danger float-right mx-2" style="padding: 3%;" mat-button (click)="downloads(tabtitle._id , d.id)">
-    
+
                                             <a [href]="d.selected" style="color: #fff;">Download</a>
                                         </button>
 
                                         <button class="btn btn-danger float-right mx-2" style="padding: 3%;" mat-button>
-                                            <a routerLink="/view-pdf" style="color: #fff;" [queryParams]="{url:d.selected}">View</a>
+                                            <a routerLink="/view-pdf" style="color: #fff;"
+                                                [queryParams]="{url:d.selected}">View</a>
                                         </button>
                                     </div>
 

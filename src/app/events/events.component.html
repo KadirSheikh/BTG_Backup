@@ -5,10 +5,16 @@
 </div>
 
 <div *ngIf="!loader">
+
     <div class="red-title-banner">
         <h2 class="text-white"> Events </h2>
     </div>
+    <nav aria-label="breadcrumb" class="bread-crum">
+        <ol class="breadcrumb">
 
+            <li class="breadcrumb-item active" aria-current="page">Events</li>
+        </ol>
+    </nav>
 
 
     <section style="padding: 50px 0;">
@@ -31,7 +37,7 @@
                                     <a href="#" class="card-link text-primary" *ngIf="e.type=='1'">UPCOMING</a>
                                     <a href="#" class="card-link text-success" *ngIf="e.type=='2'">ONGOING</a>
                                     <a href="#" class="card-link text-danger" *ngIf="e.type=='0'">PAST</a>
-                                    <a href="#" class="card-link float-right visit-site">Visit Site</a>
+                                    <a [href]="e.url" target="_blank" class="card-link float-right visit-site">Visit Site</a>
                                 </div>
                             </div>
 
@@ -51,7 +57,7 @@
                                     <a href="#" class="card-link text-primary" *ngIf="e.type=='1'">UPCOMING</a>
                                     <a href="#" class="card-link text-success" *ngIf="e.type=='2'">ONGOING</a>
                                     <a href="#" class="card-link text-danger" *ngIf="e.type=='0'">PAST</a>
-                                    <a href="#" class="card-link float-right visit-site">Visit Site</a>
+                                    <a [href]="e.url" target="_blank" class="card-link float-right visit-site">Visit Site</a>
                                 </div>
                             </div>
 

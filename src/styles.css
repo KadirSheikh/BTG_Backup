@@ -27,6 +27,20 @@ footer ul li {
     text-align: center;
 }
 
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: #fff !important;
+    border-radius: .25rem;
+}
+
+.breadcrumb-item a {
+    color: #DC3545 !important;
+}
+
 .data-sheet {
     text-align: center;
     background-image: url('assets/datasheet/datanewsheet.png');

@@ -4,6 +4,13 @@
         <h2 class="text-white">Team</h2>
 
     </div>
+    <nav aria-label="breadcrumb" class="bread-crum">
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item"><a routerLink="/about">About</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Team</li>
+        </ol>
+    </nav>
 
     <section style="padding: 50px 0;">
         <div class="container">
@@ -11,53 +18,14 @@
 
             <div class="row mx-auto my-4">
 
-                <div class="col-sm-4 text-center">
+                <div class="col-sm-4 text-center" *ngFor="let team of teamData">
                     <figure>
-                        <img src="../../../assets/teams/download_brochure.png" class="img-fluid">
-                        <figcaption class="bold">Esther Howard</figcaption>
-                        <figcaption>Designer</figcaption>
+                        <img src="{{team.image}}" class="img-fluid" style="width: 250px !important;height: 300px!important;">
+                        <figcaption class="bold">{{team.name}}</figcaption>
+                        <figcaption>{{team.designation}}</figcaption>
                     </figure>
                 </div>
 
-                <div class="col-sm-4 text-center">
-                    <figure>
-                        <img src="../../../assets/teams/2.png" class="img-fluid">
-                        <figcaption class="bold">Esther Howard</figcaption>
-                        <figcaption>Designer</figcaption>
-                    </figure>
-                </div>
-
-                <div class="col-sm-4 text-center">
-                    <figure>
-                        <img src="../../../assets/teams/3.png" class="img-fluid">
-                        <figcaption class="bold">Esther Howard</figcaption>
-                        <figcaption>Designer</figcaption>
-                    </figure>
-                </div>
-
-                <div class="col-sm-4 text-center">
-                    <figure>
-                        <img src="../../../assets/teams/4.png" class="img-fluid">
-                        <figcaption class="bold">Esther Howard</figcaption>
-                        <figcaption>Designer</figcaption>
-                    </figure>
-                </div>
-
-                <div class="col-sm-4 text-center">
-                    <figure>
-                        <img src="../../../assets/teams/5.png" class="img-fluid">
-                        <figcaption class="bold">Esther Howard</figcaption>
-                        <figcaption>Designer</figcaption>
-                    </figure>
-                </div>
-
-                <div class="col-sm-4 text-center">
-                    <figure>
-                        <img src="../../../assets/teams/6.png" class="img-fluid">
-                        <figcaption class="bold">Esther Howard</figcaption>
-                        <figcaption>Designer</figcaption>
-                    </figure>
-                </div>
 
 
             </div>

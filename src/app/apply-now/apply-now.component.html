@@ -5,10 +5,24 @@
 </div> -->
 
 <div>
+    <!-- <nav aria-label="breadcrumb" class="bread-crum">
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item"><a href="#">Careers</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{carrers?.name}}</li>
+        </ol>
+    </nav> -->
+
+
     <div class="red-title-banner">
         <h2 class="text-white"> {{carrers?.name}} </h2>
     </div>
-
+    <nav aria-label="breadcrumb" class="bread-crum">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/careers">Careers</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{carrers?.name}}</li>
+        </ol>
+    </nav>
 
 
     <section style="padding: 50px 0;">
@@ -112,13 +126,13 @@
                         <form [formGroup]="applyNowForm" (ngSubmit)="applyNow()">
 
                             <div class="form-group">
-                                <label for="">Full Name</label>
+                                <label for="">Full Name <span class="text-danger">*</span> </label>
                                 <input type="text" class="form-control" name="fullName" id="" formControlName="fullName" placeholder="Full Name">
                                 <span *ngIf="(!applyNowForm.controls['fullName'].valid) && (applyNowForm.controls['fullName'].touched) || (applyNowForm.hasError('fullName') && !applyNowForm.hasError('required'))" class="text-danger">Full name is required.</span>
                             </div>
 
                             <div class="form-group">
-                                <label for="">Email</label>
+                                <label for="">Email <span class="text-danger">*</span> </label>
                                 <input type="email" class="form-control" name="email" id="" formControlName="email" placeholder="Email">
                                 <span *ngIf="(!applyNowForm.controls['email'].valid) && (applyNowForm.controls['email'].touched) || (applyNowForm.hasError('email') && !applyNowForm.hasError('required'))" class="text-danger">Email is required.</span>
                             </div>
@@ -130,7 +144,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="">CV/Resume</label> <br>
+                                <label for="">CV/Resume <span class="text-danger">*</span></label> <br>
                                 <label for="cv" style="background-color:#ECEFF1;padding:3px 40px;border-radius: 5px;">Browse</label>
                                 <span class="ml-3" *ngIf="!(cvName?.length > 0)">Select File</span>
                                 <span class="ml-3" *ngIf="cvName?.length > 0">{{cvName}}</span>
@@ -166,7 +180,9 @@
                                 <span>or</span> <br><br>
                             </div>
                         </form>
-                        <button class="btn btn-primary btn-block">Apply on Linkedin</button>
+                        <button class="btn btn-primary btn-block">
+                            <a [href]="linkedIn" style="color: white; text-decoration: none;">Apply On LinkedIn</a>
+                        </button>
 
                     </div>
 

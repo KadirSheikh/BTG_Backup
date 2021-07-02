@@ -74,6 +74,19 @@ export class CatagoriesComponent implements OnInit {
   catName: any;
   catid: any;
   treeName: string;
+  consistencyId: any;
+  creepingId: any;
+  fmid: any;
+  weid: any;
+  ysid: any;
+  suid: any;
+  oaid: any;
+  laid: any;
+  bwid: any;
+  psid: any;
+  oiid: any;
+  osid: any;
+  apcid: any;
 
   constructor(private _activatedRoute: ActivatedRoute, private _nav: NavbarService) {
     this.dataSource.data = this.tree_data;
@@ -88,8 +101,11 @@ export class CatagoriesComponent implements OnInit {
 
     this._activatedRoute.queryParams.subscribe(params => {
       this.catName = params['name'];
+      console.log(this.catName);
+      
       this.catid = params['id'];
       console.log(this.catName);
+      this.getSolMainName(this.catid)
 
       this.getSolutionSub(this.catid)
       setTimeout(() => {
@@ -99,7 +115,7 @@ export class CatagoriesComponent implements OnInit {
             e.name = this.catName
           }
         });
-        console.log(this.tree_data);
+        // console.log(this.tree_data);
         this.dataSource.data = this.tree_data;
         // this.isLoading = false;
       }, 1000)
@@ -111,8 +127,67 @@ export class CatagoriesComponent implements OnInit {
   }
 
 
+  async getSolMainName(id: string){
+  
+      (await this._nav.getsolutionMainCategoryFor(id)).subscribe((res:any) => {
+        // console.log(res.data);
+        let newArr:any = []
+        res.data.forEach(e => {
+          var name = e.name;
+          var id = e._id;
+          newArr.push({name , id})
+          // console.log({name , id});
+          
+        });
+
+        console.log(newArr);
+        
+        
+        newArr.forEach(e => {
+          console.log(e);
+          if(e.name.includes('Consistency')){
+            this.consistencyId = e.id;
+          }else if(e.name.includes('Creping')){
+            this.creepingId = e.id;
+          }else if(e.name.includes('Fiber management')){
+            this.fmid = e.id;
+          }else if(e.name.includes('Wet-end stability')){
+            this.weid = e.id;
+          }else if(e.name.includes('Yankee safety')){
+            this.ysid = e.id;
+          }else if(e.name.includes('Sheet uniformity')){
+            this.suid = e.id;
+          }else if(e.name.includes('Online Analyzers')){
+            this.oaid = e.id;
+          }else if(e.name.includes('Laboratory Analyzers')){
+            this.laid = e.id;
+          }else if(e.name.includes('Basis Weight')){
+            this.bwid = e.id;
+          }else if(e.name.includes('Performance solutions')){
+            this.psid = e.id;
+          }else if(e.name.includes('Operational intelligence')){
+            this.oiid = e.id;
+          }else if(e.name.includes('Operational safety')){
+            this.osid = e.id;
+          }else if(e.name.includes('Advance Process control')){
+            this.apcid = e.id;
+          }
+
+          
+        });
+        console.log(this.consistencyId);
+        
+        
+        
+      })
+  }
+
+
 
   async getSolutionSub(id: string) {
+
+    
+
     this.SolutionSubCategory = [];
     (await this._nav.getsolutionMainCategoryFor(id)).subscribe(async (response: any) => {
       if (response?.status && response?.status == true && response?.data) {
@@ -126,7 +201,7 @@ export class CatagoriesComponent implements OnInit {
               (await this._nav.getProductMainCategoryData(item._id)).subscribe(async(res:any) => {
 
                 item.children = await res?.data;
-                console.log(item.children);
+                // console.log(item.children);
                 
 
               })
@@ -143,6 +218,11 @@ export class CatagoriesComponent implements OnInit {
       else return [];
     })
   }
+
+
+  
+
+  
 
 
 }

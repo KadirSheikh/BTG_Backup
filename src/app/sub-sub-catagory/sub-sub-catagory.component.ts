@@ -4,6 +4,8 @@ import { SolutionSubCategoryService } from '../services/solution-sub-category.se
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import { NavbarService } from '../navbar.service';
+import { SolutionMainCategoryService } from '../services/solution-main-category.service';
+import { ProductService } from '../services/product.service';
 
 interface FoodNode {
   _id: any,
@@ -78,7 +80,13 @@ export class SubSubCatagoryComponent implements OnInit {
   subNameId: any;
   level: any;
 
-  constructor(private _activatedRoute: ActivatedRoute , private _subsubcat:SolutionSubCategoryService, private _nav: NavbarService) {
+  constructor(
+    private _activatedRoute: ActivatedRoute, 
+    private _solMainCatService: SolutionMainCategoryService,
+    private _proService: ProductService,
+    private _subsubcat: SolutionSubCategoryService, 
+    private _nav: NavbarService
+    ) {
     this.dataSource.data = this.tree_data;
     
    }
@@ -89,6 +97,7 @@ export class SubSubCatagoryComponent implements OnInit {
 
     this._activatedRoute.params.subscribe(params => {
       this.productId = params['id'];
+      
       this.getData(this.productId);
       this.getSolutionSub(this.productId)
 
@@ -115,11 +124,12 @@ export class SubSubCatagoryComponent implements OnInit {
      this.subName =  params['subname']
      this.subSubName =  params['subsubname']
      this.level =  params['level']
-
+      console.log(this.level);
+      
      
      this.catNameId =  params['catId']
      this.subNameId =  params['subnameId']
-     
+     this.getData(this.productId);
       
    })
 
@@ -130,20 +140,81 @@ export class SubSubCatagoryComponent implements OnInit {
 
   async getData(id:string){
 
-    (await this._subsubcat.getSolutionSubCategory(id)).subscribe((resp: any) => {
-      console.log(resp)
-      if(resp.data == null || resp.data?.heading.includes('Heading')){
-        this.showComingSoon = true;
-        this.isLoading = false;
-        }else{
+    // (await this._subsubcat.getSolutionSubCategory(id)).subscribe((resp: any) => {
+    //   console.log(resp)
+    //   if(resp.data == null || resp.data?.heading.includes('Heading')){
+    //     this.showComingSoon = true;
+    //     this.isLoading = false;
+    //     }else{
+    //       this.productsData = resp.data;
+    //       this.showComingSoon = false;
+    //       this.isLoading = false;
+    //       console.log(this.productsData.heading);
+          
+    //     }
+      
+    // })
+
+    
+      (await this._solMainCatService.getSolutionMainCategory(id)).subscribe((resp: any) => {
+        console.log(resp)
+        if(resp.data == null){
+         
+          
+          
+          // this.isLoading = false;
+          }else{
+            this.productsData = resp.data;
+            this.showComingSoon = false;
+            // this.isLoading = false;
+            console.log(this.productsData);
+            
+          }
+          console.log(this.isLoading);
+      });
+    
+
+
+    
+      console.log('level3');
+      
+      (await this._subsubcat.getSolutionSubCategory(id)).subscribe((resp: any) => {
+        console.log(resp)
+        if(resp.data == null || resp.data?.heading.includes('Heading')){
+          
+          this.isLoading = false;
+          }else{
+            this.productsData = resp.data;
+            this.showComingSoon = false;
+            this.isLoading = false;
+            console.log(this.productsData.heading);
+            
+          }
+        
+      });
+    
+
+    
+      (await this._proService.getProduct(id)).subscribe((resp: any) => {
+
+        if (resp.data == null || resp.data?.heading.includes('Heading')) {
+          
+          this.isLoading = false;
+        } else {
           this.productsData = resp.data;
           this.showComingSoon = false;
           this.isLoading = false;
-          console.log(this.productsData.heading);
           
+  
         }
-      
-    })
+  
+      })
+
+
+      if( !this.productsData ){
+        this.showComingSoon = true;
+      }
+    
 
     
   }

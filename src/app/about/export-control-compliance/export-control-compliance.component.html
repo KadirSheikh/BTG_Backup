@@ -16,34 +16,26 @@
     </div>
 </section> -->
 <div>
+
+
+    <div class="red-title-banner">
+        <h2 class="text-white">{{exportData[0]?.heading}}</h2>
+
+    </div>
     <nav aria-label="breadcrumb" class="bread-crum">
         <ol class="breadcrumb">
 
-            <li class="breadcrumb-item"><a href="#">About</a></li>
+            <li class="breadcrumb-item"><a routerLink="/about">About</a></li>
             <li class="breadcrumb-item active" aria-current="page">Export control compliance</li>
         </ol>
     </nav>
-
-    <div class="red-title-banner">
-        <h2 class="text-white">Export control compliance</h2>
-
-    </div>
     <section style="padding: 100px 0;">
         <div class="container">
 
 
-            <div class="row mx-auto my-4">
+            <div class="row mx-auto my-4" [innerHTML]="exportData[0]?.content">
 
-                <p class="text-justify">BTG has implemented rigorous process controls on all exports for the purpose of:</p>
-                <ul>
-                    <li>Preventing exports of dual-use products, i.e. products (documentation, information) for both civilian and military applications, which can be used for the development, production and deployment of weapons of mass destruction.</li>
-                    <li>Preventing exports of military products (documentation, information) to countries whose behavior is a threat to international peace and security.</li>
-                    <li>Complying with United States (US), European Union (EU), Swiss and various international organizations’ export restrictions (sanctions and embargoes) vis-à-vis specific countries with a view to changing the behavior of these countries.</li>
-                </ul>
-                <p class="text-justify">We assume responsibility for investigating whether specific product exports, technologies or technical assistance are subject to export control regulations. Many nations and regions, including Switzerland, the European Union, and the United
-                    States have laws to control the export of strategic products, technology and software.</p>
-                <p class="text-justify">It is BTG’s express policy to fully comply with all applicable export controls, which are summarized in the BTG Export Controls Compliance Manual. Any BTG employee who knowingly violates such controls or this compliance policy will be
-                    subject to appropriate disciplinary action.</p>
+
 
             </div>
         </div>

@@ -9,6 +9,27 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { ViewPdfComponent } from '../view-pdf/view-pdf.component';
 import { identifierModuleUrl } from '@angular/compiler';
+import {FlatTreeControl} from '@angular/cdk/tree';
+import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
+import { NavbarService } from '../navbar.service';
+
+interface FoodNode {
+  _id: any,
+  name: string;
+  level: number;
+  parentId: string;
+  order: number;
+  children?: FoodNode[];
+}
+
+
+interface ExampleFlatNode {
+  expandable: boolean;
+  name: string;
+  level: number;
+}
+
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -32,6 +53,38 @@ export class ProductsComponent implements OnInit {
   subName: any;
   subSubName: any;
   pName: any;
+  catNameId: any;
+  subNameId: any;
+  subSubNameId: any;
+  level: any;
+
+  tree_data: FoodNode[] = [
+    {   
+        _id: 1,
+        level: 0,
+        parentId: '',
+        order: 0,
+        name: '',
+        children: []
+      },
+    ];
+
+    private _transformer = (node: FoodNode, level: number) => {
+      return {
+        expandable: !!node.children && node.children.length > 0,
+        name: node.name,
+        level: level,
+      };
+    }
+
+    treeControl = new FlatTreeControl<ExampleFlatNode>(
+      node => node.level, node => node.expandable);
+
+  treeFlattener = new MatTreeFlattener(
+      this._transformer, node => node.level, node => node.expandable, node => node.children);
+
+  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+  SolutionSubCategory: any[];
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -39,8 +92,9 @@ export class ProductsComponent implements OnInit {
     private _datasheet: DatasheetService,
     public gVar : GlobalConstants,
     public dialog: MatDialog,
-    private _dow:DownloadsService) { }
-
+    private _nav: NavbarService,
+    private _dow:DownloadsService) {this.dataSource.data = this.tree_data; }
+hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
   async ngOnInit() {
     
     if(this.gVar.isLoggedIn == 'loggedin'){
@@ -64,7 +118,25 @@ export class ProductsComponent implements OnInit {
      this.subName =  params['subname']
      this.subSubName =  params['subsubname']
      this.pName =  params['pname']
+     this.level =  params['level']
       
+
+     this.catNameId =  params['catId']
+     this.subNameId =  params['subnameId']
+     this.subSubNameId =  params['subsubnameId']
+
+     this.getSolutionSub(this.subNameId)
+     setTimeout(()=>{
+       this.tree_data.forEach(e => {
+         if(e._id == 1){
+           e.children = this.SolutionSubCategory;
+           e.name = this.pName
+         }
+       });
+           console.log(this.tree_data);
+           this.dataSource.data = this.tree_data;
+           // this.isLoading = false;
+     }, 1000)
      
     })
 
@@ -138,6 +210,28 @@ export class ProductsComponent implements OnInit {
 
   }
 
+  async getSolutionSub(id:string){
+
+    this.SolutionSubCategory = [];
+    
+    (await this._nav.getsolutionSubCategoryFor(id)).subscribe( (response:any) => {
+      if (response?.status && response?.status == true && response?.data){
+        this.SolutionSubCategory = response.data;
+        this.SolutionSubCategory.forEach(async e => {
+          (await this._nav.getproductMainCategory(e._id)).subscribe((res:any) => {
+            console.log(res.data);
+            e.children = res?.data;
+            
+          })
+        })
+        // return response.data;
+        
+      }
+        
+      else return [];
+    })
+  }
+
 
 
   seeDataSheet(){
@@ -179,7 +273,8 @@ export class ProductsComponent implements OnInit {
           name: name,
           sheets: findArrS,
           selected:findArrS[0]?.url || ''
-        });}
+        });
+      }
 
     })
     console.log(newArr);

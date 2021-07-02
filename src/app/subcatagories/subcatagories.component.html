@@ -11,23 +11,25 @@
     </div>
 
     <div *ngIf="!showComingSoon">
-        <nav aria-label="breadcrumb" class="bread-crum">
-            <ol class="breadcrumb">
 
-                <li class="breadcrumb-item"><a href="#">{{catName}}</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{treeName}}</li>
-            </ol>
-        </nav>
         <div class="red-title-banner">
             <h2 class="text-white" [innerHTML]="productsData.heading"> </h2>
         </div>
+        <nav aria-label="breadcrumb" class="bread-crum">
+            <ol class="breadcrumb">
+
+                <li class="breadcrumb-item"><a routerLink="/catagory/1" [queryParams]="{name: catName , id:catNameId}">{{catName}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{treeName}}</li>
+            </ol>
+        </nav>
+
 
 
         <section style="padding: 50px 0;">
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
                             <!-- This is the tree node template for leaf nodes -->
                             <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
@@ -52,51 +54,51 @@
 
 
                             <!-- Section One -->
-                            <div *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionOne"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionOne"></div>
                             <!-- Section One End -->
 
                             <!-- Section Two -->
-                            <div *ngIf="!productsData.sectionTwo.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionTwo"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionTwo.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionTwo"></div>
                             <!-- Section xTwo End -->
 
                             <!-- Section Three -->
-                            <div *ngIf="!productsData.sectionThree.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionThree"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionThree.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionThree"></div>
                             <!-- Section Three Emd -->
 
                             <!-- Section Four -->
-                            <div *ngIf="!productsData.sectionFour.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionFour"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionFour.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionFour"></div>
                             <!-- Section Four End -->
 
                             <!-- Section Five -->
-                            <div *ngIf="!productsData.sectionFive.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionFive"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionFive.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionFive"></div>
                             <!-- Section Five Emd -->
 
                             <!-- Section Six -->
-                            <div *ngIf="!productsData.sectionSix.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionSix"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionSix.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionSix"></div>
                             <!-- Section Six End -->
 
                             <!-- Section Seven -->
-                            <div *ngIf="!productsData.sectionSeven.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionSeven"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionSeven.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionSeven"></div>
                             <!-- Section Seven Emd -->
 
                             <!-- Section Eight -->
-                            <div *ngIf="!productsData.sectionEight.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionEight"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionEight.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionEight"></div>
                             <!-- Section Eight End -->
 
                             <!-- Section Nine -->
-                            <div *ngIf="!productsData.sectionNine.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionNine"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionNine.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionNine"></div>
                             <!-- Section Nine Emd -->
 
                             <!-- Section Ten -->
-                            <div *ngIf="!productsData.sectionTen.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionTen"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionTen.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionTen"></div>
                             <!-- Section Ten End -->
 
                             <!-- Section Eleven -->
-                            <div *ngIf="!productsData.sectionEleven.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionEleven"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionEleven.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionEleven"></div>
                             <!-- Section Eleven Emd -->
 
                             <!-- Section Twelve -->
-                            <div *ngIf="!productsData.sectionTwelve.includes('Lorem Ipsum')" class="hoverr col-sm-6 my-4" [innerHTML]="productsData.sectionTwelve"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionTwelve.includes('Lorem Ipsum')" class="col-sm-6 my-4" [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionTwelve"></div>
                             <!-- Section Twelve End -->
 
                         </div>

@@ -8,7 +8,7 @@
 
 
 <!-- Pulp page start of main catagory -->
-<div *ngIf="catName == 'Pulp'">
+<div *ngIf="catName.includes('Pulp')">
 
     <!-- <section id="pulp">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -28,21 +28,21 @@
             </div>
         </div>
     </section> -->
-    <nav aria-label="breadcrumb" class="bread-crum">
-        <ol class="breadcrumb">
 
-            <li class="breadcrumb-item"><a href="#">{{catName}}/</a></li>
-
-        </ol>
-    </nav>
     <div class="red-title-banner">
         <h1 class="text-white ">{{data[1].heading}}</h1>
     </div>
+    <nav aria-label="breadcrumb" class="bread-crum">
+        <ol class="breadcrumb">
 
+            <li class="breadcrumb-item active" aria-current="page">{{catName}}</li>
+
+        </ol>
+    </nav>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
                     <!-- This is the tree node template for leaf nodes -->
                     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
@@ -52,15 +52,15 @@
                     <!-- This is the tree node template for expandable nodes -->
                     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
                         <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-                        <mat-icon class="mat-icon-rtl-mirror">
-                          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                        </mat-icon>
-                      </button> {{node.name}}
+                            <mat-icon class="mat-icon-rtl-mirror">
+                                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                            </mat-icon>
+                        </button> {{node.name}}
                     </mat-tree-node>
                 </mat-tree>
             </div>
 
-            <div class="col-sm-9">
+            <div class="col-sm-10">
 
                 <div class="row">
                     <section style="padding: 50px 0;">
@@ -68,7 +68,8 @@
                             <div class="row mx-auto">
                                 <div class="col-sm-6">
 
-                                    <strong style="font-size: 25px;">Optimize quality and reduce costs with Industry 4.0 tools across
+                                    <strong style="font-size: 25px;">Optimize quality and reduce costs with Industry 4.0
+                                        tools across
                                         the fiberline</strong>
                                     <p class="mt-5 text-justify">Optimizing fiberline productivity and profitability is a key challenge for pulp mills.
                                     </p>
@@ -100,7 +101,8 @@
                                     <strong style="font-size: 25px;">BTG Pulp 4 0
                                         the fiberline</strong>
                                     <div id="container1">
-                                        <div id="navi" style="background-color: #FCE0DF;width: 200px;height: 300px;"></div>
+                                        <div id="navi" style="background-color: #FCE0DF;width: 200px;height: 300px;">
+                                        </div>
                                         <div id="infoi">
                                             <iframe class="mt-5 ml-5" width="350" height="200" src="https://www.youtube.com/embed/NKzd_YiW9AQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -138,21 +140,13 @@
 
 
 
-    <section class="contact-home" style="padding-bottom: 50px;">
-        <div class="text-center" style="position: relative; top: 50%; left: 50%; transform: translate(-50%,-50%);">
-            <h3 class="text-center">Can’t find a solution you are after?
-                <br>We can still help, talk to our experts today
-            </h3>
-            <button class="btn btn-danger btn-lg mt-4">Contact BTG</button>
-        </div>
 
-    </section>
     <!-- <app-footer></app-footer> -->
 </div>
 <!-- Pulp page end of main catagory -->
 
 <!-- Tissue page start of main catagory -->
-<div *ngIf="catName == 'Tissue'">
+<div *ngIf="catName.includes('Tissue')">
     <!-- <section id="careers">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -180,22 +174,24 @@
             </div>
         </div>
     </section> -->
-    <nav aria-label="breadcrumb" class="bread-crum">
-        <ol class="breadcrumb">
 
-            <li class="breadcrumb-item"><a href="#">{{catName}}</a></li>
-
-        </ol>
-    </nav>
     <div class="red-title-banner">
         <h1 class="text-white text-center">{{data[0].heading}}</h1>
         <h4 class="text-capitalize text-white text-center">{{data[0].subheading}}</h4>
     </div>
 
+    <nav aria-label="breadcrumb" class="bread-crum">
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item active" aria-current="page">{{catName}}</li>
+
+        </ol>
+    </nav>
+
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
                     <!-- This is the tree node template for leaf nodes -->
                     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
@@ -205,14 +201,14 @@
                     <!-- This is the tree node template for expandable nodes -->
                     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
                         <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-                        <mat-icon class="mat-icon-rtl-mirror">
-                          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                        </mat-icon>
-                      </button> {{node.name}}
+                            <mat-icon class="mat-icon-rtl-mirror">
+                                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                            </mat-icon>
+                        </button> {{node.name}}
                     </mat-tree-node>
                 </mat-tree>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-10">
                 <div class="row">
                     <section style="padding: 100px 0;">
                         <div class="container">
@@ -345,66 +341,146 @@
 
                             <div id="lev3" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
                                 <div class="col-sm-4">
-                                    <p class="mb-0"><strong>CONTROL LOOP PERFORMANCE MANAGEMENT</strong></p>
-                                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance</p>
-
-                                    <p class="mb-0"><strong>ADVANCED PROCESS CONTROL</strong></p>
+                                    <p class="mb-0">
+                                        <a href="">
+                                            <strong class="text-dark">CONTROL LOOP PERFORMANCE MANAGEMENT</strong>
+                                        </a>
+                                    </p>
+                                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance
+                                    </p>
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{apcid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Advance Process controls' ,level : 2}">
+                                            <strong class="text-dark">ADVANCED PROCESS CONTROL</strong>
+                                        </a>
+                                    </p>
                                     <p>Standardize and centerline the control strategy of process to increase focus</p>
                                 </div>
                                 <div class="col-sm-4">
                                     <img [src]="data[0].img3" style="width: 100%;; height: 100%;" />
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mb-0 text-right"><strong>PREDICTIVE MODELLING SOLUTIONS</strong></p>
+
+
+                                    <p class="mb-0">
+                                        <a href="">
+                                            <strong class="text-dark">PREDICTIVE MODELLING SOLUTIONS</strong>
+                                        </a>
+                                    </p>
+
                                     <p class="text-right">Usage of softsensors to reduce variability and optimize output leading to optimal product quality</p>
                                 </div>
                             </div>
 
                             <div id="lev2" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
                                 <div class="col-sm-4">
-                                    <p class="mb-0"><strong>ONLINE ANALYZERS</strong></p>
-                                    <p>Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT</p>
 
-                                    <p class="mb-0"><strong>PERFORMANCE SOLUTIONS</strong></p>
-                                    <p>Advanced services and diagnosis to unlock process capabilities and performance</p>
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{oaid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Online Analyzers' ,level : 2}">
+                                            <strong class="text-dark">ONLINE ANALYZERS</strong>
+                                        </a>
+                                    </p>
+
+                                    <p>Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT
+                                    </p>
+
+
+
+                                    <p class="mb-0">
+                                        <a href="">
+                                            <strong class="text-dark">ERFORMANCE SOLUTIONS</strong>
+                                        </a>
+                                    </p>
+
+                                    <p>Advanced services and diagnosis to unlock process capabilities and performance
+                                    </p>
                                 </div>
                                 <div class="col-sm-4">
                                     <img [src]="data[0].img4" style="width: 100%;; height: 100%;" />
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mb-0 text-right"><strong>OPERATIONAL INTELLIGENCE</strong></p>
-                                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC</p>
 
-                                    <p class="mb-0 text-right"><strong>OPERATIONAL SAFETY</strong></p>
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{oiid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Operational intelligence' ,level : 2}">
+                                            <strong class="text-dark">OPERATIONAL INTELLIGENCE</strong>
+                                        </a>
+                                    </p>
+
+                                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC
+                                    </p>
+
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{osid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Operational safety' ,level : 2}">
+                                            <strong class="text-dark">OPERATIONAL SAFETY</strong>
+                                        </a>
+                                    </p>
+
                                     <p class="text-right">Optimum Yankee safety with advanced vibration monitoring solution and experience </p>
                                 </div>
                             </div>
 
                             <div id="lev1" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
                                 <div class="col-sm-4">
-                                    <p class="mb-0"><strong>FIBER MANAGEMENT</strong></p>
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{fmid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Fiber management' ,level : 2}">
+                                            <strong class="text-dark">FIBER MANAGEMENT</strong>
+                                        </a>
+                                    </p>
+
                                     <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization
                                     </p>
 
-                                    <p class="mb-0"><a routerLink="/subcatagory/1" [queryParams]="{catname : 'tissue' , subname:'consistency-control'}"><strong
+                                    <p class="mb-0"><a routerLink="/subcatagory/{{consistencyId}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Consistency' ,level : 2}"><strong
                                                 class="text-dark">CONSISTENCY
                                                 CONTROL</strong></a></p>
                                     <p>Fiber, fines and ash consistency, monitoring and retention control</p>
 
-                                    <p class="mb-0"><strong>WET-END STABILITY</strong></p>
-                                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement</p>
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{weid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Wet-end stability' ,level : 2}">
+                                            <strong class="text-dark">WET-END STABILITY</strong>
+                                        </a>
+                                    </p>
+
+                                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement
+                                    </p>
                                 </div>
                                 <div class="col-sm-4">
                                     <img [src]="data[0].img5" style="width: 100%;; height: 100%;" />
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mb-0 text-right"><strong>SHEET UNIFORMITY</strong></p>
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{suid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Sheet uniformity' ,level : 2}">
+                                            <strong class="text-dark">SHEET UNIFORMITY</strong>
+                                        </a>
+                                    </p>
+
                                     <p class="text-right">Uniform sheet formation, moisture and grammages profile with headbox sheets and services</p>
 
-                                    <p class="mb-0 text-right"><strong>YANKEE SAFETY</strong></p>
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{ysid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Yankee safety' ,level : 2}">
+                                            <strong class="text-dark">YANKEE SAFETY</strong>
+                                        </a>
+                                    </p>
+
                                     <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p>
 
-                                    <p class="mb-0 text-right"><strong>CREPING</strong></p>
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{creepingId}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Creping' ,level : 2}">
+                                            <strong class="text-dark">CREPING</strong>
+                                        </a>
+                                    </p>
+
                                     <p class="text-right">Engineered creping/cleaning doctors, CBC blade holder and appropriate services
                                     </p>
                                 </div>
@@ -425,7 +501,7 @@
 
 
 <!-- Packaging Strat -->
-<div *ngIf="catName == 'Packaging'">
+<div *ngIf="catName.includes('Packaging')">
     <!-- <section id="careers">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -453,21 +529,22 @@
             </div>
         </div>
     </section> -->
-    <nav aria-label="breadcrumb" class="bread-crum">
-        <ol class="breadcrumb">
 
-            <li class="breadcrumb-item"><a href="#">{{catName}}</a></li>
-
-        </ol>
-    </nav>
     <div class="red-title-banner">
         <h1 class="text-white text-center">Packaging</h1>
         <h4 class="text-capitalize text-white text-center">BTG Packaging Solutions</h4>
     </div>
+    <nav aria-label="breadcrumb" class="bread-crum">
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item active" aria-current="page">{{catName}}</li>
+
+        </ol>
+    </nav>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
                     <!-- This is the tree node template for leaf nodes -->
                     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
@@ -477,14 +554,14 @@
                     <!-- This is the tree node template for expandable nodes -->
                     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
                         <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-                        <mat-icon class="mat-icon-rtl-mirror">
-                          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                        </mat-icon>
-                      </button> {{node.name}}
+                            <mat-icon class="mat-icon-rtl-mirror">
+                                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                            </mat-icon>
+                        </button> {{node.name}}
                     </mat-tree-node>
                 </mat-tree>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-10">
                 <div class="row">
                     <section style="padding: 100px 0;">
                         <div class="container">
@@ -623,71 +700,147 @@
 
                             <div id="lev3" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
                                 <div class="col-sm-4">
-                                    <p class="mb-0"><strong>CONTROL LOOP PERFORMANCE MANAGEMENT</strong></p>
-                                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance</p>
-
-                                    <p class="mb-0"><strong>ADVANCED PROCESS CONTROL</strong></p>
+                                    <p class="mb-0">
+                                        <a href="">
+                                            <strong class="text-dark">CONTROL LOOP PERFORMANCE MANAGEMENT</strong>
+                                        </a>
+                                    </p>
+                                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance
+                                    </p>
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{apcid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Advance Process controls' ,level : 2}">
+                                            <strong class="text-dark">ADVANCED PROCESS CONTROL</strong>
+                                        </a>
+                                    </p>
                                     <p>Standardize and centerline the control strategy of process to increase focus</p>
                                 </div>
                                 <div class="col-sm-4">
                                     <img [src]="data[0].img3" style="width: 100%;; height: 100%;" />
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mb-0 text-right"><strong>PREDICTIVE MODELLING SOLUTIONS</strong></p>
+
+
+                                    <p class="mb-0">
+                                        <a href="">
+                                            <strong class="text-dark">PREDICTIVE MODELLING SOLUTIONS</strong>
+                                        </a>
+                                    </p>
+
                                     <p class="text-right">Usage of softsensors to reduce variability and optimize output leading to optimal product quality</p>
                                 </div>
                             </div>
 
                             <div id="lev2" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
                                 <div class="col-sm-4">
-                                    <p class="mb-0"><strong>FIBER MANAGEMENT</strong></p>
-                                    <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{oaid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Online Analyzers' ,level : 2}">
+                                            <strong class="text-dark">ONLINE ANALYZERS</strong>
+                                        </a>
                                     </p>
 
-                                    <p class="mb-0"><strong>PERFORMANCE SOLUTIONS</strong></p>
-                                    <p>Advanced services and diagnosis to unlock process capabilities and performance</p>
+                                    <p>Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT
+                                    </p>
+
+
+
+                                    <p class="mb-0">
+                                        <a href="">
+                                            <strong class="text-dark">ERFORMANCE SOLUTIONS</strong>
+                                        </a>
+                                    </p>
+
+                                    <p>Advanced services and diagnosis to unlock process capabilities and performance
+                                    </p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mb-0 text-center">
-                                        <center><strong>REMOTE SUPPORT</strong></center>
-                                    </p>
                                     <img [src]="data[0].img4" style="width: 100%;; height: 100%;" />
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mb-0 text-right"><strong>OPERATIONAL INTELLIGENCE</strong></p>
-                                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC</p>
 
-                                    <p class="mb-0 text-right"><strong>CONSISTENCY PERFORMANCE</strong></p>
-                                    <p class="text-right">Fiber, fines and ash consistency, loop monitoring and control</p>
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{oiid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Operational intelligence' ,level : 2}">
+                                            <strong class="text-dark">OPERATIONAL INTELLIGENCE</strong>
+                                        </a>
+                                    </p>
+
+                                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC
+                                    </p>
+
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{osid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Operational safety' ,level : 2}">
+                                            <strong class="text-dark">OPERATIONAL SAFETY</strong>
+                                        </a>
+                                    </p>
+
+                                    <p class="text-right">Optimum Yankee safety with advanced vibration monitoring solution and experience </p>
                                 </div>
                             </div>
 
                             <div id="lev1" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                                <div class="col-sm-4  d-flex flex-column">
-                                    <p class="mb-0 justify-content-start"><strong>SIZING & COATING</strong></p>
-                                    <p>High-performance, custom-engineered rods, beds, and coating blades; training and expert support
+                                <div class="col-sm-4">
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{fmid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Fiber management' ,level : 2}">
+                                            <strong class="text-dark">FIBER MANAGEMENT</strong>
+                                        </a>
                                     </p>
 
-                                    <p class="mb-0 justify-content-start mt-auto"><a routerLink="/subcatagory/1" [queryParams]="{catname : 'tissue' , subname:'consistency-control'}"><strong
-                                                class="text-dark">CONSISTENCY MEASUREMENTS</strong></a></p>
-                                    <p>Rotary, optical, active and static blades, microwave, and samplers</p>
+                                    <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization
+                                    </p>
+
+                                    <p class="mb-0"><a routerLink="/subcatagory/{{consistencyId}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Consistency' ,level : 2}"><strong
+                                                class="text-dark">CONSISTENCY
+                                                CONTROL</strong></a></p>
+                                    <p>Fiber, fines and ash consistency, monitoring and retention control</p>
 
 
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{weid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Wet-end stability' ,level : 2}">
+                                            <strong class="text-dark">WET-END STABILITY</strong>
+                                        </a>
+                                    </p>
+
+                                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement
+                                    </p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mb-0"><strong>WET-END STABILITY</strong></p>
-                                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement</p>
                                     <img [src]="data[0].img5" style="width: 100%;; height: 100%;" />
                                 </div>
-                                <div class="col-sm-4 d-flex flex-column">
-                                    <p class="mb-0 text-right"><strong>SHEET UNIFORMITY</strong></p>
+                                <div class="col-sm-4">
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{suid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Sheet uniformity' ,level : 2}">
+                                            <strong class="text-dark">SHEET UNIFORMITY</strong>
+                                        </a>
+                                    </p>
+
                                     <p class="text-right">Uniform sheet formation, moisture and grammages profile with headbox sheets and services</p>
 
-                                    <p class="mb-4 mt-auto text-right"><strong>RELIABILITY SERVICES</strong></p>
-                                    <!-- <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p> -->
 
-                                    <p class="mb-0 mt-auto text-right"><strong>ONLINE ANALYZERS</strong></p>
-                                    <p class="text-right">Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{ysid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Yankee safety' ,level : 2}">
+                                            <strong class="text-dark">YANKEE SAFETY</strong>
+                                        </a>
+                                    </p>
+
+                                    <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p>
+
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{creepingId}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Creping' ,level : 2}">
+                                            <strong class="text-dark">CREPING</strong>
+                                        </a>
+                                    </p>
+
+                                    <p class="text-right">Engineered creping/cleaning doctors, CBC blade holder and appropriate services
                                     </p>
                                 </div>
                             </div>
@@ -704,7 +857,7 @@
 </div>
 <!-- Packaging end -->
 
-<div *ngIf="catName == 'Graphic Paper & Speciality'">
+<div *ngIf="catName.includes('Graphic')">
     <!-- <section id="careers">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -732,21 +885,22 @@
             </div>
         </div>
     </section> -->
-    <nav aria-label="breadcrumb" class="bread-crum">
-        <ol class="breadcrumb">
 
-            <li class="breadcrumb-item"><a href="#">{{catName}}</a></li>
-
-        </ol>
-    </nav>
     <div class="red-title-banner">
         <h1 class="text-white text-center">Graphic Paper & Speciality</h1>
         <!-- <h4 class="text-capitalize text-white text-center">BTG Packaging Solutions</h4> -->
     </div>
+    <nav aria-label="breadcrumb" class="bread-crum">
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item active" aria-current="page">{{catName}}</li>
+
+        </ol>
+    </nav>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
                     <!-- This is the tree node template for leaf nodes -->
                     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
@@ -756,14 +910,14 @@
                     <!-- This is the tree node template for expandable nodes -->
                     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
                         <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-                        <mat-icon class="mat-icon-rtl-mirror">
-                          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                        </mat-icon>
-                      </button> {{node.name}}
+                            <mat-icon class="mat-icon-rtl-mirror">
+                                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                            </mat-icon>
+                        </button> {{node.name}}
                     </mat-tree-node>
                 </mat-tree>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-10">
                 <div class="row">
                     <section style="padding: 100px 0;">
                         <div class="container">
@@ -902,71 +1056,147 @@
 
                             <div id="lev3" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
                                 <div class="col-sm-4">
-                                    <p class="mb-0"><strong>CONTROL LOOP PERFORMANCE MANAGEMENT</strong></p>
-                                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance</p>
-
-                                    <p class="mb-0"><strong>ADVANCED PROCESS CONTROL</strong></p>
+                                    <p class="mb-0">
+                                        <a href="">
+                                            <strong class="text-dark">CONTROL LOOP PERFORMANCE MANAGEMENT</strong>
+                                        </a>
+                                    </p>
+                                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance
+                                    </p>
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{apcid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Advance Process controls' ,level : 2}">
+                                            <strong class="text-dark">ADVANCED PROCESS CONTROL</strong>
+                                        </a>
+                                    </p>
                                     <p>Standardize and centerline the control strategy of process to increase focus</p>
                                 </div>
                                 <div class="col-sm-4">
                                     <img [src]="data[0].img3" style="width: 100%;; height: 100%;" />
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mb-0 text-right"><strong>PREDICTIVE MODELLING SOLUTIONS</strong></p>
+
+
+                                    <p class="mb-0">
+                                        <a href="">
+                                            <strong class="text-dark">PREDICTIVE MODELLING SOLUTIONS</strong>
+                                        </a>
+                                    </p>
+
                                     <p class="text-right">Usage of softsensors to reduce variability and optimize output leading to optimal product quality</p>
                                 </div>
                             </div>
 
                             <div id="lev2" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
                                 <div class="col-sm-4">
-                                    <p class="mb-0"><strong>FIBER MANAGEMENT</strong></p>
-                                    <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{oaid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Online Analyzers' ,level : 2}">
+                                            <strong class="text-dark">ONLINE ANALYZERS</strong>
+                                        </a>
                                     </p>
 
-                                    <p class="mb-0"><strong>PERFORMANCE SOLUTIONS</strong></p>
-                                    <p>Advanced services and diagnosis to unlock process capabilities and performance</p>
+                                    <p>Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT
+                                    </p>
+
+
+
+                                    <p class="mb-0">
+                                        <a href="">
+                                            <strong class="text-dark">ERFORMANCE SOLUTIONS</strong>
+                                        </a>
+                                    </p>
+
+                                    <p>Advanced services and diagnosis to unlock process capabilities and performance
+                                    </p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mb-0 text-center">
-                                        <center><strong>REMOTE SUPPORT</strong></center>
-                                    </p>
                                     <img [src]="data[0].img4" style="width: 100%;; height: 100%;" />
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mb-0 text-right"><strong>OPERATIONAL INTELLIGENCE</strong></p>
-                                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC</p>
 
-                                    <p class="mb-0 text-right"><strong>CONSISTENCY PERFORMANCE</strong></p>
-                                    <p class="text-right">Fiber, fines and ash consistency, loop monitoring and control</p>
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{oiid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Operational intelligence' ,level : 2}">
+                                            <strong class="text-dark">OPERATIONAL INTELLIGENCE</strong>
+                                        </a>
+                                    </p>
+
+                                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC
+                                    </p>
+
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{osid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Operational safety' ,level : 2}">
+                                            <strong class="text-dark">OPERATIONAL SAFETY</strong>
+                                        </a>
+                                    </p>
+
+                                    <p class="text-right">Optimum Yankee safety with advanced vibration monitoring solution and experience </p>
                                 </div>
                             </div>
 
                             <div id="lev1" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                                <div class="col-sm-4  d-flex flex-column">
-                                    <p class="mb-0 justify-content-start"><strong>SIZING & COATING</strong></p>
-                                    <p>High-performance, custom-engineered rods, beds, and coating blades; training and expert support
+                                <div class="col-sm-4">
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{fmid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Fiber management' ,level : 2}">
+                                            <strong class="text-dark">FIBER MANAGEMENT</strong>
+                                        </a>
                                     </p>
 
-                                    <p class="mb-0 justify-content-start mt-auto"><a routerLink="/subcatagory/1" [queryParams]="{catname : 'tissue' , subname:'consistency-control'}"><strong
-                                                class="text-dark">CONSISTENCY MEASUREMENTS</strong></a></p>
-                                    <p>Rotary, optical, active and static blades, microwave, and samplers</p>
+                                    <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization
+                                    </p>
+
+                                    <p class="mb-0"><a routerLink="/subcatagory/{{consistencyId}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Consistency' ,level : 2}"><strong
+                                                class="text-dark">CONSISTENCY
+                                                CONTROL</strong></a></p>
+                                    <p>Fiber, fines and ash consistency, monitoring and retention control</p>
 
 
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{weid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Wet-end stability' ,level : 2}">
+                                            <strong class="text-dark">WET-END STABILITY</strong>
+                                        </a>
+                                    </p>
+
+                                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement
+                                    </p>
                                 </div>
                                 <div class="col-sm-4">
-                                    <p class="mb-0"><strong>WET-END STABILITY</strong></p>
-                                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement</p>
                                     <img [src]="data[0].img5" style="width: 100%;; height: 100%;" />
                                 </div>
-                                <div class="col-sm-4 d-flex flex-column">
-                                    <p class="mb-0 text-right"><strong>SHEET UNIFORMITY</strong></p>
+                                <div class="col-sm-4">
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{suid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Sheet uniformity' ,level : 2}">
+                                            <strong class="text-dark">SHEET UNIFORMITY</strong>
+                                        </a>
+                                    </p>
+
                                     <p class="text-right">Uniform sheet formation, moisture and grammages profile with headbox sheets and services</p>
 
-                                    <p class="mb-4 mt-auto text-right"><strong>RELIABILITY SERVICES</strong></p>
-                                    <!-- <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p> -->
 
-                                    <p class="mb-0 mt-auto text-right"><strong>ONLINE ANALYZERS</strong></p>
-                                    <p class="text-right">Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{ysid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Yankee safety' ,level : 2}">
+                                            <strong class="text-dark">YANKEE SAFETY</strong>
+                                        </a>
+                                    </p>
+
+                                    <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p>
+
+
+
+                                    <p class="mb-0">
+                                        <a routerLink="/subcatagory/{{creepingId}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Creping' ,level : 2}">
+                                            <strong class="text-dark">CREPING</strong>
+                                        </a>
+                                    </p>
+
+                                    <p class="text-right">Engineered creping/cleaning doctors, CBC blade holder and appropriate services
                                     </p>
                                 </div>
                             </div>

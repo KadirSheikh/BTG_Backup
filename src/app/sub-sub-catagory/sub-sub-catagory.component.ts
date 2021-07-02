@@ -74,6 +74,9 @@ export class SubSubCatagoryComponent implements OnInit {
   catName: any;
   subName: any;
   subSubName: any;
+  catNameId: any;
+  subNameId: any;
+  level: any;
 
   constructor(private _activatedRoute: ActivatedRoute , private _subsubcat:SolutionSubCategoryService, private _nav: NavbarService) {
     this.dataSource.data = this.tree_data;
@@ -111,6 +114,11 @@ export class SubSubCatagoryComponent implements OnInit {
       this.catName =  params['catname']
      this.subName =  params['subname']
      this.subSubName =  params['subsubname']
+     this.level =  params['level']
+
+     
+     this.catNameId =  params['catId']
+     this.subNameId =  params['subnameId']
      
       
    })

@@ -17,5 +17,9 @@ export class AboutsService {
     return this._http.get(`${environment.apiUrl}api/history/all`)
   }
 
+  async getExportControl() {
+    return this._http.get(`${environment.apiUrl}api/export-control/all`)
+  }
+
   
 }

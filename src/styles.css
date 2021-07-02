@@ -22,13 +22,9 @@ footer ul li {
 .red-title-banner {
     height: 100%;
     background-color: var(--danger);
-    /* margin-top: 10rem; */
+    margin-top: 10rem;
     padding: 10px 0;
     text-align: center;
-}
-
-.bread-crum {
-    margin-top: 11rem;
 }
 
 .breadcrumb {
@@ -37,8 +33,12 @@ footer ul li {
     padding: .75rem 1rem;
     margin-bottom: 1rem;
     list-style: none;
-    background-color: #dcdde1 !important;
+    background-color: #fff !important;
     border-radius: .25rem;
+}
+
+.breadcrumb-item a {
+    color: #DC3545 !important;
 }
 
 .data-sheet {

@@ -112,7 +112,7 @@ export class InstrumentComponent implements OnInit {
             console.log(this.tree_data);
             this.dataSource.data = this.tree_data;
             // this.isLoading = false;
-      }, 1000)
+      }, 3000)
        
     })
 
@@ -142,7 +142,7 @@ export class InstrumentComponent implements OnInit {
     // Get Instrument Data
     (await this._instru.getInstrument()).subscribe( (res:any) => {
       console.log(res.data);
-      if(res.data == null){
+      if(res?.data == null){
           
         this.showComingSoon = true;
         }else{

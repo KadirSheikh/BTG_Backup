@@ -21,5 +21,12 @@ export class AboutsService {
     return this._http.get(`${environment.apiUrl}api/export-control/all`)
   }
 
+  async getAbout() {
+    return this._http.get(`${environment.apiUrl}api/about/all`)
+  }
+
+  async getLeadership() {
+    return this._http.get(`${environment.apiUrl}api/leadership/all`)
+  }
   
 }

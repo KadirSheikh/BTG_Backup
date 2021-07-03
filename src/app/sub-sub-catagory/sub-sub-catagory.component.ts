@@ -43,6 +43,9 @@ export class SubSubCatagoryComponent implements OnInit {
   editSection:any;
   heading: any;
 
+
+  catname: String = "";
+
   tree_data: FoodNode[] = [
     {   
         _id: 1,
@@ -97,6 +100,7 @@ export class SubSubCatagoryComponent implements OnInit {
 
     this._activatedRoute.params.subscribe(params => {
       this.productId = params['id'];
+      console.log(this.productId)
       
       this.getData(this.productId);
       this.getSolutionSub(this.productId)

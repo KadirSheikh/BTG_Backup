@@ -1,11 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SolutionSubCategoryService } from '../services/solution-sub-category.service';
+import { InstrumentService } from '../services/instrument.service';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import { NavbarService } from '../navbar.service';
-import { SolutionMainCategoryService } from '../services/solution-main-category.service';
-import { ProductService } from '../services/product.service';
 
 interface FoodNode {
   _id: any,
@@ -28,13 +26,11 @@ interface ExampleFlatNode {
 }
 
 @Component({
-  selector: 'app-sub-sub-catagory',
-  templateUrl: './sub-sub-catagory.component.html',
-  styleUrls: ['./sub-sub-catagory.component.css']
+  selector: 'app-instrument',
+  templateUrl: './instrument.component.html',
+  styleUrls: ['./instrument.component.css']
 })
-export class SubSubCatagoryComponent implements OnInit {
-
-  @ViewChild('tree') tree;
+export class InstrumentComponent implements OnInit {
   productId;
   showProductDeatil: boolean = true;
   showComingSoon:boolean = false;
@@ -80,25 +76,29 @@ export class SubSubCatagoryComponent implements OnInit {
   subNameId: any;
   level: any;
 
+  id: any;
+  icon: any;
+  row1: any = [];
+  row2: any = [];
+  row3: any = [];
+  row4: any = [];
+  name: any;
+  subsubnameId: any;
   constructor(
-    private _activatedRoute: ActivatedRoute, 
-    private _solMainCatService: SolutionMainCategoryService,
-    private _proService: ProductService,
-    private _subsubcat: SolutionSubCategoryService, 
+    private _activatedRoute: ActivatedRoute,
+    private _instru: InstrumentService,
     private _nav: NavbarService
-    ) {
-    this.dataSource.data = this.tree_data;
-    
-   }
+  ) { }
 
-   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+
   ngOnInit(): void {
     window.scroll(0,0);
 
     this._activatedRoute.params.subscribe(params => {
       this.productId = params['id'];
       
-      this.getData(this.productId);
+      // this.getData(this.productId);
       this.getSolutionSub(this.productId)
 
       setTimeout(()=>{
@@ -126,66 +126,46 @@ export class SubSubCatagoryComponent implements OnInit {
      this.level =  params['level']
       console.log(this.level);
       
-     
+     this.subsubnameId = params['subsubnameId']
      this.catNameId =  params['catId']
      this.subNameId =  params['subnameId']
-     this.getData(this.productId);
       
    })
-
-
-  
+    this.getInstrument();
   }
 
+  goBack() {
+    window.history.back()
+  }
 
-  async getData(id:string){
-
-    // (await this._subsubcat.getSolutionSubCategory(id)).subscribe((resp: any) => {
-    //   console.log(resp)
-    //   if(resp.data == null || resp.data?.heading.includes('Heading')){
-    //     this.showComingSoon = true;
-    //     this.isLoading = false;
-    //     }else{
-    //       this.productsData = resp.data;
-    //       this.showComingSoon = false;
-    //       this.isLoading = false;
-    //       console.log(this.productsData.heading);
+  async getInstrument() {
+    // Get Instrument Data
+    (await this._instru.getInstrument()).subscribe( (res:any) => {
+      console.log(res.data);
+      if(res.data == null){
           
-    //     }
-      
-    // })
-
-    
-      (await this._solMainCatService.getSolutionMainCategory(id)).subscribe(async (resp: any) => {
-        console.log(resp)
-        if(resp.data == null){
-          (await this._subsubcat.getSolutionSubCategory(id)).subscribe(async (resp: any) => {
-            console.log(resp)
-            if(resp.data == null){
-              (await this._proService.getProduct(id)).subscribe((resp: any) => {
-                console.log(resp)
-                this.productsData = resp.data;
+        this.showComingSoon = true;
+        }else{
+          this.productsData = res.data;
+          this.showComingSoon = false;
           
-              })
-            }else this.productsData = resp.data;
-          });
-        }else this.productsData = resp.data;
-      });
-    
-
-      this.isLoading = false
-      console.log(this.productsData);
-      
-      setInterval( () => {
-        console.log(this.productsData);
-        if( this.productsData == null || this.productsData?.heading.includes('Heading') ){
-          this.showComingSoon = true;
+          console.log(this.productsData.heading);
+          
         }
-      }, 1000)
+        this.isLoading = false;
       
-    
-
-    
+      res.data.forEach(e => {
+        if( e.row == 1 )
+          this.row1.push(e);
+        if( e.row == 2 )
+          this.row2.push(e);
+        if( e.row == 3 )
+          this.row3.push(e);
+        if( e.row == 4 )
+          this.row4.push(e);
+      });
+      
+    })
   }
 
   async getSolutionSub(id:string){

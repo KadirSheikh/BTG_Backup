@@ -57,6 +57,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { ProfileComponent } from './profile/profile.component';
 import {MatTableModule} from '@angular/material/table';
 import { TeamComponent } from './about/team/team.component';
+import { InstrumentComponent } from './instrument/instrument.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +93,9 @@ import { TeamComponent } from './about/team/team.component';
     ViewPdfComponent,
     ApplyNowComponent,
     ProfileComponent,
-    TeamComponent
+    TeamComponent,
+    InstrumentComponent,
+    NotFoundComponent
   ],
   imports: [
     MatTableModule,

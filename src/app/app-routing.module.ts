@@ -12,9 +12,11 @@ import { CatagoriesComponent } from './catagories/catagories.component';
 import { ContactComponent } from './contact/contact.component';
 import { EventsComponent } from './events/events.component';
 import { HomeComponent } from './home/home.component';
+import { InstrumentComponent } from './instrument/instrument.component';
 import { MainCategoryComponent } from './main-category/main-category.component';
 import { NavbarService } from './navbar.service';
 import { NewsEventsComponent } from './news-events/news-events.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductsComponent } from './products/products.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SeeWhatWeDoComponent } from './see-what-we-do/see-what-we-do.component';
@@ -43,6 +45,7 @@ const routes: Routes = [
   { path: 'product/:id', component: ProductsComponent },
   { path: 'solution-sub-category/:id', component: SubSubCatagoryComponent },
   { path: 'solution-main-category/:id', component: MainCategoryComponent },
+  { path: 'instrument/:id', component: InstrumentComponent },
   { path: 'events', component: EventsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'see-what-we-do' , component:SeeWhatWeDoComponent },
@@ -51,7 +54,9 @@ const routes: Routes = [
   { path: 'view-pdf' , component:ViewPdfComponent },
   { path: 'apply-now' , component:ApplyNowComponent },
   { path: 'profile' , component:ProfileComponent },
-  { path: 'teams' , component:TeamComponent }
+  { path: 'teams' , component:TeamComponent },
+  {path: '404', component: NotFoundComponent},
+  {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({

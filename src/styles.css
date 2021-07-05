@@ -80,8 +80,13 @@ h2,
 h3,
 h4,
 h5,
-h6,p {
+h6,
+p {
     margin: 0 !important;
+}
+
+img {
+    width: 100%;
 }
 
 html,
@@ -109,4 +114,18 @@ body {
     background: #DC3545 !important;
     border-radius: 20px !important;
     border: transparent !important;
+}
+
+.mat-expansion-panel {
+    box-shadow: none !important;
+}
+
+
+/* .mat-expansion-panel-header:hover {
+    color: red !important;
+} */
+
+.mat-expansion-panel-header-title.active {
+    color: red !important;
+    font-weight: 700 !important;
 }

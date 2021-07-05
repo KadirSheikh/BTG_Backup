@@ -28,5 +28,9 @@ export class AboutsService {
   async getLeadership() {
     return this._http.get(`${environment.apiUrl}api/leadership/all`)
   }
+
+  async getWhistleblowing() {
+    return this._http.get(`${environment.apiUrl}api/complianceWhistleblowing/all`)
+  }
   
 }

@@ -5,33 +5,8 @@ import { SolutionSubCategoryService } from '../services/solution-sub-category.se
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import { NavbarService } from '../navbar.service'
-interface FoodNode {
-  _id: any,
-  name: string;
-  level: number;
-  parentId: string;
-  order: number;
-  children?: FoodNode[];
-}
 
 
-
-// const TREE_DATA: FoodNode[] = [
-//   {   
-//     _id: 1,
-//     level: 0,
-//     parentId: 'qwertyuiop',
-//     order: 0,
-//     name: 'Consistance',
-//     children: []
-//   },
-// ];
-
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
 
 @Component({
   selector: 'app-subcatagories',
@@ -51,37 +26,14 @@ export class SubcatagoriesComponent implements OnInit {
   heading: any;
   treeName:any;
 
-  tree_data: FoodNode[] = [
-    {   
-        _id: 1,
-        level: 0,
-        parentId: '',
-        order: 0,
-        name: '',
-        children: []
-      },
-    ];
+ 
   @ViewChild('dropdown') dropdown: ElementRef;
 
-  private _transformer = (node: FoodNode, level: number) => {
-    return {
-      expandable: !!node.children && node.children.length > 0,
-      name: node.name,
-      level: level,
-    };
-  }
-
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
-      node => node.level, node => node.expandable);
-
-  treeFlattener = new MatTreeFlattener(
-      this._transformer, node => node.level, node => node.expandable, node => node.children);
-
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   SolutionSubCategory: any[];
   catName: any;
   catNameId: any;
   level: any;
+  sideNav: any;
   
   
   constructor(
@@ -91,10 +43,10 @@ export class SubcatagoriesComponent implements OnInit {
     private _nav: NavbarService
     
   ) {
-    this.dataSource.data = this.tree_data;
+   
    }
 
-   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+   
 
   ngOnInit(): void {
     window.scroll(0,0);
@@ -108,17 +60,7 @@ export class SubcatagoriesComponent implements OnInit {
       
       this.getData(this.productId);
       this.getSolutionSub(this.productId)
-      setTimeout(()=>{
-        this.tree_data.forEach(e => {
-          if(e._id == 1){
-            e.children = this.SolutionSubCategory;
-            e.name = this.treeName
-          }
-        });
-            console.log(this.tree_data);
-            this.dataSource.data = this.tree_data;
-            // this.isLoading = false;
-      }, 1000)
+
        
     });
 
@@ -134,9 +76,21 @@ export class SubcatagoriesComponent implements OnInit {
   
   }
 
+
+
   ngAfterViewInit() {
     console.log('Values on ngAfterViewInit():');
     console.log("title:", this.dropdown);
+    let sNav = JSON.parse(localStorage.getItem('navbar'));
+    sNav.forEach(element => {
+      // console.log(element);
+      
+      if( element._id == this.catNameId ){
+        this.sideNav = element;
+      }
+    });
+    console.log(this.sideNav.children);
+    
   }
 
   async getData(id:string){

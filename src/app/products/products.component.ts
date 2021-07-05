@@ -15,21 +15,6 @@ import { NavbarService } from '../navbar.service';
 import { SolutionMainCategoryService } from '../services/solution-main-category.service';
 import { SolutionSubCategoryService } from '../services/solution-sub-category.service';
 
-interface FoodNode {
-  _id: any,
-  name: string;
-  level: number;
-  parentId: string;
-  order: number;
-  children?: FoodNode[];
-}
-
-
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
 
 
 @Component({
@@ -60,33 +45,10 @@ export class ProductsComponent implements OnInit {
   subSubNameId: any;
   level: any;
 
-  tree_data: FoodNode[] = [
-    {   
-        _id: 1,
-        level: 0,
-        parentId: '',
-        order: 0,
-        name: '',
-        children: []
-      },
-    ];
 
-    private _transformer = (node: FoodNode, level: number) => {
-      return {
-        expandable: !!node.children && node.children.length > 0,
-        name: node.name,
-        level: level,
-      };
-    }
-
-    treeControl = new FlatTreeControl<ExampleFlatNode>(
-      node => node.level, node => node.expandable);
-
-  treeFlattener = new MatTreeFlattener(
-      this._transformer, node => node.level, node => node.expandable, node => node.children);
-
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   SolutionSubCategory: any[];
+  sideNav: any;
+  dropdown: any;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -99,8 +61,8 @@ export class ProductsComponent implements OnInit {
     public dialog: MatDialog,
     private _nav: NavbarService,
     private _dow:DownloadsService
-    ) {this.dataSource.data = this.tree_data; }
-hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+    ) {}
+
   async ngOnInit() {
     
     if(this.gVar.isLoggedIn == 'loggedin'){
@@ -132,17 +94,7 @@ hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
      this.subSubNameId =  params['subsubnameId']
 
      this.getSolutionSub(this.subNameId)
-     setTimeout(()=>{
-       this.tree_data.forEach(e => {
-         if(e._id == 1){
-           e.children = this.SolutionSubCategory;
-           e.name = this.pName
-         }
-       });
-           console.log(this.tree_data);
-           this.dataSource.data = this.tree_data;
-           // this.isLoading = false;
-     }, 1000)
+
      
     })
 
@@ -160,6 +112,21 @@ hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
       
 
+  }
+
+  ngAfterViewInit() {
+    console.log('Values on ngAfterViewInit():');
+    console.log("title:", this.dropdown);
+    let sNav = JSON.parse(localStorage.getItem('navbar'));
+    sNav.forEach(element => {
+      // console.log(element);
+      
+      if( element._id == this.catNameId ){
+        this.sideNav = element;
+      }
+    });
+    console.log(this.sideNav.children);
+    
   }
 
   async tabChanged(tabChangeEvent: MatTabChangeEvent) {

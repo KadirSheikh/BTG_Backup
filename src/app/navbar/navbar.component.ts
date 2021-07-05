@@ -18,7 +18,11 @@ export class NavbarComponent implements OnInit {
   flag: boolean;
 
   
-  constructor(@Inject(DOCUMENT) private document: Document, private _nav: NavbarService,public dialog: MatDialog,public gVar : GlobalConstants) { }
+  constructor(
+    @Inject(DOCUMENT) private document: Document, 
+    private _nav: NavbarService,
+    public dialog: MatDialog,
+    public gVar : GlobalConstants) { }
 
   ngOnInit(): void {
 
@@ -63,7 +67,10 @@ export class NavbarComponent implements OnInit {
           this.industrySolutuonForData.forEach((isd,index) => {
             isd.order = index;          
           });
-          this.testNav();
+          this.testNav().then( async(nav:any) => {
+            await console.log(`%c${JSON.stringify(nav)}`,'background-color:yellow');
+            
+          });
           // console.log(response?.data);
         })
 
@@ -164,19 +171,30 @@ export class NavbarComponent implements OnInit {
   }
 
 
+
 // Testing Purpose for Nav
 nav:any = [];
 async testNav(){
+  let sNav = JSON.parse(localStorage.getItem('navbar'));
+  if( sNav ){
+    this.nav = sNav;
+    return;
+  }
   this.industrySolutuonForData.forEach(industry => {
     // console.log(industry);
     this.nav.push(industry)
+    console.warn('-----------------NAV--------------------------');
+    
+    console.warn(this.nav);
+    
   });
   
-  await this.nav.forEach(async main => {
+  await this.nav.map(async main => {
     main.children = await this.asyncActionMain(main._id);
   });
-  console.log(this.nav);
+  console.log(JSON.stringify(this.nav));
   
+  return await this.nav;
 }
 
 asyncActionMain(id) {
@@ -188,6 +206,9 @@ asyncActionMain(id) {
         response.data.forEach(async sub => {
           sub.children = await this.asyncActionSub(sub._id);
         });
+        console.log('-------------Main-------------');
+        console.log(response.data);
+        
         resolve(response.data);
         
         // if (response?.status && response?.status == true)
@@ -210,6 +231,10 @@ asyncActionSub(id) {
         response.data.forEach(async sub => {
           sub.children = await this.asyncActionProduct(sub._id);
         });
+
+        console.log('-------------Sol Sub-------------');
+        console.log(response.data);
+
         resolve(response.data);
         
         // if (response?.status && response?.status == true)
@@ -229,6 +254,10 @@ asyncActionProduct(id) {
   var promise = new Promise((resolve, reject) => {
     this._nav.getproductMainCategory(id).then((res) => {
       res.subscribe((response: any) => {
+        
+        console.log('-------------Pro Main-------------');
+        console.log(response.data);
+        localStorage.setItem('navbar', JSON.stringify(this.nav))
         resolve(response.data);
         
         // if (response?.status && response?.status == true)
@@ -240,9 +269,8 @@ asyncActionProduct(id) {
         })
     })
   });
+  console.log(this.nav)
+  
   return promise;
 }
 }
-
-
-

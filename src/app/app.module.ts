@@ -59,7 +59,7 @@ import {MatTableModule} from '@angular/material/table';
 import { TeamComponent } from './about/team/team.component';
 import { InstrumentComponent } from './instrument/instrument.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,6 +98,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NotFoundComponent
   ],
   imports: [
+    MatExpansionModule,
     MatTableModule,
     MatIconModule,
     MatButtonModule,

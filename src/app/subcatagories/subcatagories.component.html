@@ -29,22 +29,43 @@
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-2">
-                        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-                            <!-- This is the tree node template for leaf nodes -->
-                            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-                                <!-- use a disabled button to provide padding for tree leaf -->
-                                <button mat-icon-button disabled></button> {{node.name}}
-                            </mat-tree-node>
-                            <!-- This is the tree node template for expandable nodes -->
-                            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
-                                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-                                <mat-icon class="mat-icon-rtl-mirror">
-                                  {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                                </mat-icon>
-                              </button> {{node.name}}
-                            </mat-tree-node>
-                        </mat-tree>
+                    <div class="col-sm-3">
+                        <mat-accordian *ngFor="let main of sideNav.children">
+                            <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId" [hideToggle]="main.children.length == 0">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title [class.active]="main._id == productId || main._id == subNameId">
+                                        {{main.name}}
+                                    </mat-panel-title>
+                                    <!-- <mat-panel-description>
+                                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                    </mat-panel-description> -->
+                                </mat-expansion-panel-header>
+                                <mat-accordian *ngFor="let sub of main.children">
+                                    <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId" [hideToggle]="sub.children.length == 0">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title [class.active]="sub._id == productId || sub._id == subSubNameId">
+                                                {{sub.name}}
+                                            </mat-panel-title>
+                                            <!-- <mat-panel-description>
+                                                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                            </mat-panel-description> -->
+                                        </mat-expansion-panel-header>
+                                        <mat-accordian *ngFor="let pro of sub.children">
+                                            <mat-expansion-panel hideToggle>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title [class.active]="pro._id == productId || pro._id == subNameId">
+                                                        {{pro.name}}
+                                                    </mat-panel-title>
+                                                    <!-- <mat-panel-description>
+                                                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                                    </mat-panel-description> -->
+                                                </mat-expansion-panel-header>
+                                            </mat-expansion-panel>
+                                        </mat-accordian>
+                                    </mat-expansion-panel>
+                                </mat-accordian>
+                            </mat-expansion-panel>
+                        </mat-accordian>
                     </div>
 
                     <div class="col-sm-9">

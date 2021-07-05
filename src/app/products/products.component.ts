@@ -184,7 +184,7 @@ export class ProductsComponent implements OnInit {
       console.log(resp)
       if(resp.data == null){
        
-        
+        this.showComingSoon = true;
         
         // this.isLoading = false;
         }else{
@@ -202,7 +202,7 @@ export class ProductsComponent implements OnInit {
     (await this._subsubcat.getSolutionSubCategory(id)).subscribe((resp: any) => {
       console.log(resp)
       if(resp.data == null || resp.data?.heading.includes('Heading')){
-        
+        this.showComingSoon = true;
         this.isLoading = false;
         }else{
           this.productsData = resp.data;
@@ -218,8 +218,11 @@ export class ProductsComponent implements OnInit {
   
     (await this._proService.getProduct(id)).subscribe((resp: any) => {
 
+      console.log(resp.data);
+      
+
       if (resp.data == null || resp.data?.heading.includes('Heading')) {
-        
+        this.showComingSoon = true;
         this.isLoading = false;
       } else {
         this.productsData = resp.data;
@@ -231,9 +234,9 @@ export class ProductsComponent implements OnInit {
 
     })
 
-    if( !this.productsData ){
-      this.showComingSoon = true;
-    }
+    // if( !this.productsData ){
+    //   this.showComingSoon = true;
+    // }
   }
 
   async getSolutionSub(id:string){

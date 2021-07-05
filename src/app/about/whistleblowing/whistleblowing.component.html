@@ -1,7 +1,7 @@
 <div>
 
     <div class="red-title-banner">
-        <h2 class="text-white">Compliance / Whistleblowing Scheme</h2>
+        <h2 class="text-white" [innerHTML]="heading"></h2>
 
     </div>
     <nav aria-label="breadcrumb" class="bread-crum">
@@ -16,8 +16,35 @@
 
             <h2 class="mb-5">Compliance help desk</h2>
 
-            <mat-tab-group>
-                <mat-tab label="Asia">
+            <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
+                <mat-tab *ngFor="let tabtitle of categories; let index = index" class="tab-title">
+                    <ng-template mat-tab-label>
+                        {{tabtitle.name}}
+                    </ng-template>
+                    <mat-selection-list>
+
+                        <div *ngIf="dataSheets?.length == 0">No Data Found</div>
+                        <div class="row mx-auto my-4">
+                            <div class="col-sm-4" *ngFor="let d of dataSheets">
+
+
+
+                                <h5 _ngcontent-thj-c57="" class="text-danger  ng-star-inserted" style="font-weight: 700;">{{ d.name }}
+                                </h5>
+                                <h6 _ngcontent-thj-c57="" class="my-3 ng-star-inserted" style="">{{ d.subHeading }}</h6>
+                                <h6 _ngcontent-thj-c57="" class="text-danger ng-star-inserted" style="" [innerHTML]="d.data"></h6>
+
+                                <h6 _ngcontent-thj-c57="" class="text-danger my-3 ng-star-inserted" style="font-size: 12px;">
+                                    {{ d.email }} </h6>
+
+
+                            </div>
+                        </div>
+
+
+                    </mat-selection-list>
+                </mat-tab>
+                <!-- <mat-tab label="Asia">
 
                     <h5 class="text-danger mt-5" style="font-weight: 700;">Tingting Yu</h5>
                     <h6 class="my-3">Compliance Asia</h6>
@@ -77,14 +104,16 @@
                         m compliance.as@voith.com
                     </h6>
 
-                </mat-tab>
+                </mat-tab> -->
             </mat-tab-group>
 
 
         </div>
     </section>
 
-    <section style="padding: 50px 0;">
+    <div class="container" [innerHTML]="body"></div>
+
+    <!-- <section style="padding: 50px 0;">
         <div class="container">
             <h2 class="my-3">Compliance / Whistleblowing Scheme</h2>
 
@@ -151,6 +180,6 @@
 
             <a href="" class="text-danger">Download the Code of Conduct</a>
         </div>
-    </section>
+    </section> -->
 
 </div>

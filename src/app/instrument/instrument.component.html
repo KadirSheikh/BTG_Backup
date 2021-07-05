@@ -18,10 +18,8 @@
 
         <nav aria-label="breadcrumb" class="bread-crum">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a routerLink="/catagory/1"
-                        [queryParams]="{name: catName , id:catNameId}">{{catName}}</a></li>
-                <li class="breadcrumb-item"><a routerLink="/subcatagory/{{subNameId}}"
-                        [queryParams]="{catname : catName , subname:subName}">{{subName}}</a></li>
+                <li class="breadcrumb-item"><a routerLink="/catagory/1" [queryParams]="{name: catName , id:catNameId}">{{catName}}</a></li>
+                <li class="breadcrumb-item"><a routerLink="/subcatagory/{{subNameId}}" [queryParams]="{catname : catName , subname:subName}">{{subName}}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{subSubName}}</li>
             </ol>
         </nav>
@@ -29,33 +27,53 @@
         <section style="padding: 50px 0;">
             <div class="container-fluid">
                 <div class="row mx-auto">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
 
-                        <mat-tree #tree [dataSource]="dataSource" [treeControl]="treeControl">
-                            <!-- This is the tree node template for leaf nodes -->
-                            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-                                <!-- use a disabled button to provide padding for tree leaf -->
-                                <button mat-icon-button disabled></button> {{node.name}}
-                            </mat-tree-node>
-                            <!-- This is the tree node template for expandable nodes -->
-                            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
-                                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-                                    <mat-icon class="mat-icon-rtl-mirror">
-                                        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                                    </mat-icon>
-                                </button> {{node.name}}
-                            </mat-tree-node>
-                        </mat-tree>
+                        <mat-accordian *ngFor="let main of sideNav.children">
+                            <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId" [hideToggle]="main.children.length == 0">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title [class.active]="main._id == productId || main._id == subNameId">
+                                        {{main.name}}
+                                    </mat-panel-title>
+                                    <!-- <mat-panel-description>
+                                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                    </mat-panel-description> -->
+                                </mat-expansion-panel-header>
+                                <mat-accordian *ngFor="let sub of main.children">
+                                    <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId" [hideToggle]="sub.children.length == 0">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title [class.active]="sub._id == productId || sub._id == subSubNameId">
+                                                {{sub.name}}
+                                            </mat-panel-title>
+                                            <!-- <mat-panel-description>
+                                                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                            </mat-panel-description> -->
+                                        </mat-expansion-panel-header>
+                                        <mat-accordian *ngFor="let pro of sub.children">
+                                            <mat-expansion-panel hideToggle>
+                                                <mat-expansion-panel-header>
+                                                    <mat-panel-title [class.active]="pro._id == productId || pro._id == subNameId">
+                                                        {{pro.name}}
+                                                    </mat-panel-title>
+                                                    <!-- <mat-panel-description>
+                                                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                                    </mat-panel-description> -->
+                                                </mat-expansion-panel-header>
+                                            </mat-expansion-panel>
+                                        </mat-accordian>
+                                    </mat-expansion-panel>
+                                </mat-accordian>
+                            </mat-expansion-panel>
+                        </mat-accordian>
                     </div>
                     <div class="container col-sm-8">
                         <div class="row mx-auto">
-                            <div class="col-sm-6"><img
-                                    src="../../assets/instrument-new.png" alt="" class="img-fluid"></div>
+                            <div class="col-sm-6"><img src="../../assets/instrument-new.png" alt="" class="img-fluid"></div>
                             <div class="col-sm-6">
                                 <div class="row1 mb-1">
 
                                     <div *ngFor="let r1 of row1" class="column">
-                    
+
                                         <!-- http://localhost:4200/#/product/60c863b38f264800152a3853?
                                             *catname=Tissue&*
                                             catId=60c862508f264800152a37f7&
@@ -65,19 +83,14 @@
                                             subsubnameId=60c863a48f264800152a3851&
                                             pname=Rotating%20-%20MEK&
                                             level=4 -->
-                    <!-- 
+                                        <!-- 
                     <a class="dropdown-item" *ngIf="parodMain.level == 2" routerLink="subcatagory/{{ parodMain._id }}" [queryParams]="{catname : ind.name , subname:solMainCat.name , level:parodMain.level }" href="">{{
                                                     parodMain.name }}</a>
                     -->
                                         <figure>
-                                            <a routerLink="/product/{{r1.parentId}}"
-                                                
-                                            [queryParams]="{catname : catName , catNameId: catNameId,subsubname: subSubName, subsubnameId: subsubnameId, subNameId: subNameId, subname: subName, pname: r1.name }"
-                                            
-                                            class="anchor">
+                                            <a routerLink="/product/{{r1.parentId}}" [queryParams]="{catname : catName , catNameId: catNameId,subsubname: subSubName, subsubnameId: subsubnameId, subNameId: subNameId, subname: subName, pname: r1.name }" class="anchor">
                                                 <img src="{{r1.icon}}" style="width: 80px; height: 60px;">
-                                                <br>
-                                                {{r1.name}}
+                                                <br> {{r1.name}}
                                             </a>
                                         </figure>
                                     </div>
@@ -85,14 +98,9 @@
                                 <div class="row1 mb-1">
                                     <div *ngFor="let r2 of row2" class="column">
                                         <figure>
-                                            <a 
-                                            routerLink="/product/{{r2.parentId}}"
-                                                
-                                            [queryParams]="{catname : catName , subname: subName, pname: r2.name }"
-                                            class="anchor">
+                                            <a routerLink="/product/{{r2.parentId}}" [queryParams]="{catname : catName , subname: subName, pname: r2.name }" class="anchor">
                                                 <img src="{{r2.icon}}" style="width: 80px; height: 60px;">
-                                                <br>
-                                                {{r2.name}}
+                                                <br> {{r2.name}}
                                             </a>
                                         </figure>
                                     </div>
@@ -100,14 +108,9 @@
                                 <div class="row1 mb-1">
                                     <div *ngFor="let r3 of row3" class="column">
                                         <figure>
-                                            <a 
-                                            routerLink="/product/{{r3.parentId}}"
-                                                
-                                            [queryParams]="{catname : catName , subname: subName, pname: r3.name }"
-                                            class="anchor">
+                                            <a routerLink="/product/{{r3.parentId}}" [queryParams]="{catname : catName , subname: subName, pname: r3.name }" class="anchor">
                                                 <img src="{{r3.icon}}" style="width: 80px; height: 60px;">
-                                                <br>
-                                                {{r3.name}}
+                                                <br> {{r3.name}}
                                             </a>
                                         </figure>
                                     </div>
@@ -115,14 +118,9 @@
                                 <div class="row1 mb-1">
                                     <div *ngFor="let r4 of row4" class="column">
                                         <figure>
-                                            <a 
-                                            routerLink="/product/{{r4.parentId}}"
-                                                
-                                            [queryParams]="{catname : catName , subname: subName, pname: r4.name }"
-                                            class="anchor">
+                                            <a routerLink="/product/{{r4.parentId}}" [queryParams]="{catname : catName , subname: subName, pname: r4.name }" class="anchor">
                                                 <img src="{{r4.icon}}" style="width: 80px; height: 60px;">
-                                                <br>
-                                                {{r4.name}}
+                                                <br> {{r4.name}}
                                             </a>
                                         </figure>
                                     </div>

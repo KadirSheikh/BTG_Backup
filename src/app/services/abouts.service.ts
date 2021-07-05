@@ -30,7 +30,14 @@ export class AboutsService {
   }
 
   async getWhistleblowing() {
-    return this._http.get(`${environment.apiUrl}api/complianceWhistleblowing/all`)
+    return this._http.get(`${environment.apiUrl}api/complianceWhistleblowing/all-complicane`)
+  }
+  async getHelpDesk() {
+    return this._http.get(`${environment.apiUrl}api/complianceWhistleblowing/get-helpdesk-cat`)
+  }
+
+  async getSingleComWhistleCategoryHelpdesk(id) {
+    return this._http.get(`${environment.apiUrl}api/complianceWhistleblowing/helpdesk-contact-data/${id}`)
   }
   
 }

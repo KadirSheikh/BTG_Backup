@@ -26,7 +26,7 @@ import { SubCategoryComponent } from './sub-category/sub-category.component';
 import { SubSubCatagoryComponent } from './sub-sub-catagory/sub-sub-catagory.component';
 import { SubcatagoriesComponent } from './subcatagories/subcatagories.component';
 import { ViewPdfComponent } from './view-pdf/view-pdf.component';
-
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -53,7 +53,7 @@ const routes: Routes = [
   { path: 'all-testimonial' , component:AllTestimonialComponent },
   { path: 'view-pdf' , component:ViewPdfComponent },
   { path: 'apply-now' , component:ApplyNowComponent },
-  { path: 'profile' , component:ProfileComponent },
+  { path: 'profile' , component:ProfileComponent,canActivate: [AuthGuard] },
   { path: 'teams' , component:TeamComponent },
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}

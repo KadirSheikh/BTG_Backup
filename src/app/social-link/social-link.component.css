@@ -27,16 +27,19 @@
     font-size: 30px;
     color: #3face7 !important;
 }
-.social-icon img{
+
+.social-icon img {
     width: 25px;
     padding: 2px;
     /* background-color: #DD4445 */
 }
 
-.social-icon:hover img:hover{
+
+/* .social-icon:hover img:hover{
     width: 40px;
     padding: 4px;
     background-color: #f0acac
-}
+} */
+
 
 /* fixed social*/

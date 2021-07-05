@@ -5,25 +5,7 @@ import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import { NavbarService } from '../navbar.service';
 
-interface FoodNode {
-  _id: any,
-  name: string;
-  level: number;
-  parentId: string;
-  order: number;
-  children?: FoodNode[];
-}
 
-// interface FoodNode {
-//   name: string;
-//   children?: FoodNode[];
-// }
-
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
 
 @Component({
   selector: 'app-instrument',
@@ -39,34 +21,7 @@ export class InstrumentComponent implements OnInit {
   editSection:any;
   heading: any;
 
-  tree_data: FoodNode[] = [
-    {   
-        _id: 1,
-        level: 0,
-        parentId: '',
-        order: 0,
-        name: '',
-        children: []
-      },
-    ];
 
-   
-
-    private _transformer = (node: FoodNode, level: number) => {
-      return {
-        expandable: !!node.children && node.children.length > 0,
-        name: node.name,
-        level: level,
-      };
-    }
-  
-    treeControl = new FlatTreeControl<ExampleFlatNode>(
-        node => node.level, node => node.expandable);
-  
-    treeFlattener = new MatTreeFlattener(
-        this._transformer, node => node.level, node => node.expandable, node => node.children);
-  
-    dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
     SolutionSubCategory: any[];
   treeName: string;
   catName: any;
@@ -84,13 +39,14 @@ export class InstrumentComponent implements OnInit {
   row4: any = [];
   name: any;
   subsubnameId: any;
+  dropdown: any;
+  sideNav: any;
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _instru: InstrumentService,
     private _nav: NavbarService
   ) { }
 
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
   async ngOnInit() {
     window.scroll(0,0);
@@ -103,18 +59,6 @@ export class InstrumentComponent implements OnInit {
       // this.getData(this.productId);
       this.getSolutionSub(this.productId)
 
-      setTimeout(()=>{
-        
-        this.tree_data.forEach(e => {
-          if(e._id == 1){
-            e.children = this.SolutionSubCategory;
-            e.name = this.treeName
-          }
-        });
-            console.log(this.tree_data);
-            this.dataSource.data = this.tree_data;
-            this.isLoading = false;
-      }, 3000)
        
     })
 
@@ -135,6 +79,21 @@ export class InstrumentComponent implements OnInit {
    })
    this.getInstrument();
    
+  }
+
+  ngAfterViewInit() {
+    console.log('Values on ngAfterViewInit():');
+    console.log("title:", this.dropdown);
+    let sNav = JSON.parse(localStorage.getItem('navbar'));
+    sNav.forEach(element => {
+      // console.log(element);
+      
+      if( element._id == this.catNameId ){
+        this.sideNav = element;
+      }
+    });
+    console.log(this.sideNav.children);
+    
   }
 
   goBack() {

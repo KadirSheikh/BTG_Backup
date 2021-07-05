@@ -1,131 +1,128 @@
-You can add global styles to this file,
-and also import other style files * {
-    margin: 0;
-    padding: 0;
-    --danger: #DC3545 !important;
-    scroll-margin-top: 10em !important;
-    scroll-behavior: smooth;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-footer ul li {
-    font-size: 12px;
-}
-
-.contact-home {
-    width: 100% !important;
-    height: 50vh !important;
-    background: url('./assets/hero/conatct.png') no-repeat center center !important;
-    background-size: cover !important;
-}
-
-.red-title-banner {
-    height: 100%;
-    background-color: var(--danger);
-    margin-top: 10rem;
-    padding: 10px 0;
-    text-align: center;
-}
-
-.breadcrumb {
-    display: flex;
-    flex-wrap: wrap;
-    padding: .75rem 1rem;
-    margin-bottom: 1rem;
-    list-style: none;
-    background-color: #fff !important;
-    border-radius: .25rem;
-}
-
-.breadcrumb-item a {
-    color: #DC3545 !important;
-}
-
-.data-sheet {
-    text-align: center;
-    background-image: url('assets/datasheet/datanewsheet.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 150px 0;
-    margin: 10px 0;
-    ;
-}
-
-.hoverr {
-    cursor: pointer;
-    padding: 10px 30px;
-}
-
-.hoverr:hover {
-    background-color: #F38B88;
-    -webkit-box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.15);
-    padding: 10px 30px;
-    border-radius: 2px;
-}
-
-.prodry-data-sheet {
-    text-align: center;
-    background-image: url('assets/datasheet/prodrydatasheet.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 200px 0;
-    margin: 10px 0;
-    ;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin: 0 !important;
-}
-
-img {
-    width: 100%;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-.ngx-pagination {
-    padding-left: 0px !important;
-}
-
-.ngx-pagination .current,
-.btn-info {
-    background: #DC3545 !important;
-    border: transparent !important;
-    border-radius: 20px !important;
-}
-
-.ngx-pagination .current:hover {
-    background: #DC3545 !important;
-    border-radius: 20px !important;
-    border: transparent !important;
-}
-
-.mat-expansion-panel {
-    box-shadow: none !important;
-}
-
-
-/* .mat-expansion-panel-header:hover {
+ * {
+     margin: 0;
+     padding: 0;
+     --danger: #DC3545 !important;
+     scroll-margin-top: 10em !important;
+     scroll-behavior: smooth;
+     font-family: Arial, Helvetica, sans-serif;
+ }
+ 
+ footer ul li {
+     font-size: 12px;
+ }
+ 
+ .contact-home {
+     width: 100% !important;
+     height: 50vh !important;
+     background: url('./assets/hero/conatct.png') no-repeat center center !important;
+     background-size: cover !important;
+ }
+ 
+ .red-title-banner {
+     height: 100%;
+     background-color: var(--danger);
+     margin-top: 10rem;
+     padding: 10px 0;
+     text-align: center;
+ }
+ 
+ .breadcrumb {
+     display: flex;
+     flex-wrap: wrap;
+     padding: .75rem 1rem;
+     margin-bottom: 1rem;
+     list-style: none;
+     background-color: #fff !important;
+     border-radius: .25rem;
+ }
+ 
+ .breadcrumb-item a {
+     color: #DC3545 !important;
+ }
+ 
+ .data-sheet {
+     text-align: center;
+     background-image: url('assets/datasheet/datanewsheet.png');
+     background-repeat: no-repeat;
+     background-size: cover;
+     padding: 150px 0;
+     margin: 10px 0;
+     ;
+ }
+ 
+ .hoverr {
+     cursor: pointer;
+     padding: 10px 30px;
+ }
+ 
+ .hoverr:hover {
+     background-color: #F38B88;
+     -webkit-box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.15);
+     -moz-box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.15);
+     box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.15);
+     padding: 10px 30px;
+     border-radius: 2px;
+ }
+ 
+ .prodry-data-sheet {
+     text-align: center;
+     background-image: url('assets/datasheet/prodrydatasheet.png');
+     background-repeat: no-repeat;
+     background-size: cover;
+     padding: 200px 0;
+     margin: 10px 0;
+     ;
+ }
+ 
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ p {
+     margin: 0 !important;
+ }
+ 
+ img {
+     width: 100%;
+ }
+ 
+ html,
+ body {
+     height: 100%;
+ }
+ 
+ body {
+     margin: 0;
+     font-family: Roboto, "Helvetica Neue", sans-serif;
+ }
+ 
+ .ngx-pagination {
+     padding-left: 0px !important;
+ }
+ 
+ .ngx-pagination .current,
+ .btn-info {
+     background: #DC3545 !important;
+     border: transparent !important;
+     border-radius: 20px !important;
+ }
+ 
+ .ngx-pagination .current:hover {
+     background: #DC3545 !important;
+     border-radius: 20px !important;
+     border: transparent !important;
+ }
+ 
+ .mat-expansion-panel {
+     box-shadow: none !important;
+ }
+ /* .mat-expansion-panel-header:hover {
     color: red !important;
 } */
-
-.mat-expansion-panel-header-title.active {
-    color: red !important;
-    font-weight: 700 !important;
-}
+ 
+ .mat-expansion-panel-header-title.active {
+     color: red !important;
+     font-weight: 700 !important;
+ }

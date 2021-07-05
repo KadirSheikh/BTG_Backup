@@ -25,7 +25,6 @@ export class SubSubCatagoryComponent implements OnInit {
   heading: any;
 
 
-
     SolutionSubCategory: any[];
   treeName: string;
   catName: any;
@@ -54,6 +53,7 @@ export class SubSubCatagoryComponent implements OnInit {
 
     this._activatedRoute.params.subscribe(params => {
       this.productId = params['id'];
+      console.log(this.productId)
       
       this.getData(this.productId);
       this.getSolutionSub(this.productId)

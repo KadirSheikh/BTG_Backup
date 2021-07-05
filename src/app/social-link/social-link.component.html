@@ -1,6 +1,7 @@
-<ul class="navbar-nav ml-auto" style=" position: fixed; top: 40%; right: 0%; z-index: 10000;">
-    <a href="" class="my-3 mx-3 social-icon" *ngFor="let s of socials">
+<ul class="navbar-nav ml-auto" style=" position: fixed ;top: 40%; right: 0%; z-index: 10000;">
+    <a href="{{s.link}}" target="_blank" class=" mx-2 social-icon" *ngFor="let s of socials">
         <img src="{{s.icon}}" />
         <!-- <i class="fa fa-facebook-official" aria-hidden="true"></i> -->
     </a>
 </ul>
+

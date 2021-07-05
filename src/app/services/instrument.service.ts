@@ -11,13 +11,9 @@ export class InstrumentService {
     private _http: HttpClient
   ) { }
     
-  async getInstrument() {
-    return this._http.get(`${environment.apiUrl}api/instrumnet/all`, {
-      headers: {
-        "auth-token": localStorage.getItem('auth-token'),
-        "role": localStorage.getItem('role')
-      }
-    })
+  async getInstrument(id) {
+    // console.log("%cThis is Servcie","background:red; color: white; font-size: 36px ");
+    return this._http.get(`${environment.apiUrl}api/instrumnet/all/${id}`)
   }
 
 }

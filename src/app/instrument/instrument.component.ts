@@ -92,8 +92,10 @@ export class InstrumentComponent implements OnInit {
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
-  ngOnInit(): void {
+  async ngOnInit() {
     window.scroll(0,0);
+    
+    
 
     this._activatedRoute.params.subscribe(params => {
       this.productId = params['id'];
@@ -111,13 +113,13 @@ export class InstrumentComponent implements OnInit {
         });
             console.log(this.tree_data);
             this.dataSource.data = this.tree_data;
-            // this.isLoading = false;
+            this.isLoading = false;
       }, 3000)
        
     })
 
     this._activatedRoute.queryParams.subscribe(params => {
-      console.log(params['name']);
+      // console.log(params['name']);
       this.treeName = params['subsubname'];
 
       this.catName =  params['catname']
@@ -131,7 +133,8 @@ export class InstrumentComponent implements OnInit {
      this.subNameId =  params['subnameId']
       
    })
-    this.getInstrument();
+   this.getInstrument();
+   
   }
 
   goBack() {
@@ -139,9 +142,15 @@ export class InstrumentComponent implements OnInit {
   }
 
   async getInstrument() {
+    console.log("%cThis is insumnet page","background:black; color: white; font-size: 36px ");
     // Get Instrument Data
-    (await this._instru.getInstrument()).subscribe( (res:any) => {
-      console.log(res.data);
+    
+    // (await this._instru.getInstrument('60c863a48f264800152a3851')).subscribe((res: any) => {
+    //   console.warn(res.data);
+    // })
+
+    (await this._instru.getInstrument(this.productId)).subscribe( (res:any) => {
+      console.warn(`%c${res}`, "background: cyan");
       if(res?.data == null){
           
         this.showComingSoon = true;
@@ -164,6 +173,8 @@ export class InstrumentComponent implements OnInit {
         if( e.row == 4 )
           this.row4.push(e);
       });
+
+      console.warn(this.row1)
       
     })
   }

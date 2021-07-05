@@ -63,11 +63,12 @@ export class NavbarComponent implements OnInit {
           this.industrySolutuonForData.forEach((isd,index) => {
             isd.order = index;          
           });
+          this.getNav();
           // console.log(response?.data);
         })
 
         
-
+        
     }).catch(error => {
       console.error(error)
     });
@@ -163,7 +164,84 @@ export class NavbarComponent implements OnInit {
   }
 
 
+// Testing Purpose for Nav
+nav:any = [];
+async getNav(){
+  this.industrySolutuonForData.forEach(industry => {
+    // console.log(industry);
+    this.nav.push(industry)
+  });
+  
+  await this.nav.forEach(async main => {
+    main.children = await this.asyncActionMain(main._id);
+  });
+  console.log(this.nav);
+  
+}
 
+asyncActionMain(id) {
+  
+  var promise = new Promise((resolve, reject) => {
+    this._nav.getsolutionMainCategoryFor(id).then((res) => {
+      res.subscribe((response: any) => {
+        
+        response.data.forEach(async sub => {
+          sub.children = await this.asyncActionSub(sub._id);
+        });
+        resolve(response.data);
+        
+        // if (response?.status && response?.status == true)
+        
+        //   this.SolutionMainCategoryData = response?.data
+        //   // console.log(response?.data);
+        //   if(response?.data?.length != 0 || response?.data?.length == 0)
+        //     this.flag = false;
+        })
+    })
+  });
+  return promise;
+}
+
+asyncActionSub(id) {
+  
+  var promise = new Promise((resolve, reject) => {
+    this._nav.getsolutionSubCategoryFor(id).then((res) => {
+      res.subscribe((response: any) => {
+        response.data.forEach(async sub => {
+          sub.children = await this.asyncActionProduct(sub._id);
+        });
+        resolve(response.data);
+        
+        // if (response?.status && response?.status == true)
+        
+        //   this.SolutionMainCategoryData = response?.data
+        //   // console.log(response?.data);
+        //   if(response?.data?.length != 0 || response?.data?.length == 0)
+        //     this.flag = false;
+        })
+    })
+  });
+  return promise;
+}
+
+asyncActionProduct(id) {
+  
+  var promise = new Promise((resolve, reject) => {
+    this._nav.getproductMainCategory(id).then((res) => {
+      res.subscribe((response: any) => {
+        resolve(response.data);
+        
+        // if (response?.status && response?.status == true)
+        
+        //   this.SolutionMainCategoryData = response?.data
+        //   // console.log(response?.data);
+        //   if(response?.data?.length != 0 || response?.data?.length == 0)
+        //     this.flag = false;
+        })
+    })
+  });
+  return promise;
+}
 }
 
 

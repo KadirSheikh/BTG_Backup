@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SocialLinkService } from '../services/social-link.service';
 
 @Component({
   selector: 'app-social-link',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./social-link.component.css']
 })
 export class SocialLinkComponent implements OnInit {
-
-  constructor() { }
+  socials:any;
+  constructor(
+    private _social: SocialLinkService
+  ) { }
 
   ngOnInit(): void {
+    this.getSocial();
+  }
+
+  async getSocial(){
+    (await this._social.getSocial()).subscribe( (res:any) => {
+      console.log(res);
+      this.socials = res.data;
+    })
   }
 
 }

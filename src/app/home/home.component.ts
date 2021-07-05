@@ -166,7 +166,7 @@ export class HomeComponent implements OnInit {
 
     this._home.getCarosoul().then(res => {
       res.subscribe((resp:any) => {
-        this.loader = true;
+        this.loader = false;
        
         this.homeCarasoul = resp.data;
         

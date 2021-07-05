@@ -80,7 +80,7 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,p {
     margin: 0 !important;
 }
 
@@ -109,4 +109,13 @@ body {
     background: #DC3545 !important;
     border-radius: 20px !important;
     border: transparent !important;
+}
+
+img{
+    width: 100% ;
+}
+
+.hoverr {
+    cursor: default !important;
+    padding: 10px 25px;
 }

@@ -60,6 +60,7 @@ import { TeamComponent } from './about/team/team.component';
 import { InstrumentComponent } from './instrument/instrument.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { SideNavComponent } from './side-nav/side-nav.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,7 +96,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ProfileComponent,
     TeamComponent,
     InstrumentComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SideNavComponent
   ],
   imports: [
     MatExpansionModule,

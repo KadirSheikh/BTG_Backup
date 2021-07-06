@@ -6,58 +6,22 @@
 
 
 <div *ngIf="!isLoading">
-    <div *ngIf="showComingSoon" class="container-fluid">
+    <div *ngIf="showComingSoon" style="margin-top: 10rem;" class="container-fluid">
 
         <div class="row ">
             <div class="col-sm-3">
-                <mat-accordian *ngFor="let main of sideNav.children">
-                    <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId" [hideToggle]="main.children.length == 0">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title [class.active]="main._id == productId || main._id == subNameId">
-                                {{main.name}}
-                            </mat-panel-title>
-                            <!-- <mat-panel-description>
-                                Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                            </mat-panel-description> -->
-                        </mat-expansion-panel-header>
-                        <mat-accordian *ngFor="let sub of main.children">
-                            <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId" [hideToggle]="sub.children.length == 0">
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title [class.active]="sub._id == productId || sub._id == subSubNameId">
-                                        {{sub.name}}
-                                    </mat-panel-title>
-                                    <!-- <mat-panel-description>
-                                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                                    </mat-panel-description> -->
-                                </mat-expansion-panel-header>
-                                <mat-accordian *ngFor="let pro of sub.children">
-                                    <mat-expansion-panel hideToggle>
-                                        <mat-expansion-panel-header>
-                                            <mat-panel-title [class.active]="pro._id == productId || pro._id == subNameId">
-                                                {{pro.name}}
-                                            </mat-panel-title>
-                                            <!-- <mat-panel-description>
-                                                Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                                            </mat-panel-description> -->
-                                        </mat-expansion-panel-header>
-                                    </mat-expansion-panel>
-                                </mat-accordian>
-                            </mat-expansion-panel>
-                        </mat-accordian>
-                    </mat-expansion-panel>
-                </mat-accordian>
+                <app-side-nav 
+                [catNameId]="catNameId" 
+                [productId]="productId" 
+                [subNameId]="subNameId"
+                [catName]="catName"
+                [subname]="subname"
+                [level]="level" ></app-side-nav>
             </div>
             <div class="col-sm-9">
-
                 <app-coming-soon></app-coming-soon>
-
-
             </div>
         </div>
-
-
-
-
     </div>
 
     <div *ngIf="!showComingSoon">
@@ -68,7 +32,8 @@
         <nav aria-label="breadcrumb" class="bread-crum">
             <ol class="breadcrumb">
 
-                <li class="breadcrumb-item"><a routerLink="/catagory/1" [queryParams]="{name: catName , id:catNameId}">{{catName}}</a></li>
+                <li class="breadcrumb-item"><a routerLink="/catagory/1"
+                        [queryParams]="{name: catName , id:catNameId}">{{catName}}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{treeName}}</li>
             </ol>
         </nav>
@@ -80,42 +45,46 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-3">
-                        <mat-accordian *ngFor="let main of sideNav.children">
-                            <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId" [hideToggle]="main.children.length == 0">
+                        <!-- <mat-accordian *ngFor="let main of sideNav.children">
+                            <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId"
+                                [hideToggle]="main.children.length == 0">
                                 <mat-expansion-panel-header>
                                     <mat-panel-title [class.active]="main._id == productId || main._id == subNameId">
-                                        {{main.name}}
+                                        
+                                            {{main.name}}
+                
+                                        
                                     </mat-panel-title>
-                                    <!-- <mat-panel-description>
-                                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                                    </mat-panel-description> -->
+                                 
                                 </mat-expansion-panel-header>
                                 <mat-accordian *ngFor="let sub of main.children">
-                                    <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId" [hideToggle]="sub.children.length == 0">
+                                    <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId"
+                                        [hideToggle]="sub.children.length == 0">
                                         <mat-expansion-panel-header>
-                                            <mat-panel-title [class.active]="sub._id == productId || sub._id == subSubNameId">
+                                            <mat-panel-title
+                                                [class.active]="sub._id == productId || sub._id == subSubNameId">
                                                 {{sub.name}}
                                             </mat-panel-title>
-                                            <!-- <mat-panel-description>
-                                                Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                                            </mat-panel-description> -->
+                                            
                                         </mat-expansion-panel-header>
                                         <mat-accordian *ngFor="let pro of sub.children">
                                             <mat-expansion-panel hideToggle>
                                                 <mat-expansion-panel-header>
-                                                    <mat-panel-title [class.active]="pro._id == productId || pro._id == subNameId">
+                                                    <mat-panel-title
+                                                        [class.active]="pro._id == productId || pro._id == subNameId">
                                                         {{pro.name}}
                                                     </mat-panel-title>
-                                                    <!-- <mat-panel-description>
-                                                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                                                    </mat-panel-description> -->
+                                                   
                                                 </mat-expansion-panel-header>
                                             </mat-expansion-panel>
                                         </mat-accordian>
                                     </mat-expansion-panel>
                                 </mat-accordian>
                             </mat-expansion-panel>
-                        </mat-accordian>
+                        </mat-accordian> -->
+                        <app-side-nav [catNameId]="catNameId" [productId]="productId" [subNameId]="subNameId"  [catName]="catName"
+                        [subname]="subname"
+                        [level]="level"></app-side-nav>
                     </div>
 
                     <div class="col-sm-9">
@@ -125,51 +94,77 @@
 
 
                             <!-- Section One -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionOne"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionOne.includes('Lorem Ipsum')"
+                                class="col-sm-6 " [class.hoverr]="level == 2 || level == 3"
+                                [innerHTML]="productsData.sectionOne"></div>
                             <!-- Section One End -->
 
                             <!-- Section Two -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionTwo.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionTwo"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionTwo.includes('Lorem Ipsum')"
+                                class="col-sm-6 " [class.hoverr]="level == 2 || level == 3"
+                                [innerHTML]="productsData.sectionTwo"></div>
                             <!-- Section xTwo End -->
 
                             <!-- Section Three -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionThree.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionThree"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionThree.includes('Lorem Ipsum')"
+                                class="col-sm-6 " [class.hoverr]="level == 2 || level == 3"
+                                [innerHTML]="productsData.sectionThree"></div>
                             <!-- Section Three Emd -->
 
                             <!-- Section Four -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionFour.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionFour"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionFour.includes('Lorem Ipsum')"
+                                class="col-sm-6 " [class.hoverr]="level == 2 || level == 3"
+                                [innerHTML]="productsData.sectionFour"></div>
                             <!-- Section Four End -->
 
                             <!-- Section Five -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionFive.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionFive"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionFive.includes('Lorem Ipsum')"
+                                class="col-sm-6 " [class.hoverr]="level == 2 || level == 3"
+                                [innerHTML]="productsData.sectionFive"></div>
                             <!-- Section Five Emd -->
 
                             <!-- Section Six -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionSix.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionSix"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionSix.includes('Lorem Ipsum')"
+                                class="col-sm-6 " [class.hoverr]="level == 2 || level == 3"
+                                [innerHTML]="productsData.sectionSix"></div>
                             <!-- Section Six End -->
 
                             <!-- Section Seven -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionSeven.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionSeven"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionSeven.includes('Lorem Ipsum')"
+                                class="col-sm-6 " [class.hoverr]="level == 2 || level == 3"
+                                [innerHTML]="productsData.sectionSeven"></div>
                             <!-- Section Seven Emd -->
 
                             <!-- Section Eight -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionEight.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionEight"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionEight.includes('Lorem Ipsum')"
+                                class="col-sm-6 " [class.hoverr]="level == 2 || level == 3"
+                                [innerHTML]="productsData.sectionEight"></div>
                             <!-- Section Eight End -->
 
                             <!-- Section Nine -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionNine.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionNine"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionNine.includes('Lorem Ipsum')"
+                                class="col-sm-6 " [class.hoverr]="level == 2 || level == 3"
+                                [innerHTML]="productsData.sectionNine"></div>
                             <!-- Section Nine Emd -->
 
                             <!-- Section Ten -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionTen.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionTen"></div>
+                            <div style="text-align: justify;" *ngIf="!productsData.sectionTen.includes('Lorem Ipsum')"
+                                class="col-sm-6 " [class.hoverr]="level == 2 || level == 3"
+                                [innerHTML]="productsData.sectionTen"></div>
                             <!-- Section Ten End -->
 
                             <!-- Section Eleven -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionEleven.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionEleven"></div>
+                            <div style="text-align: justify;"
+                                *ngIf="!productsData.sectionEleven.includes('Lorem Ipsum')" class="col-sm-6 "
+                                [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionEleven">
+                            </div>
                             <!-- Section Eleven Emd -->
 
                             <!-- Section Twelve -->
-                            <div style="text-align: justify;" *ngIf="!productsData.sectionTwelve.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionTwelve"></div>
+                            <div style="text-align: justify;"
+                                *ngIf="!productsData.sectionTwelve.includes('Lorem Ipsum')" class="col-sm-6 "
+                                [class.hoverr]="level == 2 || level == 3" [innerHTML]="productsData.sectionTwelve">
+                            </div>
                             <!-- Section Twelve End -->
 
                         </div>

@@ -1,0 +1,180 @@
+<!-- <mat-accordian *ngFor="let main of sideNav.children">
+    <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId"
+        [hideToggle]="main.children.length == 0">
+        <mat-expansion-panel-header>
+            <mat-panel-title [class.active]="main._id == productId || main._id == subNameId">
+                
+                    {{main.name}}
+
+                
+            </mat-panel-title>
+         
+        </mat-expansion-panel-header>
+        <mat-accordian *ngFor="let sub of main.children">
+            <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId"
+                [hideToggle]="sub.children.length == 0">
+                <mat-expansion-panel-header>
+                    <mat-panel-title
+                        [class.active]="sub._id == productId || sub._id == subSubNameId">
+                        {{sub.name}}
+                    </mat-panel-title>
+                    
+                </mat-expansion-panel-header>
+                <mat-accordian *ngFor="let pro of sub.children">
+                    <mat-expansion-panel hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title
+                                [class.active]="pro._id == productId || pro._id == subNameId">
+                                {{pro.name}}
+                            </mat-panel-title>
+                           
+                        </mat-expansion-panel-header>
+                    </mat-expansion-panel>
+                </mat-accordian>
+            </mat-expansion-panel>
+        </mat-accordian>
+    </mat-expansion-panel>
+</mat-accordian>  -->
+
+<!-- <mat-accordian *ngFor="let main of sideNav.children">
+    <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId"
+        [hideToggle]="main.children.length == 0">
+
+        <mat-expansion-panel-header>
+            <mat-panel-title [class.active]="main._id == productId || main._id == subNameId">
+
+                {{main.name}}
+
+
+            </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+    </mat-expansion-panel>
+</mat-accordian> -->
+
+<mat-accordian *ngFor="let ind of sideNav">
+    <mat-expansion-panel [expanded]="ind.name == catName" [hideToggle]="ind.children.length == 0">
+
+        <mat-expansion-panel-header>
+            <mat-panel-title [class.active]="ind._id == productId || ind._id == subNameId">
+
+                <!-- 
+                    
+                 -->
+
+                 <a class="dropdown-item " href="" 
+                 *ngIf="ind.level == 1" routerLink="/subcatagory/{{ind._id}}"
+                 [queryParams]="{catname : catName ,catId:ind._id, subname:ind.name ,level : ind.level}">{{ind.name}}</a>
+
+                <a class="dropdown-item " href="" 
+                    *ngIf="ind.level == 2" routerLink="/subcatagory/{{ind._id}}"
+                    [queryParams]="{catname : catName ,catId:ind._id, subname:ind.name ,level : ind.level}">{{ind.name}}</a>
+                <a class="dropdown-item " href="" 
+                    *ngIf="ind.level == 3" routerLink="/solution-sub-category/{{ind._id}}"
+                    [queryParams]="{catname : catName ,catId:ind._id, subname:ind.name,subnameId:ind._id,level:ind.level}">{{ind.name}}</a>
+                <a class="dropdown-item " href="" 
+                    *ngIf="ind.level == 4" routerLink="/product/{{ind._id}}"
+                    [queryParams]="{catname : catName, catId:ind._id , subname:ind.name, subnameId:ind._id ,level:ind.level }">{{ind.name}}</a>
+                <a class="dropdown-item " href="" 
+                    *ngIf="ind.level == 5" routerLink="/instrument/{{ind._id}}"
+                    [queryParams]="{catname : catName, catId:ind._id , subname:ind.name, subnameId:ind._id ,level:ind.level }">{{ind.name}}</a>
+
+
+
+            </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <mat-accordian *ngFor="let main of ind.children">
+            <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId"
+                [hideToggle]="main.children.length == 0">
+                <mat-expansion-panel-header>
+                    <mat-panel-title [class.active]="main._id == productId || main._id == subNameId">
+
+                        <!-- {{main.name}} -->
+
+                        <a class="dropdown-item " href="" 
+                 *ngIf="main.level == 1" routerLink="/subcatagory/{{main._id}}"
+                 [queryParams]="{catname : catName ,catId:main._id, subname:main.name ,level : main.level}">{{main.name}}</a>
+
+                <a class="dropdown-item " href="" 
+                    *ngIf="main.level == 2" routerLink="/subcatagory/{{main._id}}"
+                    [queryParams]="{catname : catName ,catId:main._id, subname:main.name ,level : main.level}">{{main.name}}</a>
+                <a class="dropdown-item " href="" 
+                    *ngIf="main.level == 3" routerLink="/solution-sub-category/{{main._id}}"
+                    [queryParams]="{catname : catName ,catId:main._id, subname:main.name,subnameId:main._id,level:main.level}">{{main.name}}</a>
+                <a class="dropdown-item " href="" 
+                    *ngIf="main.level == 4" routerLink="/product/{{main._id}}"
+                    [queryParams]="{catname : catName, catId:main._id , subname:main.name, subnameId:main._id ,level:main.level }">{{main.name}}</a>
+                <a class="dropdown-item " href="" 
+                    *ngIf="main.level == 5" routerLink="/instrument/{{main._id}}"
+                    [queryParams]="{catname : catName, catId:main._id , subname:main.name, subnameId:main._id ,level:main.level }">{{main.name}}</a>
+
+                        
+
+                    </mat-panel-title>
+
+                </mat-expansion-panel-header>
+                <mat-accordian *ngFor="let sub of main.children">
+                    <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId"
+                        [hideToggle]="sub.children.length == 0">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title [class.active]="sub._id == productId || sub._id == subSubNameId">
+                                {{sub.name}}
+                            </mat-panel-title>
+
+                        </mat-expansion-panel-header>
+                        <mat-accordian *ngFor="let pro of sub.children">
+                            <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title [class.active]="pro._id == productId || pro._id == subNameId">
+                                        {{pro.name}}
+                                    </mat-panel-title>
+
+                                </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                        </mat-accordian>
+                    </mat-expansion-panel>
+                </mat-accordian>
+            </mat-expansion-panel>
+        </mat-accordian>
+
+    </mat-expansion-panel>
+</mat-accordian>
+
+<!-- <mat-accordian *ngFor="let main of sideNav.children">
+    <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId"
+        [hideToggle]="main.children.length == 0">
+        <mat-expansion-panel-header>
+            <mat-panel-title [class.active]="main._id == productId || main._id == subNameId">
+
+                {{main.name}}
+
+
+            </mat-panel-title>
+
+        </mat-expansion-panel-header>
+        <mat-accordian *ngFor="let sub of main.children">
+            <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId"
+                [hideToggle]="sub.children.length == 0">
+                <mat-expansion-panel-header>
+                    <mat-panel-title [class.active]="sub._id == productId || sub._id == subSubNameId">
+                        {{sub.name}}
+                    </mat-panel-title>
+
+                </mat-expansion-panel-header>
+                <mat-accordian *ngFor="let pro of sub.children">
+                    <mat-expansion-panel hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title [class.active]="pro._id == productId || pro._id == subNameId">
+                                {{pro.name}}
+                            </mat-panel-title>
+
+                        </mat-expansion-panel-header>
+                    </mat-expansion-panel>
+                </mat-accordian>
+            </mat-expansion-panel>
+        </mat-accordian>
+    </mat-expansion-panel>
+</mat-accordian> -->

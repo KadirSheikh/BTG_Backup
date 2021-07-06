@@ -1,10 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { SolutionMainCategoryService } from '../services/solution-main-category.service';
 import { SolutionSubCategoryService } from '../services/solution-sub-category.service';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import { NavbarService } from '../navbar.service'
+import { filter } from 'rxjs/operators';
 
 
 
@@ -40,10 +41,11 @@ export class SubcatagoriesComponent implements OnInit {
     private _activatedRoute: ActivatedRoute, 
     private _subCatService: SolutionSubCategoryService,
     private _solMainCatService: SolutionMainCategoryService,
-    private _nav: NavbarService
+    private _nav: NavbarService,
+    private _router: Router
     
   ) {
-   
+    
    }
 
    
@@ -53,6 +55,15 @@ export class SubcatagoriesComponent implements OnInit {
 
 
     // console.log(TREE_DATA.find( e =>  e.children.? == 5));
+
+    this._activatedRoute.queryParams.subscribe(params => {
+      console.log(params['subname']);
+      this.catName =  params['catname'];
+      this.catNameId =  params['catId'];
+      this.treeName = params['subname'];
+      this.level = params['level'];
+      
+   })
 
     this._activatedRoute.params.subscribe(params => {
       this.productId = params['id'];
@@ -64,14 +75,7 @@ export class SubcatagoriesComponent implements OnInit {
        
     });
 
-    this._activatedRoute.queryParams.subscribe(params => {
-       console.log(params['subname']);
-       this.catName =  params['catname'];
-       this.catNameId =  params['catId'];
-       this.treeName = params['subname'];
-       this.level = params['level'];
-       
-    })
+    
 
   
   }

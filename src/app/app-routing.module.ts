@@ -55,8 +55,8 @@ const routes: Routes = [
   { path: 'apply-now' , component:ApplyNowComponent },
   { path: 'profile' , component:ProfileComponent,canActivate: [AuthGuard] },
   { path: 'teams' , component:TeamComponent },
-  {path: '404', component: NotFoundComponent},
-  {path: '**', redirectTo: '/404'}
+  // {path: '404', component: NotFoundComponent},
+  // {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({

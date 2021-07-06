@@ -6,8 +6,46 @@
 
 
 <div *ngIf="!isLoading">
-    <div *ngIf="showComingSoon">
-        <app-coming-soon></app-coming-soon>
+    <div *ngIf="showComingSoon" class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-3">
+                <!-- <mat-accordian *ngFor="let main of sideNav.children">
+                    <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId" [hideToggle]="main.children.length == 0">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title [class.active]="main._id == productId || main._id == subNameId">
+                                {{main.name}}
+                            </mat-panel-title>
+                        
+                        </mat-expansion-panel-header>
+                        <mat-accordian *ngFor="let sub of main.children">
+                            <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId" [hideToggle]="sub.children.length == 0">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title [class.active]="sub._id == productId || sub._id == subSubNameId">
+                                        {{sub.name}}
+                                    </mat-panel-title>
+                                    
+                                </mat-expansion-panel-header>
+                                <mat-accordian *ngFor="let pro of sub.children">
+                                    <mat-expansion-panel hideToggle>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title [class.active]="pro._id == productId || pro._id == subNameId">
+                                                {{pro.name}}
+                                            </mat-panel-title>
+                                         
+                                        </mat-expansion-panel-header>
+                                    </mat-expansion-panel>
+                                </mat-accordian>
+                            </mat-expansion-panel>
+                        </mat-accordian>
+                    </mat-expansion-panel>
+                </mat-accordian> -->
+                <app-side-nav [catNameId]="catNameId" [productId]="productId" [subNameId]="subNameId" [catName]="catName" [subname]="subname" [level]="level"></app-side-nav>
+            </div>
+            <div class="col-sm-9">
+                <app-coming-soon></app-coming-soon>
+            </div>
+        </div>
     </div>
 
     <div *ngIf="!showComingSoon">
@@ -19,7 +57,7 @@
         <nav aria-label="breadcrumb" class="bread-crum">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a routerLink="/catagory/1" [queryParams]="{name: catName , id:catNameId}">{{catName}}</a></li>
-                <li class="breadcrumb-item"><a routerLink="/subcatagory/{{subNameId}}" [queryParams]="{catname : catName , subname:subName}">{{subName}}</a></li>
+                <li class="breadcrumb-item"><a routerLink="/subcatagory/{{subNameId}}" [queryParams]="{catname : catName ,catId:catNameId, subname:subName,level:2}">{{subName}}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{subSubName}}</li>
             </ol>
         </nav>
@@ -28,16 +66,14 @@
             <div class="container-fluid">
                 <div class="row mx-auto">
                     <div class="col-sm-3">
-
+                        <!-- 
                         <mat-accordian *ngFor="let main of sideNav.children">
                             <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId" [hideToggle]="main.children.length == 0">
                                 <mat-expansion-panel-header>
                                     <mat-panel-title [class.active]="main._id == productId || main._id == subNameId">
                                         {{main.name}}
                                     </mat-panel-title>
-                                    <!-- <mat-panel-description>
-                                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                                    </mat-panel-description> -->
+                                  
                                 </mat-expansion-panel-header>
                                 <mat-accordian *ngFor="let sub of main.children">
                                     <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId" [hideToggle]="sub.children.length == 0">
@@ -45,9 +81,7 @@
                                             <mat-panel-title [class.active]="sub._id == productId || sub._id == subSubNameId">
                                                 {{sub.name}}
                                             </mat-panel-title>
-                                            <!-- <mat-panel-description>
-                                                Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                                            </mat-panel-description> -->
+                                        
                                         </mat-expansion-panel-header>
                                         <mat-accordian *ngFor="let pro of sub.children">
                                             <mat-expansion-panel hideToggle>
@@ -55,16 +89,15 @@
                                                     <mat-panel-title [class.active]="pro._id == productId || pro._id == subNameId">
                                                         {{pro.name}}
                                                     </mat-panel-title>
-                                                    <!-- <mat-panel-description>
-                                                        Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                                                    </mat-panel-description> -->
+                                                 
                                                 </mat-expansion-panel-header>
                                             </mat-expansion-panel>
                                         </mat-accordian>
                                     </mat-expansion-panel>
                                 </mat-accordian>
                             </mat-expansion-panel>
-                        </mat-accordian>
+                        </mat-accordian> -->
+                        <app-side-nav [catNameId]="catNameId" [productId]="productId" [subNameId]="subNameId" [catName]="catName" [subname]="subname" [level]="level"></app-side-nav>
                     </div>
                     <div class="container col-sm-8">
                         <div class="row mx-auto">

@@ -1,0 +1,14 @@
+.active1 {
+    color: red !important;
+    font-weight: 700 !important;
+}
+
+a {
+    font-size: 13px !important;
+}
+
+@media (max-width:767px) {
+    .sideNavigation {
+        display: none !important;
+    }
+}

@@ -92,3 +92,7 @@ ul,
 .active {
     display: block;
 }
+
+::ng-deep img {
+    width: 100%;
+}

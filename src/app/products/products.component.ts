@@ -163,80 +163,54 @@ export class ProductsComponent implements OnInit {
     
   }
 
-  async getData(id: string) {
+  async getData(id:string){
 
-    // (await this._proService.getProduct(id)).subscribe((resp: any) => {
-
-    //   if (resp.data == null || resp.data?.heading.includes('Heading')) {
+    // (await this._subsubcat.getSolutionSubCategory(id)).subscribe((resp: any) => {
+    //   console.log(resp)
+    //   if(resp.data == null || resp.data?.heading.includes('Heading')){
     //     this.showComingSoon = true;
     //     this.isLoading = false;
-    //   } else {
-    //     this.productsData = resp.data;
-    //     this.showComingSoon = false;
-    //     this.isLoading = false;
-        
-
-    //   }
-
+    //     }else{
+    //       this.productsData = resp.data;
+    //       this.showComingSoon = false;
+    //       this.isLoading = false;
+    //       console.log(this.productsData.heading);
+          
+    //     }
+      
     // })
 
-    (await this._solMainCatService.getSolutionMainCategory(id)).subscribe((resp: any) => {
-      console.log(resp)
-      if(resp.data == null){
-       
-        this.showComingSoon = true;
-        
-        // this.isLoading = false;
-        }else{
-          this.productsData = resp.data;
-          this.showComingSoon = false;
-          // this.isLoading = false;
-          console.log(this.productsData);
+    
+      (await this._solMainCatService.getSolutionMainCategory(id)).subscribe(async (resp: any) => {
+        console.log(resp)
+        if(resp.data == null){
+          (await this._subsubcat.getSolutionSubCategory(id)).subscribe(async (resp: any) => {
+            console.log(resp)
+            if(resp.data == null){
+              (await this._proService.getProduct(id)).subscribe((resp: any) => {
+                console.log(resp)
+                this.productsData = resp.data;
           
-        }
-        console.log(this.isLoading);
-    });
-  
+              })
+            }else this.productsData = resp.data;
+          });
+        }else this.productsData = resp.data;
+      });
+    
 
-
-    (await this._subsubcat.getSolutionSubCategory(id)).subscribe((resp: any) => {
-      console.log(resp)
-      if(resp.data == null || resp.data?.heading.includes('Heading')){
-        this.showComingSoon = true;
-        this.isLoading = false;
-        }else{
-          this.productsData = resp.data;
-          this.showComingSoon = false;
-          this.isLoading = false;
-          console.log(this.productsData.heading);
-          
-        }
+      this.isLoading = false
+      console.log(this.productsData);
       
-    });
-  
-
-  
-    (await this._proService.getProduct(id)).subscribe((resp: any) => {
-
-      console.log(resp.data);
+      setInterval( () => {
+        console.log(this.productsData);
+        if( this.productsData == null || this.productsData?.heading?.includes('Heading') ){
+          this.showComingSoon = true;
+        }
+      }, 1000)
       
+    
 
-      if (resp.data == null || resp.data?.heading.includes('Heading')) {
-        this.showComingSoon = true;
-        this.isLoading = false;
-      } else {
-        this.productsData = resp.data;
-        this.showComingSoon = false;
-        this.isLoading = false;
-        
-
-      }
-
-    })
-
-    // if( !this.productsData ){
-    //   this.showComingSoon = true;
-    // }
+    
   }
 
   async getSolutionSub(id:string){
@@ -288,7 +262,7 @@ export class ProductsComponent implements OnInit {
 
   languageSort(arr){
     let newArr = [];
-    arr.forEach(e => {
+    arr?.forEach(e => {
       var name = e.name;
       var id = e._id;
       var sheets = [];

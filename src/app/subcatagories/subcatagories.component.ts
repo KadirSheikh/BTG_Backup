@@ -6,6 +6,7 @@ import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import { NavbarService } from '../navbar.service'
 import { filter } from 'rxjs/operators';
+import { ProductService } from '../services/product.service';
 
 
 
@@ -41,8 +42,10 @@ export class SubcatagoriesComponent implements OnInit {
     private _activatedRoute: ActivatedRoute, 
     private _subCatService: SolutionSubCategoryService,
     private _solMainCatService: SolutionMainCategoryService,
-    private _nav: NavbarService,
-    private _router: Router
+    private _router: Router,
+    private _proService: ProductService,
+    private _subsubcat: SolutionSubCategoryService, 
+    private _nav: NavbarService
     
   ) {
     
@@ -99,38 +102,52 @@ export class SubcatagoriesComponent implements OnInit {
 
   async getData(id:string){
 
-    (await this._solMainCatService.getSolutionMainCategory(id)).subscribe((resp: any) => {
-      console.log(resp)
-      if(resp.data == null || resp.data?.heading.includes('Heading')){
-       
-        
-        this.showComingSoon = true;
-        this.isLoading = false;
-        }else{
-          this.productsData = resp.data;
-
-          this.showComingSoon = false;
-          this.isLoading = false;
-          console.log(this.productsData);
-          
-        }
-      
-    })
-
-    // this._navService.getProductMainCategoryData(id).then((res) => {
-    //   res.subscribe((resp:any)=> {
-    //     if(resp.data == null || resp.data.heading == "Enter Product Name Here..."){
+    // (await this._subsubcat.getSolutionSubCategory(id)).subscribe((resp: any) => {
+    //   console.log(resp)
+    //   if(resp.data == null || resp.data?.heading.includes('Heading')){
     //     this.showComingSoon = true;
     //     this.isLoading = false;
     //     }else{
     //       this.productsData = resp.data;
     //       this.showComingSoon = false;
     //       this.isLoading = false;
-    //       console.log(this.productsData.heading); 
+    //       console.log(this.productsData.heading);
+          
     //     }
-        
-    //   })
+      
     // })
+
+    
+      (await this._solMainCatService.getSolutionMainCategory(id)).subscribe(async (resp: any) => {
+        console.log(resp)
+        if(resp.data == null){
+          (await this._subsubcat.getSolutionSubCategory(id)).subscribe(async (resp: any) => {
+            console.log(resp)
+            if(resp.data == null){
+              (await this._proService.getProduct(id)).subscribe((resp: any) => {
+                console.log(resp)
+                this.productsData = resp.data;
+          
+              })
+            }else this.productsData = resp.data;
+          });
+        }else this.productsData = resp.data;
+      });
+    
+
+      this.isLoading = false
+      console.log(this.productsData);
+      
+      setInterval( () => {
+        console.log(this.productsData);
+        if( this.productsData == null || this.productsData?.heading.includes('Heading') ){
+          this.showComingSoon = true;
+        }
+      }, 1000)
+      
+    
+
+    
   }
 
 

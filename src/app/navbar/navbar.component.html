@@ -128,7 +128,7 @@
                                 </div>
                             </li>
                         </ul> -->
-                        <ul *ngIf="ind?.children.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <ul *ngIf="ind?.children?.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
                             <li *ngFor="let solMain of ind.children" class="dropdown-submenu">
                                 <a class="dropdown-item " href="" (mouseover)="getSolutionSubCategory(solMain._id)" *ngIf="solMain.level == 2" routerLink="subcatagory/{{solMain._id}}" [queryParams]="{catname : ind.name ,catId:ind._id, subname:solMain.name ,level : solMain.level}">{{ solMain.name }}</a>
@@ -142,7 +142,7 @@
                                         </div>
                                     </li>
                                 </ul> -->
-                                <ul *ngIf="solMain?.children.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <ul *ngIf="solMain?.children?.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li *ngFor="let solSub of solMain.children" class="dropdown-submenu">
                                         <a class="dropdown-item " href="" (mouseover)="getProductMainCategory(solSub._id)" *ngIf="solSub.level == 2" routerLink="subcatagory/{{solSub._id}}" [queryParams]="{catname : ind.name , subname:solMain.name,level:solSub.level}">{{ solSub.name }}</a>
                                         <a class="dropdown-item " href="" (mouseover)="getProductMainCategory(solSub._id)" *ngIf="solSub.level == 3" routerLink="solution-sub-category/{{solSub._id}}" [queryParams]="{catname : ind.name ,catId:ind._id, subname:solMain.name,subnameId:solMain._id, subsubname:solSub.name,level:solSub.level}">{{ solSub.name }}</a>
@@ -157,7 +157,7 @@
                                             </li>
                                         </ul> -->
 
-                                        <ul *ngIf="solSub?.children.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <ul *ngIf="solSub?.children?.length > 0" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li *ngFor="let parodMain of solSub.children" class="dropdown-submenu">
                                                 <a class="dropdown-item" *ngIf="parodMain.level == 2" routerLink="subcatagory/{{ parodMain._id }}" [queryParams]="{catname : ind.name , subname:solMain.name , level:parodMain.level }" href="">{{
                                                     parodMain.name }}</a>

@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { NavbarService } from '../navbar.service';
 import { ContactService } from '../services/contact.service';
 @Component({
@@ -12,9 +12,18 @@ export class FooterComponent implements OnInit {
   industrySolutuonForData: any;
   industrySolutuonMain: any = [];
   contactArray: any;
-  constructor(private _contact : ContactService,@Inject(DOCUMENT) private document: Document, private _nav: NavbarService) { }
+
+  bgImg:  String = "";
+
+  @ViewChild('contactsec') contactsec: ElementRef;
+  constructor(private renderer: Renderer2,private _contact : ContactService,@Inject(DOCUMENT) private document: Document, private _nav: NavbarService) { }
 
   async ngOnInit() {
+
+    
+
+    // this.getContactUs();
+   
     // Get Industry Solution For
     await this._nav.getSubNav().then((res) => {
       
@@ -25,6 +34,7 @@ export class FooterComponent implements OnInit {
 
           (await this._nav.getsolutionMainCategoryFor(element._id)).subscribe((resp2:any) => {
   
+            console.warn(resp2.data);
             
             
             let pushData = {main: element, sub: resp2?.data}
@@ -48,26 +58,72 @@ export class FooterComponent implements OnInit {
     });
 
 
-    
-    // this._contact.getContact().then(res => {
-    //   res.subscribe((resp:any) => {
-       
-    //     console.log(resp.data);
-    //     //  this.contactArray = resp.data[0];
-    //   })
-    // })
 
-    ;(await this._contact.getContact()).subscribe((resp:any) => {
+    
+
+
+  }
+
+
+
+  async ngAfterViewInit(){
+  
+    (await this._contact.getContact()).subscribe((resp:any) => {
        
      
-       this.contactArray = resp.data[0];
-    })
+      
+      console.warn(resp.data);
+      if(localStorage.getItem('contact-us') == null || localStorage.getItem('contact-us') == undefined){
+        this.contactArray = resp.data[0];
 
+        this.bgImg = this.contactArray.image
+        this.renderer.setStyle(this.contactsec.nativeElement, 'background-image', `url(${this.bgImg})`);
+        return localStorage.setItem('contact-us', JSON.stringify(this.contactArray))
+        
+      }
+      else{
+        let data = localStorage.getItem('contact-us')
 
+        this.contactArray = JSON.parse(data)
+        this.bgImg = this.contactArray.image
+        console.warn(this.bgImg);
+        this.renderer.setStyle(this.contactsec.nativeElement, 'background-image', `url(${this.bgImg})`);
+      }
+
+      
+      
+   })
+    console.warn(this.bgImg);
+    
   }
 
   doSomething() {
     alert("hello");
   }
+
+//  async getContactUs(){
+//     (await this._contact.getContact()).subscribe((resp:any) => {
+       
+     
+      
+//       console.warn(resp.data);
+//       if(localStorage.getItem('contact-us') == null || localStorage.getItem('contact-us') == undefined){
+//         this.contactArray = resp.data[0];
+
+//         this.bgImg = this.contactArray.image
+//         return localStorage.setItem('contact-us', JSON.stringify(this.contactArray))
+//       }
+//       else{
+//         let data = localStorage.getItem('contact-us')
+
+//         this.contactArray = JSON.parse(data)
+//         this.bgImg = this.contactArray.image
+//         console.warn(this.bgImg);
+//       }
+
+      
+      
+//    })
+//   }
 
 }

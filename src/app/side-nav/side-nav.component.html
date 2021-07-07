@@ -1,5 +1,5 @@
-<mat-accordian *ngFor="let ind of sideNav">
-    <mat-expansion-panel [expanded]="ind.name == catName" [hideToggle]="ind.children.length == 0">
+<mat-accordian *ngFor="let ind of sideNav" class="sideNavigation">
+    <mat-expansion-panel [expanded]="ind.name == catName" [hideToggle]="ind?.children?.length == 0">
 
         <mat-expansion-panel-header>
             <mat-panel-title>
@@ -18,7 +18,7 @@
         </mat-expansion-panel-header>
 
         <mat-accordian *ngFor="let main of ind.children">
-            <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId" [hideToggle]="main.children.length == 0">
+            <mat-expansion-panel [expanded]="main._id == productId || main._id == subNameId" [hideToggle]="main?.children?.length == 0">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
 
@@ -37,7 +37,7 @@
 
                 </mat-expansion-panel-header>
                 <mat-accordian *ngFor="let sub of main.children">
-                    <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId" [hideToggle]="sub.children.length == 0">
+                    <mat-expansion-panel [expanded]="sub._id == productId || sub._id == subSubNameId" [hideToggle]="sub?.children?.length == 0">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
 

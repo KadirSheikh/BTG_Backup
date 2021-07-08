@@ -19,7 +19,7 @@ export class HistoryComponent implements OnInit {
   async getHistory(){
     (await this._history.getHistory()).subscribe((res:any) => {
       console.log(res.data);
-      this.historyData = res.data;
+      this.historyData = res?.data;
       
     })
   }

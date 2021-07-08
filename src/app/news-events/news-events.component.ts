@@ -43,6 +43,18 @@ export class NewsEventsComponent implements OnInit {
         
       })
     })
+
+  
+
+    
+  }
+
+  ngAfterViewInit(){
+    this.getTop();
+  }
+
+  getTop(){
+    window.scroll(0,0);
   }
 
 

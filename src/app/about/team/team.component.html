@@ -32,5 +32,18 @@
         </div>
     </section>
 
+    <section style="padding: 50px 0;" class="bg-light">
+        <div class="container">
+            <h3 class="font-weight-bold">Leadership</h3>
+            <div *ngFor="let item of parentArray" class="row mx-auto mt-4">
+                <div *ngFor="let subItem of item; let i = index" class="col-sm-4 p-0 my-2">
+                    <h6 class="font-weight-bold">{{ subItem.name }}</h6>
+                    <p>{{ subItem.designation }}</p>
+                </div>
+                <hr class="my-4 d-none d-sm-block">
+            </div>
+        </div>
+    </section>
+
 
 </div>

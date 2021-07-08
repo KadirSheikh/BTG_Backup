@@ -17,6 +17,7 @@ export class AboutComponent implements OnInit {
 
   data: any = [];
   leadershipData: any = [];
+  loader:boolean = true;
 
 
 
@@ -28,11 +29,12 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
     window.scroll(0, 0);
     this.getAbout();
-    this.getLeader();
+    // this.getLeader();
   }
 
   async getAbout() {
     (await this._about.getAbout()).subscribe((res: any) => {
+      this.loader = false;
       console.log(res);
       this.data = res.data[0]
 
@@ -46,40 +48,40 @@ export class AboutComponent implements OnInit {
   }
 
   
-  parentArray = [];
-  async getLeader() {
-    (await this._about.getLeadership()).subscribe((res: any) => {
-      console.log(res);
-      this.leadershipData = res.data
+  // parentArray = [];
+  // async getLeader() {
+  //   (await this._about.getLeadership()).subscribe((res: any) => {
+  //     console.log(res);
+  //     this.leadershipData = res.data
 
-      this.parentArray = this.chunk_inefficient(this.leadershipData, 3);
-      // Partial Works
-      // this.parentArray = [];
-      // let childArray = [];
-      // if(this.leadershipData.length > 3){
-      //   this.leadershipData.forEach(item => {
-      //     childArray.push(item);
-      //     console.log(childArray);
+  //     this.parentArray = this.chunk_inefficient(this.leadershipData, 3);
+  //     // Partial Works
+  //     // this.parentArray = [];
+  //     // let childArray = [];
+  //     // if(this.leadershipData.length > 3){
+  //     //   this.leadershipData.forEach(item => {
+  //     //     childArray.push(item);
+  //     //     console.log(childArray);
           
-      //     if (childArray.length === 3) {
-      //       this.parentArray.push(childArray);
-      //       childArray = [];
-      //     }
-      //   });
-      // }else{
-      //   this.parentArray.push(this.leadershipData);
-      // }
-      console.log(this.parentArray);
+  //     //     if (childArray.length === 3) {
+  //     //       this.parentArray.push(childArray);
+  //     //       childArray = [];
+  //     //     }
+  //     //   });
+  //     // }else{
+  //     //   this.parentArray.push(this.leadershipData);
+  //     // }
+  //     console.log(this.parentArray);
       
-    })
-  }
+  //   })
+  // }
 
-  chunk_inefficient(array,chunkSize) {
-    // var array = this;
-    return [].concat.apply([],
-      array.map(function(elem, i) {
-        return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
-      })
-    );
-  }
+  // chunk_inefficient(array,chunkSize) {
+  //   // var array = this;
+  //   return [].concat.apply([],
+  //     array.map(function(elem, i) {
+  //       return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
+  //     })
+  //   );
+  // }
 }

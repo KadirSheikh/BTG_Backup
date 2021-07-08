@@ -163,16 +163,19 @@
             <div class="row">
                 <div *ngFor="let n of newsArray | slice:0:3" class="col-sm-4" style="margin-bottom: 5rem;cursor: pointer;">
                     <div id="card" class="card" style="border: none !important;">
-                        <div class="card-body">
-                            <h6 class="font-weight-bold card-title mb-5 newTitle">{{ n.heading }}</h6>
-                            <div class="d-flex mb-4">
-                                <h6 style="font-size: 14px;"><i aria-hidden="true" class="fa fa-calendar-o text-danger" style="font-size: 20px;"></i> {{ n.date | date }}</h6>
+                        <a routerLink="/single_news/{{ n._id }}" class="card-link float-right visit-site">
+                            <div class="card-body">
+                                <h6 class="font-weight-bold card-title mb-5 newTitle">{{ n.heading }}</h6>
 
+
+                                <div class="d-flex mb-4">
+                                    <h6 style="font-size: 14px;"><i aria-hidden="true" class="fa fa-calendar-o text-danger" style="font-size: 20px;"></i> {{ n.date | date }}</h6>
+
+                                </div>
+                                <p class="description" style="word-spacing: 0px;">{{ n.description }}</p>
+                                View More
                             </div>
-                            <p class="description" style="word-spacing: 0px;">{{ n.description }}</p>
-                            <a routerLink="/single_news/{{ n._id }}" class="card-link float-right visit-site">View
-                                More</a>
-                        </div>
+                        </a>
                     </div>
                 </div>
 

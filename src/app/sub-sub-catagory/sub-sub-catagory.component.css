@@ -12,8 +12,6 @@
     border-radius: 2px;
 }
 
-
-
 .column {
     float: left;
     margin-right: 20px;
@@ -53,6 +51,6 @@ p {
     border-radius: 2px;
 }
 
-img{
+::ng-deep img {
     width: 100% !important;
 }

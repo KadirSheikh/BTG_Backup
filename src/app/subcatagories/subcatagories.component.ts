@@ -126,12 +126,12 @@ export class SubcatagoriesComponent implements OnInit {
             if(resp.data == null){
               (await this._proService.getProduct(id)).subscribe((resp: any) => {
                 console.log(resp)
-                this.productsData = resp.data;
+                this.productsData = resp?.data;
           
               })
-            }else this.productsData = resp.data;
+            }else this.productsData = resp?.data;
           });
-        }else this.productsData = resp.data;
+        }else this.productsData = resp?.data;
       });
     
 

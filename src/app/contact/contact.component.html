@@ -27,10 +27,15 @@
                                 <input type="email" class="form-control" name="" id="" placeholder="Your Email">
                             </div>
                             <div class="col-sm-6">
-                                <select name="" class="form-control" id="">
-                                <option value="">India</option>
-                                <option value="">USA</option>
-                            </select>
+
+                                <select (change)="getCountry($event.target.value)" name="" class="form-control" id="">
+                                    <!-- <option value="">India</option>
+                                <option value="">USA</option> -->
+                                    <option class="text-capitalize" *ngFor="let c of countries" [value]="c.name">
+                                        {{c.name}}
+                                    </option>
+                                    <!-- <option *ngFor="let c ofcountries" >{{ c.name }}</option> -->
+                                </select>
                             </div>
 
 
@@ -40,29 +45,133 @@
                         <div class="form-group">
                             <label for="" class="font-weight-bold float-left">Stay in the know</label> <br>
 
-                            <p class="float-left"><input type="checkbox" name="" id="">I consent to BTG using my personal information to contact me by email with news and information we think you may be interested in.
+                            <p class="float-left"><input type="checkbox" name="" id="">I consent to BTG using my
+                                personal information to contact me by email with news and information we think you may
+                                be interested in.
                             </p>
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-lg btn-danger mt-5" (click)="hideThis()">Show Contact Options</button>
+                            <button class="btn btn-lg btn-danger mt-5" (click)="hideThis()">Show Contact
+                                Options</button>
                         </div>
                     </form>
 
-                    <section *ngIf="!hideForm">
+                    <div  *ngIf="!hideForm" class="row mb-5">
+                        <div class="col-sm-6 my-2" *ngFor="let d of data" style="text-align: left;">
+                            <div class="card h-100" id="card">
+                                <div class="card-body">
+                                    <!-- 
+                                        address: "Office No. 417, 4th floor, \"White House\" Block III\r\nNo. 6-3-1192/1/1, Kundanbagh\r\nBegumpet, Hyderabad 500 016 \r\nAndhra Pradesh\r\nIndia"
+contact_number: "91 40 40122040"
+display_country: "India"
+email_address: "info.india@btg.com"
+fax: "91 40 40122041"
+office_name: "BTG Division Spectris Technologies Pvt. Ltd"
+other_countries: "India, Pakistan, Bangladesh"
+products: "Inline Instrumentation, Laboratory, Services"
+_id: "60e5ce54de9f7f5359226ced"
+                                     -->
+                                    <h6 style="font-size: 15px;" class="card-title text-capitalize mb-3">{{ d.display_country }}</h6>
+                                    <h5 class="card-title text-capitalize font-weight-bold mb-3">
+                                        {{ d.office_name }}
+                                    </h5>
+
+                                    <h6 class="font-weight-bold">We deal with:</h6>
+                                    <p>{{ d.products }}</p>
+
+                                    <h6 class="font-weight-bold">Address:</h6>
+                                    <p style="word-spacing: 0px;">
+                                        {{ d.address }}
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <form action="" class="w-100 mt-4">
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <h5 class="font-weight-bold">Select Method</h5>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="radio" name="a" id=""> Email
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="radio" name="a" id=""> Phone/Fax
+                                </div>
+                            </div>
+
+
+                            <div *ngIf="hideDiv">
+                                <div class="form-group" style="text-align: left;">
+                                    <p>Your enquiry will be sent to: <span class="text-danger font-weight-bold">
+                                            info.india@btg.com</span></p>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="" id="" placeholder="Full Name">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="" id="" placeholder="Country">
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="" id="" placeholder="Location">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="" class="form-control" id="">
+                                            <option value="">Solutions/Product Interest</option>
+
+                                        </select>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="" id="" cols="30" rows="4" placeholder="Ypur Message"
+                                        class="form-control"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <button class="btn btn-lg btn-danger mt-5" (click)="hideThis1()">Send</button>
+                                </div>
+                            </div>
+                            <div *ngIf="!hideDiv">
+
+                                <h6 class="float-left font-weight-bold">Phone: <span class="text-danger">+91 40
+                                        40122040</span></h6> <br> <br>
+                                <h6 class="float-left font-weight-bold">Fax: <span class="text-danger">+91 40
+                                        40122040</span></h6>
+                            </div>
+                        </form>
+                    </div>
+
+                    <button class="btn btn-lg btn-danger mt-5" (click)="toggle()" *ngIf="!hideForm">Go Back to Contact Options</button>
+
+                    <!-- <section>
                         <div class="row mb-5">
                             <div class="col-sm-6" style="text-align: left;">
                                 <div class="card" id="card">
                                     <div class="card-body">
                                         <h6 style="font-size: 15px;" class="card-title mb-3">India</h6>
-                                        <h5 class="card-title font-weight-bold mb-3">BTG Division Spectris Technologies Pvt. Ltd
+                                        <h5 class="card-title font-weight-bold mb-3">BTG Division Spectris Technologies
+                                            Pvt. Ltd
                                         </h5>
 
                                         <h6 class="font-weight-bold">We deal with:</h6>
                                         <p>Inline Instrumentation, Laboratory, Services</p>
 
                                         <h6 class="font-weight-bold">Address:</h6>
-                                        <p style="word-spacing: 0px;">Office No. 417, 4th floor, "White House block III No. 6-3-1192/1/1, Kundanbagh Begumpet, Hyderabad 500 016 Andhra Pradesh, India</p>
+                                        <p style="word-spacing: 0px;">Office No. 417, 4th floor, "White House block III
+                                            No. 6-3-1192/1/1, Kundanbagh Begumpet, Hyderabad 500 016 Andhra Pradesh,
+                                            India</p>
 
                                     </div>
                                 </div>
@@ -71,14 +180,17 @@
                                 <div class="card" id="card">
                                     <div class="card-body">
                                         <h6 style="font-size: 15px;" class="card-title mb-3">India</h6>
-                                        <h5 class="card-title font-weight-bold mb-3">BTG Division Spectris Technologies Pvt. Ltd
+                                        <h5 class="card-title font-weight-bold mb-3">BTG Division Spectris Technologies
+                                            Pvt. Ltd
                                         </h5>
 
                                         <h6 class="font-weight-bold">We deal with:</h6>
                                         <p>Inline Instrumentation, Laboratory, Services</p>
 
                                         <h6 class="font-weight-bold">Address:</h6>
-                                        <p style="word-spacing: 0px;">Office No. 417, 4th floor, "White House block III No. 6-3-1192/1/1, Kundanbagh Begumpet, Hyderabad 500 016 Andhra Pradesh, India</p>
+                                        <p style="word-spacing: 0px;">Office No. 417, 4th floor, "White House block III
+                                            No. 6-3-1192/1/1, Kundanbagh Begumpet, Hyderabad 500 016 Andhra Pradesh,
+                                            India</p>
 
                                     </div>
                                 </div>
@@ -104,7 +216,7 @@
                             <div *ngIf="hideDiv">
                                 <div class="form-group" style="text-align: left;">
                                     <p>Your enquiry will be sent to: <span class="text-danger font-weight-bold">
-                                        info.india@btg.com</span></p>
+                                            info.india@btg.com</span></p>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6">
@@ -124,16 +236,17 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select name="" class="form-control" id="">
-                                        <option value="">Solutions/Product Interest</option>
+                                            <option value="">Solutions/Product Interest</option>
 
-                                    </select>
+                                        </select>
                                     </div>
 
 
 
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="" id="" cols="30" rows="4" placeholder="Ypur Message" class="form-control"></textarea>
+                                    <textarea name="" id="" cols="30" rows="4" placeholder="Ypur Message"
+                                        class="form-control"></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -143,12 +256,12 @@
                             <div *ngIf="!hideDiv">
 
                                 <h6 class="float-left font-weight-bold">Phone: <span class="text-danger">+91 40
-                                    40122040</span></h6> <br> <br>
+                                        40122040</span></h6> <br> <br>
                                 <h6 class="float-left font-weight-bold">Fax: <span class="text-danger">+91 40
-                                    40122040</span></h6>
+                                        40122040</span></h6>
                             </div>
                         </form>
-                    </section>
+                    </section> -->
 
                 </div>
                 <div class="col-sm-2">

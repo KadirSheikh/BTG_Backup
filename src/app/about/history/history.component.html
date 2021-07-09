@@ -1,7 +1,7 @@
 <div>
 
     <div class="red-title-banner">
-        <h2 class="text-white"> {{historyData[0].heading}} </h2>
+        <h2 class="text-white"> {{historyData[0]?.heading}} </h2>
 
     </div>
     <nav aria-label="breadcrumb" class="bread-crum">
@@ -20,7 +20,7 @@
 
 
 
-                <div class="col-sm-12 text-justify d-inline-block" [innerHTML]="historyData[0].content">
+                <div class="col-sm-12 text-justify d-inline-block" [innerHTML]="historyData[0]?.content">
 
                 </div>
             </div>

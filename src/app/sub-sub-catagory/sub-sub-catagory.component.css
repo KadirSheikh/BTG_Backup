@@ -54,3 +54,9 @@ p {
 ::ng-deep img {
     width: 100% !important;
 }
+
+.downloadCenter {
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+}

@@ -102,3 +102,9 @@ ul,
     justify-content: center !important;
     align-items: center !important;
 } */
+
+.downloadCenter {
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex !important;
+}

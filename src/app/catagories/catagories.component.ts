@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { NavbarService } from '../navbar.service';
+import { IndustrySolForService } from '../services/industry-sol-for.service';
 
 
 
@@ -49,8 +50,23 @@ export class CatagoriesComponent implements OnInit {
   oiid: any;
   osid: any;
   apcid: any;
+  indusSolFor: any;
+  section1: any;
+  section2: any;
+  section3: any;
+  section4: any;
+  section5: any;
+  section6: any;
+  section7: any;
+  section8: any;
+  section9: any;
+  section10: any;
+  section11: any;
+  section12: any;
+  isLoading:boolean = true;
+  showComingSoon: boolean = false;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _nav: NavbarService) {
+  constructor(private _activatedRoute: ActivatedRoute, private _nav: NavbarService , private _ind : IndustrySolForService) {
     
 
   }
@@ -62,6 +78,7 @@ export class CatagoriesComponent implements OnInit {
     window.scroll(0, 0);
 
     this._activatedRoute.queryParams.subscribe(params => {
+      this.isLoading = true;
       this.catName = params['name'];
       console.log(this.catName);
       
@@ -71,8 +88,40 @@ export class CatagoriesComponent implements OnInit {
 
       this.getSolutionSub(this.catNameId)
 
+      this.getInd(this.catNameId);
+
     })
 
+
+
+
+  }
+
+
+  async getInd(id:any) {
+    (await this._ind.getIndSolFor(id)).subscribe((res:any) => {
+      
+      this.indusSolFor = res.data[0]
+      this.section1 = res.data[0]?.data[0].section1
+      this.section2 = res.data[0]?.data[0].section2
+      this.section3 = res.data[0]?.data[0].section3
+      this.section4 = res.data[0]?.data[0].section4
+      this.section5 = res.data[0]?.data[0].section5
+      this.section6 = res.data[0]?.data[0].section6
+      this.section7 = res.data[0]?.data[0].section7
+      this.section8 = res.data[0]?.data[0].section8
+      this.section9 = res.data[0]?.data[0].section9
+      this.section10 = res.data[0]?.data[0].section10
+      this.section11 = res.data[0]?.data[0].section11
+      this.section12 = res.data[0]?.data[0].section12
+      this.isLoading = false;
+      console.log(this.indusSolFor)
+      if( this.indusSolFor == null){
+        this.showComingSoon = true;
+      }
+
+       
+    })
 
 
 

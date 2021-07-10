@@ -1,232 +1,165 @@
-<div *ngIf="catName.includes('Tissue')">
+<div class="d-flex flex-column justify-content-center align-content-center" style="background: #fff; align-items: center;text-align: center;position: fixed;width: 100%;height: 100%;z-index: 9999;
+" *ngIf="isLoading">
+    <img src="../../assets/svg-btg.svg" alt="" class="img-fluid" style="width: 10% !important;height: auto;">
+    <img src="../../assets/loaderred.gif" alt="" style="width: 7% !important;height: auto;">
+</div>
 
+<div *ngIf="!isLoading">
 
-    <div class="red-title-banner">
-        <h1 class="text-white text-center">{{data[0].heading}}</h1>
-        <h4 class="text-capitalize text-white text-center">{{data[0].subheading}}</h4>
-    </div>
-
-    <nav aria-label="breadcrumb" class="bread-crum">
-        <ol class="breadcrumb">
-
-            <li class="breadcrumb-item active" aria-current="page">{{catName}}</li>
-
-        </ol>
-    </nav>
-
-
-    <div class="container-fluid">
+    <div *ngIf="showComingSoon" class="container-fluid">
         <div class="row">
 
             <div class="col-sm-3">
-                <app-side-nav [catNameId]="catNameId" [catName]="catName"></app-side-nav>
+
+                <app-side-nav style="margin-top: 10rem !important;position: absolute !important;" [catNameId]="catNameId" [catName]="catName"></app-side-nav>
             </div>
-
             <div class="col-sm-9">
-                <div class="row">
-                    <section style="padding: 100px 0;">
-                        <div class="container">
-                            <div class="row  mx-auto">
-                                <div class="col-sm-5 justify-content-center">
-                                    <img [src]="data[0].img1" style="width: 100%; height: 100%;position: absolute;left: -20%;top: 2.5%" alt="">
+                <app-coming-soon></app-coming-soon>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="!showComingSoon">
+
+
+        <div class="red-title-banner">
+            <h1 class="text-white text-center" [innerHTML]="indusSolFor?.heading"></h1>
+
+        </div>
+
+        <nav aria-label="breadcrumb" class="bread-crum">
+            <ol class="breadcrumb">
+
+                <li class="breadcrumb-item active" aria-current="page">{{catName}}</li>
+
+            </ol>
+        </nav>
+
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <app-side-nav [catNameId]="catNameId" [catName]="catName"></app-side-nav>
+                </div>
+
+                <div class="col-sm-9">
+                    <div class="row">
+                        <section style="padding: 100px 0;">
+                            <div class="container">
+                                <div class="row  mx-auto">
+                                    <div class="col-sm-5 justify-content-center">
+                                        <img [src]="indusSolFor?.gifURL" style="width: 100%; height: 100%;position: absolute;left: -20%;top: 2.5%" alt="">
+                                    </div>
+
+                                    <div class="col-sm-7 ">
+                                        <a href="#lev4">
+                                            <div [innerHTML]="indusSolFor?.heading1" class="strip level1 text-dark">
+
+                                            </div>
+                                        </a>
+                                        <a href="#lev3">
+                                            <div [innerHTML]="indusSolFor?.heading2" class="strip level2 text-dark">
+
+                                            </div>
+                                        </a>
+                                        <a href="#lev2">
+                                            <div [innerHTML]="indusSolFor?.heading3" class="strip level3 text-dark">
+
+                                            </div>
+                                        </a>
+                                        <a href="#lev1">
+                                            <div [innerHTML]="indusSolFor?.heading4" class="strip level4 text-dark">
+
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
 
-                                <div class="col-sm-7 ">
-                                    <a href="#lev4">
-                                        <div class="strip level1 text-dark">
-                                            Autonomous Control
-                                        </div>
-                                    </a>
-                                    <a href="#lev3">
-                                        <div class="strip level2 text-dark">
-                                            Process Control
-                                        </div>
-                                    </a>
-                                    <a href="#lev2">
-                                        <div class="strip level3 text-dark">
-                                            Vizualization, Diagnostic
-                                        </div>
-                                    </a>
-                                    <a href="#lev1">
-                                        <div class="strip level4 text-dark">
-                                            Smart Equipment
-                                        </div>
-                                    </a>
+                                <div [innerHTML]="indusSolFor?.body" class="mt-4 text-justify">
+
+                                </div>
+
+                            </div>
+                        </section>
+
+                        <section class="bg-light" style="padding: 100px 0;">
+                            <div class="container">
+                                <h3 class="text-center">Our featured solutions</h3>
+
+                                <div id="lev4" class="row my-4 mx-auto text-center justify-content-center" style="padding: 60px 0;">
+                                    <div class="col-sm-4 position-relative">
+                                        <!-- <button (click)="toggleEdit()" color="accent" class="btn btn-danger mx-1">
+                                        <i aria-hidden="true" class="fa fa-pencil-square-o"></i>
+                                    </button> -->
+                                        <div [innerHTML]="section1"></div>
+
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                        <img style="width: 100%; height:100%;" [src]="section2" alt="">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div [innerHTML]="section3"></div>
+
+                                    </div>
+                                </div>
+
+                                <div id="lev3" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                    <div class="col-sm-4 position-relative">
+                                        <!-- <button (click)="toggleEdit()" color="accent" class="btn btn-danger mx-1">
+                                        <i aria-hidden="true" class="fa fa-pencil-square-o"></i>
+                                    </button> -->
+                                        <div [innerHTML]="section4"></div>
+
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                        <img style="width: 100%; height:100%;" [src]="section5" alt="">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div [innerHTML]="section6"></div>
+
+                                    </div>
+                                </div>
+
+                                <div id="lev2" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                    <div class="col-sm-4">
+                                        <div [innerHTML]="section7"></div>
+
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                        <img style="width: 100%; height:100%;" [src]="section8" alt="">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div [innerHTML]="section9"></div>
+
+                                    </div>
+                                </div>
+
+                                <div id="lev1" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
+                                    <div class="col-sm-4">
+                                        <div [innerHTML]="section10"></div>
+
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                        <img style="width: 100%; height:100%;" [src]="section11" alt="">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div [innerHTML]="section12"></div>
+
+                                    </div>
                                 </div>
                             </div>
-
-                            <p class="mt-4 text-justify">
-                                {{data[0].para1}}
-                            </p>
-                            <p class="mt-4 text-justify">
-
-                                {{data[0].para2}}
-
-                            </p>
-                        </div>
-                    </section>
-
-                    <section class="bg-light" style="padding: 100px 0;">
-                        <div class="container">
-                            <h3 class="text-center">Our featured solutions</h3>
-
-
-                            <div id="lev4" class="row my-4 mx-auto text-center justify-content-center" style="padding: 60px 0;">
-                                <img [src]="data[0].img2" style="width: 31%;; height: 31%;" />
-                            </div>
-
-                            <div id="lev3" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                                <div class="col-sm-4">
-                                    <p class="mb-0">
-                                        <a href="">
-                                            <strong class="text-dark">CONTROL LOOP PERFORMANCE MANAGEMENT</strong>
-                                        </a>
-                                    </p>
-                                    <p>Ability to identify and tune low-performing Control Loops to increase overall performance
-                                    </p>
-                                    <p class="mb-0">
-                                        <a routerLink="/subcatagory/{{apcid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Advance Process controls' ,level : 2}">
-                                            <strong class="text-dark">ADVANCED PROCESS CONTROL</strong>
-                                        </a>
-                                    </p>
-                                    <p>Standardize and centerline the control strategy of process to increase focus</p>
-                                </div>
-                                <div class="col-sm-4">
-                                    <img [src]="data[0].img3" style="width: 100%;; height: 100%;" />
-                                </div>
-                                <div class="col-sm-4">
-
-
-                                    <p class="mb-0">
-                                        <a href="">
-                                            <strong class="text-dark">PREDICTIVE MODELLING SOLUTIONS</strong>
-                                        </a>
-                                    </p>
-
-                                    <p class="text-right">Usage of softsensors to reduce variability and optimize output leading to optimal product quality</p>
-                                </div>
-                            </div>
-
-                            <div id="lev2" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                                <div class="col-sm-4">
-
-
-                                    <p class="mb-0">
-                                        <a routerLink="/subcatagory/{{oaid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Online Analyzers' ,level : 2}">
-                                            <strong class="text-dark">ONLINE ANALYZERS</strong>
-                                        </a>
-                                    </p>
-
-                                    <p>Online measurements of charge, fiber morphology and freeness with SPC, SPM, DRT
-                                    </p>
-
-
-
-                                    <p class="mb-0">
-                                        <a href="">
-                                            <strong class="text-dark">ERFORMANCE SOLUTIONS</strong>
-                                        </a>
-                                    </p>
-
-                                    <p>Advanced services and diagnosis to unlock process capabilities and performance
-                                    </p>
-                                </div>
-                                <div class="col-sm-4">
-                                    <img [src]="data[0].img4" style="width: 100%;; height: 100%;" />
-                                </div>
-                                <div class="col-sm-4">
-
-                                    <p class="mb-0">
-                                        <a routerLink="/subcatagory/{{oiid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Operational intelligence' ,level : 2}">
-                                            <strong class="text-dark">OPERATIONAL INTELLIGENCE</strong>
-                                        </a>
-                                    </p>
-
-                                    <p class="text-right">Enhanced decision making capabilities based on process knowledge, keeping production at high level with best quality with data[0]PARC
-                                    </p>
-
-
-
-                                    <p class="mb-0">
-                                        <a routerLink="/subcatagory/{{osid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Operational safety' ,level : 2}">
-                                            <strong class="text-dark">OPERATIONAL SAFETY</strong>
-                                        </a>
-                                    </p>
-
-                                    <p class="text-right">Optimum Yankee safety with advanced vibration monitoring solution and experience </p>
-                                </div>
-                            </div>
-
-                            <div id="lev1" class="row my-4 mx-auto justify-content-center" style="padding: 60px 0;">
-                                <div class="col-sm-4">
-
-                                    <p class="mb-0">
-                                        <a routerLink="/subcatagory/{{fmid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Fiber management' ,level : 2}">
-                                            <strong class="text-dark">FIBER MANAGEMENT</strong>
-                                        </a>
-                                    </p>
-
-                                    <p>Fiber quality and property improvement and control; refining, fiber morphology and drainage optimization
-                                    </p>
-
-                                    <p class="mb-0"><a routerLink="/subcatagory/{{consistencyId}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Consistency' ,level : 2}"><strong
-                                                class="text-dark">CONSISTENCY
-                                                CONTROL</strong></a></p>
-                                    <p>Fiber, fines and ash consistency, monitoring and retention control</p>
-
-
-
-                                    <p class="mb-0">
-                                        <a routerLink="/subcatagory/{{weid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Wet-end stability' ,level : 2}">
-                                            <strong class="text-dark">WET-END STABILITY</strong>
-                                        </a>
-                                    </p>
-
-                                    <p>Process chemical and fiber recovery improvement through charge and zeta potential measurement
-                                    </p>
-                                </div>
-                                <div class="col-sm-4">
-                                    <img [src]="data[0].img5" style="width: 100%;; height: 100%;" />
-                                </div>
-                                <div class="col-sm-4">
-
-
-                                    <p class="mb-0">
-                                        <a routerLink="/subcatagory/{{suid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Sheet uniformity' ,level : 2}">
-                                            <strong class="text-dark">SHEET UNIFORMITY</strong>
-                                        </a>
-                                    </p>
-
-                                    <p class="text-right">Uniform sheet formation, moisture and grammages profile with headbox sheets and services</p>
-
-
-
-                                    <p class="mb-0">
-                                        <a routerLink="/subcatagory/{{ysid}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Yankee safety' ,level : 2}">
-                                            <strong class="text-dark">YANKEE SAFETY</strong>
-                                        </a>
-                                    </p>
-
-                                    <p class="text-right">Secure Yankee operation with essential vibration monitoring system </p>
-
-
-
-                                    <p class="mb-0">
-                                        <a routerLink="/subcatagory/{{creepingId}}" [queryParams]="{catname : 'Tissue' ,catId:catid, subname:'Creping' ,level : 2}">
-                                            <strong class="text-dark">CREPING</strong>
-                                        </a>
-                                    </p>
-
-                                    <p class="text-right">Engineered creping/cleaning doctors, CBC blade holder and appropriate services
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
+    </div>
 
 </div>

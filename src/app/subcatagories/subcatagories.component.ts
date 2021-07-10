@@ -140,7 +140,7 @@ export class SubcatagoriesComponent implements OnInit {
       
       setInterval( () => {
         console.log(this.productsData);
-        if( this.productsData == null || this.productsData?.heading.includes('Heading') ){
+        if( this.productsData == null || this.productsData?.heading?.includes('Heading') ){
           this.showComingSoon = true;
         }
       }, 1000)

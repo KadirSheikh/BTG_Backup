@@ -4,20 +4,7 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { NavbarService } from '../navbar.service';
 
-interface FoodNode {
-  _id: any,
-  name: string;
-  level: number;
-  parentId: string;
-  order: number;
-  children?: FoodNode[];
-}
 
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
 
 @Component({
   selector: 'app-catagories',
@@ -27,31 +14,6 @@ interface ExampleFlatNode {
 export class CatagoriesComponent implements OnInit {
   // loader:boolean = true;
 
-  tree_data: FoodNode[] = [
-    {
-      _id: 1,
-      level: 0,
-      parentId: '',
-      order: 0,
-      name: '',
-      children: []
-    },
-  ];
-  private _transformer = (node: FoodNode, level: number) => {
-    return {
-      expandable: !!node.children && node.children.length > 0,
-      name: node.name,
-      level: level,
-    };
-  }
-
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
-    node => node.level, node => node.expandable);
-
-  treeFlattener = new MatTreeFlattener(
-    this._transformer, node => node.level, node => node.expandable, node => node.children);
-
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
   SolutionSubCategory: any[];
   data: any = [{
     "heading": "Tissue",
@@ -72,7 +34,7 @@ export class CatagoriesComponent implements OnInit {
   itemImageUrl = '../../../assets/pyramid.gif';
 
   catName: any;
-  catid: any;
+  catNameId: any;
   treeName: string;
   consistencyId: any;
   creepingId: any;
@@ -89,11 +51,11 @@ export class CatagoriesComponent implements OnInit {
   apcid: any;
 
   constructor(private _activatedRoute: ActivatedRoute, private _nav: NavbarService) {
-    this.dataSource.data = this.tree_data;
+    
 
   }
 
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+  
 
   ngOnInit(): void {
 
@@ -103,22 +65,12 @@ export class CatagoriesComponent implements OnInit {
       this.catName = params['name'];
       console.log(this.catName);
       
-      this.catid = params['id'];
+      this.catNameId = params['id'];
       console.log(this.catName);
-      this.getSolMainName(this.catid)
+      this.getSolMainName(this.catNameId)
 
-      this.getSolutionSub(this.catid)
-      setTimeout(() => {
-        this.tree_data.forEach(e => {
-          if (e._id == 1) {
-            e.children = this.SolutionSubCategory;
-            e.name = this.catName
-          }
-        });
-        // console.log(this.tree_data);
-        this.dataSource.data = this.tree_data;
-        // this.isLoading = false;
-      }, 1000)
+      this.getSolutionSub(this.catNameId)
+
     })
 
 

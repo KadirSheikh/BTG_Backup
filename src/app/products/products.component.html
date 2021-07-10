@@ -82,51 +82,51 @@
                         <div class="row mx-auto">
 
                             <!-- Section One -->
-                            <div *ngIf="!productsData?.sectionOne?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionOne"></div>
+                            <div *ngIf="!productsData?.sectionOne?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionOne?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionOne.replace('#no_red_card#', ' ')"></div>
                             <!-- Section One End -->
 
                             <!-- Section Two -->
-                            <div *ngIf="!productsData?.sectionTwo?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionTwo"></div>
+                            <div *ngIf="!productsData?.sectionTwo?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionTwo?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionTwo.replace('#no_red_card#', ' ')"></div>
                             <!-- Section Two End -->
 
                             <!-- Section Three -->
-                            <div *ngIf="!productsData?.sectionThree?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionThree"></div>
+                            <div *ngIf="!productsData?.sectionThree?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionThree?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionThree.replace('#no_red_card#', ' ')"></div>
                             <!-- Section Three Emd -->
 
                             <!-- Section Four -->
-                            <div *ngIf="!productsData?.sectionFour?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionFour"></div>
+                            <div *ngIf="!productsData?.sectionFour?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionFour?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionFour.replace('#no_red_card#', ' ')"></div>
                             <!-- Section Four End -->
 
                             <!-- Section Five -->
-                            <div *ngIf="!productsData?.sectionFive?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionFive"></div>
+                            <div *ngIf="!productsData?.sectionFive?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionFive?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionFive.replace('#no_red_card#', ' ')"></div>
                             <!-- Section Five Emd -->
 
                             <!-- Section Six -->
-                            <div *ngIf="!productsData?.sectionSix?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionSix"></div>
+                            <div *ngIf="!productsData?.sectionSix?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionSix?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionSix.replace('#no_red_card#', ' ')"></div>
                             <!-- Section Six End -->
 
                             <!-- Section Seven -->
-                            <div *ngIf="!productsData?.sectionSeven?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionSeven"></div>
+                            <div *ngIf="!productsData?.sectionSeven?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionSeven?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionSeven.replace('#no_red_card#', ' ')"></div>
                             <!-- Section Seven Emd -->
 
                             <!-- Section Eight -->
-                            <div *ngIf="!productsData?.sectionEight?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionEight"></div>
+                            <div *ngIf="!productsData?.sectionEight?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionEight?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionEight.replace('#no_red_card#', ' ')"></div>
                             <!-- Section Eight End -->
 
                             <!-- Section Nine -->
-                            <div *ngIf="!productsData?.sectionNine?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionNine"></div>
+                            <div *ngIf="!productsData?.sectionNine?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionNine?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionNine.replace('#no_red_card#', ' ')"></div>
                             <!-- Section Nine Emd -->
 
                             <!-- Section Ten -->
-                            <div *ngIf="!productsData?.sectionTen?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionTen"></div>
+                            <div *ngIf="!productsData?.sectionTen?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionTen?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionTen.replace('#no_red_card#', ' ')"></div>
                             <!-- Section Ten End -->
 
                             <!-- Section Eleven -->
-                            <div *ngIf="!productsData?.sectionEleven?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionEleven"></div>
+                            <div *ngIf="!productsData?.sectionEleven?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionEleven?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionEleven.replace('#no_red_card#', ' ')"></div>
                             <!-- Section Eleven Emd -->
 
                             <!-- Section Twelve -->
-                            <div *ngIf="!productsData?.sectionTwelve?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="level == 2 || level == 3" style="text-align:justify;" [innerHTML]="productsData?.sectionTwelve"></div>
+                            <div *ngIf="!productsData?.sectionTwelve?.includes('Lorem Ipsum')" class="col-sm-6 " [class.hoverr]="(level == 2 || level == 3) && !(productsData?.sectionTwelve?.includes('#no_red_card#'))" [innerHTML]="productsData?.sectionTwelve.replace('#no_red_card#', ' ')"></div>
                             <!-- Section Twelve End -->
                         </div>
                     </div>

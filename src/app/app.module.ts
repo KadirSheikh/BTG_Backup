@@ -61,6 +61,7 @@ import { InstrumentComponent } from './instrument/instrument.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { NoRedCardPipe } from './no-red-card.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +98,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     TeamComponent,
     InstrumentComponent,
     NotFoundComponent,
-    SideNavComponent
+    SideNavComponent,
+    NoRedCardPipe
   ],
   imports: [
     MatExpansionModule,

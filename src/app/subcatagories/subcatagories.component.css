@@ -97,7 +97,8 @@ ul,
     width: 100% !important;
 }
 
-::ng-deep div {
+
+/* ::ng-deep div {
     justify-content: center !important;
     align-items: center !important;
-}
+} */

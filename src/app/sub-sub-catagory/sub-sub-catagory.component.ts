@@ -57,7 +57,7 @@ export class SubSubCatagoryComponent implements OnInit {
       
       this.getData(this.productId);
       this.getSolutionSub(this.productId)
-
+      // this.isLoading = true;
        
     })
 
@@ -75,7 +75,7 @@ export class SubSubCatagoryComponent implements OnInit {
      this.catNameId =  params['catId']
      this.subNameId =  params['subnameId']
      this.getData(this.productId);
-      
+    //  this.isLoading = true;
    })
 
 
@@ -118,12 +118,15 @@ export class SubSubCatagoryComponent implements OnInit {
     
       (await this._solMainCatService.getSolutionMainCategory(id)).subscribe(async (resp: any) => {
         console.log(resp)
+        this.isLoading = false
         if(resp.data == null){
           (await this._subsubcat.getSolutionSubCategory(id)).subscribe(async (resp: any) => {
             console.log(resp)
+            this.isLoading = false
             if(resp.data == null){
               (await this._proService.getProduct(id)).subscribe((resp: any) => {
                 console.log(resp)
+                this.isLoading = false
                 this.productsData = resp.data;
           
               })
@@ -133,12 +136,12 @@ export class SubSubCatagoryComponent implements OnInit {
       });
     
 
-      this.isLoading = false
+      
       console.log(this.productsData);
       
       setInterval( () => {
         console.log(this.productsData);
-        if( this.productsData == null || this.productsData?.heading.includes('Heading') ){
+        if( this.productsData == null || this.productsData?.heading?.includes('Heading')){
           this.showComingSoon = true;
         }
       }, 1000)

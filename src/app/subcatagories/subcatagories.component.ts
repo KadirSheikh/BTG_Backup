@@ -60,6 +60,8 @@ export class SubcatagoriesComponent implements OnInit {
     // console.log(TREE_DATA.find( e =>  e.children.? == 5));
 
     this._activatedRoute.queryParams.subscribe(params => {
+      
+      this.isLoading = true;
       console.log(params['subname']);
       this.catName =  params['catname'];
       this.catNameId =  params['catId'];
@@ -69,6 +71,7 @@ export class SubcatagoriesComponent implements OnInit {
    })
 
     this._activatedRoute.params.subscribe(params => {
+      this.isLoading = true;
       this.productId = params['id'];
       console.log(this.productId);
       
@@ -106,11 +109,11 @@ export class SubcatagoriesComponent implements OnInit {
     //   console.log(resp)
     //   if(resp.data == null || resp.data?.heading.includes('Heading')){
     //     this.showComingSoon = true;
-    //     this.isLoading = false;
+    //     
     //     }else{
     //       this.productsData = resp.data;
     //       this.showComingSoon = false;
-    //       this.isLoading = false;
+    //       
     //       console.log(this.productsData.heading);
           
     //     }
@@ -120,12 +123,18 @@ export class SubcatagoriesComponent implements OnInit {
     
       (await this._solMainCatService.getSolutionMainCategory(id)).subscribe(async (resp: any) => {
         console.log(resp)
+        this.isLoading = false;
+        
         if(resp.data == null){
           (await this._subsubcat.getSolutionSubCategory(id)).subscribe(async (resp: any) => {
             console.log(resp)
+            this.isLoading = false;
+            
             if(resp.data == null){
               (await this._proService.getProduct(id)).subscribe((resp: any) => {
                 console.log(resp)
+                this.isLoading = false;
+                
                 this.productsData = resp?.data;
           
               })
@@ -135,12 +144,12 @@ export class SubcatagoriesComponent implements OnInit {
       });
     
 
-      this.isLoading = false
+      
       console.log(this.productsData);
       
       setInterval( () => {
         console.log(this.productsData);
-        if( this.productsData == null || this.productsData?.heading?.includes('Heading') ){
+        if( this.productsData == null){
           this.showComingSoon = true;
         }
       }, 1000)

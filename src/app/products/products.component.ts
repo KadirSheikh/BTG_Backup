@@ -64,6 +64,7 @@ export class ProductsComponent implements OnInit {
     ) {}
 
   async ngOnInit() {
+    console.log(this.isLoading);
     
     if(this.gVar.isLoggedIn == 'loggedin'){
       this.isLoggedIn = true;
@@ -76,6 +77,7 @@ export class ProductsComponent implements OnInit {
     this._activatedRoute.params.subscribe(async params => {
       this.productId = params['id'];
       this.getData(this.productId);
+      this.isLoading = true
 
     })
 
@@ -92,9 +94,9 @@ export class ProductsComponent implements OnInit {
      this.catNameId =  params['catId']
      this.subNameId =  params['subnameId']
      this.subSubNameId =  params['subsubnameId']
-
+     this.isLoading = true
      this.getSolutionSub(this.subNameId)
-
+     
      
     })
 
@@ -104,6 +106,7 @@ export class ProductsComponent implements OnInit {
         (await this._datasheet.getDataSheets(this.dataSheetCategories[0]?.parentId, this.dataSheetCategories[0]?._id)).subscribe((res: any) => {
           // console.log(res)
           this.dataSheet = this.languageSort(res.data)
+          
           // this.languageSort(this.dataSheet);          
         })
       }, (error) => {
@@ -169,11 +172,11 @@ export class ProductsComponent implements OnInit {
     //   console.log(resp)
     //   if(resp.data == null || resp.data?.heading.includes('Heading')){
     //     this.showComingSoon = true;
-    //     this.isLoading = false;
+    //     ;
     //     }else{
     //       this.productsData = resp.data;
     //       this.showComingSoon = false;
-    //       this.isLoading = false;
+    //       ;
     //       console.log(this.productsData.heading);
           
     //     }
@@ -183,13 +186,17 @@ export class ProductsComponent implements OnInit {
     
       (await this._solMainCatService.getSolutionMainCategory(id)).subscribe(async (resp: any) => {
         console.log(resp)
+        this.isLoading = false;
         if(resp.data == null){
           (await this._subsubcat.getSolutionSubCategory(id)).subscribe(async (resp: any) => {
             console.log(resp)
+            this.isLoading = false;
             if(resp.data == null){
               (await this._proService.getProduct(id)).subscribe((resp: any) => {
                 console.log(resp)
+                this.isLoading = false;
                 this.productsData = resp.data;
+                this.isLoading = false;
           
               })
             }else this.productsData = resp.data;
@@ -197,14 +204,16 @@ export class ProductsComponent implements OnInit {
         }else this.productsData = resp.data;
       });
     
-
-      this.isLoading = false
+      
+      
+     
       console.log(this.productsData);
       
       setInterval( () => {
         console.log(this.productsData);
         if( this.productsData == null || this.productsData?.heading?.includes('Heading') ){
           this.showComingSoon = true;
+          
         }
       }, 1000)
       

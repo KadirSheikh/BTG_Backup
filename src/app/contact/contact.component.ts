@@ -11,8 +11,8 @@ import { environment } from '../../environments/environment';
 export class ContactComponent implements OnInit {
 
   hideForm: boolean = true;
-  hideDiv: boolean = true;
-
+  emailFlag: boolean = false;
+  faxFlag: boolean = false
   countries = [
     { name: 'AFGHANISTAN', 'code': 'AF' },
     { name: 'ÅLAND ISLANDS', 'code': 'AX' },
@@ -269,24 +269,35 @@ export class ContactComponent implements OnInit {
     window.scroll(0, 0);
   }
 
+  toggleContactForm(e) {
+    if (e.target.value == 'Email'){
+      this.emailFlag = true;
+      this.faxFlag = false;
+    }
+      
+    else{
+      this.faxFlag = true;
+      this.emailFlag = false;
+    }
+      
+
+  }
+
   hideThis() {
     this.hideForm = false;
   }
 
-  hideThis1() {
-    this.hideDiv = false;
-  }
-
-  toggle(){
+  toggle() {
     this.hideForm = !this.hideForm
+    window.scroll(0, 0);
   }
 
   data = [];
-  async getCountry(value){
+  async getCountry(value) {
     // alert(value)
     this._http.get(`${environment.apiUrl}api/contact/get/${value}`).subscribe((res: any) => {
       console.log(res)
-      this.data = res
+      this.data = res.data
     })
   }
 

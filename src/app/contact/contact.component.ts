@@ -296,7 +296,7 @@ export class ContactComponent implements OnInit {
   async getCountry(value) {
     // alert(value)
     this._http.get(`${environment.apiUrl}api/contact/get/${value}`).subscribe((res: any) => {
-      console.log(res)
+      console.error(res)
       this.data = res.data
     })
   }

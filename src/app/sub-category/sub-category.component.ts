@@ -98,7 +98,7 @@ export class SubCategoryComponent implements OnInit {
   
       })
     
-      if( !this.productsData ){
+      if( !this.productsData || this.productsData?.heading?.includes('Heading')){
         this.showComingSoon = true;
       }
 

@@ -34,7 +34,7 @@ export class FooterComponent implements OnInit {
 
           (await this._nav.getsolutionMainCategoryFor(element._id)).subscribe((resp2:any) => {
   
-            console.warn(resp2.data);
+            ;
             
             
             let pushData = {main: element, sub: resp2?.data}
@@ -86,14 +86,14 @@ export class FooterComponent implements OnInit {
 
         this.contactArray = JSON.parse(data)
         this.bgImg = this.contactArray.image
-        console.warn(this.bgImg);
+    
         this.renderer.setStyle(this.contactsec.nativeElement, 'background-image', `url(${this.bgImg})`);
       }
 
       
       
    })
-    console.warn(this.bgImg);
+
     
   }
 
@@ -118,7 +118,7 @@ export class FooterComponent implements OnInit {
 
 //         this.contactArray = JSON.parse(data)
 //         this.bgImg = this.contactArray.image
-//         console.warn(this.bgImg);
+//     
 //       }
 
       

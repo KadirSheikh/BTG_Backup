@@ -823,8 +823,8 @@
         <div class="container text-center shadow p-4 ">
             <h1 class="text-center">Subscribe to get exclusive news and stay updated</h1>
 
-            <input style="border: 0" type="text" class="form-control mx-auto col-sm-4 rounded-0 border-bottom mt-4 border-dark " placeholder="Type your email ...">
-            <button class="btn btn-danger btn-lg mt-4">Subscribe</button>
+            <input style="border: 0" type="text" class="form-control mx-auto col-sm-4 rounded-0 border-bottom mt-4 border-dark" (blur)="onKey($event)" placeholder="Type your email ...">
+            <button class="btn btn-danger btn-lg mt-4" (click)="Subscribe()">  Subscribe</button>
         </div>
     </section>
 

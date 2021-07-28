@@ -3,6 +3,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { NewsService } from '../services/news.service';
 import { TestimonialService } from '../services/testimonial.service';
 import { MapService } from '../services/map.service';
+import { SubscribeService } from '../services/subscribe.service';
 import { HomeService } from '../services/home.service';
 import { TestimonialDetailComponent } from '../testimonial-detail/testimonial-detail.component';
 import {MatDialog} from '@angular/material/dialog';
@@ -45,64 +46,64 @@ export class HomeComponent implements OnInit {
     // nav: true
   }
 
-  news: any = [
-    {
-      id: 1,
-      heading: "BTG introduces MACSash™, an attractive return on investment solution to optimize paper quality 1",
-      description: `MACSashTM is an innovative solution that combines model predictive control, innovative measurements and support services. The integrated solution stabilizes ash levels in the wet end of the papermaking process resulting in reduced filler variability in the final sheet. The solution can be implemented in packaging as well as printing and writing applications.
+  // news: any = [
+  //   {
+  //     id: 1,
+  //     heading: "BTG introduces MACSash™, an attractive return on investment solution to optimize paper quality 1",
+  //     description: `MACSashTM is an innovative solution that combines model predictive control, innovative measurements and support services. The integrated solution stabilizes ash levels in the wet end of the papermaking process resulting in reduced filler variability in the final sheet. The solution can be implemented in packaging as well as printing and writing applications.
 
-      Additional demonstrated benefits of MACSashTM include increased machine speeds, reduced chemical costs, as well as a reduction of web breaks and quality variability – generating further economic benefit for the mill.
-      
-      MACSashTM has recently been implemented at Brigl & Bergmeister at Niklasdorf. The benefits delivered by the solution has resulted in a return on the investments in eight (8) months. ”Thanks to MACSash, we have transformed our operations, stabilizing our ash content and getting a better quality of our paper for the full satisfaction of our customers. We are thankful to the BTG specialists with whom we had outstanding collaboration with during the entire project.” says Ing. DI (FH) Michael Leisenberger, Head of Production.
-      
-      In the specific case of the Brigl & Bergmeister project, MACSashTM was primarily implemented remotely during the COVID-19 pandemic. This flexibility enables producers to initiate an attractive payback project in these challenging times.`,
+  //     Additional demonstrated benefits of MACSashTM include increased machine speeds, reduced chemical costs, as well as a reduction of web breaks and quality variability – generating further economic benefit for the mill.
 
-      broucher: "BTG SurfMAX brochure",
-      download: "BTG Press Release – PR_SurfMAX_EN_20200616"
-    },
-    {
-      id: 2,
-      heading: "BTG introduces MACSash™, an attractive return on investment solution to optimize paper quality 2",
-      description: `MACSashTM is an innovative solution that combines model predictive control, innovative measurements and support services. The integrated solution stabilizes ash levels in the wet end of the papermaking process resulting in reduced filler variability in the final sheet. The solution can be implemented in packaging as well as printing and writing applications.
+  //     MACSashTM has recently been implemented at Brigl & Bergmeister at Niklasdorf. The benefits delivered by the solution has resulted in a return on the investments in eight (8) months. ”Thanks to MACSash, we have transformed our operations, stabilizing our ash content and getting a better quality of our paper for the full satisfaction of our customers. We are thankful to the BTG specialists with whom we had outstanding collaboration with during the entire project.” says Ing. DI (FH) Michael Leisenberger, Head of Production.
 
-      Additional demonstrated benefits of MACSashTM include increased machine speeds, reduced chemical costs, as well as a reduction of web breaks and quality variability – generating further economic benefit for the mill.
-      
-      MACSashTM has recently been implemented at Brigl & Bergmeister at Niklasdorf. The benefits delivered by the solution has resulted in a return on the investments in eight (8) months. ”Thanks to MACSash, we have transformed our operations, stabilizing our ash content and getting a better quality of our paper for the full satisfaction of our customers. We are thankful to the BTG specialists with whom we had outstanding collaboration with during the entire project.” says Ing. DI (FH) Michael Leisenberger, Head of Production.
-      
-      In the specific case of the Brigl & Bergmeister project, MACSashTM was primarily implemented remotely during the COVID-19 pandemic. This flexibility enables producers to initiate an attractive payback project in these challenging times.`,
+  //     In the specific case of the Brigl & Bergmeister project, MACSashTM was primarily implemented remotely during the COVID-19 pandemic. This flexibility enables producers to initiate an attractive payback project in these challenging times.`,
 
-      broucher: "BTG SurfMAX brochure",
-      download: "BTG Press Release – PR_SurfMAX_EN_20200616"
-    },
-    {
-      id: 3,
-      heading: "BTG introduces MACSash™, an attractive return on investment solution to optimize paper quality 3",
-      description: `MACSashTM is an innovative solution that combines model predictive control, innovative measurements and support services. The integrated solution stabilizes ash levels in the wet end of the papermaking process resulting in reduced filler variability in the final sheet. The solution can be implemented in packaging as well as printing and writing applications.
+  //     broucher: "BTG SurfMAX brochure",
+  //     download: "BTG Press Release – PR_SurfMAX_EN_20200616"
+  //   },
+  //   {
+  //     id: 2,
+  //     heading: "BTG introduces MACSash™, an attractive return on investment solution to optimize paper quality 2",
+  //     description: `MACSashTM is an innovative solution that combines model predictive control, innovative measurements and support services. The integrated solution stabilizes ash levels in the wet end of the papermaking process resulting in reduced filler variability in the final sheet. The solution can be implemented in packaging as well as printing and writing applications.
 
-      Additional demonstrated benefits of MACSashTM include increased machine speeds, reduced chemical costs, as well as a reduction of web breaks and quality variability – generating further economic benefit for the mill.
-      
-      MACSashTM has recently been implemented at Brigl & Bergmeister at Niklasdorf. The benefits delivered by the solution has resulted in a return on the investments in eight (8) months. ”Thanks to MACSash, we have transformed our operations, stabilizing our ash content and getting a better quality of our paper for the full satisfaction of our customers. We are thankful to the BTG specialists with whom we had outstanding collaboration with during the entire project.” says Ing. DI (FH) Michael Leisenberger, Head of Production.
-      
-      In the specific case of the Brigl & Bergmeister project, MACSashTM was primarily implemented remotely during the COVID-19 pandemic. This flexibility enables producers to initiate an attractive payback project in these challenging times.`,
+  //     Additional demonstrated benefits of MACSashTM include increased machine speeds, reduced chemical costs, as well as a reduction of web breaks and quality variability – generating further economic benefit for the mill.
 
-      broucher: "BTG SurfMAX brochure",
-      download: "BTG Press Release – PR_SurfMAX_EN_20200616"
-    },
-    {
-      id: 4,
-      heading: "BTG introduces MACSash™, an attractive return on investment solution to optimize paper quality 3",
-      description: `MACSashTM is an innovative solution that combines model predictive control, innovative measurements and support services. The integrated solution stabilizes ash levels in the wet end of the papermaking process resulting in reduced filler variability in the final sheet. The solution can be implemented in packaging as well as printing and writing applications.
+  //     MACSashTM has recently been implemented at Brigl & Bergmeister at Niklasdorf. The benefits delivered by the solution has resulted in a return on the investments in eight (8) months. ”Thanks to MACSash, we have transformed our operations, stabilizing our ash content and getting a better quality of our paper for the full satisfaction of our customers. We are thankful to the BTG specialists with whom we had outstanding collaboration with during the entire project.” says Ing. DI (FH) Michael Leisenberger, Head of Production.
 
-      Additional demonstrated benefits of MACSashTM include increased machine speeds, reduced chemical costs, as well as a reduction of web breaks and quality variability – generating further economic benefit for the mill.
-      
-      MACSashTM has recently been implemented at Brigl & Bergmeister at Niklasdorf. The benefits delivered by the solution has resulted in a return on the investments in eight (8) months. ”Thanks to MACSash, we have transformed our operations, stabilizing our ash content and getting a better quality of our paper for the full satisfaction of our customers. We are thankful to the BTG specialists with whom we had outstanding collaboration with during the entire project.” says Ing. DI (FH) Michael Leisenberger, Head of Production.
-      
-      In the specific case of the Brigl & Bergmeister project, MACSashTM was primarily implemented remotely during the COVID-19 pandemic. This flexibility enables producers to initiate an attractive payback project in these challenging times.`,
+  //     In the specific case of the Brigl & Bergmeister project, MACSashTM was primarily implemented remotely during the COVID-19 pandemic. This flexibility enables producers to initiate an attractive payback project in these challenging times.`,
 
-      broucher: "BTG SurfMAX brochure",
-      download: "BTG Press Release – PR_SurfMAX_EN_20200616"
-    }
-  ];
+  //     broucher: "BTG SurfMAX brochure",
+  //     download: "BTG Press Release – PR_SurfMAX_EN_20200616"
+  //   },
+  //   {
+  //     id: 3,
+  //     heading: "BTG introduces MACSash™, an attractive return on investment solution to optimize paper quality 3",
+  //     description: `MACSashTM is an innovative solution that combines model predictive control, innovative measurements and support services. The integrated solution stabilizes ash levels in the wet end of the papermaking process resulting in reduced filler variability in the final sheet. The solution can be implemented in packaging as well as printing and writing applications.
+
+  //     Additional demonstrated benefits of MACSashTM include increased machine speeds, reduced chemical costs, as well as a reduction of web breaks and quality variability – generating further economic benefit for the mill.
+
+  //     MACSashTM has recently been implemented at Brigl & Bergmeister at Niklasdorf. The benefits delivered by the solution has resulted in a return on the investments in eight (8) months. ”Thanks to MACSash, we have transformed our operations, stabilizing our ash content and getting a better quality of our paper for the full satisfaction of our customers. We are thankful to the BTG specialists with whom we had outstanding collaboration with during the entire project.” says Ing. DI (FH) Michael Leisenberger, Head of Production.
+
+  //     In the specific case of the Brigl & Bergmeister project, MACSashTM was primarily implemented remotely during the COVID-19 pandemic. This flexibility enables producers to initiate an attractive payback project in these challenging times.`,
+
+  //     broucher: "BTG SurfMAX brochure",
+  //     download: "BTG Press Release – PR_SurfMAX_EN_20200616"
+  //   },
+  //   {
+  //     id: 4,
+  //     heading: "BTG introduces MACSash™, an attractive return on investment solution to optimize paper quality 3",
+  //     description: `MACSashTM is an innovative solution that combines model predictive control, innovative measurements and support services. The integrated solution stabilizes ash levels in the wet end of the papermaking process resulting in reduced filler variability in the final sheet. The solution can be implemented in packaging as well as printing and writing applications.
+
+  //     Additional demonstrated benefits of MACSashTM include increased machine speeds, reduced chemical costs, as well as a reduction of web breaks and quality variability – generating further economic benefit for the mill.
+
+  //     MACSashTM has recently been implemented at Brigl & Bergmeister at Niklasdorf. The benefits delivered by the solution has resulted in a return on the investments in eight (8) months. ”Thanks to MACSash, we have transformed our operations, stabilizing our ash content and getting a better quality of our paper for the full satisfaction of our customers. We are thankful to the BTG specialists with whom we had outstanding collaboration with during the entire project.” says Ing. DI (FH) Michael Leisenberger, Head of Production.
+
+  //     In the specific case of the Brigl & Bergmeister project, MACSashTM was primarily implemented remotely during the COVID-19 pandemic. This flexibility enables producers to initiate an attractive payback project in these challenging times.`,
+
+  //     broucher: "BTG SurfMAX brochure",
+  //     download: "BTG Press Release – PR_SurfMAX_EN_20200616"
+  //   }
+  // ];
 
   newsArray:any;
   testArray:any;
@@ -134,22 +135,23 @@ export class HomeComponent implements OnInit {
   }
   seeArray: any;
   contactArray: any;
+  emailSub: any;
 
-  constructor(private _contact : ContactService,private _sanitizer: DomSanitizer,private _see:SeeWhatWeDoService,public dialog: MatDialog,private _new:NewsService,  private _testimoinal:TestimonialService,private _map:MapService, private _home:HomeService) { }
+  constructor(private _sub:SubscribeService ,  private _contact : ContactService,private _sanitizer: DomSanitizer,private _see:SeeWhatWeDoService,public dialog: MatDialog,private _new:NewsService,  private _testimoinal:TestimonialService,private _map:MapService, private _home:HomeService) { }
 
   ngOnInit(): void {
     window.scroll(0,0);
-    
-    
+
+
 
     this._new.getAllNews().then(res => {
       res.subscribe((resp:any) => {
         //
         this.newsArray = resp.data;
-        
-        
 
-        
+
+
+
       })
     })
 
@@ -157,33 +159,33 @@ export class HomeComponent implements OnInit {
       res.subscribe((resp:any) => {
         // console.log(resp.data);
         this.testArray = resp.data;
-        
-        
 
-        
+
+
+
       })
     })
 
     this._home.getCarosoul().then(res => {
       res.subscribe((resp:any) => {
         this.loader = false;
-       
+
         this.homeCarasoul = resp.data;
-        
+
         // this.testArray = resp.data;
         // console.log(this.testArray );
-        
 
-        
+
+
       })
     })
 
     this._see.getWhatWeDo().then(res => {
       res.subscribe((resp:any) => {
         this.loader = false;
-        
-         this.seeArray = resp.data; 
-          
+
+         this.seeArray = resp.data;
+
 //          this.seeArray = this.seeArray.sort(function(a,b){
 //           return ((a['create_date'] > b['create_date']) ? -1 : ((a['create_date'] < b['create_date']) ? 1 : 0));
 //         });
@@ -193,9 +195,23 @@ export class HomeComponent implements OnInit {
       })
     })
 
-   
 
-    
+
+
+
+
+  }
+
+
+  onKey(e){
+    this.emailSub = e.target.value;
+  }
+
+  async Subscribe(){
+    (await this._sub._subscribe({type:"0" , email:this.emailSub , url:null})).subscribe((res:any) =>{
+      console.warn(res);
+
+    })
   }
 
   sanitize(url){
@@ -205,20 +221,20 @@ export class HomeComponent implements OnInit {
   }
 
 
- 
+
 
   openDialog(id:string){
- 
+
 
     const dialogRef = this.dialog.open(TestimonialDetailComponent , {
-  
+
       data: {id}
     });
-    
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
-    
+
   }
 
 
@@ -226,17 +242,17 @@ export class HomeComponent implements OnInit {
     console.log(event.srcElement.classList);
     event.srcElement.classList.add('active');
 
-    
+
   }
 
   async ngAfterViewInit(){
-    await this.initMap(this._map); 
+    await this.initMap(this._map);
   }
 
   async initMap(map){
-   
 
-    
+
+
 
     console.log(this.countries.nativeElement);
 
@@ -251,20 +267,20 @@ export class HomeComponent implements OnInit {
           let country = countryElements[i].getAttribute('data-name');
           if( country == element.name ){
             countryElements[i].style.fill = "#465354";
-          }   
+          }
         }
        });
 
     console.log(this.selectedCountries);
-    
+
   })
-   
-    
-    
+
+
+
 
   }
 
- 
+
 
 }
 
@@ -276,6 +292,5 @@ export class HomeComponent implements OnInit {
 
 
 
-  
 
-  
+

@@ -2,7 +2,7 @@
     <h2 class="text-white"> Coming Soon </h2>
 </div> -->
 
-<section style="padding: 50px 0;margin-top: 200px;">
+<section style="padding: 10px 0; margin-top: 50px;">
     <div class="container">
         <div class="row mx-auto">
             <div class="col-sm-4">
@@ -27,10 +27,10 @@
 
 <section>
     <div class="container text-center" style="text-align: center;">
-        <h6 class="text-center text-danger">Subscribe to get exclusive news and stay updated</h6>
+        <!-- <h6 class="text-center text-danger">Subscribe to get exclusive news and stay updated</h6> -->
 
-        <input style="border: 0" type="text" class="form-control mx-auto col-sm-4 rounded-0 border-bottom mt-4 border-dark middle" placeholder="Type your email ...">
-        <button class="btn btn-danger mt-4 mb-5">Subscribe</button>
+        <input style="border: 0" type="text" class="form-control mx-auto col-sm-4 rounded-0 border-bottom mt-4 border-dark middle" (blur)="onKey($event)" placeholder="Type your email ...">
+        <button class="btn btn-danger mt-4 mb-5" (click)="Subscribe()">Subscribe</button>
     </div>
 </section>
 

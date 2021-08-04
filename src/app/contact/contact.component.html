@@ -21,14 +21,14 @@
 
                     <h4 class="mb-5">Reach out to BTG to receive innovative solutions for your business</h4>
 
-                    <form *ngIf="hideForm">
+                    <form *ngIf="hideForm" [formGroup]="contactForm">
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <input type="email" class="form-control" name="" id="" placeholder="Your Email">
+                                <input type="email" formControlName="email" class="form-control" placeholder="Your Email">
                             </div>
                             <div class="col-sm-6">
 
-                                <select (change)="getCountry($event.target.value)" name="" class="form-control" id="">
+                                <select formControlName="countries" (change)="getCountry($event.target.value)" class="form-control">
                                     <!-- <option value="">India</option>
                                 <option value="">USA</option> -->
                                     <option value="">Select Country</option>
@@ -46,26 +46,23 @@
                         <div class="form-group">
                             <label for="" class="font-weight-bold float-left">Stay in the know</label> <br>
 
-                            <p class="float-left"><input type="checkbox" name="" id=""> I consent to BTG using my
-                                personal information to contact me by email with news and information we think you may
-                                be interested in.
+                            <p class="float-left"><input type="checkbox" formControlName="isTick"> I consent to BTG using my personal information to contact me by email with news and information we think you may be interested in.
                             </p>
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-lg btn-danger mt-5" (click)="hideThis()">Show Contact
+                            <button class="btn btn-lg btn-danger mt-5" [disabled]="!contactForm.valid" (click)="hideThis()">Show Contact
                                 Options</button>
                         </div>
                     </form>
 
                     <div *ngIf="!hideForm" class="row  mb-5">
                         <div class="contact-cards">
-                            <h4 class="text-center" *ngIf="data?.length == 0">No Contact Information Found, Try Again
-                                with other countries.. </h4>
+                            <h4 class="text-center" *ngIf="data?.length == 0">No Contact Information Found, Try Again with other countries.. </h4>
                             <div class="col-sm-6 my-2" *ngFor="let d of data" style="text-align: left;">
                                 <div class="card h-100" id="card">
                                     <div class="card-body">
-                                        <!-- 
+                                        <!--
                                         address: "Office No. 417, 4th floor, \"White House\" Block III\r\nNo. 6-3-1192/1/1, Kundanbagh\r\nBegumpet, Hyderabad 500 016 \r\nAndhra Pradesh\r\nIndia"
                                         contact_number: "91 40 40122040"
                                         display_country: "India"
@@ -76,8 +73,7 @@
                                         products: "Inline Instrumentation, Laboratory, Services"
                                         _id: "60e5ce54de9f7f5359226ced"
                                      -->
-                                        <h6 style="font-size: 15px;" class="card-title text-capitalize mb-3">{{
-                                            d.display_country }}</h6>
+                                        <h6 style="font-size: 15px;" class="card-title text-capitalize mb-3">{{ d.display_country }}</h6>
                                         <h5 class="card-title text-capitalize font-weight-bold mb-3">
                                             {{ d.office_name }}
                                         </h5>
@@ -101,20 +97,18 @@
                                     <h5 class="font-weight-bold">Select Method</h5>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input (change)="toggleContactForm($event)" type="radio" name="a" value="Email"
-                                        id=""> Email
+                                    <input (change)="toggleContactForm($event)" type="radio" name="a" value="Email" id=""> Email
                                 </div>
                                 <div class="col-sm-4">
-                                    <input (change)="toggleContactForm($event)" type="radio" name="a" value="Phone"
-                                        id=""> Phone/Fax
+                                    <input (change)="toggleContactForm($event)" type="radio" name="a" value="Phone" id=""> Phone/Fax
                                 </div>
                             </div>
 
 
                             <div *ngIf="emailFlag">
                                 <div class="form-group" style="text-align: left;">
-                                    <p>Your enquiry will be sent to: <span class="text-danger font-weight-bold">
-                                            info.india@btg.com</span></p>
+                                    <p>Your enquiry will be sent to: <span class="text-danger font-weight-bold text-lowercase">
+                                            info.{{selectedCountry}}@btg.com</span></p>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6">
@@ -134,7 +128,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select name="" class="form-control" id="">
-                                            <option value="">Solutions/Product Interest</option>
+                                            <option *ngFor="let p of uniqueChars" [value]="p">{{p}}</option>
 
                                         </select>
                                     </div>
@@ -143,8 +137,7 @@
 
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="" id="" cols="30" rows="4" placeholder="Your Message"
-                                        class="form-control"></textarea>
+                                    <textarea name="" id="" cols="30" rows="4" placeholder="Your Message" class="form-control"></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -153,10 +146,14 @@
                             </div>
                             <div *ngIf="faxFlag">
 
-                                <h6 class="float-left font-weight-bold">Phone: <span class="text-danger">+91 40
-                                        40122040</span></h6> <br> <br>
-                                <h6 class="float-left font-weight-bold">Fax: <span class="text-danger">+91 40
-                                        40122040</span></h6>
+                                <h6 class="float-left font-weight-bold">Phone:
+                                    <span class="text-danger" *ngFor="let c of contactNoArrNew">{{c}}</span>
+                                </h6>
+                                <br><br>
+
+                                <h6 class="float-left font-weight-bold">Fax:
+                                    <span class="text-danger" *ngFor="let f of faxArrNew">{{f}}</span>
+                                </h6>
                             </div>
                         </form>
                     </div>

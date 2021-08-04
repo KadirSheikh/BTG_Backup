@@ -99,7 +99,7 @@ import { NoRedCardPipe } from './no-red-card.pipe';
     InstrumentComponent,
     NotFoundComponent,
     SideNavComponent,
-    NoRedCardPipe
+    NoRedCardPipe 
   ],
   imports: [
     MatExpansionModule,

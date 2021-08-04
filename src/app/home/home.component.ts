@@ -10,6 +10,8 @@ import {MatDialog} from '@angular/material/dialog';
 import { SeeWhatWeDoService } from '../services/see-what-we-do.service';
 import { ContactService } from '../services/contact.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import 'sweetalert2/src/sweetalert2.scss';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -205,11 +207,29 @@ export class HomeComponent implements OnInit {
 
   onKey(e){
     this.emailSub = e.target.value;
+
   }
 
   async Subscribe(){
     (await this._sub._subscribe({type:"0" , email:this.emailSub , url:null})).subscribe((res:any) =>{
+
       console.warn(res);
+
+
+      if(res.status){
+        Swal.fire({
+          title: 'Error!',
+          text: 'Do you want to continue',
+          icon: 'error',
+          confirmButtonText: 'Cool'
+        })
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!'
+        })
+      }
 
     })
   }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -261,12 +263,29 @@ export class ContactComponent implements OnInit {
     { name: 'ZAMBIA', 'code': 'ZM' },
     { name: 'ZIMBABWE', 'code': 'ZW' }
   ];
+  contactForm: any;
+  selectedCountry: any;
+  allProduct: any;
+  uniqueChars: any[];
+  contact_number: any;
+  fax: any;
 
 
-  constructor(private _http: HttpClient) { }
+  constructor(private formBuilder:FormBuilder,private _http: HttpClient , private _contact:ContactService) { }
 
   ngOnInit(): void {
+
+    this.contactForm = this.formBuilder.group({
+
+      email: ['', [Validators.required]],
+      countries: ['', [Validators.required]],
+      isTick: ['', [Validators.required]]
+
+    });
+
     window.scroll(0, 0);
+
+    this.getAllProducts()
   }
 
   toggleContactForm(e) {
@@ -274,12 +293,12 @@ export class ContactComponent implements OnInit {
       this.emailFlag = true;
       this.faxFlag = false;
     }
-      
+
     else{
       this.faxFlag = true;
       this.emailFlag = false;
     }
-      
+
 
   }
 
@@ -293,11 +312,78 @@ export class ContactComponent implements OnInit {
   }
 
   data = [];
+  contactNoArr = [];
+  faxArr = []
+
+  contactNoArrNew = [];
+  faxArrNew = []
   async getCountry(value) {
-    // alert(value)
+
+    this.selectedCountry = value
+
     this._http.get(`${environment.apiUrl}api/contact/get/${value}`).subscribe((res: any) => {
       console.error(res)
       this.data = res.data
+
+      res.data.forEach(e => {
+
+
+
+        this.contactNoArr.push(e.contact_number);
+        this.faxArr.push(e.fax)
+
+        this.contactNoArrNew = [...new Set(this.contactNoArr)];
+        this.faxArrNew = [...new Set(this.faxArr)];
+
+
+      });
+
+      console.error(this.contactNoArrNew);
+      console.error(this.faxArrNew);
+
+    })
+  }
+
+
+  async getAllProducts(){
+    (await this._contact.getAllContacts()).subscribe( (res:any) => {
+      if(res.status){
+        this.allProduct = res.data;
+         console.warn(res.data);
+
+      }
+      let localProducts = [];
+      this.allProduct.forEach(element => {
+
+        if((element.products).includes("\n")){
+          let match = (element.products).split('\n')
+          // console.log(match)
+          localProducts.push(match)
+
+        }else if((element.products).includes(",")){
+          let match = (element.products).split(',')
+          // console.log(match)
+          localProducts.push(match)
+        }
+
+      });
+
+
+      let reduntProducts = []
+      console.warn(localProducts);
+      localProducts.reduce((prev, curr) => {
+        // console.log(curr)
+        curr.reduce((prev1, curr1) => {
+          // console.warn(curr1);
+          reduntProducts.push(curr1)
+        })
+      })
+      console.warn(reduntProducts);
+
+      this.uniqueChars = [...new Set(reduntProducts)];
+
+      console.warn(this.uniqueChars);
+
     })
   }
 

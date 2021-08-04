@@ -11,4 +11,8 @@ export class ContactService {
   async getContact() {
     return this._http.get(`${environment.apiUrl}api/ContactSection/all`)
   }
+
+  async getAllContacts() {
+    return this._http.get(`${environment.apiUrl}api/contact/get-all`)
+  }
 }
